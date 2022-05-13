@@ -1,1 +1,13 @@
-com\mycompany\thehuntress\TheHuntress.class
+com\gioco\thehuntress\type\Inventory.class
+com\gioco\thehuntress\type\Room.class
+com\gioco\thehuntress\type\AdvObjectContainer.class
+com\gioco\thehuntress\adventure\GameDescription.class
+com\gioco\thehuntress\adventure\Engine.class
+com\gioco\thehuntress\parser\ParserOutput.class
+com\gioco\thehuntress\type\CommandType.class
+com\gioco\thehuntress\adventure\Grafica.class
+com\gioco\thehuntress\type\AdvObject.class
+com\gioco\thehuntress\games\TheHuntress.class
+com\gioco\thehuntress\type\Command.class
+com\gioco\thehuntress\adventure\Utils.class
+com\gioco\thehuntress\parser\Parser.class
