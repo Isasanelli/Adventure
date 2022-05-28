@@ -1,0 +1,23 @@
+				
+				        +------------------+
+				        | COMANDI DI GIOCO |
+				        |		   |
+				        +------------------+
+
+
+GUARDA/osserva/vedi/descrivi:        || Con questo comando potrai osservare tutto che ti circonda
+FOCUS:                               || Con questo comando potrai attivare il focus
+INVENTARUI/inv:                      || Con questo comando potrai richiamare l'inventario
+CRIPTA/corrompi/ "controlla/C/c :    || Con questo comando prenderai il controllo delle macchine
+UTILIZZA:                            || Con questo comando potrai utilizzare gli oggetti dell'inventario
+PRENDI/raccogli/r/R:                 || Con questo comando potrai prendere oggetti e inserirli nel tuo inventario
+PREMI/spingi/attiva/pre/Pre:         || Con questo comando potrai premere dei pulsanti
+LASCIA/la/La:                        || Con questo comando potrai rimuovere gli oggetti dal tuo inventario qualora non servano
+MAPPA:                               || Con questo comando potrai visualizzare la mappa
+NORD/nord/ n / N                     ||
+SUD/sud/s/S                          ||
+EST/est/e/E                          ||
+OVEST/ovest/o/O:                     || Coordinate del gioco
+MIRA:                                || Con questo comando potrai colpire le macchine
+NASCONDI/giu/silenzio:               || Con questo comando potrai nasconderti dalle macchine
+ESCI/end/fine/ esci/ exit            ||  Esci dal gioco

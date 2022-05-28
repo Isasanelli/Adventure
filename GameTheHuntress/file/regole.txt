@@ -1,0 +1,27 @@
+						
+
+					                	+------------------+
+						                | 		           |
+						                | REGOLE DEL GIOCO |
+						                |		           |
+						                +------------------+
+
+1) Il gioco consente la giocabilita' solo da un utente;
+
+2) VITE : hai a disposizione solo tre vite, cerca di non farti ammazzare gia' dal primo capitolo;
+
+3)FOCUS :E' importante l'utilizzo del Focus , un sistema di calcolo e realta' aumentata indossabile, che potrete utilizzare
+ per identificare oggetti e ambienti legati alle missioni.
+ Il Focus vi permettera' inoltre di ispezionare le Macchine, visualizzando le loro componenti e le vulnerabilita' agli elementi.
+
+4) SIATE FURTIVI : I nemici sparsi per la mappa possono percepire i rumori prodotti da Victoria e dalle sue armi, divenendo subito sospettosi.
+Nascondetevi prima di venire scovati.
+Quindi, prendete  confidenza con l'arco e cercate di uccidere i nemici con un solo colpo, riducendo quindi le possibilità di essere scoperti e mandare a monte la copertura
+
+5) ARRAMPICATEVI SUI COLLILUNGHI 
+I Collilunghi sono gigantesche statue a forma di animale che possono essere scalate sfruttando l'ambiente circostante.
+ Arrampicatevi su uno di essi ed eseguite la cripta per svelare l'area circostante della mappa.
+
+6) RACCOGLIETE TUTTO
+Mentre esplorate la mappa, prestate attenzione ad ogni animale che incontrerete: dopo averli eliminati, questi vi forniranno infatti degli specifici materiali
+che potrete utilizzare per il ripristino della salute.
