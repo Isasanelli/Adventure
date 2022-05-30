@@ -57,8 +57,7 @@ public class Engine {
 
     public static void main(String[] args) throws IOException {
        //new TicTacGame().computer_play();
-        //crezione della conessione del drive di un DB
-        new DbClass().metodoProva(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
+        DbClass db= new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
         //new Engine().avvio();
 
     }
