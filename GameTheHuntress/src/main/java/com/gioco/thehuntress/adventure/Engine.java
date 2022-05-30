@@ -1,13 +1,11 @@
 
 package com.gioco.thehuntress.adventure;
 
-import com.gioco.thehuntress.minigame.TicTacGame;
+import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.eventi.Eventi;
 
 import java.io.IOException;
-import java.util.Properties;
 import java.util.Scanner;
-import com.gioco.thehuntress.eventi.Eventi;
-import java.sql.*;
 
 /**
  *
@@ -58,19 +56,8 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-       new TicTacGame().computer_play();
-
-        //crezione della conessione del drive di un DB
-        try{
-            Properties prop = new Properties();
-            prop.setProperty("user", "Huntress");
-            prop.setProperty("password", "1234");
-            Connection con = DriverManager.getConnection("jdbc:h2:./resources/db/playgame");
-
-        }catch (SQLException ex){
-            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
-
-        }
+       //new TicTacGame().computer_play();
+        DbClass db= new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
         //new Engine().avvio();
 
     }
