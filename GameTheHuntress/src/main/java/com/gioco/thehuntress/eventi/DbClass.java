@@ -72,17 +72,35 @@ public class DbClass {
             //controllo se la tupla con id=3 esiste già nella tabella advObjects, e se non è così verrà inserita
             init(SELECT2,conn,3,INSERIMENTO2,object3);
 
+            /**
+             * inserimento delle macchine all'interno della tabella machines
+             */
+
+            String[] machine1={"Corsiero","Grande quanto dei comuni animali da soma, il corpo del corsiero somiglia molto a quello dei cavalli. La testa tuttavia somiglia più a quella dei bovini, con due corna che puntano all'indietro. Nella parte posteriore della groppa è presente il serbatoio di Vamoa della macchina"};
+            //controllo se la tupla con id=1 esiste già nella tabella machines, e se non è così verrà inserita
+            init(SELECT3,conn,1,INSERIMENTO3,machine1);
+
+            String[] machine2={"Collolungo","I collilunghi sono gigantesche statue che possono essere scalate sfruttando l'ambiente circostante"};
+            //controllo se la tupla con id=2 esiste già nella tabella machines, e se non è così verrà inserita
+            init(SELECT3,conn,2,INSERIMENTO3,machine2);
+
+            String[] machine3={"Divoratuono","Classe combattimento, è una delle macchine più letali. Se ha spazio a sufficienza può anche scatenare una serie di attacchi in kischia, con cariche o sferzate con la coda"};
+            //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
+            init(SELECT3,conn,3,INSERIMENTO3,machine3);
+
+            String[] machine4={"Avistempesta","Classe combattimento,solca i cieli ad alta quota e può lanciarsi in picchia contro la sua preda per colpirla con forza.Le sue enormi ali di metallo sono in grado di accumulare l'elettricità mell'aria per poi sprigionarla nelle sue prede"};
+            //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
+            init(SELECT3,conn,4,INSERIMENTO3,machine4);
 
 
-
-            PreparedStatement pstm2= conn.prepareStatement("SELECT id,nome,desc FROM advObjects WHERE id=?");
-            pstm2.setInt(1,3);
+            /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,nome,desc FROM machines WHERE id=?");
+            pstm2.setInt(1,4);
             ResultSet rs2= pstm2.executeQuery();
             while(rs2.next()){
                 System.out.println(rs2.getInt(1) + "--" + rs2.getString(2)+ "--" + rs2.getString(3));
             }
             rs2.close();
-            pstm2.close();
+            pstm2.close();*/
         }catch (SQLException ex){
             System.err.println(ex.getSQLState() + ":" + ex.getMessage());
         }
