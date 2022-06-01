@@ -17,7 +17,7 @@ public class Engine {
     public static final String patRoom1FirstPart="file//stanza1.1.txt";
 
 
-    public  void avvio() throws IOException {
+    public  void start() throws IOException {
 
         Scanner io = new Scanner(System.in);
         Grafica menu = new Grafica();
@@ -56,8 +56,6 @@ public class Engine {
     public static void main(String[] args) throws IOException {
        //new TicTacGame().computer_play();
         DbClass db= new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-        new Engine().avvio();
-
+        new Engine().start();
     }
-
-    }
+}

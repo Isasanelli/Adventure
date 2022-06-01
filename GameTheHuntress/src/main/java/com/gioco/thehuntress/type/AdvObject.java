@@ -19,54 +19,18 @@ public class AdvObject {
     
     //definiamo gli attributi della classe oggetto 
     private final int id;
-    private String name;
-    private String description;
     private Set<String> alias;
     private boolean active = false;
     private boolean pickupable = false;
     private boolean open = false;
 
-    //costruttori
 
     public AdvObject ( int id ){
         this.id = id;
     }
 
-    public AdvObject ( int id, String name){
-        this.id = id;
-        this.name = name;
-    }
-
-    public AdvObject ( int id, String name, String description){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-
-    }
-
-    public AdvObject ( int id, String name, String description, Set<String> alias){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.alias = alias;
-    }
 
     //metodi
-
-     public String getName(){
-        return name;
-     }
-
-     public void setName(String name){
-        this.name = name;
-     }
-    public String getDescription(){
-        return description;
-    }
-    public void setDescrizione(String description) {
-        this.description = description;
-    }
-
     public boolean isOpen() {
         return open;
     }

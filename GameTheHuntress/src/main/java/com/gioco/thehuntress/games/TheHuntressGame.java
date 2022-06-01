@@ -1,6 +1,7 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
+import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
 import com.gioco.thehuntress.type.CommandType;
 import com.gioco.thehuntress.type.Room;
@@ -10,63 +11,98 @@ public class TheHuntressGame extends GameDescription {
 
     @Override
     public void init() throws Exception {
-        //Commands
+        /**
+         * command
+         */
         Command nord = new Command(CommandType.NORD, "nord");
         nord.setAlias(new String[]{"n", "N", "Nord", "NORD"});
         getCommands().add(nord);
+
         Command inventory = new Command(CommandType.INVENTARIO, "inventario");
         inventory.setAlias(new String[]{"inv"});
         getCommands().add(inventory);
+
         Command sud = new Command(CommandType.SUD, "sud");
         sud.setAlias(new String[]{"s", "S", "Sud", "SUD"});
         getCommands().add(sud);
+
         Command est = new Command(CommandType.EST, "est");
         est.setAlias(new String[]{"e", "E", "Est", "EST"});
         getCommands().add(est);
+
         Command ovest = new Command(CommandType.OVEST, "ovest");
         ovest.setAlias(new String[]{"o", "O", "Ovest", "OVEST"});
         getCommands().add(ovest);
+
         Command end = new Command(CommandType.ESCI, "end");
         end.setAlias(new String[]{"end", "fine", "esci", "exit"});
         getCommands().add(end);
+
         Command look = new Command(CommandType.GUARDA, "guarda");
         look.setAlias(new String[]{ "vedi", "descrivi", "osserva"});
         getCommands().add(look);
+
         Command pickup = new Command(CommandType.PRENDI, "raccogli");
         pickup.setAlias(new String[]{"prendi", "r", "R"});
         getCommands().add(pickup);
+
         Command control = new Command(CommandType.CRIPTA, "Cripta");
         control.setAlias(new String[]{"corrompi", "controlla", "C", "c"});
         getCommands().add(control);
+
         Command push = new Command(CommandType.PREMI, "premi");
         push.setAlias(new String[]{"spingi", "attiva", "pre", "Pre"});
         getCommands().add(push);
+
         Command leave = new Command(CommandType.LASCIA, "lascia");
         leave.setAlias(new String[]{"la", "La"});
         getCommands().add(leave);
+
         Command hideyourself = new Command(CommandType.NASCONDITI, "nasconditi");
         hideyourself.setAlias(new String[]{"giu", "silenzio", "g"});
         getCommands().add(hideyourself);
-        Command focus = new Command(CommandType.FOCUS, "Focus");
+
+        /*Command focus = new Command(CommandType.FOCUS, "Focus");
         focus.setAlias(new String[]{"f", "F", "descrivi"});
-        getCommands().add(focus);
+        getCommands().add(focus);*/
 
-    //rooms
-    //primo capitolo:Tribù sheeva
-        Room roomGiardino= new Room(1);
-        Room roomCampoAddestramento = new Room(2);
-     
-     //secondo capitolo : Tribù Carja
-        Room roomTenda = new Room(3);
-        Room roomCollolungo = new Room(4);
-    
-    //terzo capitolo: Foresta dei caduti
-        Room roomDivoratuono = new Room(5);
-        
-    //quarto capitolo: Tribù di Meridiana 
-        Room roomCalderone = new Room(6);
-    
+        /**
+         * Rooms
+         */
+        //primo capitolo:Tribù sheeva
+            Room roomGiardino= new Room(1);
+            Room roomCampoAddestramento = new Room(2);
 
+         //secondo capitolo : Tribù Carja
+            Room roomTenda = new Room(3);
+            Room roomCollolungo = new Room(4);
+
+        //terzo capitolo: Foresta dei caduti
+            Room roomDivoratuono = new Room(5);
+
+        //quarto capitolo: Tribù di Meridiana
+            Room roomCalderone = new Room(6);
+
+        /**
+         * AdvObject
+         */
+        AdvObject focus = new AdvObject(1);
+        focus.setAlias(new String[] {"foc"});
+
+        AdvObject batteria = new AdvObject(2);
+        batteria.setAlias(new String[] {"batt","vampa"});
+
+        AdvObject arco = new AdvObject(3);
+        arco.setAlias(new String[] {"arc"});
+
+        AdvObject lancia = new AdvObject(4);
+        lancia.setAlias(new String[] {"lanc","cripta","crip"});
+
+        /**
+         * AdvObjectContainer
+         */
+
+        //macchine e pacco regalo del primo capitolo
     }
 
 
