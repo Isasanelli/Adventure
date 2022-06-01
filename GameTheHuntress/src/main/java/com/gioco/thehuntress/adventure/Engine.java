@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Sasanelli Ilenia
  */
 public class Engine {
-
+    public static final String patRoom1FirstPart="file//stanza1.1.txt";
 
 
     public  void avvio() throws IOException {
@@ -22,31 +22,29 @@ public class Engine {
         Scanner io = new Scanner(System.in);
         Grafica menu = new Grafica();
         menu.writeMenu();
-
         String input ;
 
         do {
-             input = io.nextLine();
-            input=input.toLowerCase();
+                input = io.nextLine();
+                input=input.toLowerCase();
 
-            switch (input) {
-                case "nuova partita":
-                    menu.writeIntro();
-                    break;
-                case "regole del gioco":
-                    Eventi.readRules();
-                    break;
-                case "comandi":
-                    Eventi.readCommands();
-                    break;
-                case "esci":
-                    break;
-
-                default: System.out.println("Scelta non valida. Riprova");
-                break;
-
-            }//end of game
+                switch (input) {
+                    case "nuova partita":
+                        Eventi.readFileDialog(patRoom1FirstPart);
+                        break;
+                    case "regole del gioco":
+                        Eventi.readRules();
+                        break;
+                     case "comandi":
+                        Eventi.readCommands();
+                        break;
+                    case "esci":
+                        break;
+                    default: System.out.println("Scelta non valida. Riprova");
+                        break;
+                }//end of game
         } while (!input.equals("esci"));
+
         System.out.println("Il gioco e' bello quando dura poco."
                 + " PACE E AMORE "
                 + " Un saluto da :"

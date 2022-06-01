@@ -1,10 +1,9 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
-import com.gioco.thehuntress.type.*;
-
-import java.io.PrintStream;
-import java.util.Iterator;
+import com.gioco.thehuntress.type.Command;
+import com.gioco.thehuntress.type.CommandType;
+import com.gioco.thehuntress.type.Room;
 
 public class TheHuntressGame extends GameDescription {
     //TicTacGame tictac = new TicTacGame();
@@ -54,25 +53,25 @@ public class TheHuntressGame extends GameDescription {
 
     //rooms
     //primo capitolo:Tribù sheeva
-        Room roomGiardino= new Room(0); 
-        Room roomCampoAddestramento = new Room(1);
+        Room roomGiardino= new Room(1);
+        Room roomCampoAddestramento = new Room(2);
      
      //secondo capitolo : Tribù Carja
-        Room roomTenda = new Room(2);
-        Room roomCollolungo = new Room(3);
+        Room roomTenda = new Room(3);
+        Room roomCollolungo = new Room(4);
     
     //terzo capitolo: Foresta dei caduti
-        Room roomDivoratuono = new Room(4);
+        Room roomDivoratuono = new Room(5);
         
     //quarto capitolo: Tribù di Meridiana 
-        Room roomCalderone = new Room(5);
+        Room roomCalderone = new Room(6);
     
 
     }
 
 
 }
-      //Rooms
+      
     
         
         /*maps
