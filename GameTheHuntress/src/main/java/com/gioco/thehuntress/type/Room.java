@@ -5,9 +5,6 @@ import java.util.List;
 
 public class Room {
     private final int id;
-    private String name;
-    private String description;
-    private String look;// descrizione che esce quando l'utente scrive 'guarda' come comando
     private boolean visible = true;
     private Room south= null;
     private Room north=null;
@@ -19,25 +16,7 @@ public class Room {
     public Room(int id){
         this.id = id;
     }
-    public Room(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
 
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public boolean isVisible() {
         return visible;
@@ -108,12 +87,6 @@ public class Room {
         return true;
     }
 
-    public String getLook() {
-        return look;
-    }
 
-    public void setLook(String look) {
-        this.look = look;
-    }
 
 }

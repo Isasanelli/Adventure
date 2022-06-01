@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Engine {
 
-
+    public static final String PATFILEDIALOG1="file//stanza1.1.txt";
 
     public  void avvio() throws IOException {
 
@@ -31,7 +31,7 @@ public class Engine {
 
             switch (input) {
                 case "nuova partita":
-                    menu.writeIntro();
+                    Eventi.readFileDialog(PATFILEDIALOG1);
                     break;
                 case "regole del gioco":
                     Eventi.leggiRegole();

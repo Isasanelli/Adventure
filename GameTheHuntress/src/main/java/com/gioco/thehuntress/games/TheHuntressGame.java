@@ -1,17 +1,19 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
-import com.gioco.thehuntress.type.*;
-
-import java.io.PrintStream;
-import java.util.Iterator;
+import com.gioco.thehuntress.type.AdvObject;
+import com.gioco.thehuntress.type.Command;
+import com.gioco.thehuntress.type.CommandType;
+import com.gioco.thehuntress.type.Room;
 
 public class TheHuntressGame extends GameDescription {
     //TicTacGame tictac = new TicTacGame();
 
     @Override
     public void init() throws Exception {
-        //Commands
+        /**
+         * Command
+         */
         Command nord = new Command(CommandType.NORD, "nord");
         nord.setAlias(new String[]{"n", "N", "Nord", "NORD"});
         getCommands().add(nord);
@@ -48,25 +50,40 @@ public class TheHuntressGame extends GameDescription {
         Command hideyourself = new Command(CommandType.NASCONDITI, "nasconditi");
         hideyourself.setAlias(new String[]{"giu", "silenzio", "g"});
         getCommands().add(hideyourself);
-        Command focus = new Command(CommandType.FOCUS, "Focus");
+        /*Command focus = new Command(CommandType.FOCUS, "Focus");
         focus.setAlias(new String[]{"f", "F", "descrivi"});
-        getCommands().add(focus);
+        getCommands().add(focus);*/
 
-    //rooms
+        /**
+         * Rooms
+         */
+
     //primo capitolo:Tribù sheeva
-        Room roomGiardino= new Room(0); 
-        Room roomCampoAddestramento = new Room(1);
+        Room roomGiardino= new Room(1);
+        Room roomCampoAddestramento = new Room(2);
      
      //secondo capitolo : Tribù Carja
-        Room roomTenda = new Room(2);
-        Room roomCollolungo = new Room(3);
+        Room roomTenda = new Room(3);
+        Room roomCollolungo = new Room(4);
     
     //terzo capitolo: Foresta dei caduti
-        Room roomDivoratuono = new Room(4);
+        Room roomDivoratuono = new Room(5);
         
     //quarto capitolo: Tribù di Meridiana 
-        Room roomCalderone = new Room(5);
+        Room roomCalderone = new Room(6);
     
+     //AdvObject
+        AdvObject focus= new AdvObject(1);
+        focus.setAlias(new String[] {"foc"});
+
+        AdvObject battery= new AdvObject(2);
+        battery.setAlias(new String[] {"batt"});
+
+        AdvObject arch= new AdvObject(3);
+        arch.setAlias(new String[] {" arc"});
+
+        AdvObject launches= new AdvObject(4);
+        launches.setAlias(new String[] {"lanc"});
 
     }
 
@@ -88,11 +105,11 @@ public class TheHuntressGame extends GameDescription {
         getRooms().add(livingRoom);
         getRooms().add(hall);
         getRooms().add(bathroom);
-        getRooms().add(yourRoom);
+        getRooms().add(yourRoom);*/
 
 
-        //obejcts
-        AdvObject battery = new AdvObject(1, "batteria", "Un pacco di batterie, chissà se sono cariche.");
+        /*obejcts
+        AdvObject focus= new AdvObject(1);
         battery.setAlias(new String[]{"batterie", "pile", "pila"});
         bathroom.getObjects().add(battery);
         AdvObjectContainer wardrobe = new AdvObjectContainer(2, "armadio", "Un semplice armadio.");
@@ -110,7 +127,7 @@ public class TheHuntressGame extends GameDescription {
         setCurrentRoom(hall);
 
 
-    }  */
+    } */
 /*
     @Override
     public void nextMove(ParserOutput p, PrintStream out) {

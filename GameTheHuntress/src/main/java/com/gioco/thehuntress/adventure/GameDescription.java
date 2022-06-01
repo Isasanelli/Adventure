@@ -4,9 +4,7 @@ package com.gioco.thehuntress.adventure;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
 import com.gioco.thehuntress.type.Room;
-import com.gioco.thehuntress.adventure.GameDescription;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +55,7 @@ public abstract class GameDescription{
         this.startingRoomId = startingRoomId;
     }
 
-    public void printAdjRooms() {
+    /*public void printAdjRooms() {
         System.out.println("\nLuoghi adiacenti: ");
         if(getCurrentRoom().getNorth()!= null) {
             System.out.println("NORD: "+getCurrentRoom().getNorth().getName());
@@ -71,6 +69,6 @@ public abstract class GameDescription{
         if(getCurrentRoom().getWest()!= null) {
             System.out.println("OVEST: "+getCurrentRoom().getWest().getName());
         }
-    }
+    }*/
 
 }

@@ -2,7 +2,6 @@ package com.gioco.thehuntress.type;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class AdvObjectContainer extends AdvObject {
 
@@ -12,17 +11,9 @@ public class AdvObjectContainer extends AdvObject {
         super(id);
     }
 
-    public AdvObjectContainer(int id, String name) {
-        super(id, name);
-    }
 
-    public AdvObjectContainer(int id, String name, String description) {
-        super(id, name, description);
-    }
 
-    public AdvObjectContainer(int id, String name, String description, Set<String> alias) {
-        super(id, name, description, alias);
-    }
+
 
     public List<AdvObject> getList() {
         return list;
