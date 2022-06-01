@@ -34,10 +34,10 @@ public class Engine {
                     menu.writeIntro();
                     break;
                 case "regole del gioco":
-                    Eventi.leggiRegole();
+                    Eventi.readRules();
                     break;
                 case "comandi":
-                    Eventi.leggiComandi();
+                    Eventi.readCommands();
                     break;
                 case "esci":
                     break;
