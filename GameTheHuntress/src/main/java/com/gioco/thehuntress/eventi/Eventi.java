@@ -3,18 +3,18 @@ package com.gioco.thehuntress.eventi;
 import java.io.*;
 
 public class Eventi {
-    public static final String patFileRegole="file//regole.txt";
-    public static final String patFileComandi="file//comandi.txt";
+    public static final String patFileRules="file//regole.txt";
+    public static final String patFileCommands="file//comandi.txt";
 
-    public static void leggiRegole() throws FileNotFoundException, IOException{
-        leggiFile(patFileRegole);
+    public static void readRules() throws FileNotFoundException, IOException{
+        readFile(patFileRules);
     }
 
-    public static void leggiComandi() throws FileNotFoundException, IOException{
-        leggiFile(patFileComandi);
+    public static void readCommands() throws FileNotFoundException, IOException{
+        readFile(patFileCommands);
     }
 
-    public static void leggiFile(String stringaPat) throws FileNotFoundException, IOException{
+    public static void readFile(String stringaPat) throws FileNotFoundException, IOException{
         try{
             File fileDaLeggere= new File (stringaPat);
             BufferedReader regole= new BufferedReader(new FileReader(fileDaLeggere ));
