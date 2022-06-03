@@ -24,6 +24,8 @@ public class AdvObject {
     private boolean pickupable = false;
     private boolean open = false;
 
+    private boolean scalable= false;  //scalabile, serve per il collolungo
+
 
     public AdvObject ( int id ){
         this.id = id;
@@ -31,11 +33,14 @@ public class AdvObject {
 
 
     //metodi
+    public int getId() {
+        return id;
+    }
     public boolean isOpen() {
         return open;
     }
 
-   public void setopen(boolean open) {
+   public void setopenable(boolean open) {
         this.open = open;
    }
 
@@ -55,6 +60,9 @@ public class AdvObject {
         this.active = active;
     }
 
+    public boolean isScalable(){ return scalable;}
+    public void setScalable(boolean scalable){ this.scalable=scalable;}
+
     public Set<String> getAlias() {
         return alias;
     }
@@ -68,9 +76,7 @@ public class AdvObject {
         this.alias = new HashSet<>(Arrays.asList(alias));
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     @Override
     public int hashCode() {

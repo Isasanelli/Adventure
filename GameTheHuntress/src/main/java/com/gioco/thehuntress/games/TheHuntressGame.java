@@ -1,10 +1,7 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
-import com.gioco.thehuntress.type.AdvObject;
-import com.gioco.thehuntress.type.Command;
-import com.gioco.thehuntress.type.CommandType;
-import com.gioco.thehuntress.type.Room;
+import com.gioco.thehuntress.type.*;
 
 public class TheHuntressGame extends GameDescription {
     //TicTacGame tictac = new TicTacGame();
@@ -87,22 +84,46 @@ public class TheHuntressGame extends GameDescription {
          * AdvObject
          */
         AdvObject focus = new AdvObject(1);
-        focus.setAlias(new String[] {"foc"});
+        focus.setAlias(new String[] {"focus","foc"});
 
         AdvObject batteria = new AdvObject(2);
-        batteria.setAlias(new String[] {"batt","vampa"});
+        batteria.setAlias(new String[] {"batteria","batt","vampa"});
 
         AdvObject arco = new AdvObject(3);
-        arco.setAlias(new String[] {"arc"});
+        arco.setAlias(new String[] {"arco","arc"});
 
         AdvObject lancia = new AdvObject(4);
-        lancia.setAlias(new String[] {"lanc","cripta","crip"});
+        lancia.setAlias(new String[] {"lancia","lanc","cripta","crip"});
+
+        AdvObject map= new AdvObject(6);
+        map.setAlias(new String[] {"mappa","map","m"});
 
         /**
          * AdvObjectContainer
          */
 
-        //macchine e pacco regalo del primo capitolo
+        AdvObjectContainer giftBox= new AdvObjectContainer(5);
+        giftBox.setAlias(new String[] {"pacco regalo","pacco","regalo"});
+        giftBox.setopenable(true);
+        giftBox.add(focus);
+
+        AdvObjectContainer corsiero= new AdvObjectContainer(1);
+        corsiero.setAlias(new String[] {"corsiero","cors"});
+        corsiero.setopenable(true);
+        corsiero.add(batteria);
+
+        AdvObjectContainer collolungo= new AdvObjectContainer(2);
+        collolungo.setAlias(new String[] {"collolungo","collo", "coll", "lungo"});
+        collolungo.setopenable(true);
+        collolungo.setScalable(true);
+        collolungo.add(map);
+
+        AdvObjectContainer avistempesta= new AdvObjectContainer(3);
+        avistempesta.setAlias(new String[] {"avistempesta","avi"});
+        avistempesta.setopenable(true);
+        avistempesta.add(batteria);
+
+        //definire le stanze in cui ogni oggetto contenitore si trova una volta che andiamo a sistemare bene i capitoli
     }
 
 
