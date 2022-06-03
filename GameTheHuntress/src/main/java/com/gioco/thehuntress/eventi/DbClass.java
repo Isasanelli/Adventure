@@ -76,12 +76,20 @@ public class DbClass {
             //controllo se la tupla con id=4 esiste già nella tabella advObjects, e se non è così verrà inserita
             init(SELECT2,conn,4,INSERT2,object4);
 
+            String[] object5={"Pacco", "Pacco regalo che conterrà il focus"};
+            //controllo se la tupla con id=5 esiste già nella tabella advObjects, e se non è così verrà inserita
+            init(SELECT2,conn,5,INSERT2,object5);
+
+            String[] object6={"Mappa","Illustrerà il luogo del gioco"};
+            //controllo se la tupla con id=5 esiste già nella tabella advObjects, e se non è così verrà inserita
+            init(SELECT2,conn,6,INSERT2,object6);
+
 
             /**
              * inserimento delle macchine all'interno della tabella machines
              */
 
-            String[] machine1={"Corsiero","Grande quanto dei comuni animali da soma, il corpo del corsiero somiglia molto a quello dei cavalli. La testa tuttavia somiglia più a quella dei bovini, con due corna che puntano all'indietro. Nella parte posteriore della groppa è presente il serbatoio di Vamoa della macchina"};
+            String[] machine1={"Corsiero","Grande quanto dei comuni animali da soma, il corpo del corsiero somiglia molto a quello dei cavalli. La testa tuttavia somiglia più a quella dei bovini, con due corna che puntano all'indietro. Nella parte posteriore della groppa è presente il serbatoio di Vampa della macchina"};
             //controllo se la tupla con id=1 esiste già nella tabella machines, e se non è così verrà inserita
             init(SELECT3,conn,1,INSERT3,machine1);
 
@@ -89,7 +97,7 @@ public class DbClass {
             //controllo se la tupla con id=2 esiste già nella tabella machines, e se non è così verrà inserita
             init(SELECT3,conn,2,INSERT3,machine2);
 
-            String[] machine3={"Avistempesta","Classe combattimento,solca i cieli ad alta quota e può lanciarsi in picchia contro la sua preda per colpirla con forza.Le sue enormi ali di metallo sono in grado di accumulare l'elettricità mell'aria per poi sprigionarla nelle sue prede"};
+            String[] machine3={"Avistempesta","Classe combattimento,solca i cieli ad alta quota e può lanciarsi in picchia contro la sua preda per colpirla con forza.Le sue enormi ali di metallo sono in grado di accumulare l'elettricità nell'aria per poi sprigionarla nelle sue prede"};
             //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
             init(SELECT3,conn,3,INSERT3,machine3);
 
