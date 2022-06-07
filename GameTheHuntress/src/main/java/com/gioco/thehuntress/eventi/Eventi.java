@@ -4,15 +4,15 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Eventi {
-    public static final String patFileRules="file//regole.txt";
-    public static final String patFileCommands="file//comandi.txt";
+    public static final String PATFILERULES="file//regole.txt";
+    public static final String PATFILECOMMANDS="file//comandi.txt";
 
     public static void readRules() throws FileNotFoundException, IOException{
-        readFile(patFileRules);
+        readFile(PATFILERULES);
     }
 
     public static void readCommands() throws FileNotFoundException, IOException{
-        readFile(patFileCommands);
+        readFile(PATFILECOMMANDS);
     }
 
     public static void readFile(String patString) throws FileNotFoundException, IOException{
