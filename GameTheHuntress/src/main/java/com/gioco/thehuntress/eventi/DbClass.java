@@ -20,9 +20,7 @@ public class DbClass {
 
     public DbClass(){
         try{
-            Properties prop =new Properties();
-            prop.setProperty("user","Huntress");
-            prop.setProperty("password","1234");
+            Properties prop =properties();
             //Connessione col driver
             Connection conn=connection(prop);
 
@@ -101,7 +99,7 @@ public class DbClass {
             //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
             init(SELECT3,conn,3,INSERT3,machine3);
 
-
+            conn.close();
             /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,nome,desc FROM machines WHERE id=?");
             pstm2.setInt(1,4);
             ResultSet rs2= pstm2.executeQuery();
@@ -116,14 +114,14 @@ public class DbClass {
     }
 
     //connessione al db
-    public Connection connection (Properties prop) throws SQLException {
+    public static Connection connection (Properties prop) throws SQLException {
         Connection conn= DriverManager.getConnection("jdbc:h2:./resources/db/playgame",prop);
         return conn;
     }
 
 
     //metodo che consente di leggere la select e l'id di interesse
-    public ResultSet readFromDb(String select, Connection conn, int idStatement) throws SQLException{
+    public static ResultSet readFromDb(String select, Connection conn, int idStatement) throws SQLException{
         PreparedStatement pstm= conn.prepareStatement(select);
         pstm.setInt(1,idStatement);
         ResultSet rs= pstm.executeQuery();
@@ -175,6 +173,14 @@ public class DbClass {
         stat.executeUpdate(table);
         stat.close();
     }
+
+    public static Properties properties(){
+        Properties prop =new Properties();
+        prop.setProperty("user","Huntress");
+        prop.setProperty("password","1234");
+        return prop;
+    }
+
 
 
 }
