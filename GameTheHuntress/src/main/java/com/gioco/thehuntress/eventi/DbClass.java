@@ -5,9 +5,9 @@ import java.util.Properties;
 
 public class DbClass {
 
-    public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, nome VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000))";
-    public static final String CREATE_ADVOBJECT="CREATE TABLE IF NOT EXISTS advObjects (id int PRIMARY KEY, nome VARCHAR(100), desc VARCHAR(1000))";
-    public static final String CREATE_MACHINE="CREATE TABLE IF NOT EXISTS machines (id int PRIMARY KEY, nome VARCHAR(100), desc VARCHAR(1000))";
+    public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000))";
+    public static final String CREATE_ADVOBJECT="CREATE TABLE IF NOT EXISTS advObjects (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
+    public static final String CREATE_MACHINE="CREATE TABLE IF NOT EXISTS machines (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
 
     public static final String SELECT1="SELECT id FROM rooms WHERE id=?";
     public static final String SELECT2="SELECT id FROM advObjects WHERE id=?";
@@ -99,7 +99,7 @@ public class DbClass {
             //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
             init(SELECT3,conn,3,INSERT3,machine3);
 
-            conn.close();
+
             /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,nome,desc FROM machines WHERE id=?");
             pstm2.setInt(1,4);
             ResultSet rs2= pstm2.executeQuery();

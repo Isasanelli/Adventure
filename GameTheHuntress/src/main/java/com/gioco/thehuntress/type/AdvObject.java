@@ -23,7 +23,7 @@ import java.util.Set;
  */
 public class AdvObject {
     
-    public static final String SELECTNAME="SELECT nome FROM advObjects WHERE id=?";
+    public static final String SELECTNAME="SELECT name FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
     private boolean active = false;
