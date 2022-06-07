@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Sasanelli Ilenia
  */
 public class Engine {
-    public static final String patRoom1FirstPart="file//stanza1.1.txt";
+    public static final String PATROOM1FIRSTPART="file//stanza1.1.txt";
 
 
     public  void start() throws IOException {
@@ -30,7 +30,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        Eventi.readFileDialog(patRoom1FirstPart);
+                        Eventi.readFileDialog(PATROOM1FIRSTPART);
                         break;
                     case "regole del gioco":
                         Eventi.readRules();

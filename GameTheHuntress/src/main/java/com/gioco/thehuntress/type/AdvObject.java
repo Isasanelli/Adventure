@@ -5,8 +5,14 @@
 package com.gioco.thehuntress.type;
 
 
+import com.gioco.thehuntress.eventi.DbClass;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -17,7 +23,7 @@ import java.util.Set;
  */
 public class AdvObject {
     
-    //definiamo gli attributi della classe oggetto 
+    public static final String SELECTNAME="SELECT nome FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
     private boolean active = false;
@@ -36,6 +42,23 @@ public class AdvObject {
     public int getId() {
         return id;
     }
+
+    public String getName(){
+        String name= new String();
+        try {
+            Properties prop = DbClass.properties();
+            Connection conn=DbClass.connection(prop);
+            ResultSet rs=DbClass.readFromDb(SELECTNAME,conn,getId());
+            while(rs.next()){
+                name= rs.getString(1);
+            }
+            rs.close();
+        }catch(SQLException ex){
+            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
+        }
+        return name;
+    }
+
     public boolean isOpen() {
         return open;
     }
