@@ -52,6 +52,7 @@ public class AdvObject {
             while(rs.next()){
                 name= rs.getString(1);
             }
+            rs.close();
         }catch(SQLException ex){
             System.err.println(ex.getSQLState() + ":" + ex.getMessage());
         }
