@@ -3,7 +3,6 @@ package com.gioco.thehuntress.adventure;
 
 import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
-import com.gioco.thehuntress.type.AdvObject;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -31,10 +30,10 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        //Eventi.readFileDialog(PATROOM1FIRSTPART);
-                        //lasciare le prossime righe di codice commentate per promemoria
+                        Eventi.readFileDialog(PATROOM1FIRSTPART);
+                        /*lasciare le prossime righe di codice commentate per promemoria
                         AdvObject oggetto= new AdvObject(1);
-                        System.out.println(oggetto.getName(db));
+                        System.out.println(oggetto.getName(db));*/
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
