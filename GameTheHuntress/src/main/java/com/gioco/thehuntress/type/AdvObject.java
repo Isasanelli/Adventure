@@ -9,7 +9,6 @@ import com.gioco.thehuntress.eventi.DbClass;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -46,13 +45,11 @@ public class AdvObject {
     public String getName(DbClass db){
         String name= new String();
         try {
-            Statement statement= db.getConnection().createStatement();
             ResultSet rs= db.readFromDb(SELECTNAME,getId());
             while(rs.next()){
                 name= rs.getString(1);
             }
             rs.close();
-            statement.close();
         }catch(SQLException ex){
             System.err.println(ex.getSQLState() + ":" + ex.getMessage());
         }
