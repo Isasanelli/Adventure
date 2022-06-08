@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Engine {
     public static final String PATROOM1FIRSTPART="file//stanza1.1.txt";
-
+    public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
 
     public  void start() throws IOException {
 
@@ -31,6 +31,9 @@ public class Engine {
                 switch (input) {
                     case "nuova partita":
                         Eventi.readFileDialog(PATROOM1FIRSTPART);
+                        /*lasciare le prossime righe di codice commentate per promemoria
+                        AdvObject oggetto= new AdvObject(1);
+                        System.out.println(oggetto.getName(db));*/
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
@@ -54,8 +57,8 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-       //new TicTacGame().computer_play();
-        DbClass db= new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
         new Engine().start();
+        //new TicTacGame().computer_play();
+
     }
 }
