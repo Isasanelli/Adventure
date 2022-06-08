@@ -1,8 +1,9 @@
 package com.gioco.thehuntress.parser;
 
+import com.gioco.thehuntress.adventure.Utils;
+import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
-import com.gioco.thehuntress.adventure.Utils;
 
 import java.util.List;
 import java.util.Set;
@@ -23,10 +24,9 @@ public class Parser {
         return -1;
     }
 
-    //DEVO USARE IL DB E MODIFICARE LA PARTE DI GETNAME, PERHCè I NOMI SI OGNI OGGETTO SI TROVANO NEL DB, QUINDI SI TRATTA DI FARE UNA SELECT ABBASTANZA COMPLESSA
-    private int checkForObject(String token, List<AdvObject> obejcts) {
+    private int checkForObject(String token, List<AdvObject> obejcts, DbClass db) {
         for (int i = 0; i < obejcts.size(); i++) {
-            if (obejcts.get(i).getName().equals(token) || obejcts.get(i).getAlias().contains(token)) {
+            if (obejcts.get(i).getName(db).equals(token) || obejcts.get(i).getAlias().contains(token)) {
                 return i;
             }
         }
@@ -34,21 +34,21 @@ public class Parser {
     }
 
 
-    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, List<AdvObject> inventory) {
+    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, List<AdvObject> inventory, DbClass database) {
         List<String> tokens = Utils.parseString(command, stopwords);
         if (!tokens.isEmpty()) {
             int ic = checkForCommand(tokens.get(0), commands);
             if (ic > -1) {
                 if (tokens.size() > 1) {
-                    int io = checkForObject(tokens.get(1), objects);
+                    int io = checkForObject(tokens.get(1), objects, database);
                     int ioinv = -1;
                     if (io < 0 && tokens.size() > 2) {
-                        io = checkForObject(tokens.get(2), objects);
+                        io = checkForObject(tokens.get(2), objects, database);
                     }
                     if (io < 0) {
-                        ioinv = checkForObject(tokens.get(1), inventory);
+                        ioinv = checkForObject(tokens.get(1), inventory, database);
                         if (ioinv < 0 && tokens.size() > 2) {
-                            ioinv = checkForObject(tokens.get(2), inventory);
+                            ioinv = checkForObject(tokens.get(2), inventory, database);
                         }
                     }
                     if (io > -1 && ioinv > -1) {
@@ -70,5 +70,4 @@ public class Parser {
             return null;
         }
     }
-
 }

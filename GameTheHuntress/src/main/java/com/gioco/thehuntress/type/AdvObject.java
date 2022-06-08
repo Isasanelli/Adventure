@@ -7,13 +7,13 @@ package com.gioco.thehuntress.type;
 
 import com.gioco.thehuntress.eventi.DbClass;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Properties;
 import java.util.Set;
+
 
 /**
  *
@@ -43,16 +43,16 @@ public class AdvObject {
         return id;
     }
 
-    public String getName(){
+    public String getName(DbClass db){
         String name= new String();
         try {
-            Properties prop = DbClass.properties();
-            Connection conn=DbClass.connection(prop);
-            ResultSet rs=DbClass.readFromDb(SELECTNAME,conn,getId());
+            Statement statement= db.getConnection().createStatement();
+            ResultSet rs=DbClass.readFromDb(SELECTNAME,getId());
             while(rs.next()){
                 name= rs.getString(1);
             }
             rs.close();
+            statement.close();
         }catch(SQLException ex){
             System.err.println(ex.getSQLState() + ":" + ex.getMessage());
         }

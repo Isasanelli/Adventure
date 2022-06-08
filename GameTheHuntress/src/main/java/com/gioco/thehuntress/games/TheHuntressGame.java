@@ -4,7 +4,6 @@ import com.gioco.thehuntress.adventure.GameDescription;
 import com.gioco.thehuntress.type.*;
 
 public class TheHuntressGame extends GameDescription {
-    //TicTacGame tictac = new TicTacGame();
 
     @Override
     public void init() throws Exception {
