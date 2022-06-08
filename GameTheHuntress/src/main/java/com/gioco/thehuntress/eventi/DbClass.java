@@ -100,7 +100,7 @@ public class  DbClass {
     public static Connection getConnection() throws SQLException{
         return conn;
     }
-    
+
 
     //crea le tabelle all'interno del db e chiama la funzione che popola le tuple
     public void createAllTable() throws SQLException{

@@ -47,7 +47,7 @@ public class AdvObject {
         String name= new String();
         try {
             Statement statement= db.getConnection().createStatement();
-            ResultSet rs=DbClass.readFromDb(SELECTNAME,getId());
+            ResultSet rs= db.readFromDb(SELECTNAME,getId());
             while(rs.next()){
                 name= rs.getString(1);
             }
