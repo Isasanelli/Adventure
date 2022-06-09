@@ -20,7 +20,8 @@ public class Utils {
         return set;
     }
 
-    public static List<String> parseString(String string, Set<String> stopwords) {
+        //restituisce una lista composta da comando oggetto senza stopwords
+    public static List<String> parseString(String string, Set<String> stopwords) { //string= stringa composta da comando-stopword-oggetto.Classe
         List<String> tokens = new ArrayList<>();
         String[] split = string.toLowerCase().split("\\s+");
         for (String t : split) {
@@ -28,6 +29,6 @@ public class Utils {
                 tokens.add(t);
             }
         }
-        return tokens;
+        return tokens;  //tokens è la lista di Stringhe composta soltanto da comando-oggetto
     }
 }

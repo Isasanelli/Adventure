@@ -23,6 +23,7 @@ import java.util.Set;
 public class AdvObject {
     
     public static final String SELECTNAME="SELECT name FROM advObjects WHERE id=?";
+    public static final String SELECTDESCRIPTION ="SELECT desc FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
     private boolean active = false;
@@ -43,17 +44,26 @@ public class AdvObject {
     }
 
     public String getName(DbClass db){
-        String name= new String();
-        try {
-            ResultSet rs= db.readFromDb(SELECTNAME,getId());
+        String name= getInformationAdvObject(db,SELECTNAME);
+        return name;
+    }
+
+    public String getDescription(DbClass db){
+        String description= getInformationAdvObject(db,SELECTDESCRIPTION);
+        return description;
+    }
+    public String getInformationAdvObject(DbClass db, String select){
+        String resultSelect= new String();
+        try{
+            ResultSet rs= db.readFromDb(select,getId());
             while(rs.next()){
-                name= rs.getString(1);
+                resultSelect= rs.getString(1);
             }
             rs.close();
         }catch(SQLException ex){
             System.err.println(ex.getSQLState() + ":" + ex.getMessage());
         }
-        return name;
+        return resultSelect;
     }
 
     public boolean isOpen() {

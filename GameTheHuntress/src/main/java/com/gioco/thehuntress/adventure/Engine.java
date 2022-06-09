@@ -30,7 +30,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        Eventi.readFileDialog(PATROOM1FIRSTPART);
+                        //Eventi.readFileDialog(PATROOM1FIRSTPART);
                         /*lasciare le prossime righe di codice commentate per promemoria
                         AdvObject oggetto= new AdvObject(1);
                         System.out.println(oggetto.getName(db));*/
