@@ -12,21 +12,18 @@ public class Room {
     public static final String SELECTNAME="SELECT name FROM rooms WHERE id=?";
     public static final String SELECTDESCRIPTION="SELECT desc FROM rooms WHERE id=?";
     public static final String SELECTLOOK="SELECT look FROM rooms WHERE id=?";
-
-
     private boolean visible = true;
     /*private Room south= null;
     private Room north=null;
     private Room east= null;
     private Room west= null;*/
-
     private  String southInTheRoom= new String();
     private  String northInTheRoom= new String();
     private  String eastInTheRoom= new String();
     private String westInTheRoom= new String();
-
-
     private final List<AdvObject> objects= new ArrayList<>();
+
+
 
     public Room(int id){
         this.id = id;

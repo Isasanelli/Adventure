@@ -80,13 +80,13 @@ public class TheHuntressGame extends GameDescription {
             Room roomCalderone = new Room(6);
 
             //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
-        //definire le stanze in cui ogni oggetto contenitore si trova una volta che andiamo a sistemare bene i capitoli
 
         /**
          * AdvObject
          */
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
+
 
         AdvObject batteria = new AdvObject(2);
         batteria.setAlias(new String[] {"batteria","batt","vampa"});
@@ -125,7 +125,15 @@ public class TheHuntressGame extends GameDescription {
         giftBox.setopenable(true);
         giftBox.add(focus);
 
-
+        /**
+         * assegnazione degli oggetti alle rispettive stanze
+         */
+        roomGarden.getObjects().add(giftBox);
+        roomGarden.getObjects().add(arco);
+        roomTrainingCamp.getObjects().add(corsiero);
+        roomTend.getObjects().add(lancia);
+        roomCollolungo.getObjects().add(collolungo);
+        //manca avistempesta e da sistemare le rooms
     }
 
 
