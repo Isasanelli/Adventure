@@ -66,11 +66,11 @@ public class TheHuntressGame extends GameDescription {
          * Rooms
          */
         //primo capitolo:Tribù sheeva
-            Room roomGiardino= new Room(1);
-            Room roomCampoAddestramento = new Room(2);
+            Room roomGarden= new Room(1);
+            Room roomTrainingCamp = new Room(2);
 
          //secondo capitolo : Tribù Carja
-            Room roomTenda = new Room(3);
+            Room roomTend = new Room(3);
             Room roomCollolungo = new Room(4);
 
         //terzo capitolo: Foresta dei caduti
@@ -79,11 +79,14 @@ public class TheHuntressGame extends GameDescription {
         //quarto capitolo: Tribù di Meridiana
             Room roomCalderone = new Room(6);
 
+            //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
+
         /**
          * AdvObject
          */
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
+
 
         AdvObject batteria = new AdvObject(2);
         batteria.setAlias(new String[] {"batteria","batt","vampa"});
@@ -94,17 +97,12 @@ public class TheHuntressGame extends GameDescription {
         AdvObject lancia = new AdvObject(4);
         lancia.setAlias(new String[] {"lancia","lanc","cripta","crip"});
 
-        AdvObject map= new AdvObject(6);
+        AdvObject map= new AdvObject(5);
         map.setAlias(new String[] {"mappa","map","m"});
 
         /**
          * AdvObjectContainer
          */
-
-        AdvObjectContainer giftBox= new AdvObjectContainer(5);
-        giftBox.setAlias(new String[] {"pacco regalo","pacco","regalo"});
-        giftBox.setopenable(true);
-        giftBox.add(focus);
 
         AdvObjectContainer corsiero= new AdvObjectContainer(1);
         corsiero.setAlias(new String[] {"corsiero","cors"});
@@ -122,7 +120,20 @@ public class TheHuntressGame extends GameDescription {
         avistempesta.setopenable(true);
         avistempesta.add(batteria);
 
-        //definire le stanze in cui ogni oggetto contenitore si trova una volta che andiamo a sistemare bene i capitoli
+        AdvObjectContainer giftBox= new AdvObjectContainer(4);
+        giftBox.setAlias(new String[] {"pacco regalo","pacco","regalo"});
+        giftBox.setopenable(true);
+        giftBox.add(focus);
+
+        /**
+         * assegnazione degli oggetti alle rispettive stanze
+         */
+        roomGarden.getObjects().add(giftBox);
+        roomGarden.getObjects().add(arco);
+        roomTrainingCamp.getObjects().add(corsiero);
+        roomTend.getObjects().add(lancia);
+        roomCollolungo.getObjects().add(collolungo);
+        //manca avistempesta e da sistemare le rooms
     }
 
 
