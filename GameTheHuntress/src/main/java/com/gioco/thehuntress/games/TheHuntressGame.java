@@ -5,6 +5,8 @@ import com.gioco.thehuntress.type.*;
 
 public class TheHuntressGame extends GameDescription {
 
+    public static final String PATROOM1FIRSTPART="file//roomGarden.txt";
+
     @Override
     public void init() throws Exception {
         /**
@@ -67,6 +69,8 @@ public class TheHuntressGame extends GameDescription {
          */
         //primo capitolo:Tribù sheeva
             Room roomGarden= new Room(1);
+            roomGarden.setDialog(PATROOM1FIRSTPART);
+
             Room roomTrainingCamp = new Room(2);
 
          //secondo capitolo : Tribù Carja

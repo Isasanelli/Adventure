@@ -17,14 +17,15 @@ public class Room {
     private Room north=null;
     private Room east= null;
     private Room west= null;*/
-    private  String southInTheRoom= new String();
-    private  String northInTheRoom= new String();
-    private  String eastInTheRoom= new String();
-    private String westInTheRoom= new String();
+    private  String southInTheRoom= "";
+    private  String northInTheRoom= "";
+    private  String eastInTheRoom= "";
+    private String westInTheRoom= "";
     private final List<AdvObject> objects= new ArrayList<>();
 
-
-
+    private String dialog = ""; //variabile che conterrà il dialogo della stanza
+    
+    
     public Room(int id){
         this.id = id;
     }
@@ -62,6 +63,14 @@ public class Room {
         return resultSelect;
     }
 
+    public String getDialog(){
+        return dialog;
+    }
+    
+
+    public void setDialog(String dialog) {
+        this.dialog = dialog;
+    }
 
     public boolean isVisible() {
         return visible;
