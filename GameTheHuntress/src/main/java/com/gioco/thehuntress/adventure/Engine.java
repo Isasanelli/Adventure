@@ -23,8 +23,8 @@ public class Engine {
     public  void start() throws IOException {
 
         Scanner io = new Scanner(System.in);
-        Grafica grafica = new Grafica();
-        grafica.writeMenu();
+        Grafica graphic = new Grafica();
+        graphic.writeMenu();
         String input ;
 
         do {
@@ -33,10 +33,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        grafica.writeIntro();
-                        /*lasciare le prossime rig  he di codice commentate per promemoria
-                        AdvObject oggetto= new AdvObject(1);
-                        System.out.println(oggetto.getName(db));*/
+                        graphic.writeIntro();
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
@@ -60,7 +57,7 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-        //new Engine().start();
+        new Engine().start();
         //new TicTacGame().computer_play();
 
     }
