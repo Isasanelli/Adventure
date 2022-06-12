@@ -5,14 +5,14 @@ import java.util.Properties;
 
 public class  DbClass {
 
-    public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000))";
+    public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000), descReturn VARCHAR(1000))";
     public static final String CREATE_ADVOBJECT="CREATE TABLE IF NOT EXISTS advObjects (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
     public static final String CREATE_ADVOBJECTCONTAINER="CREATE TABLE IF NOT EXISTS advObjectsContainer (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
 
     public static final String SELECT1="SELECT id FROM rooms WHERE id=?";
     public static final String SELECT2="SELECT id FROM advObjects WHERE id=?";
     public static final String SELECT3="SELECT id FROM advObjectsContainer WHERE id=?";
-    public static final String INSERT1= "INSERT INTO rooms VALUES (?,?,?,?)";
+    public static final String INSERT1= "INSERT INTO rooms VALUES (?,?,?,?,?)";
     public static final String INSERT2="INSERT INTO advObjects VALUES (?,?,?)";
     public static final String INSERT3="INSERT INTO advObjectsContainer VALUES(?,?,?)";
 
@@ -66,11 +66,12 @@ public class  DbClass {
     //metodo che inserisce all'interno della tabella la stringa
     public void insertStringIntoTheTable(int id, String insert, String[] array) throws SQLException{
         PreparedStatement pstm= getConnection().prepareStatement(insert);
-        if(array.length==3) {
+        if(array.length==4) {
             pstm.setInt(1, id);
             pstm.setString(2, array[0]); //nome
             pstm.setString(3, array[1]); //descrizione
             pstm.setString(4, array[2]); //look
+            pstm.setString(5,array[3]); //descrizione di ritorno
             pstm.executeUpdate();
         } else if(array.length==2){
             pstm.setInt(1,id);
@@ -122,19 +123,22 @@ public class  DbClass {
          * inserimento delle stanze nella tabella rooms
          */
 
-        String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,sommersa nei tuoi pensieri.Oggi il cielo è più azzurro delle altre volte. Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti tuo padre appare alle tue spalle: ","Sei circondata dall'erba verde del tuo giardino"};
+        String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,sommersa nei tuoi pensieri.Oggi il cielo è più azzurro delle altre volte. Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti tuo padre appare alle tue spalle: E'Rost ","Sei circondata dall'erba verde del tuo giardino", "Sei nel giardino della tua famiglia, qui ci sei già stata. Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco. Forse è meglio riprendere il tuo viaggio. Questa non è più casa tua"};
         //controllo se la tupla con id=1 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2={"Campo di addestramento","Sei al campo di addestramento della tua famiglia","Solo ad est vedi una mandria di biomacchine rannicchiate accanto ad un fiume. Segui Rost"};
+        String[] room2={"Campo di addestramento","Sei al campo di addestramento della tua famiglia","Solo ad est vedi una mandria di biomacchine rannicchiate accanto ad un fiume. Segui Rost",
+        "Piccoli brividi ti invadono. Vedi ancora il corsiero che hai ucciso ancora li...Non c'è nulla che ti possa interessare. Forse è meglio tornare alla missione"};
         //controllo se la tupla con id=2 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra cxalda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A nord è presente un camino, a sud una porta,a ovest c'è un muro. A est c'è una finestra: cosa saranno quelle figure accanto agli abitanti? Sarà forse meglio dare un'occhiata"};
+        String[] room3={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra cxalda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A nord è presente un camino, a sud una porta,a ovest c'è un muro. A est c'è una finestra: cosa saranno quelle figure accanto agli abitanti? Sarà forse meglio dare un'occhiata",
+        " DA SCRIVERE"};
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,3,INSERT1,room3);
 
-        String[] room4={"Campo del collolungo","Ti trovi fuori il tempio del Re Sole","A nord trovi una piccola fontanella, a sud grandi alberi con foglie intrecciate, a est un burrone...meglio non esporsi troppo, a ovest è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino"};
+        String[] room4={"Campo del collolungo","Ti trovi fuori il tempio del Re Sole","A nord trovi una piccola fontanella, a sud grandi alberi con foglie intrecciate, a est un burrone...meglio non esporsi troppo, a ovest è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino",
+        "DA SCRIVERE"};
         //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,4,INSERT1,room4);
 

@@ -11,20 +11,24 @@ public class Room {
     private final int id;
     public static final String SELECTNAME="SELECT name FROM rooms WHERE id=?";
     public static final String SELECTDESCRIPTION="SELECT desc FROM rooms WHERE id=?";
+    public static final String SELECTDESCRIPTIONRETURN="SELECT descReturn FROM rooms WHERE id=?";
+
     public static final String SELECTLOOK="SELECT look FROM rooms WHERE id=?";
     private boolean visible = true;
+    private boolean firstTimeHere= true; //variabile che avrà valore vero se l'utente deve accedere la stanza per la prima volta, valore falso altrimenti
     /*private Room south= null;
     private Room north=null;
     private Room east= null;
     private Room west= null;*/
-    private  String southInTheRoom= new String();
-    private  String northInTheRoom= new String();
-    private  String eastInTheRoom= new String();
-    private String westInTheRoom= new String();
+    private  String southInTheRoom= "";
+    private  String northInTheRoom= "";
+    private  String eastInTheRoom= "";
+    private String westInTheRoom= "";
     private final List<AdvObject> objects= new ArrayList<>();
 
-
-
+    private String dialog = ""; //variabile che conterrà il dialogo della stanza
+    
+    
     public Room(int id){
         this.id = id;
     }
@@ -39,17 +43,27 @@ public class Room {
     }
 
     public String getDescription(DbClass db){
-        String description= getInformationRoom(db,SELECTDESCRIPTION);
-        return description;
+        String description= "";
+        if(getFirstTimeHere()){
+            description= getInformationRoom(db,SELECTDESCRIPTION);
+        } else{
+            description= getInformationRoom(db,SELECTDESCRIPTIONRETURN);
+        }
+       return description;
     }
 
     public String getLook(DbClass db){
-        String look= getInformationRoom(db,SELECTLOOK);
+        String look= "";
+        if (getFirstTimeHere()){
+            look= getInformationRoom(db,SELECTLOOK);
+        }else{
+            look= getInformationRoom(db,SELECTDESCRIPTIONRETURN);
+        }
         return look;
     }
 
     public String getInformationRoom(DbClass db, String select){
-        String resultSelect= new String();
+        String resultSelect= "";
         try{
             ResultSet rs= db.readFromDb(select,getId());
             while(rs.next()){
@@ -62,6 +76,22 @@ public class Room {
         return resultSelect;
     }
 
+    public String getDialog(){
+        return dialog;
+    }
+    
+
+    public void setDialog(String dialog) {
+        this.dialog = dialog;
+    }
+
+    public boolean getFirstTimeHere(){
+        return firstTimeHere;
+    }
+
+    public void setFirstTimeHere(Boolean firstTimeHere){
+        this.firstTimeHere= firstTimeHere;
+    }
 
     public boolean isVisible() {
         return visible;

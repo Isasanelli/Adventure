@@ -14,14 +14,17 @@ import java.util.Scanner;
  * @author Sasanelli Ilenia
  */
 public class Engine {
-    public static final String PATROOM1FIRSTPART="file//stanza1.1.txt";
+
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
 
+    public Engine(){
+
+    }
     public  void start() throws IOException {
 
         Scanner io = new Scanner(System.in);
-        Grafica menu = new Grafica();
-        menu.writeMenu();
+        Grafica graphic = new Grafica();
+        graphic.writeMenu();
         String input ;
 
         do {
@@ -30,10 +33,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        //Eventi.readFileDialog(PATROOM1FIRSTPART);
-                        /*lasciare le prossime righe di codice commentate per promemoria
-                        AdvObject oggetto= new AdvObject(1);
-                        System.out.println(oggetto.getName(db));*/
+                        graphic.writeIntro();
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
