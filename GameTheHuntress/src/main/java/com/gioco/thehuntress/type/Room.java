@@ -44,7 +44,7 @@ public class Room {
 
     public String getDescription(DbClass db){
         String description= "";
-        if(firstTimeHere){
+        if(getFirstTimeHere()){
             description= getInformationRoom(db,SELECTDESCRIPTION);
         } else{
             description= getInformationRoom(db,SELECTDESCRIPTIONRETURN);
