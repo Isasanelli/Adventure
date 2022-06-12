@@ -17,6 +17,9 @@ public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
 
+    public Engine(){
+
+    }
     public  void start() throws IOException {
 
         Scanner io = new Scanner(System.in);
@@ -58,10 +61,6 @@ public class Engine {
 
     public static void main(String[] args) throws IOException {
         //new Engine().start();
-
-
-
-
         //new TicTacGame().computer_play();
 
     }
