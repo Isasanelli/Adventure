@@ -74,15 +74,12 @@ public class TheHuntressGame extends GameDescription {
             Room roomTrainingCamp = new Room(2);
             roomTrainingCamp.setDialog(PATROOM2);
 
+            Room valleyOfDeath=new Room(3);
+
          //secondo capitolo : Tribù Carja
-            Room roomTend = new Room(3);
-            Room roomCollolungo = new Room(4);
+            Room roomTend = new Room(4);
+            Room roomCollolungo = new Room(5);
 
-        //terzo capitolo: Foresta dei caduti
-            Room roomDivoratuono = new Room(5);
-
-        //quarto capitolo: Tribù di Meridiana
-            Room roomCalderone = new Room(6);
 
             //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
 
