@@ -7,6 +7,7 @@ public class TheHuntressGame extends GameDescription {
 
     public static final String PATROOM1="file//roomGarden.txt";
     public static final String PATROOM2="file//roomTrainingCamp.txt";
+    public static final String PATROOM3="file//roomValleyOfDeath.txt";
     @Override
     public void init() throws Exception {
         /**
@@ -74,7 +75,10 @@ public class TheHuntressGame extends GameDescription {
             Room roomTrainingCamp = new Room(2);
             roomTrainingCamp.setDialog(PATROOM2);
 
-            Room valleyOfDeath=new Room(3);
+            Room roomValleyOfDeath=new Room(3);
+            roomValleyOfDeath.setDialog(PATROOM3);
+            
+
 
          //secondo capitolo : Tribù Carja
             Room roomTend = new Room(4);
