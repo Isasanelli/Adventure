@@ -132,17 +132,15 @@ public class  DbClass {
         //controllo se la tupla con id=2 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3={"Valle", " Da scrivere", "Muore rost", "Da scrivere"};
-        //controllo se la tupla con id=2 esiste già nella tabella rooms, e se non è così verrà inserita
+        String[] room3={"Valle della morte", "Tu e rost avete appena terminato la vostra sessione di addestramento.Siete nella valle dei caduti a godervi un po di tranquillità", "Senti scorrere in lontananza un ruscello", "Piccoli brividi ti invadono al solo pensiero di questo luogo. Qui è dove è stato ucciso Rost. Sei invasa da rabbia e tristezza. Torna sui tuoi passi"};
+        //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,3,INSERT1,room3);
 
-        String[] room4={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra cxalda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A nord è presente un camino, a sud una porta,a ovest c'è un muro. A est c'è una finestra: cosa saranno quelle figure accanto agli abitanti? Sarà forse meglio dare un'occhiata",
-        " DA SCRIVERE"};
+        String[] room4={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra cxalda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A nord è presente un camino, a sud una porta,a ovest c'è un muro. A est c'è una finestra: cosa saranno quelle figure accanto agli abitanti? Sarà forse meglio dare un'occhiata"," DA SCRIVERE"};
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,4,INSERT1,room4);
 
-        String[] room5={"Campo del collolungo","Ti trovi fuori il tempio del Re Sole","A nord trovi una piccola fontanella, a sud grandi alberi con foglie intrecciate, a est un burrone...meglio non esporsi troppo, a ovest è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino",
-        "DA SCRIVERE"};
+        String[] room5={"Campo del collolungo","Ti trovi fuori il tempio del Re Sole","A nord è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino, a sud si intravede il Calderone, a est un burrone, a ovest c'è la tenda del Re Sole ","da scrivere"};
         //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 

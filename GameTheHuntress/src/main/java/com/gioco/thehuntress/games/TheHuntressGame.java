@@ -71,18 +71,38 @@ public class TheHuntressGame extends GameDescription {
         //primo capitolo:Tribù sheeva
             Room roomGarden= new Room(1);
             roomGarden.setDialog(PATROOM1);
+            roomGarden.setNorthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento", "Il campo d'addestramento è da quella parte"});
+            roomGarden.setSouthInTheRoom(new String[] {"Non c'è nulla","Il muro oltre la siepe"});
+            roomGarden.setEastInTheRoom(new String[]  {"Questa foresta ha troppi alberi per i miei gusti","Non c'è nulla da guardare li"});
+            roomGarden.setWestInTheRoom(new String[]  {"Rost è li. Vuole dirti qualcosa","Non c'e' nulla qui"});
 
             Room roomTrainingCamp = new Room(2);
             roomTrainingCamp.setDialog(PATROOM2);
+            roomTrainingCamp.setNorthInTheRoom(new String[] {"Da li si va verso la valle dei caduti","la valle dei caduti è da quella parte"});
+            roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si va verso il giardino","Il giardino è da quella parte"});
+            roomTrainingCamp.setEastInTheRoom(new String[] {"Trovi una mandria di biomacchhine accanto al fiume.Segui Rost!","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
+            roomTrainingCamp.setWestInTheRoom(new String[] {"Non c'è nulla","Non c'è nulla per te"});
 
             Room roomValleyOfDeath=new Room(3);
             roomValleyOfDeath.setDialog(PATROOM3);
-            
+            roomValleyOfDeath.setNorthInTheRoom(new String[] {"Non puoi andare da quella parte","Non c'è niente per te"});
+            roomValleyOfDeath.setSouthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento","il campo d'addestramento è da quella parte"});
+            roomValleyOfDeath.setEastInTheRoom(new String[] {"Da li si va verso la tende del re sole","La tenda del Re sole è da quella parte"});
+            roomValleyOfDeath.setWestInTheRoom(new String[] {"Da li non si puà andare","Che bello questo ruscello"});
 
 
          //secondo capitolo : Tribù Carja
             Room roomTend = new Room(4);
+            roomTend.setNorthInTheRoom(new String[] {"La finestra: cos'e' tutto quel movimento?Forse è meglio guardare", "c'è una finestra"});
+            roomTend.setSouthInTheRoom(new String[] {"Il fuoco del camino è caldo e accogliente","Il fuoco è ancora bello presente"});
+            roomTend.setEastInTheRoom(new String[] {"Da li si va verso il Campo del collolungo", "il Campo del collolungo è da quella parte"});
+            roomTend.setWestInTheRoom(new String[] {"Da li si va verso la valle dei caduti ","la valle dei caduti è da quella parte"});
+
             Room roomCollolungo = new Room(5);
+            roomCollolungo.setNorthInTheRoom(new String[] {"Trovi il collolungo ","La statua del collolungo"});
+            roomCollolungo.setSouthInTheRoom(new String[] {"Da quella parte c'è Meridiana  ","Il calderone è da quella parte "});
+            roomCollolungo.setEastInTheRoom(new String[] {"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare","non c'è nulla li"});
+            roomCollolungo.setWestInTheRoom(new String[] {"Da li si va verso la tenda del Re Sole","La tenda del Re Sole è da quella parte"});
 
 
             //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
@@ -140,29 +160,37 @@ public class TheHuntressGame extends GameDescription {
         roomTend.getObjects().add(lancia);
         roomCollolungo.getObjects().add(collolungo);
         //manca avistempesta e da sistemare le rooms
+
+
+        roomGarden.setNorth(roomTrainingCamp);
+
+        roomTrainingCamp.setSouth(roomGarden);
+        roomTrainingCamp.setNorth(roomValleyOfDeath);
+
+        roomValleyOfDeath.setSouth(roomTrainingCamp);
+        roomValleyOfDeath.setEast(roomTend);
+
+        roomTend.setWest(roomValleyOfDeath);
+        roomTend.setEast(roomCollolungo);
+
+        roomCollolungo.setWest(roomTend);
+       // roomCollolungo.setSouth(roomCalderone);
+
+
+
+        getRooms().add(roomGarden);
+        getRooms().add(roomTrainingCamp);
+        getRooms().add(roomValleyOfDeath);
+        getRooms().add(roomTend);
+        getRooms().add(roomCollolungo);
+
+
     }
 
 
 }
-      
-    
-        
-        /*maps
-        kitchen.setEast(livingRoom);
-        livingRoom.setNorth(hall);
-        livingRoom.setWest(kitchen);
-        hall.setSouth(livingRoom);
-        hall.setWest(yourRoom);
-        hall.setNorth(bathroom);
-        bathroom.setSouth(hall);
-        yourRoom.setEast(hall);
-        getRooms().add(kitchen);
-        getRooms().add(livingRoom);
-        getRooms().add(hall);
-        getRooms().add(bathroom);
-        getRooms().add(yourRoom);
 
-
+/*
         //obejcts
         AdvObject battery = new AdvObject(1, "batteria", "Un pacco di batterie, chissà se sono cariche.");
         battery.setAlias(new String[]{"batterie", "pile", "pila"});

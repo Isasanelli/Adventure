@@ -10,9 +10,9 @@
 
 2) VITE : hai a disposizione solo tre vite, cerca di non farti ammazzare gia' dal primo capitolo;
 
-3)FOCUS :E' importante l'utilizzo del Focus , un sistema di calcolo e realta' aumentata indossabile, che potrete utilizzare
- per identificare oggetti e ambienti legati alle missioni.
- Il Focus vi permettera' inoltre di ispezionare le Macchine, visualizzando le loro componenti e le vulnerabilita' agli elementi.
+3)FOCUS :E' importante l'utilizzo del Focus , un sistema di calcolo e realta' aumentata indossabile,
+ che potrete utilizzare per identificare oggetti e ambienti legati alle missioni.
+ Il Focus vi permettera' di ispezionare le Macchine, visualizzando le loro componenti e le vulnerabilita' agli elementi.
 
 4) SIATE FURTIVI : I nemici sparsi per la mappa possono percepire i rumori prodotti da Victoria e dalle sue armi, divenendo subito sospettosi.
 Nascondetevi prima di venire scovati.

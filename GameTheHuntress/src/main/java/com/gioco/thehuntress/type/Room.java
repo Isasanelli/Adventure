@@ -16,14 +16,14 @@ public class Room {
     public static final String SELECTLOOK="SELECT look FROM rooms WHERE id=?";
     private boolean visible = true;
     private boolean firstTimeHere= true; //variabile che avrà valore vero se l'utente deve accedere la stanza per la prima volta, valore falso altrimenti
-    /*private Room south= null;
+    private Room south= null;
     private Room north=null;
     private Room east= null;
-    private Room west= null;*/
-    private  String southInTheRoom= "";
-    private  String northInTheRoom= "";
-    private  String eastInTheRoom= "";
-    private String westInTheRoom= "";
+    private Room west= null;
+    private  String[] southInTheRoom={"",""};
+    private  String[] northInTheRoom= {"",""};
+    private  String[] eastInTheRoom= {"",""};
+    private String[] westInTheRoom={"",""};
     private final List<AdvObject> objects= new ArrayList<>();
 
     private String dialog = ""; //variabile che conterrà il dialogo della stanza
@@ -43,7 +43,7 @@ public class Room {
     }
 
     public String getDescription(DbClass db){
-        String description= "";
+        String description="";
         if(getFirstTimeHere()){
             description= getInformationRoom(db,SELECTDESCRIPTION);
         } else{
@@ -101,7 +101,7 @@ public class Room {
         this.visible = visible;
     }
 
-    /*public Room getSouth() {
+    public Room getSouth() {
         return south;
     }
 
@@ -132,40 +132,58 @@ public class Room {
     public void setWest(Room west) {
         this.west = west;
     }
-     */
+     
 
     /**
      * servono per rendere dinamica a stanza
      */
     public String getNorthInTheRoom(){
-        return northInTheRoom;
+        if(getFirstTimeHere()){
+            return northInTheRoom[0];
+        }else{
+            return northInTheRoom[1];
+        }
     }
 
-    public void setNorthInTheRoom(String northInTheRoom){
+    public void setNorthInTheRoom(String[] northInTheRoom){
         this.northInTheRoom = northInTheRoom;
     }
 
     public String getSouthInTheRoom(){
-        return southInTheRoom;
+        if(getFirstTimeHere()){
+            return southInTheRoom[0];
+        }else{
+            return southInTheRoom[1];
+        }
     }
 
-    public void setSouthInTheRoom(String southInTheRoom){
+    public void setSouthInTheRoom(String[] southInTheRoom){
         this.southInTheRoom= southInTheRoom;
     }
 
     public String getEastInTheRoom(){
-        return eastInTheRoom;
+        if(getFirstTimeHere()){
+            return eastInTheRoom[0];
+        }else{
+            return eastInTheRoom[1];
+        }
+        
     }
 
-    public void setEastInTheRoom(String eastInTheRoom){
+    public void setEastInTheRoom(String[] eastInTheRoom){
         this.eastInTheRoom=eastInTheRoom;
     }
 
     public String getWestInTheRoom(){
-        return westInTheRoom;
+        if(getFirstTimeHere()){
+            return westInTheRoom[0];
+        }else{
+            return westInTheRoom[1];
+        }
+        
     }
 
-    public void setWestInTheRoom(String westInTheRoom){
+    public void setWestInTheRoom(String[] westInTheRoom){
         this.westInTheRoom= westInTheRoom;
     }
 
