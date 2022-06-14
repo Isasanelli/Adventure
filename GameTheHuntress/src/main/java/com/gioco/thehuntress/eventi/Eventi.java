@@ -26,6 +26,7 @@ public class Eventi {
                     System.out.println(singleLine);
                 }
             }while (singleLine!= null);
+            buffer.close();
         }catch (
                 FileNotFoundException e ){
             System.err.println("il file non esiste");
@@ -54,6 +55,7 @@ public class Eventi {
                 Scanner sc = new Scanner(System.in);
                 String input =sc.nextLine();
             }while(character != -1);
+            dialog.close();
         }catch (FileNotFoundException e ){
             System.err.println("il file non esiste");
         }catch (IOException e ){

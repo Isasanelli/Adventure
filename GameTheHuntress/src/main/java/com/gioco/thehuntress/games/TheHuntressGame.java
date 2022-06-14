@@ -72,15 +72,15 @@ public class TheHuntressGame extends GameDescription {
             Room roomGarden= new Room(1);
             roomGarden.setDialog(PATROOM1);
             roomGarden.setNorthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento", "Il campo d'addestramento è da quella parte"});
-            roomGarden.setSouthInTheRoom(new String[] {"Non c'è nulla","Il muro oltre la siepe"});
+            roomGarden.setSouthInTheRoom(new String[] {"Non c'è nulla","E' solo un muro oltre la siepe, non ti interessa"});
             roomGarden.setEastInTheRoom(new String[]  {"Questa foresta ha troppi alberi per i miei gusti","Non c'è nulla da guardare li"});
-            roomGarden.setWestInTheRoom(new String[]  {"Rost è li. Vuole dirti qualcosa","Non c'e' nulla qui"});
+            roomGarden.setWestInTheRoom(new String[]  {"Non c'è nulla che ti possa interessare. Parla con Rost se non l'hai già fatto","Non c'e' nulla qui"});
 
             Room roomTrainingCamp = new Room(2);
             roomTrainingCamp.setDialog(PATROOM2);
             roomTrainingCamp.setNorthInTheRoom(new String[] {"Da li si va verso la valle dei caduti","la valle dei caduti è da quella parte"});
-            roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si va verso il giardino","Il giardino è da quella parte"});
-            roomTrainingCamp.setEastInTheRoom(new String[] {"Trovi una mandria di biomacchhine accanto al fiume.Segui Rost!","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
+            roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si si ritorna in giardino","Il giardino è da quella parte"});
+            roomTrainingCamp.setEastInTheRoom(new String[] {"La mandria di biomacchhine è ancora lì...saranno stanche?","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
             roomTrainingCamp.setWestInTheRoom(new String[] {"Non c'è nulla","Non c'è nulla per te"});
 
             Room roomValleyOfDeath=new Room(3);
@@ -150,7 +150,7 @@ public class TheHuntressGame extends GameDescription {
         giftBox.setAlias(new String[] {"pacco regalo","pacco","regalo"});
         giftBox.setopenable(true);
         giftBox.add(focus);
-        
+
         /**
          * Assegnazione degli oggetti alle rispettive stanze.
          */

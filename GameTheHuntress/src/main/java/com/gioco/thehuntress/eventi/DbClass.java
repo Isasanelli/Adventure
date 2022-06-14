@@ -132,7 +132,7 @@ public class  DbClass {
         //controllo se la tupla con id=2 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3={"Valle della morte", "Tu e rost avete appena terminato la vostra sessione di addestramento.Siete nella valle dei caduti a godervi un po di tranquillità", "Senti scorrere in lontananza un ruscello", "Piccoli brividi ti invadono al solo pensiero di questo luogo. Qui è dove è stato ucciso Rost. Sei invasa da rabbia e tristezza. Torna sui tuoi passi"};
+        String[] room3={"Valle dei caduti", "Tu e rost avete appena terminato la vostra sessione di addestramento.Siete nella valle dei caduti a godervi un po di tranquillità", "Senti scorrere in lontananza un ruscello", "Piccoli brividi ti invadono al solo pensiero di questo luogo. Qui è dove è stato ucciso Rost. Sei invasa da rabbia e tristezza. Torna sui tuoi passi"};
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,3,INSERT1,room3);
 
