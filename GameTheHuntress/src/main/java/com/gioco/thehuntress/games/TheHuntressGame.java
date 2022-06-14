@@ -8,6 +8,7 @@ public class TheHuntressGame extends GameDescription {
     public static final String PATROOM1="file//roomGarden.txt";
     public static final String PATROOM2="file//roomTrainingCamp.txt";
     public static final String PATROOM3="file//roomValleyOfDeath.txt";
+    public static final String PATROOM4="file//roomTend.txt";
     @Override
     public void init() throws Exception {
         /**
@@ -93,6 +94,7 @@ public class TheHuntressGame extends GameDescription {
 
          //secondo capitolo : Tribù Carja
             Room roomTend = new Room(4);
+            roomTend.setDialog(PATROOM4);
             roomTend.setNorthInTheRoom(new String[] {"La finestra: cos'e' tutto quel movimento?Forse è meglio guardare", "c'è una finestra"});
             roomTend.setSouthInTheRoom(new String[] {"Il fuoco del camino è caldo e accogliente","Il fuoco è ancora bello presente"});
             roomTend.setEastInTheRoom(new String[] {"Da li si va verso il Campo del collolungo", "il Campo del collolungo è da quella parte"});
