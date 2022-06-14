@@ -105,10 +105,10 @@ public class TheHuntressGame extends GameDescription {
             roomCollolungo.setWestInTheRoom(new String[] {"Da li si va verso la tenda del Re Sole","La tenda del Re Sole è da quella parte"});
 
 
-            //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
+            //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
 
         /**
-         * AdvObject
+         * Definizione oggetti AdvObject.
          */
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
@@ -127,7 +127,7 @@ public class TheHuntressGame extends GameDescription {
         map.setAlias(new String[] {"mappa","map","m"});
 
         /**
-         * AdvObjectContainer
+         * Definizione oggetti AdvObjectContainer.
          */
 
         AdvObjectContainer corsiero= new AdvObjectContainer(1);
@@ -150,9 +150,9 @@ public class TheHuntressGame extends GameDescription {
         giftBox.setAlias(new String[] {"pacco regalo","pacco","regalo"});
         giftBox.setopenable(true);
         giftBox.add(focus);
-
+        
         /**
-         * assegnazione degli oggetti alle rispettive stanze
+         * Assegnazione degli oggetti alle rispettive stanze.
          */
         roomGarden.getObjects().add(giftBox);
         roomGarden.getObjects().add(arco);
@@ -161,6 +161,9 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.getObjects().add(collolungo);
         //manca avistempesta e da sistemare le rooms
 
+        /**
+         * Mappa.
+         */
 
         roomGarden.setNorth(roomTrainingCamp);
 
@@ -174,8 +177,6 @@ public class TheHuntressGame extends GameDescription {
         roomTend.setEast(roomCollolungo);
 
         roomCollolungo.setWest(roomTend);
-       // roomCollolungo.setSouth(roomCalderone);
-
 
 
         getRooms().add(roomGarden);
@@ -184,6 +185,10 @@ public class TheHuntressGame extends GameDescription {
         getRooms().add(roomTend);
         getRooms().add(roomCollolungo);
 
+        /**
+         * settaggio stanza iniziale
+         */
+        setCurrentRoom(roomGarden);
 
     }
 
