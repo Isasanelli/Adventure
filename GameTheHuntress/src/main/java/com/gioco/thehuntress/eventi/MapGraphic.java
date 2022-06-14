@@ -11,7 +11,7 @@ public class MapGraphic {
     //creazione costruttore MapGrafic
     public MapGraphic(){
 
-        imageMap = new ImageIcon("Immagini//Mappa.jpg");
+        imageMap = new ImageIcon("Immagini//Mappa.png");
         myLabel = new JLabel(imageMap);
         myLabel.setSize(800,500);
 
