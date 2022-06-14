@@ -136,11 +136,11 @@ public class  DbClass {
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,3,INSERT1,room3);
 
-        String[] room4={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra cxalda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A nord è presente un camino, a sud una porta,a ovest c'è un muro. A est c'è una finestra: cosa saranno quelle figure accanto agli abitanti? Sarà forse meglio dare un'occhiata"," DA SCRIVERE"};
+        String[] room4={"Tenda del Re Sole","Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra calda e accogliente. Sei stesa su un soffice letto avvolta da una copera calda. Tutto il tuo corpo è indolenzito. Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te. Non fai in tempo a nasconderti, perchè quel qualcuno è già entrato...","A sud è presente un camino,a est si esce, a nord c'è una finestra: forse è meglio dare un'occhiata","E' qui che ti è stata data la Cripta, sembra passato così tanto tempo... ma non c'è tempo per i ricordi, ritorna sui tuoi passi"};
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,4,INSERT1,room4);
 
-        String[] room5={"Campo del collolungo","Ti trovi fuori il tempio del Re Sole","A nord è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino, a sud si intravede il Calderone, a est un burrone, a ovest c'è la tenda del Re Sole ","da scrivere"};
+        String[] room5={"Campo del collolungo","Ti trovi fuori il templio del Re Sole","A nord è possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi, cosa potrà essere? Forse è meglio dare un'occhiata più da vicino, a est un burrone, a ovest c'è la tenda del Re Sole ","Ti trovi fuori il templio del Re Sole. Hai appena notato quanto è piccolo in confronto alla statua del collolungo... ma perchè non pensi a cose più importanti? Tipo la TUA MISSIONE"};
         //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 

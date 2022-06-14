@@ -87,8 +87,8 @@ public class TheHuntressGame extends GameDescription {
             roomValleyOfDeath.setDialog(PATROOM3);
             roomValleyOfDeath.setNorthInTheRoom(new String[] {"Non puoi andare da quella parte","Non c'è niente per te"});
             roomValleyOfDeath.setSouthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento","il campo d'addestramento è da quella parte"});
-            roomValleyOfDeath.setEastInTheRoom(new String[] {"Da li si va verso la tende del re sole","La tenda del Re sole è da quella parte"});
-            roomValleyOfDeath.setWestInTheRoom(new String[] {"Da li non si puà andare","Che bello questo ruscello"});
+            roomValleyOfDeath.setEastInTheRoom(new String[] {"Da li si va verso la tende del Re Sole","La tenda del Re sole è da quella parte"});
+            roomValleyOfDeath.setWestInTheRoom(new String[] {"Da li non si puà andare, c'è solo un ruscello","Che bello questo ruscello"});
 
 
          //secondo capitolo : Tribù Carja
@@ -101,7 +101,7 @@ public class TheHuntressGame extends GameDescription {
             Room roomCollolungo = new Room(5);
             roomCollolungo.setNorthInTheRoom(new String[] {"Trovi il collolungo ","La statua del collolungo"});
             roomCollolungo.setSouthInTheRoom(new String[] {"Da quella parte c'è Meridiana  ","Il calderone è da quella parte "});
-            roomCollolungo.setEastInTheRoom(new String[] {"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare","non c'è nulla li"});
+            roomCollolungo.setEastInTheRoom(new String[] {"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare","non c'è nulla che ti possa interessare, a meno che tu non voglia morire"});
             roomCollolungo.setWestInTheRoom(new String[] {"Da li si va verso la tenda del Re Sole","La tenda del Re Sole è da quella parte"});
 
 
