@@ -3,6 +3,7 @@ package com.gioco.thehuntress.adventure;
 
 import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
+import com.gioco.thehuntress.eventi.MapGraphic;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -57,8 +58,10 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-        new Engine().start();
+        //new Engine().start();
         //new TicTacGame().computer_play();
+        new MapGraphic();
+
 
     }
 }

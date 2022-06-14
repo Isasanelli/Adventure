@@ -5,9 +5,6 @@
 package com.gioco.thehuntress.adventure;
 
 
-import com.gioco.thehuntress.type.Command;
-import com.gioco.thehuntress.type.CommandType;
-
 /**
  *
  * @author Margari Chiara
@@ -15,52 +12,8 @@ import com.gioco.thehuntress.type.CommandType;
  * @author Sasanelli Ilenia
  */
 public class Grafica {
-    public Grafica() {
-
-    }
-
-    public void writeMap() {
-        System.out.println("  Mappa di Victoria \n"
-                + "     ______________________________________________________________   \n"
-                + " /\\                                                               \\ \n "
-                + "(O)===)><><><><><><><><><><><><><><><><><><><><><><><><><><><><)==(O) \n "
-                + " \\/''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''/\n "
-                + "  |   4^Tribu' di Meridiana                                       |   \n"
-                + "  |               +-----------------------+                       |   \n"
-                + "  |               |                       |                       |   \n"
-                + "  |               |       Torre di        |                       |   \n"
-                + "  |               |       Meridiana       |                       |   \n"
-                + "  |               |                       |                       |   \n"
-                + "  |               +-----------------------+                       |   \n"
-                + "  |                                                               |   \n"
-                + "  |   3^  Foresta dei caduti                                      |   \n"
-                + "  |               +-----------------------+                       |   \n"
-                + "  |               |                       |                       |   \n"
-                + "  |               |         Campo         |                       |   \n"
-                + "  |               |       Divoratuono     |                       |   \n"
-                + "  |               |                       |                       |   \n"
-                + "  |               +-----------------------+                       |   \n"
-                + "  |                                                               |   \n"
-                + "  |   2^  Tribu' di Carja                                         |   \n"
-                + "  |               +----------------------+  +--------------+      |   \n"
-                + "  |               |                      |  |              |      |   \n"
-                + "  |               |       Tenda del      |  |  Campo del   |      |   \n"
-                + "  |               |        Re Sole       |  |   Collolungo |      |   \n"
-                + "  |               |                      |  |              |      |   \n"
-                + "  |               +----------------------+  +--------------+      |   \n"
-                + "  |                                                               |   \n"
-                + "  |   1^  Tribu' di Sheeva                                        |   \n"
-                + "  |          +------------------+      +----------------+         |   \n"
-                + "  |          |                  |      |                |         |   \n"
-                + "  |          |    Giardino      |      |      Campo     |         |   \n"
-                + "  |          |                  |      |  addestramento |         |   \n"
-                + "  |          |                  |      |                |         |   \n"
-                + "  |          +------------------+      +----------------+         |   \n"
-                + "  /\\''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\\ \n "
-                + "(O)===)><><><><><><><><><><><><><><><><><><><><><><><><><><><><)==(O) \n "
-                + "    \\/______________________________________________________________/ \n"
-        );
-    }
+    
+    public Grafica() {}
 
     public void writeMenu() {
         System.out.println("  \n"
