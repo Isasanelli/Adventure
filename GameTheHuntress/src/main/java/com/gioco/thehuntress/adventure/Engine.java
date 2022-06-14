@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-
+public static final String path="//file//roomGarden.txt";
     public Engine(){
 
     }
@@ -26,6 +26,7 @@ public class Engine {
         Grafica graphic = new Grafica();
         graphic.writeMenu();
         String input ;
+        
 
         do {
                 input = io.nextLine();
@@ -34,6 +35,7 @@ public class Engine {
                 switch (input) {
                     case "nuova partita":
                         graphic.writeIntro();
+                        Eventi.readFileDialog("path");
                         break;
                     case "regole del gioco":
                         Eventi.readRules();

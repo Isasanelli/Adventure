@@ -26,8 +26,8 @@ public class Eventi {
                     System.out.println(singleLine);
                 }
             }while (singleLine!= null);
-        }catch (
-                FileNotFoundException e ){
+            buffer.close();
+        }catch (FileNotFoundException e ){
             System.err.println("il file non esiste");
         }catch (
                 IOException e ){
@@ -37,10 +37,11 @@ public class Eventi {
 
     public static void readFileDialog(String pat) throws FileNotFoundException, IOException{
         try{
-            File fileToRead= new File(pat);
+            File fileToRead= new File(pat);// creo un oggetto file
             BufferedReader dialog= new BufferedReader(new FileReader(fileToRead));
             String singleLine="";
             char specialcharacter='#';
+            
             char character; //consente di leggere carattere per carattere
             do{
                 singleLine="";
@@ -51,15 +52,21 @@ public class Eventi {
                 if ((specialcharacter==character) || (character==-1) ){
                     System.out.println (singleLine);
                 }
-                Scanner sc = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in); // creo un oggetto scanner
                 String input =sc.nextLine();
             }while(character != -1);
+            
+            dialog.close();
         }catch (FileNotFoundException e ){
             System.err.println("il file non esiste");
         }catch (IOException e ){
-            System.err.println("ERRORE  DI I/0");
+            System.err.println("ERRORE  DI I/0"); 
+         
         }
     }
 
-}
+    }
+    
+
+
 
