@@ -35,11 +35,8 @@ public static final String PATH="file//roomGarden.txt";
 
                 switch (input) {
                     case "nuova partita":
-                        Room Garden = new Room(1);
-                        Garden.setDialog(PATH); 
-                        graphic.writeIntro();
-                       Eventi.readFileDialog(Garden.getDialog());
-                       break;
+                      graphic.writeIntro();
+                        break;
                     case "regole del gioco":
                         Eventi.readRules();
                         break;
