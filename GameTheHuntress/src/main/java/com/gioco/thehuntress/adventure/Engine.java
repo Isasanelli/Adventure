@@ -6,7 +6,8 @@ import com.gioco.thehuntress.eventi.Eventi;
 
 import java.io.IOException;
 import java.util.Scanner;
-import com.gioco.thehuntress.type.Room;
+
+import static java.lang.System.out;
 
 /**
  *
@@ -48,12 +49,12 @@ public static final String PATH="file//roomGarden.txt";
                         break;
                     case "esci":
                         break;
-                    default: System.out.println("Scelta non valida. Riprova");
+                    default: out.println("Scelta non valida. Riprova");
                         break;
                 }//end of game
         } while (!input.equals("esci"));
 
-        System.out.println("Il gioco e' bello quando dura poco."
+        out.println("Il gioco e' bello quando dura poco."
                 + " PACE E AMORE "
                 + " Un saluto da :"
                 + " Chiara Margari, "

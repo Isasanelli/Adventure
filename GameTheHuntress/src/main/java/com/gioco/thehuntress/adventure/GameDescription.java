@@ -1,10 +1,13 @@
 package com.gioco.thehuntress.adventure;
 
 
+import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
 import com.gioco.thehuntress.type.Room;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +46,7 @@ public abstract class GameDescription{
     public abstract void init() throws Exception;
 
 
-   // public abstract void nextMove(ParserOutput p, PrintStream out);
+   public abstract void nextMove(DbClass db, ParserOutput p, PrintStream out);
 
 
 

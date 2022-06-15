@@ -6,11 +6,13 @@ import java.awt.*;
 public class MapGraphic {
      JFrame frame;
      ImageIcon image,imageMap;
-    JLabel myLabel;
+     JLabel myLabel;
 
     //creazione costruttore MapGrafic
     public MapGraphic(){
 
+    }
+    public void createMap(){
         imageMap = new ImageIcon("Immagini//Mappa.png");
         myLabel = new JLabel(imageMap);
         myLabel.setSize(800,500);
@@ -28,11 +30,5 @@ public class MapGraphic {
         image = new ImageIcon("Immagini//Logo.png"); //inserimento logo del gioco
         frame.setIconImage(image.getImage());//permette di cambiare l'immagine
         frame.getContentPane().setBackground(new Color(0x123456)); //impostiamo un colore di sfondo
-
-
     }
-
-
-
-
 }

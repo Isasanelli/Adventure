@@ -1,7 +1,14 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
+import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.eventi.Eventi;
+import com.gioco.thehuntress.eventi.MapGraphic;
+import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.*;
+
+import java.io.IOException;
+import java.io.PrintStream;
 
 public class TheHuntressGame extends GameDescription {
 
@@ -9,6 +16,7 @@ public class TheHuntressGame extends GameDescription {
     public static final String PATROOM2="file//roomTrainingCamp.txt";
     public static final String PATROOM3="file//roomValleyOfDeath.txt";
     public static final String PATROOM4="file//roomTend.txt";
+    public MapGraphic mapGraphic= new MapGraphic();
     @Override
     public void init() throws Exception {
         /**
@@ -52,6 +60,9 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(westInTheRoom);
 
         //Comandi generali
+        Command mapCommand= new Command (CommandType.MAPPA, "map");
+        mapCommand.setAlias(new String[]{"mappa","map"});
+        getCommands().add(mapCommand);
 
         Command end = new Command(CommandType.ESCI, "Esci");
         end.setAlias(new String[]{"fine", "esci", "ESCI"});
@@ -70,36 +81,27 @@ public class TheHuntressGame extends GameDescription {
         commands.setAlias(new String[] {"Comandi", "COMANDI","COM","com"});
         getCommands().add(commands);
 
+        //Comandi sugli oggetti
+        Command open = new Command(CommandType.APRI, "apri");
+        open.setAlias(new String[] {"Apri", "APRI"});
+        getCommands().add(open);
+
+        Command use = new Command(CommandType.USA, "usa");
+        use.setAlias(new String[] {"Usa", "USA","u"});
+        getCommands().add(use);
+
+        Command inspects = new Command(CommandType.ISPEZIONA, "ispeziona");
+        inspects.setAlias(new String[] {"Ispeziona", "ISPEZIONA", "ISP", "isp"});
+        getCommands().add(inspects);
+
+        Command scalable = new Command(CommandType.SCALA, "scala");
+        scalable.setAlias(new String[] {"Scala", "SCALA"});
+        getCommands().add(scalable);
 
 
         /*Command pickup = new Command(CommandType.PRENDI, "raccogli");
         pickup.setAlias(new String[]{"prendi", "r", "R"});
         getCommands().add(pickup);
-
-        Command control = new Command(CommandType.CRIPTA, "Cripta");
-        control.setAlias(new String[]{"corrompi", "controlla", "C", "c"});
-        getCommands().add(control);
-
-        /*Command push = new Command(CommandType.PREMI, "premi");
-        push.setAlias(new String[]{"spingi", "attiva", "pre", "Pre"});
-        getCommands().add(push);
-
-        Command leave = new Command(CommandType.LASCIA, "lascia");
-        leave.setAlias(new String[]{"la", "La"});
-        getCommands().add(leave);
-
-        Command hideyourself = new Command(CommandType.NASCONDITI, "nasconditi");
-        hideyourself.setAlias(new String[]{"giu", "silenzio", "g"});
-        getCommands().add(hideyourself);
-
-        Command focus = new Command(CommandType.FOCUS, "Focus");
-        focus.setAlias(new String[]{"f", "F", "descrivi"});
-        getCommands().add(focus);
-
-        Command inventory = new Command(CommandType.INVENTARIO, "inventario");
-        inventory.setAlias(new String[]{"inv"});
-        getCommands().add(inventory);*/
-
 
         /**
          * Rooms
@@ -150,12 +152,12 @@ public class TheHuntressGame extends GameDescription {
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
 
-
         AdvObject batteria = new AdvObject(2);
         batteria.setAlias(new String[] {"batteria","batt","vampa"});
 
         AdvObject arco = new AdvObject(3);
         arco.setAlias(new String[] {"arco","arc"});
+        arco.setUsable(true);
 
         AdvObject lancia = new AdvObject(4);
         lancia.setAlias(new String[] {"lancia","lanc","cripta","crip"});
@@ -170,6 +172,7 @@ public class TheHuntressGame extends GameDescription {
         AdvObjectContainer corsiero= new AdvObjectContainer(1);
         corsiero.setAlias(new String[] {"corsiero","cors"});
         corsiero.setopenable(true);
+        corsiero.setInspectable(true);
         corsiero.add(batteria);
 
         AdvObjectContainer collolungo= new AdvObjectContainer(2);
@@ -181,6 +184,7 @@ public class TheHuntressGame extends GameDescription {
         AdvObjectContainer avistempesta= new AdvObjectContainer(3);
         avistempesta.setAlias(new String[] {"avistempesta","avi"});
         avistempesta.setopenable(true);
+        avistempesta.setInspectable(true);
         avistempesta.add(batteria);
 
         AdvObjectContainer giftBox= new AdvObjectContainer(4);
@@ -228,31 +232,69 @@ public class TheHuntressGame extends GameDescription {
         setCurrentRoom(roomGarden);
 
     }
+    public  void nextMove(DbClass db,ParserOutput p , PrintStream out ){
+      if (p.getCommand()==null){
+          out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
+      }else{
+          boolean noroom = false;
+          boolean  move = false;
+          if(p.getCommand().getType() == CommandType.NORD){
+            if (getCurrentRoom().getNorth()!=null){
+                setCurrentRoom(getCurrentRoom().getNorth());
+                move = true;
+            } else{
+              noroom=true;
+            }
+            }else if(p.getCommand().getType()==CommandType.SUD){
+                if (getCurrentRoom().getSouth()!=null){
+                    setCurrentRoom(getCurrentRoom().getSouth());
+                    move =true;
+                }else{
+                    noroom=true;
+                }
+            } else if(p.getCommand().getType() == CommandType.EST){
+                if(getCurrentRoom().getEast() != null){
+                    setCurrentRoom(getCurrentRoom().getEast());
+                    move=true;
+                } else{
+                    noroom=true;
+                }
+            }else if (p.getCommand().getType()==CommandType.OVEST){
+                if(getCurrentRoom().getWest()!=null){
+                    setCurrentRoom(getCurrentRoom().getWest());
+                    move =true;
+                }else{
+                    noroom=true;
+                }
+            }else if (p.getCommand().getType() == CommandType.N){
+               System.out.println(getCurrentRoom().getNorthInTheRoom());
+            }else if (p.getCommand().getType() == CommandType.S){
+              System.out.println(getCurrentRoom().getSouthInTheRoom());
+            }else if (p.getCommand().getType()==CommandType.E){
+                System.out.println(getCurrentRoom().getEastInTheRoom());
+            }else if (p.getCommand().getType()==CommandType.O){
+                System.out.println(getCurrentRoom().getWestInTheRoom());
+            }else if(p.getCommand().getType()==CommandType.MAPPA){
+                mapGraphic.createMap();
+            }else if(p.getCommand().getType()==CommandType.GUARDA){ //si riferisce al guarda dentro alla stanza (look)
+                getCurrentRoom().getLook(db);
+            }else if (p.getCommand().getType()==CommandType.COMANDI){
+              try{
+                  Eventi.readCommands();
+              }catch(IOException exception ){
+                  System.err.println("Errore");
+              }
+            }else if (p.getCommand().getType()==CommandType.REGOLE){
+              try {
+                  Eventi.readRules();
+              }catch(IOException exception){
+                  System.err.println("Errore");
+              }
+            }//else if 287
+          } //else 233
+    }//nextmove
+}//classe
 
-
-}
-
-/*
-        //obejcts
-        AdvObject battery = new AdvObject(1, "batteria", "Un pacco di batterie, chissà se sono cariche.");
-        battery.setAlias(new String[]{"batterie", "pile", "pila"});
-        bathroom.getObjects().add(battery);
-        AdvObjectContainer wardrobe = new AdvObjectContainer(2, "armadio", "Un semplice armadio.");
-        wardrobe.setAlias(new String[]{"guardaroba", "vestiario"});
-        wardrobe.setOpenable(true);
-        wardrobe.setPickupable(false);
-        wardrobe.setOpen(false);
-        yourRoom.getObjects().add(wardrobe);
-        AdvObject toy = new AdvObject(3, "giocattolo", "Il gioco che ti ha regalato zia Lina.");
-        toy.setAlias(new String[]{"gioco", "robot"});
-        toy.setPushable(true);
-        toy.setPush(false);
-        wardrobe.add(toy);
-        //set starting room
-        setCurrentRoom(hall);
-
-
-    }  */
 /*
     @Override
     public void nextMove(ParserOutput p, PrintStream out) {
