@@ -8,6 +8,7 @@ public class TheHuntressGame extends GameDescription {
     public static final String PATROOM1="file//roomGarden.txt";
     public static final String PATROOM2="file//roomTrainingCamp.txt";
     public static final String PATROOM3="file//roomValleyOfDeath.txt";
+    public static final String PATROOM4="file//roomTend.txt";
     @Override
     public void init() throws Exception {
         /**
@@ -72,27 +73,28 @@ public class TheHuntressGame extends GameDescription {
             Room roomGarden= new Room(1);
             roomGarden.setDialog(PATROOM1);
             roomGarden.setNorthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento", "Il campo d'addestramento è da quella parte"});
-            roomGarden.setSouthInTheRoom(new String[] {"Non c'è nulla","Il muro oltre la siepe"});
+            roomGarden.setSouthInTheRoom(new String[] {"Non c'è nulla","E' solo un muro oltre la siepe, non ti interessa"});
             roomGarden.setEastInTheRoom(new String[]  {"Questa foresta ha troppi alberi per i miei gusti","Non c'è nulla da guardare li"});
-            roomGarden.setWestInTheRoom(new String[]  {"Rost è li. Vuole dirti qualcosa","Non c'e' nulla qui"});
+            roomGarden.setWestInTheRoom(new String[]  {"Non c'è nulla che ti possa interessare. Parla con Rost se non l'hai già fatto","Non c'e' nulla qui"});
 
             Room roomTrainingCamp = new Room(2);
             roomTrainingCamp.setDialog(PATROOM2);
             roomTrainingCamp.setNorthInTheRoom(new String[] {"Da li si va verso la valle dei caduti","la valle dei caduti è da quella parte"});
-            roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si va verso il giardino","Il giardino è da quella parte"});
-            roomTrainingCamp.setEastInTheRoom(new String[] {"Trovi una mandria di biomacchhine accanto al fiume.Segui Rost!","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
+            roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si si ritorna in giardino","Il giardino è da quella parte"});
+            roomTrainingCamp.setEastInTheRoom(new String[] {"La mandria di biomacchhine è ancora lì...saranno stanche?","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
             roomTrainingCamp.setWestInTheRoom(new String[] {"Non c'è nulla","Non c'è nulla per te"});
 
             Room roomValleyOfDeath=new Room(3);
             roomValleyOfDeath.setDialog(PATROOM3);
             roomValleyOfDeath.setNorthInTheRoom(new String[] {"Non puoi andare da quella parte","Non c'è niente per te"});
             roomValleyOfDeath.setSouthInTheRoom(new String[] {"Da li si va verso il campo d'addestramento","il campo d'addestramento è da quella parte"});
-            roomValleyOfDeath.setEastInTheRoom(new String[] {"Da li si va verso la tende del re sole","La tenda del Re sole è da quella parte"});
-            roomValleyOfDeath.setWestInTheRoom(new String[] {"Da li non si puà andare","Che bello questo ruscello"});
+            roomValleyOfDeath.setEastInTheRoom(new String[] {"Da li si va verso la tende del Re Sole","La tenda del Re sole è da quella parte"});
+            roomValleyOfDeath.setWestInTheRoom(new String[] {"Da li non si puà andare, c'è solo un ruscello","Che bello questo ruscello"});
 
 
          //secondo capitolo : Tribù Carja
             Room roomTend = new Room(4);
+            roomTend.setDialog(PATROOM4);
             roomTend.setNorthInTheRoom(new String[] {"La finestra: cos'e' tutto quel movimento?Forse è meglio guardare", "c'è una finestra"});
             roomTend.setSouthInTheRoom(new String[] {"Il fuoco del camino è caldo e accogliente","Il fuoco è ancora bello presente"});
             roomTend.setEastInTheRoom(new String[] {"Da li si va verso il Campo del collolungo", "il Campo del collolungo è da quella parte"});
@@ -101,14 +103,14 @@ public class TheHuntressGame extends GameDescription {
             Room roomCollolungo = new Room(5);
             roomCollolungo.setNorthInTheRoom(new String[] {"Trovi il collolungo ","La statua del collolungo"});
             roomCollolungo.setSouthInTheRoom(new String[] {"Da quella parte c'è Meridiana  ","Il calderone è da quella parte "});
-            roomCollolungo.setEastInTheRoom(new String[] {"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare","non c'è nulla li"});
+            roomCollolungo.setEastInTheRoom(new String[] {"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare","non c'è nulla che ti possa interessare, a meno che tu non voglia morire"});
             roomCollolungo.setWestInTheRoom(new String[] {"Da li si va verso la tenda del Re Sole","La tenda del Re Sole è da quella parte"});
 
 
-            //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DI OGNI ROOM
+            //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
 
         /**
-         * AdvObject
+         * Definizione oggetti AdvObject.
          */
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
@@ -127,7 +129,7 @@ public class TheHuntressGame extends GameDescription {
         map.setAlias(new String[] {"mappa","map","m"});
 
         /**
-         * AdvObjectContainer
+         * Definizione oggetti AdvObjectContainer.
          */
 
         AdvObjectContainer corsiero= new AdvObjectContainer(1);
@@ -152,7 +154,7 @@ public class TheHuntressGame extends GameDescription {
         giftBox.add(focus);
 
         /**
-         * assegnazione degli oggetti alle rispettive stanze
+         * Assegnazione degli oggetti alle rispettive stanze.
          */
         roomGarden.getObjects().add(giftBox);
         roomGarden.getObjects().add(arco);
@@ -161,6 +163,9 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.getObjects().add(collolungo);
         //manca avistempesta e da sistemare le rooms
 
+        /**
+         * Mappa.
+         */
 
         roomGarden.setNorth(roomTrainingCamp);
 
@@ -174,8 +179,6 @@ public class TheHuntressGame extends GameDescription {
         roomTend.setEast(roomCollolungo);
 
         roomCollolungo.setWest(roomTend);
-       // roomCollolungo.setSouth(roomCalderone);
-
 
 
         getRooms().add(roomGarden);
@@ -184,6 +187,10 @@ public class TheHuntressGame extends GameDescription {
         getRooms().add(roomTend);
         getRooms().add(roomCollolungo);
 
+        /**
+         * settaggio stanza iniziale
+         */
+        setCurrentRoom(roomGarden);
 
     }
 

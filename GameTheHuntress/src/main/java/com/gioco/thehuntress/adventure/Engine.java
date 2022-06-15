@@ -16,7 +16,6 @@ import java.util.Scanner;
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-
     public Engine(){
 
     }
