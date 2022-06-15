@@ -6,6 +6,7 @@ import com.gioco.thehuntress.eventi.Eventi;
 
 import java.io.IOException;
 import java.util.Scanner;
+import com.gioco.thehuntress.type.Room;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.util.Scanner;
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-public static final String path="//file//roomGarden.txt";
+public static final String PATH="file//roomGarden.txt";
     public Engine(){
 
     }
@@ -34,9 +35,11 @@ public static final String path="//file//roomGarden.txt";
 
                 switch (input) {
                     case "nuova partita":
+                        Room Garden = new Room(1);
+                        Garden.setDialog(PATH); 
                         graphic.writeIntro();
-                        Eventi.readFileDialog("path");
-                        break;
+                       Eventi.readFileDialog(Garden.getDialog());
+                       break;
                     case "regole del gioco":
                         Eventi.readRules();
                         break;
