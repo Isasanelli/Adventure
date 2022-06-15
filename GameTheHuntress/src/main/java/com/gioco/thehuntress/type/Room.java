@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.gioco.thehuntress.eventi.Eventi.readFileDialog;
+
 public class Room {
     private final int id;
     public static final String SELECTNAME="SELECT name FROM rooms WHERE id=?";
@@ -83,6 +85,11 @@ public class Room {
 
     public void setDialog(String dialog) {
         this.dialog = dialog;
+    }
+
+    //metodo che legge il dialogo della stanza
+    public void Dialog(){
+        readFileDialog(getDialog());
     }
 
     public boolean getFirstTimeHere(){

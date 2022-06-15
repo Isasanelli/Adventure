@@ -26,10 +26,9 @@ public class AdvObject {
     public static final String SELECTDESCRIPTION ="SELECT desc FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
-    private boolean active = false;
-    private boolean pickupable = false;
+    private boolean use = true;
+    private boolean pickupable = false; //raccogli
     private boolean open = false;
-
     private boolean scalable= false;  //scalabile, serve per il collolungo
 
 
@@ -82,12 +81,12 @@ public class AdvObject {
         this.pickupable = pickupable;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isUse() {
+        return use;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setUse(boolean use) {
+        this.use = use;
     }
 
     public boolean isScalable(){ return scalable;}

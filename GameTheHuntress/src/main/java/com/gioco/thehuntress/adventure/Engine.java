@@ -17,10 +17,10 @@ import com.gioco.thehuntress.type.Room;
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-<<<<<<< HEAD
-=======
+
+
 public static final String PATH="file//roomGarden.txt";
->>>>>>> 5ff7329d6078d61b5c58f21db8b9273621836547
+
     public Engine(){
 
     }

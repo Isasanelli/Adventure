@@ -14,35 +14,65 @@ public class TheHuntressGame extends GameDescription {
         /**
          * command
          */
-        Command nord = new Command(CommandType.NORD, "nord");
-        nord.setAlias(new String[]{"n", "N", "Nord", "NORD"});
-        getCommands().add(nord);
 
-        Command inventory = new Command(CommandType.INVENTARIO, "inventario");
-        inventory.setAlias(new String[]{"inv"});
-        getCommands().add(inventory);
+         //Comandi per l'interazione tra le rooms
 
-        Command sud = new Command(CommandType.SUD, "sud");
-        sud.setAlias(new String[]{"s", "S", "Sud", "SUD"});
-        getCommands().add(sud);
+        Command northOutTheRoom = new Command(CommandType.NORD, "nord");
+        northOutTheRoom.setAlias(new String[] {"Nord", "NORD"});
+        getCommands().add(northOutTheRoom);
 
-        Command est = new Command(CommandType.EST, "est");
-        est.setAlias(new String[]{"e", "E", "Est", "EST"});
-        getCommands().add(est);
+        Command southOutTheRoom = new Command(CommandType.SUD, "sud");
+        southOutTheRoom.setAlias(new String[]{"Sud", "SUD"});
+        getCommands().add(southOutTheRoom);
 
-        Command ovest = new Command(CommandType.OVEST, "ovest");
-        ovest.setAlias(new String[]{"o", "O", "Ovest", "OVEST"});
-        getCommands().add(ovest);
+        Command eastOutTheRoom = new Command(CommandType.EST, "est");
+        eastOutTheRoom.setAlias(new String[]{"Est", "EST"});
+        getCommands().add(eastOutTheRoom);
 
-        Command end = new Command(CommandType.ESCI, "end");
-        end.setAlias(new String[]{"end", "fine", "esci", "exit"});
+        Command westOutTheRoom = new Command(CommandType.OVEST, "ovest");
+        westOutTheRoom.setAlias(new String[]{"Ovest", "OVEST"});
+        getCommands().add(westOutTheRoom);
+
+        //Comandi per l'interazione dentro la stanza
+
+        Command northInTheRoom = new Command(CommandType.N, "N");
+        northInTheRoom.setAlias(new String[] {"n"});
+        getCommands().add(northInTheRoom);
+
+        Command southInTheRoom = new Command(CommandType.S, "S");
+        southInTheRoom.setAlias(new String[] {"s"});
+        getCommands().add(southInTheRoom);
+
+        Command  eastInTheRoom = new Command(CommandType.E, "E");
+        eastInTheRoom.setAlias(new String[] {"e"});
+        getCommands().add(eastInTheRoom);
+
+        Command westInTheRoom = new Command(CommandType.O, "O");
+        westInTheRoom.setAlias (new String[] {"o"});
+        getCommands().add(westInTheRoom);
+
+        //Comandi generali
+
+        Command end = new Command(CommandType.ESCI, "Esci");
+        end.setAlias(new String[]{"fine", "esci", "ESCI"});
         getCommands().add(end);
 
         Command look = new Command(CommandType.GUARDA, "guarda");
-        look.setAlias(new String[]{ "vedi", "descrivi", "osserva"});
+        look.setAlias(new String[]{ "GUARDA","Guarda","vedi", "descrivi", "osserva"});
         getCommands().add(look);
 
-        Command pickup = new Command(CommandType.PRENDI, "raccogli");
+        Command rules = new Command (CommandType.REGOLE, "regole");
+        look.setAlias((new String []{ "REGOLE","regole"}));
+        getCommands().add(rules);
+
+
+        Command commands = new Command(CommandType.COMANDI, "comandi");
+        commands.setAlias(new String[] {"Comandi", "COMANDI","COM","com"});
+        getCommands().add(commands);
+
+
+
+        /*Command pickup = new Command(CommandType.PRENDI, "raccogli");
         pickup.setAlias(new String[]{"prendi", "r", "R"});
         getCommands().add(pickup);
 
@@ -50,7 +80,7 @@ public class TheHuntressGame extends GameDescription {
         control.setAlias(new String[]{"corrompi", "controlla", "C", "c"});
         getCommands().add(control);
 
-        Command push = new Command(CommandType.PREMI, "premi");
+        /*Command push = new Command(CommandType.PREMI, "premi");
         push.setAlias(new String[]{"spingi", "attiva", "pre", "Pre"});
         getCommands().add(push);
 
@@ -62,9 +92,14 @@ public class TheHuntressGame extends GameDescription {
         hideyourself.setAlias(new String[]{"giu", "silenzio", "g"});
         getCommands().add(hideyourself);
 
-        /*Command focus = new Command(CommandType.FOCUS, "Focus");
+        Command focus = new Command(CommandType.FOCUS, "Focus");
         focus.setAlias(new String[]{"f", "F", "descrivi"});
-        getCommands().add(focus);*/
+        getCommands().add(focus);
+
+        Command inventory = new Command(CommandType.INVENTARIO, "inventario");
+        inventory.setAlias(new String[]{"inv"});
+        getCommands().add(inventory);*/
+
 
         /**
          * Rooms
