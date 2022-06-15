@@ -26,34 +26,7 @@ public class Eventi {
                     System.out.println(singleLine);
                 }
             }while (singleLine!= null);
-        }catch (
-                FileNotFoundException e ){
-            System.err.println("il file non esiste");
-        }catch (
-                IOException e ){
-            System.err.println("ERRORE  DI I/0");
-        }
-    }
-
-    public static void readFileDialog(String pat) throws FileNotFoundException, IOException{
-        try{
-            File fileToRead= new File(pat);
-            BufferedReader dialog= new BufferedReader(new FileReader(fileToRead));
-            String singleLine="";
-            char specialcharacter='#';
-            char character; //consente di leggere carattere per carattere
-            do{
-                singleLine="";
-                do{
-                    character=(char) dialog.read();
-                    singleLine+=character;
-                }while ((specialcharacter!=character) && (character!=-1));
-                if ((specialcharacter==character) || (character==-1) ){
-                    System.out.println (singleLine);
-                }
-                Scanner sc = new Scanner(System.in);
-                String input =sc.nextLine();
-            }while(character != -1);
+            buffer.close();
         }catch (FileNotFoundException e ){
             System.err.println("il file non esiste");
         }catch (IOException e ){
@@ -61,5 +34,27 @@ public class Eventi {
         }
     }
 
+    public static void readFileDialog(String pat) {
+        try{
+            File fileToRead= new File(pat);// creo un oggetto file
+            Scanner dialog= new Scanner(fileToRead);//creo l'oggetto scanner 
+            dialog.useDelimiter("#");
+            String singleLine ;
+        
+           do{
+              singleLine=dialog.next(); //legge le linee fino all'#
+              System.out.println (singleLine);
+              Scanner sc = new Scanner(System.in); 
+              String input =sc.nextLine();// per l'invio
+             }while(dialog.hasNext());   // finchè se c'è altro testo 
+             dialog.close();
+        
+            }catch (FileNotFoundException e ){
+            System.err.println("il file non esiste");
+       }
+    }
 }
+    
+
+
 

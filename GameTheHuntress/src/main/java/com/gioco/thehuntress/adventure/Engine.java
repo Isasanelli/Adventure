@@ -6,6 +6,7 @@ import com.gioco.thehuntress.eventi.Eventi;
 
 import java.io.IOException;
 import java.util.Scanner;
+import com.gioco.thehuntress.type.Room;
 
 /**
  *
@@ -16,6 +17,10 @@ import java.util.Scanner;
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
+<<<<<<< HEAD
+=======
+public static final String PATH="file//roomGarden.txt";
+>>>>>>> 5ff7329d6078d61b5c58f21db8b9273621836547
     public Engine(){
 
     }
@@ -25,6 +30,7 @@ public class Engine {
         Grafica graphic = new Grafica();
         graphic.writeMenu();
         String input ;
+        
 
         do {
                 input = io.nextLine();
@@ -32,7 +38,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                        graphic.writeIntro();
+                      graphic.writeIntro();
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
