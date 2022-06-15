@@ -19,6 +19,7 @@ public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic= new MapGraphic();
     @Override
     public void init() throws Exception {
+
         /**
          * command
          */
@@ -277,7 +278,7 @@ public class TheHuntressGame extends GameDescription {
             }else if(p.getCommand().getType()==CommandType.MAPPA){
                 mapGraphic.createMap();
             }else if(p.getCommand().getType()==CommandType.GUARDA){ //si riferisce al guarda dentro alla stanza (look)
-                getCurrentRoom().getLook(db);
+               getCurrentRoom().getLook(db);
             }else if (p.getCommand().getType()==CommandType.COMANDI){
               try{
                   Eventi.readCommands();

@@ -35,8 +35,8 @@ public class AdvObject {
     private boolean scalable= false;  //scalabile, serve per il collolungo
     private boolean inspect=false; //ispeziona, per le macchine
     private boolean inspectable=false;
-    
- 
+
+
     public AdvObject ( int id ){
         this.id = id;
     }
@@ -74,7 +74,7 @@ public class AdvObject {
         return open;
     }
     public void setopen(boolean open){
-      this.open= open;   
+      this.open= open;
     }
 
    public void setopenable(boolean openable) {
@@ -98,7 +98,7 @@ public class AdvObject {
     public boolean isUse() {
         return use;
     }
-    
+
 
     public void setUse(boolean use) {
         this.use = use;
@@ -118,7 +118,7 @@ public class AdvObject {
     public boolean isInspectable() {
         return inspectable;
     }
-    
+
     public void setInspectable(boolean inspectable){
         this.inspectable=inspectable;
     }
@@ -130,12 +130,12 @@ public class AdvObject {
     public void setAlias(Set<String> alias) {
         this.alias = alias;
     }
-   // public void setVisible();
+    //public void setVisible();
 
     public void setAlias(String[] alias) {
         this.alias = new HashSet<>(Arrays.asList(alias));
     }
- 
+
 
 
     @Override

@@ -21,7 +21,7 @@ public abstract class GameDescription{
 
     private Room currentRoom;
 
-    private int startingRoomId;
+    //private int startingRoomId;
 
     public List<Room> getRooms() {
         return rooms;
@@ -50,7 +50,7 @@ public abstract class GameDescription{
 
 
 
-    public int getStartingRoomId() {
+    /*public int getStartingRoomId() {
         return startingRoomId;
     }
 
@@ -58,7 +58,7 @@ public abstract class GameDescription{
         this.startingRoomId = startingRoomId;
     }
 
-    /*public void printAdjRooms() {
+     public void printAdjRooms() {
         System.out.println("\nLuoghi adiacenti: ");
         if(getCurrentRoom().getNorth()!= null) {
             System.out.println("NORD: "+getCurrentRoom().getNorth().getName());
