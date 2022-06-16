@@ -30,7 +30,7 @@ public class Grafica {
                 + " +--------------------------------------+ \n"
                 + " |    Comandi                           | \n"
                 + " +--------------------------------------+ \n"
-                + " |    Esci                              | \n"
+                + " |    Esci Partita                      | \n"
                 + " +--------------------------------------+ \n"
         );
         System.out.println("Scrivi un opzione:   \n");
@@ -42,8 +42,9 @@ public class Grafica {
         System.out.println("Pianeta terra del XXXI secolo d.C \n"
 
                 + "In un lussureggiante e vibrante mondo post-apocalittico, gruppi di umani vivono \n"
-                + "all'interno di tribu' primitive di cacciatori. "
-                + "Il loro dominio sulla natura e' stato usurpato dalle Macchine, temibili creature meccaniche dall'origine ignota.\n"
+                + "all'interno di tribu' primitive di cacciatori.\n "
+                + "Il loro dominio sulla natura e' stato usurpato dalle Macchine,\n"
+                +"temibili creature meccaniche dall'origine ignota.\n"
                 + "che sono guidate dal temibile soldato di nome Vanasha \n"
                 + "All'interno delle tribu, Victoria, una giovane ragazza dal carattere ribllere, \n"
                 + "avra' il compito di liberare l'intera umanità dal dominio delle macchine \n"

@@ -17,12 +17,9 @@ public class TheHuntressGame extends GameDescription {
     public static final String PATROOM3="file//roomValleyOfDeath.txt";
     public static final String PATROOM4="file//roomTend.txt";
     public MapGraphic mapGraphic= new MapGraphic();
+
     @Override
     public void init() throws Exception {
-
-        /**
-         * command
-         */
 
          //Comandi per l'interazione tra le rooms
 
@@ -65,8 +62,8 @@ public class TheHuntressGame extends GameDescription {
         mapCommand.setAlias(new String[]{"mappa","map"});
         getCommands().add(mapCommand);
 
-        Command end = new Command(CommandType.ESCI, "Esci");
-        end.setAlias(new String[]{"fine", "esci", "ESCI"});
+        Command end = new Command(CommandType.ESCI, "esci");
+        end.setAlias(new String[]{"fine", "FINE","fine partita","FINE PARTITA","f","F","ESCI","Esci"});
         getCommands().add(end);
 
         Command look = new Command(CommandType.GUARDA, "guarda");
@@ -119,7 +116,7 @@ public class TheHuntressGame extends GameDescription {
             roomTrainingCamp.setDialog(PATROOM2);
             roomTrainingCamp.setNorthInTheRoom(new String[] {"Da li si va verso la valle dei caduti","la valle dei caduti è da quella parte"});
             roomTrainingCamp.setSouthInTheRoom(new String[] {"Da li si si ritorna in giardino","Il giardino è da quella parte"});
-            roomTrainingCamp.setEastInTheRoom(new String[] {"La mandria di biomacchhine è ancora lì...saranno stanche?","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
+            roomTrainingCamp.setEastInTheRoom(new String[] {"C'è una mandria di biomacchine da quella parte. Facciamo attenzione ","Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
             roomTrainingCamp.setWestInTheRoom(new String[] {"Non c'è nulla","Non c'è nulla per te"});
 
             Room roomValleyOfDeath=new Room(3);
@@ -147,8 +144,8 @@ public class TheHuntressGame extends GameDescription {
 
             //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
 
-        /**
-         * Definizione oggetti AdvObject.
+        /*
+          Definizione oggetti AdvObject.
          */
         AdvObject focus = new AdvObject(1);
         focus.setAlias(new String[] {"focus","foc"});
@@ -166,8 +163,8 @@ public class TheHuntressGame extends GameDescription {
         AdvObject map= new AdvObject(5);
         map.setAlias(new String[] {"mappa","map","m"});
 
-        /**
-         * Definizione oggetti AdvObjectContainer.
+        /*
+          Definizione oggetti AdvObjectContainer.
          */
 
         AdvObjectContainer corsiero= new AdvObjectContainer(1);
@@ -193,8 +190,8 @@ public class TheHuntressGame extends GameDescription {
         giftBox.setopenable(true);
         giftBox.add(focus);
 
-        /**
-         * Assegnazione degli oggetti alle rispettive stanze.
+        /*
+          Assegnazione degli oggetti alle rispettive stanze.
          */
         roomGarden.getObjects().add(giftBox);
         roomGarden.getObjects().add(arco);
@@ -203,8 +200,8 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.getObjects().add(collolungo);
         //manca avistempesta e da sistemare le rooms
 
-        /**
-         * Mappa.
+        /*
+          Mappa.
          */
 
         roomGarden.setNorth(roomTrainingCamp);
@@ -227,12 +224,15 @@ public class TheHuntressGame extends GameDescription {
         getRooms().add(roomTend);
         getRooms().add(roomCollolungo);
 
-        /**
-         * settaggio stanza iniziale
+        /*
+          settaggio stanza iniziale
          */
         setCurrentRoom(roomGarden);
 
     }
+
+
+@Override
     public  void nextMove(DbClass db,ParserOutput p , PrintStream out ){
       if (p.getCommand()==null){
           out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
@@ -240,7 +240,7 @@ public class TheHuntressGame extends GameDescription {
           boolean noroom = false;
           boolean  move = false;
           if(p.getCommand().getType() == CommandType.NORD){
-            if (getCurrentRoom().getNorth()!=null){
+            if (getCurrentRoom().getNorth() != null){
                 setCurrentRoom(getCurrentRoom().getNorth());
                 move = true;
             } else{
@@ -292,9 +292,17 @@ public class TheHuntressGame extends GameDescription {
                   System.err.println("Errore");
               }
             }//else if 287
+          if (noroom) {
+              out.println("Da quella parte non si può andare c'è un muro!\nNon hai ancora acquisito i poteri per oltrepassare i muri...");
+          } else if (move) {
+              out.println(getCurrentRoom().getName(db));
+              out.println("================================================");
+              out.println(getCurrentRoom().getDescription(db));
+          }
           } //else 233
     }//nextmove
 }//classe
+
 
 /*
     @Override

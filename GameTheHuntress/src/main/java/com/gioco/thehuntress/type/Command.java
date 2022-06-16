@@ -22,7 +22,6 @@ public Command (CommandType type , String name, Set<String> alias ){
     this.alias= alias;
 
 }
-
 public  String getName(){
     return name;
 }
@@ -38,8 +37,8 @@ public void setAlias (String [] alias){
 public CommandType getType (){
     return type ;
 }
-@Override
 
+@Override
 public int hashCode() {
     int hash =3;
     hash= 97 * hash + Objects.hashCode (this.type);

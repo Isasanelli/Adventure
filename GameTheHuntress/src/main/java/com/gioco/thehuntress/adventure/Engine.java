@@ -27,6 +27,8 @@ public class Engine {
     private final GameDescription game;
     private Parser parser;
 
+    private static Engine engine;
+
     public Engine(GameDescription game) {
         this.game = game;
         try {
@@ -63,19 +65,18 @@ public class Engine {
                      case "comandi":
                         Eventi.readCommands();
                         break;
-                    case "esci":
+                    case "esci partita":
                         break;
                     default: System.out.println("Scelta non valida. Riprova");
                         break;
                 }//end of game
-        } while (!input.equals("esci"));
+        } while (!input.equals("esci partita"));
 
-        System.out.println("Il gioco e' bello quando dura poco."
-                + " PACE E AMORE "
-                + " Un saluto da :"
-                + " Chiara Margari, "
-                + " Ricciardi Raffaella e"
-                + " Sasanelli Ilenia");
+        System.out.println("""
+                Il gioco e' bello quando dura poco.
+                 PACE E AMORE\s
+                 Un saluto da : Chiara Margari,  Ricciardi Raffaella e Sasanelli Ilenia""");
+        System.exit(0);
         }
 
         public void execute(Grafica graphic){
@@ -87,9 +88,20 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(),db);
-                if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
-                    System.out.println("Addio!");
+                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(), db);
+
+           if (p == null || p.getCommand() == null) {
+                    System.out.println("Non capisco quello che mi vuoi dire.");
+
+            }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
+                    System.out.println("Fine partita");
+
+                    //ritorno del menù principale una volta che l'utente esce dalla partita
+                    try {
+                        engine.start();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 } else {
                     game.nextMove(db,p, System.out);
@@ -99,7 +111,7 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-        Engine engine= new Engine(new TheHuntressGame());
+        engine= new Engine(new TheHuntressGame());
         engine.start();
         //new TicTacGame().computer_play();
         //new MapGraphic();
