@@ -90,7 +90,7 @@ public class Engine {
                 String command = scanner.nextLine();
                 ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(), db);
 
-           if (p == null || p.getCommand() == null) {
+           if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.");
 
             }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {

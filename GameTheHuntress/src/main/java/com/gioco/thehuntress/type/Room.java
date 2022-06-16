@@ -55,6 +55,7 @@ public class Room {
     }
 
     public String getLook(DbClass db){
+
         String look= "";
         if (getFirstTimeHere()){
             look= getInformationRoom(db,SELECTLOOK);

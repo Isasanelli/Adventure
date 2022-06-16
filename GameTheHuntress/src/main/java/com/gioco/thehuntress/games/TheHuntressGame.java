@@ -24,84 +24,84 @@ public class TheHuntressGame extends GameDescription {
         //Comandi per l'interazione tra le rooms
 
         Command northOutTheRoom = new Command(CommandType.NORD, "nord");
-        northOutTheRoom.setAlias(new String[]{"Nord", "NORD"});
+        northOutTheRoom.setAlias(new String[]{"nord"});
         getCommands().add(northOutTheRoom);
 
         Command southOutTheRoom = new Command(CommandType.SUD, "sud");
-        southOutTheRoom.setAlias(new String[]{"Sud", "SUD"});
+        southOutTheRoom.setAlias(new String[]{"sud"});
         getCommands().add(southOutTheRoom);
 
         Command eastOutTheRoom = new Command(CommandType.EST, "est");
-        eastOutTheRoom.setAlias(new String[]{"Est", "EST"});
+        eastOutTheRoom.setAlias(new String[]{"est"});
         getCommands().add(eastOutTheRoom);
 
         Command westOutTheRoom = new Command(CommandType.OVEST, "ovest");
-        westOutTheRoom.setAlias(new String[]{"Ovest", "OVEST"});
+        westOutTheRoom.setAlias(new String[]{ "ovest"});
         getCommands().add(westOutTheRoom);
 
         //Comandi per l'interazione dentro la stanza
 
-        Command northInTheRoom = new Command(CommandType.N, "N");
+        Command northInTheRoom = new Command(CommandType.N, "n");
         northInTheRoom.setAlias(new String[]{"n"});
         getCommands().add(northInTheRoom);
 
-        Command southInTheRoom = new Command(CommandType.S, "S");
+        Command southInTheRoom = new Command(CommandType.S, "s");
         southInTheRoom.setAlias(new String[]{"s"});
         getCommands().add(southInTheRoom);
 
-        Command eastInTheRoom = new Command(CommandType.E, "E");
+        Command eastInTheRoom = new Command(CommandType.E, "e");
         eastInTheRoom.setAlias(new String[]{"e"});
         getCommands().add(eastInTheRoom);
 
-        Command westInTheRoom = new Command(CommandType.O, "O");
+        Command westInTheRoom = new Command(CommandType.O, "o");
         westInTheRoom.setAlias(new String[]{"o"});
         getCommands().add(westInTheRoom);
 
         //Comandi generali
-        Command mapCommand = new Command(CommandType.MAPPA, "map");
-        mapCommand.setAlias(new String[]{"mappa", "map"});
+        Command mapCommand = new Command(CommandType.MAPPA, "mappa");
+        mapCommand.setAlias(new String[]{"map"});
         getCommands().add(mapCommand);
 
         Command end = new Command(CommandType.ESCI, "esci");
-        end.setAlias(new String[]{"fine", "FINE", "fine partita", "FINE PARTITA", "f", "F", "ESCI", "Esci"});
+        end.setAlias(new String[]{"fine", "fine partita", "f","esci"});
         getCommands().add(end);
 
         Command talk = new Command(CommandType.PARLA, "parla");
-        talk.setAlias(new String[]{"PARLA", "Parla", "p", "P"});
+        talk.setAlias(new String[]{"parl", "p"});
         getCommands().add(talk);
 
 
         Command look = new Command(CommandType.GUARDA, "guarda");
-        look.setAlias(new String[]{"GUARDA", "Guarda", "vedi", "descrivi", "osserva"});
+        look.setAlias(new String[]{ "gua", "vedi", "descrivi", "osserva"});
         getCommands().add(look);
 
         Command rules = new Command(CommandType.REGOLE, "regole");
-        look.setAlias((new String[]{"REGOLE", "regole"}));
+        look.setAlias((new String[]{"re", "regole"}));
         getCommands().add(rules);
 
         Command commands = new Command(CommandType.COMANDI, "comandi");
-        commands.setAlias(new String[]{"Comandi", "COMANDI", "COM", "com"});
+        commands.setAlias(new String[]{"com"});
         getCommands().add(commands);
 
         Command inventory = new Command(CommandType.INVENTARIO, "inventario");
-        commands.setAlias(new String[]{"INVENTARIO", "Inventario", "I", "i", "inv", "INV"});
+        commands.setAlias(new String[]{"inv"});
         getCommands().add((inventory));
 
         //Comandi sugli oggetti
         Command open = new Command(CommandType.APRI, "apri");
-        open.setAlias(new String[]{"Apri", "APRI"});
+        open.setAlias(new String[]{"ap"});
         getCommands().add(open);
 
         Command use = new Command(CommandType.USA, "usa");
-        use.setAlias(new String[]{"Usa", "USA", "u"});
+        use.setAlias(new String[]{"us",  "u"});
         getCommands().add(use);
 
         Command inspects = new Command(CommandType.ISPEZIONA, "ispeziona");
-        inspects.setAlias(new String[]{"Ispeziona", "ISPEZIONA", "ISP", "isp"});
+        inspects.setAlias(new String[]{"ispe", "isp"});
         getCommands().add(inspects);
 
         Command scalable = new Command(CommandType.SCALA, "scala");
-        scalable.setAlias(new String[]{"Scala", "SCALA", "sali", "SALI", "sa", "SA"});
+        scalable.setAlias(new String[]{ "sal",  "sca"});
         getCommands().add(scalable);
 
 
