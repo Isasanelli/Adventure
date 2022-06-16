@@ -54,7 +54,6 @@ public class Parser {
                             ioinv = checkForObject(tokens.get(2), inventory, database);
                         }
                     }
-                    //AGGIUNGERE QUA L'ELSE IF PER COMANDO - PERSONAGGIO
                     if (io > -1 && ioinv > -1) {
                         return new ParserOutput(commands.get(ic), objects.get(io), inventory.get(ioinv));
                     } else if (io > -1) {

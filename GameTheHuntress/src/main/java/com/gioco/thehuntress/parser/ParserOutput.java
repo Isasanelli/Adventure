@@ -35,4 +35,12 @@ public class ParserOutput {
     public void setInvObject(AdvObject invObject){
         this.invObject=invObject;
     }
+
+    public AdvObject getObject() {
+        return object;
+    }
+
+    public void setObject(AdvObject object) {
+        this.object = object;
+    }
 }
