@@ -6,9 +6,11 @@ import com.gioco.thehuntress.eventi.Eventi;
 import com.gioco.thehuntress.eventi.MapGraphic;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Iterator;
 
 public class TheHuntressGame extends GameDescription {
 
@@ -104,6 +106,10 @@ public class TheHuntressGame extends GameDescription {
         scalable.setAlias(new String[]{ "sal",  "sca"});
         getCommands().add(scalable);
 
+        //comando per il combattimento
+        Command cripta =new Command (CommandType.CRIPTA,"cripta");
+        cripta.setAlias(new String []{"controllo","cripta"});
+         getCommands().add(cripta);
 
         /*Command pickup = new Command(CommandType.PRENDI, "raccogli");
         pickup.setAlias(new String[]{"prendi", "r", "R"});
@@ -237,9 +243,8 @@ public class TheHuntressGame extends GameDescription {
 
     }
 
-
     @Override
-    public void nextMove(DbClass db, ParserOutput p, PrintStream out) {
+    public void nextMove(DbClass db, @NotNull ParserOutput p, PrintStream out) {
         if (p.getCommand() == null) {
             out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
         } else {
@@ -311,7 +316,7 @@ public class TheHuntressGame extends GameDescription {
                 }
                 System.out.println("===========================================================");
             } else if (p.getCommand().getType() == CommandType.APRI) {
-                /*if (p.getObject()==null &&  p.getInvObject()==null){
+                if (p.getObject()==null &&  p.getInvObject()==null){
                     System.out.println("Non c'e' nulla da aprire qui ");
                 }else{
                     if (p.getObject()!=null){
@@ -329,28 +334,55 @@ public class TheHuntressGame extends GameDescription {
                                         it.remove();
                                     }
                                     out.println();
-                                    }
+                                }
                             }else {
                                 out.println("Hai aperto :"+ p.getObject().getName (db));
                                 p.getObject().setopen (true);
                             }
 
+                        }else{
+                            out.println("non puoi aprire questo oggetto ");
                         }
+                        if (p.getInvObject()!=null) {
+                            if (p.getInvObject().isOpenable() && !p.getInvObject().isOpen() ) {
+                              if(p.getInvObject() instanceof  AdvObjectContainer) {
+                                  AdvObjectContainer c =(AdvObjectContainer) p.getInvObject();
+                                  if (!c.getList().isEmpty()){
+                                      out.print(c.getName(db)+ "contiene:");
+                                    Iterator <AdvObject> it= c.getList().iterator();
+                                    while(it.hasNext()){
+                                        AdvObject  next= it.next();
+                                        getInventory().add(next);
+                                        out.print(" " + next.getName(db));
+                                        it.remove();
+                                    }
+                                    out.println();
+                                }
+                            }else{
+                                p.getInvObject().setopen(true);
+                            }
+                            out.println("hai aperto nel tuo inventario :" +p.getInvObject().getName(db));
+                            }else{
+                                out.println("non puoi aprire questo oggetto");
 
-                    }
-                    if (p.getInvObject()!=null) {
-                        if (p.getInvObject().isOpenable() && !p.getInvObject().isOpen() == false) {
-
+                            }
                         }
                     }
-                    }*/
-            } else if (p.getCommand().getType() == CommandType.SCALA) {
-                /*if (p.getObject() != null) {
-                    if (p.getObject().isScalable()) {
+                }
+                }else if (p.getCommand().getType() == CommandType.SCALA) {
+                    if (p.getObject() != null) {
+                        if(p.getObject().isScalable()){
+                            p.getObject().setScalable(true);
+                            System.out.println("Sei in cima a collo lungo");
+                            System.out.println("Adesso puoi usare la cripta! \n" + "usa il comando CRIPTA per il controllo della macchina \n");
+                            //...
+                        }else{
+                            System.out.println("non posso salire su " + p.getObject().getName(db));
+                        }
+                    }else{
+                        System.out.println("Non trovo nulla qui su cui salire!");
                     }
-                }*/
-
-            } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
+                } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
                /* if (p.getObject() != null) {
                     if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
                         if (p.getObject() instanceof AdvObjectContainer) {
@@ -385,17 +417,17 @@ public class TheHuntressGame extends GameDescription {
                         }
                     }
                 }*/
+                }
+                if (noroom) {
+                    out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
+                } else if (move) {
+                    out.println(getCurrentRoom().getName(db));
+                    out.println("================================================");
+                    out.println(getCurrentRoom().getDescription(db));
+                }
             }
-            if (noroom) {
-                out.println("Da quella parte non si può andare c'è un muro!\nNon hai ancora acquisito i poteri per oltrepassare i muri...");
-            } else if (move) {
-                out.println(getCurrentRoom().getName(db));
-                out.println("================================================");
-                out.println(getCurrentRoom().getDescription(db));
-            }
-        }
-    }//nextmove
-}//class
+        }//nextmove
+    }//class
 
 
 /*
@@ -548,6 +580,10 @@ public class TheHuntressGame extends GameDescription {
 
 }
         */
+
+
+
+
 
 
 

@@ -7,6 +7,10 @@ public enum CommandType {
     N,S,E,O,NORD,SUD,EST,OVEST,
     //Comandi per gli oggetti
     APRI,USA,ISPEZIONA,SCALA,
-    
+
+    //Comandi per il combattimento
+    CRIPTA
+
+
 }
 
