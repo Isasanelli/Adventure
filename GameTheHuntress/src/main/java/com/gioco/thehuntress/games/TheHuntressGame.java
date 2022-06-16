@@ -6,7 +6,6 @@ import com.gioco.thehuntress.eventi.Eventi;
 import com.gioco.thehuntress.eventi.MapGraphic;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -240,11 +239,12 @@ public class TheHuntressGame extends GameDescription {
           settaggio stanza iniziale
          */
         setCurrentRoom(roomGarden);
+        roomGarden.setFirstTimeHere(true);
 
     }
 
     @Override
-    public void nextMove(DbClass db, @NotNull ParserOutput p, PrintStream out) {
+    public void nextMove(DbClass db,  ParserOutput p, PrintStream out) {
         if (p.getCommand() == null) {
             out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
         } else {
@@ -421,6 +421,7 @@ public class TheHuntressGame extends GameDescription {
                 if (noroom) {
                     out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
                 } else if (move) {
+                    getCurrentRoom().setFirstTimeHere(true);
                     out.println(getCurrentRoom().getName(db));
                     out.println("================================================");
                     out.println(getCurrentRoom().getDescription(db));
