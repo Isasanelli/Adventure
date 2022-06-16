@@ -284,7 +284,7 @@ public class TheHuntressGame extends GameDescription {
             } else if (p.getCommand().getType() == CommandType.MAPPA) {
                 mapGraphic.createMap();
             } else if (p.getCommand().getType() == CommandType.GUARDA) { //si riferisce al guarda dentro alla stanza (look)
-                getCurrentRoom().getLook(db);
+                System.out.println(getCurrentRoom().getLook(db));
             } else if (p.getCommand().getType() == CommandType.COMANDI) {
                 try {
                     Eventi.readCommands();
