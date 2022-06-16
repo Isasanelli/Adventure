@@ -36,6 +36,9 @@ public class AdvObject {
     private boolean inspect=false; //ispeziona, per le macchine
     private boolean inspectable=false;
 
+    private boolean cripta=false;
+    private boolean criptable=false;
+
 
     public AdvObject ( int id ){
         this.id = id;
@@ -122,6 +125,12 @@ public class AdvObject {
     public void setInspectable(boolean inspectable){
         this.inspectable=inspectable;
     }
+
+    public boolean isCripta(){ return cripta;}
+    public void setCripta(Boolean cripta){ this.cripta=cripta; }
+
+    public boolean isCriptable(){ return criptable;}
+    public void setCriptable(Boolean criptable) { this.criptable=criptable; }
 
     public Set<String> getAlias() {
         return alias;

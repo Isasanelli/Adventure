@@ -17,7 +17,7 @@ public class Room {
 
     public static final String SELECTLOOK="SELECT look FROM rooms WHERE id=?";
     private boolean visible = true;
-    private boolean firstTimeHere= false; //variabile che avrà valore vero se l'utente deve accedere la stanza per la prima volta, valore falso altrimenti
+    private boolean firstTimeHere= true; //variabile che avrà valore vero se l'utente deve accedere la stanza per la prima volta, valore falso altrimenti
     private Room south= null;
     private Room north=null;
     private Room east= null;

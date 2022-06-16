@@ -176,6 +176,7 @@ public class TheHuntressGame extends GameDescription {
         AdvObject map = new AdvObject(5);
         map.setAlias(new String[]{"mappa", "map", "m"});
 
+
         /*
           Definizione oggetti AdvObjectContainer.
          */
@@ -184,17 +185,20 @@ public class TheHuntressGame extends GameDescription {
         corsiero.setAlias(new String[]{"corsiero", "cors"});
         corsiero.setInspectable(true);
         corsiero.add(batteria);
+        corsiero.setCriptable(true);
 
         AdvObjectContainer collolungo = new AdvObjectContainer(2);
         collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo"});
         collolungo.setInspectable(true);
         collolungo.setScalable(true);
         collolungo.add(map);
+        collolungo.setCriptable(true);
 
         AdvObjectContainer avistempesta = new AdvObjectContainer(3);
         avistempesta.setAlias(new String[]{"avistempesta", "avi"});
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
+        avistempesta.setCriptable(true);
 
         AdvObjectContainer giftBox = new AdvObjectContainer(4);
         giftBox.setAlias(new String[]{"pacco regalo", "pacco", "regalo"});
@@ -372,9 +376,8 @@ public class TheHuntressGame extends GameDescription {
                 }else if (p.getCommand().getType() == CommandType.SCALA) {
                     if (p.getObject() != null) {
                         if(p.getObject().isScalable()){
-                            p.getObject().setScalable(true);
                             System.out.println("Sei in cima a collo lungo");
-                            System.out.println("Adesso puoi usare la cripta! \n" + "usa il comando CRIPTA per il controllo della macchina \n");
+                            System.out.println("Adesso puoi usare la cripta! \n" + "usa il comando CRIPTA + <nome della macchina> per prenderne il controllo \n");
                             //...
                         }else{
                             System.out.println("non posso salire su " + p.getObject().getName(db));
@@ -417,11 +420,21 @@ public class TheHuntressGame extends GameDescription {
                         }
                     }
                 }*/
-                }
+                }else if(p.getCommand().getType() == CommandType.CRIPTA) {
+                    if (p.getObject() != null) {
+                        if (p.getObject().isCriptable() == true && p.getObject().isCripta() == false) {
+                            p.getObject().setCripta(true);
+                            System.out.println("Ben fatto! Ora hai il controllo della macchina. Ora Ispeziona la macchina");
+                        } else if(p.getObject().isCriptable() == true && p.getObject().isCripta() == true){
+                            System.out.println("Hai già il controllo di questa macchina");
+                        }
+                    }else{
+                        System.out.println("Non è possibile utilizzare la cripta su quest'oggetto");
+                    }
+                 }
                 if (noroom) {
                     out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
                 } else if (move) {
-                    getCurrentRoom().setFirstTimeHere(true);
                     out.println(getCurrentRoom().getName(db));
                     out.println("================================================");
                     out.println(getCurrentRoom().getDescription(db));
