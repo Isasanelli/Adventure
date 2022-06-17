@@ -100,6 +100,11 @@ public class Engine {
 
                     //ritorno del menù principale una volta che l'utente esce dalla partita
                     try {
+                        try {
+                            this.game.init();
+                        } catch (Exception ex) {
+                            System.err.println(ex);
+                        }
                         engine.start();
                     } catch (IOException e) {
                         e.printStackTrace();
