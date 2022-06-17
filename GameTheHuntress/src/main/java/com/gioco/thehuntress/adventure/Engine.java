@@ -92,10 +92,10 @@ public class Engine {
                 String command = scanner.nextLine();
                 ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(), db);
 
-           if (p.getCommand() == null ) {
+                if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.");
 
-            }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
+                }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
                     System.out.println("Fine partita");
 
                     //ritorno del menù principale una volta che l'utente esce dalla partita
@@ -105,7 +105,7 @@ public class Engine {
                         e.printStackTrace();
                     }
                     break;
-                } else {
+                 } else {
                     game.nextMove(db,p, System.out);
                     System.out.println();
                 }

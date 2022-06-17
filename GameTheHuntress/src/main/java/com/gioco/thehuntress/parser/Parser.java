@@ -52,7 +52,6 @@ public class Parser {
             int ic = checkForCommand(tokens.get(0), commands);//ic è la posizione nella lista commands in cui si trova effettivamente il comando inserito
             if (ic > -1) {  //se il comando si trova il lista:
                 if (tokens.size() > 1) { //se la lista contiene più di un elemento (quindi l'oggetto oltre al comando):
-                    /*QUA FARE UN CONTROLLO SE E' UN OGGETTO DELLA CLASSE ADVOBJECT O CLASSE PERSONAGGIO, E SE è OGGETTO PROSEGUIRE ALTRIMENTI SCRIVERE IN ELSE */
                     int io = checkForObject(tokens.get(1), objects, database); //io è la posizione nella lista objects in cui si trova effettivamente l'oggetto inserito
                     int ioinv = -1;
                     if (io < 0 && tokens.size() > 2) {

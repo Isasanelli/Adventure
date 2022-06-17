@@ -468,7 +468,7 @@ public class TheHuntressGame extends GameDescription {
                 }
             }
         }//nextmove
-    }//class
+}//class
 
 
 /*
