@@ -252,9 +252,6 @@ public class TheHuntressGame extends GameDescription {
 
     @Override
     public void nextMove(DbClass db,  ParserOutput p, PrintStream out) {
-        if (p.getCommand() == null) {
-            out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
-        } else {
             boolean noroom = false;
             boolean move = false;
             if (p.getCommand().getType() == CommandType.NORD) {
@@ -466,9 +463,9 @@ public class TheHuntressGame extends GameDescription {
                     System.out.println("======================================================================");
                     System.out.println(getCurrentRoom().getDescription(db));
                 }
-            }
-        }//nextmove
+    }//nextmove
 }//class
+
 
 
 /*
