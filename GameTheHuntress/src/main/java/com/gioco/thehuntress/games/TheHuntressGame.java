@@ -160,8 +160,8 @@ public class TheHuntressGame extends GameDescription {
         /*
           Definizione oggetti AdvObject.
          */
-        AdvObject focus = new AdvObject(1);
-        focus.setAlias(new String[]{"focus", "foc"});
+        AdvObject focusObject = new AdvObject(1);
+        focusObject.setAlias(new String[]{"focus", "foc"});
 
         AdvObject batteria = new AdvObject(2);
         batteria.setAlias(new String[]{"batteria", "batt", "vampa"});
@@ -186,6 +186,7 @@ public class TheHuntressGame extends GameDescription {
         corsiero.setInspectable(true);
         corsiero.add(batteria);
         corsiero.setCriptable(true);
+        corsiero.setFocus(true);
 
         AdvObjectContainer collolungo = new AdvObjectContainer(2);
         collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo"});
@@ -193,17 +194,19 @@ public class TheHuntressGame extends GameDescription {
         collolungo.setScalable(true);
         collolungo.add(map);
         collolungo.setCriptable(true);
+        collolungo.setFocus(true);
 
         AdvObjectContainer avistempesta = new AdvObjectContainer(3);
         avistempesta.setAlias(new String[]{"avistempesta", "avi"});
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
         avistempesta.setCriptable(true);
+        avistempesta.setCriptable(true);
 
         AdvObjectContainer giftBox = new AdvObjectContainer(4);
         giftBox.setAlias(new String[]{"pacco regalo", "pacco", "regalo"});
         giftBox.setopenable(true);
-        giftBox.add(focus);
+        giftBox.add(focusObject);
 
         /*
           Assegnazione degli oggetti alle rispettive stanze.
@@ -424,14 +427,24 @@ public class TheHuntressGame extends GameDescription {
                     if (p.getObject() != null) {
                         if (p.getObject().isCriptable() == true && p.getObject().isCripta() == false) {
                             p.getObject().setCripta(true);
-                            System.out.println("Ben fatto! Ora hai il controllo della macchina. Ora Ispeziona la macchina");
+                            System.out.println("Ben fatto! Ora utilizzando la cripta hai controllo delle macchina. Ora Ispeziona la macchina");
                         } else if(p.getObject().isCriptable() == true && p.getObject().isCripta() == true){
                             System.out.println("Hai già il controllo di questa macchina");
                         }
                     }else{
-                        System.out.println("Non è possibile utilizzare la cripta su quest'oggetto");
+                        System.out.println("Non è possibile utilizzare la cripta qui");
                     }
-                 }
+                 }else if(p.getCommand().getType() == CommandType.FOCUS){
+                    if(p.getObject() != null){
+                        if(p.getObject().isFocus() == true){
+                           System.out.println(p.getObject().getName(db) + " : " + p.getObject().getDescription(db));
+                        }else{
+                            System.out.println("Non è possibile applicare il focus qui");
+                        }
+                    }else{
+                        System.out.println("Il focus può essere applicato solo sulle macchine!\n" + " Specifica la macchina col comando 'focus <nome macchina>'!");
+                    }
+                }
                 if (noroom) {
                     out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
                 } else if (move) {

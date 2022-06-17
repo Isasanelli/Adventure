@@ -35,6 +35,7 @@ public class AdvObject {
     private boolean scalable= false;  //scalabile, serve per il collolungo
     private boolean inspect=false; //ispeziona, per le macchine
     private boolean inspectable=false;
+    private boolean focus=false;
 
     private boolean cripta=false;
     private boolean criptable=false;
@@ -131,6 +132,9 @@ public class AdvObject {
 
     public boolean isCriptable(){ return criptable;}
     public void setCriptable(Boolean criptable) { this.criptable=criptable; }
+
+    public boolean isFocus(){ return focus;}
+    public void setFocus(Boolean fucus) { this.focus=focus; }
 
     public Set<String> getAlias() {
         return alias;
