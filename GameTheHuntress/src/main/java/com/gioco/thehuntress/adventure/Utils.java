@@ -23,7 +23,7 @@ public class Utils {
         //restituisce una lista composta da comando oggetto senza stopwords
     public static List<String> parseString(String string, Set<String> stopwords) { //string= stringa composta da comando-stopword-oggetto.Classe
         List<String> tokens = new ArrayList<>();
-        String[] split = string.toLowerCase().split("\\s+");
+        String[] split = string.toLowerCase().trim().split("\\s+");
         for (String t : split) {
             if (!stopwords.contains(t)) {
                 tokens.add(t);

@@ -160,8 +160,8 @@ public class TheHuntressGame extends GameDescription {
         /*
           Definizione oggetti AdvObject.
          */
-        AdvObject focus = new AdvObject(1);
-        focus.setAlias(new String[]{"focus", "foc"});
+        AdvObject focusObject = new AdvObject(1);
+        focusObject.setAlias(new String[]{"focus", "foc"});
 
         AdvObject batteria = new AdvObject(2);
         batteria.setAlias(new String[]{"batteria", "batt", "vampa"});
@@ -186,6 +186,7 @@ public class TheHuntressGame extends GameDescription {
         corsiero.setInspectable(true);
         corsiero.add(batteria);
         corsiero.setCriptable(true);
+        corsiero.setFocus(true);
 
         AdvObjectContainer collolungo = new AdvObjectContainer(2);
         collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo"});
@@ -193,17 +194,19 @@ public class TheHuntressGame extends GameDescription {
         collolungo.setScalable(true);
         collolungo.add(map);
         collolungo.setCriptable(true);
+        collolungo.setFocus(true);
 
         AdvObjectContainer avistempesta = new AdvObjectContainer(3);
         avistempesta.setAlias(new String[]{"avistempesta", "avi"});
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
         avistempesta.setCriptable(true);
+        avistempesta.setCriptable(true);
 
         AdvObjectContainer giftBox = new AdvObjectContainer(4);
         giftBox.setAlias(new String[]{"pacco regalo", "pacco", "regalo"});
         giftBox.setopenable(true);
-        giftBox.add(focus);
+        giftBox.add(focusObject);
 
         /*
           Assegnazione degli oggetti alle rispettive stanze.
@@ -249,9 +252,6 @@ public class TheHuntressGame extends GameDescription {
 
     @Override
     public void nextMove(DbClass db,  ParserOutput p, PrintStream out) {
-        if (p.getCommand() == null) {
-            out.println("Non ho capito cosa devo fare ! Prova con un altro comando ");
-        } else {
             boolean noroom = false;
             boolean move = false;
             if (p.getCommand().getType() == CommandType.NORD) {
@@ -386,7 +386,7 @@ public class TheHuntressGame extends GameDescription {
                         System.out.println("Non trovo nulla qui su cui salire!");
                     }
                 } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
-               /* if (p.getObject() != null) {
+                   if (p.getObject() != null) {
                     if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
                         if (p.getObject() instanceof AdvObjectContainer) {
                             System.out.println("Hai ispezionato la macchina, hai trovato: " + p.getObject().getName(db));
@@ -403,45 +403,69 @@ public class TheHuntressGame extends GameDescription {
                                 System.out.println();
                             }
                         } else {
-                            System.out.println("Hai aperto: " + p.getObject().getName(db));
+                            System.out.println("Hai ispezionato: " + p.getObject().getName(db));
                             p.getObject().setInspect(true);
                         }
+                    }else{
+                        System.out.println("Non puoi ispezionare quest'oggetto");
                     }
                 }
                 if (p.getInvObject() != null) {
-                    if (p.getInvObject().isInspectable() && p.getInvObject().isInspect() == false) {
+                    if (p.getInvObject().isInspectable() && !p.getInvObject().isInspect()) {
                         if (p.getInvObject() instanceof AdvObjectContainer) {
                             AdvObjectContainer advObjectContainer = (AdvObjectContainer) p.getInvObject();
                             if (!advObjectContainer.getList().isEmpty()) {
                                 System.out.println(advObjectContainer.getName(db) + "contiene: ");
                                 Iterator<AdvObject> iterator = advObjectContainer.getList().iterator();
-                                while (iterator.hasNext())
+                                while (iterator.hasNext()){
+                                    AdvObject next =iterator.next();
+                                    getInventory().add(next);
+                                    System.out.println(" " + next.getName(db));
+                                    iterator.remove();
+                                }
+                                System.out.println();
                             }
+                        }else{
+                            p.getInvObject().setopen(true);
                         }
+                        System.out.println("Hai aperto nel tuo inventario: " + p.getInvObject().getName(db));
+                    }else{
+                        System.out.println("Non puoi ispezionare questo oggetto");
                     }
-                }*/
+                }
                 }else if(p.getCommand().getType() == CommandType.CRIPTA) {
                     if (p.getObject() != null) {
-                        if (p.getObject().isCriptable() == true && p.getObject().isCripta() == false) {
+                        if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
                             p.getObject().setCripta(true);
-                            System.out.println("Ben fatto! Ora hai il controllo della macchina. Ora Ispeziona la macchina");
+                            System.out.println("Ben fatto! Ora utilizzando la cripta hai controllo delle macchina. Ora Ispeziona la macchina");
                         } else if(p.getObject().isCriptable() == true && p.getObject().isCripta() == true){
                             System.out.println("Hai già il controllo di questa macchina");
                         }
                     }else{
-                        System.out.println("Non è possibile utilizzare la cripta su quest'oggetto");
+                        System.out.println("Non è possibile utilizzare la cripta qui");
                     }
-                 }
-                if (noroom) {
-                    out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
-                } else if (move) {
-                    out.println(getCurrentRoom().getName(db));
-                    out.println("================================================");
-                    out.println(getCurrentRoom().getDescription(db));
+                 }else if(p.getCommand().getType() == CommandType.FOCUS){
+                    if(p.getObject() != null){
+                        if(p.getObject().isFocus() == true){
+                           System.out.println(p.getObject().getName(db) + " : " + p.getObject().getDescription(db));
+                        }else{
+                            System.out.println("Non è possibile applicare il focus qui");
+                        }
+                    }else{
+                        System.out.println("Il focus può essere applicato solo sulle macchine!\n" + " Specifica la macchina col comando 'focus <nome macchina>'!");
+                    }
                 }
-            }
-        }//nextmove
-    }//class
+                if (noroom) {
+                    System.out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
+                } else if (move) {
+                    System.out.println("======================================================================");
+                    System.out.println("                  " + getCurrentRoom().getName(db));
+                    System.out.println("======================================================================");
+                    System.out.println(getCurrentRoom().getDescription(db));
+                }
+    }//nextmove
+}//class
+
 
 
 /*
