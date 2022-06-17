@@ -26,11 +26,18 @@ public class AdvObject {
     public static final String SELECTDESCRIPTION ="SELECT desc FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
-    private boolean active = false;
-    private boolean pickupable = false;
+    private boolean use = false;
+    private boolean usable =false;
+    private boolean pickupable = false; //raccogli
+    private boolean  pick=false;
     private boolean open = false;
-
+    private boolean openable=false;
     private boolean scalable= false;  //scalabile, serve per il collolungo
+    private boolean inspect=false; //ispeziona, per le macchine
+    private boolean inspectable=false;
+
+    private boolean cripta=false;
+    private boolean criptable=false;
 
 
     public AdvObject ( int id ){
@@ -69,10 +76,19 @@ public class AdvObject {
     public boolean isOpen() {
         return open;
     }
+    public void setopen(boolean open){
+      this.open= open;
+    }
 
-   public void setopenable(boolean open) {
-        this.open = open;
+   public void setopenable(boolean openable) {
+        this.openable = openable;
    }
+   public boolean isOpenable(){return openable; }
+    public void setPick(boolean pick) { this.pick=pick;}
+
+    public boolean isPick() {
+        return pick;
+    }
 
     public boolean isPickupable() {
         return pickupable;
@@ -82,16 +98,39 @@ public class AdvObject {
         this.pickupable = pickupable;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isUse() {
+        return use;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 
+    public void setUse(boolean use) {
+        this.use = use;
+    }
+    public void setUsable(boolean usable){
+        this.usable=usable;
+    }
+    public boolean isUsable (){
+        return usable;
+    }
     public boolean isScalable(){ return scalable;}
     public void setScalable(boolean scalable){ this.scalable=scalable;}
+
+    public boolean isInspect(){ return inspect;}
+    public void  setInspect(boolean inspect){ this.inspect=inspect;}
+
+    public boolean isInspectable() {
+        return inspectable;
+    }
+
+    public void setInspectable(boolean inspectable){
+        this.inspectable=inspectable;
+    }
+
+    public boolean isCripta(){ return cripta;}
+    public void setCripta(Boolean cripta){ this.cripta=cripta; }
+
+    public boolean isCriptable(){ return criptable;}
+    public void setCriptable(Boolean criptable) { this.criptable=criptable; }
 
     public Set<String> getAlias() {
         return alias;
@@ -100,7 +139,7 @@ public class AdvObject {
     public void setAlias(Set<String> alias) {
         this.alias = alias;
     }
-   // public void setVisible();
+    //public void setVisible();
 
     public void setAlias(String[] alias) {
         this.alias = new HashSet<>(Arrays.asList(alias));

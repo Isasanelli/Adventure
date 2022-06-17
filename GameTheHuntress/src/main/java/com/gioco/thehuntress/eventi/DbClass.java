@@ -123,16 +123,32 @@ public class  DbClass {
          * inserimento delle stanze nella tabella rooms
          */
 
-        String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,sommersa nei tuoi pensieri.Oggi il cielo è più azzurro delle altre volte. Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti tuo padre appare alle tue spalle: E'Rost ","Sei circondata dall'erba verde del tuo giardino", "Sei nel giardino della tua famiglia, qui ci sei già stata. Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco. Forse è meglio riprendere il tuo viaggio. Questa non è più casa tua"};
+        String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme\n"
+                +" delle nuvole nel cielo,sommersa nei tuoi pensieri.Oggi il cielo e' piu' azzurro delle altre volte.\n"
+                +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
+                +" tuo padre appare alle tue spalle: E'Rost ","Sei circondata dall'erba verde del tuo giardino",
+                "Sei nel giardino della tua famiglia, qui ci sei già stata.\n"
+                +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
+                +" Forse è meglio riprendere il tuo viaggio. Questa non è più casa tua"};
         //controllo se la tupla con id=1 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2={"Campo di addestramento","Sei al campo di addestramento della tua famiglia","Solo ad est vedi una mandria di biomacchine rannicchiate accanto ad un fiume. Segui Rost",
-        "Piccoli brividi ti invadono. Vedi ancora il corsiero che hai ucciso ancora li...Non c'è nulla che ti possa interessare. Forse è meglio tornare alla missione"};
+        String[] room2={"Campo di addestramento",
+                "Sei al campo di addestramento della tua famiglia",
+                "Ad est vedi una mandria di biomacchine rannicchiate accanto ad un fiume. Segui Rost",
+        "Piccoli brividi ti invadono.\n"
+            +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
+            +"Non c'è nulla che ti possa interessare. Forse è meglio tornare alla missione"};
         //controllo se la tupla con id=2 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3={"Valle dei caduti", "Tu e rost avete appena terminato la vostra sessione di addestramento.Siete nella valle dei caduti a godervi un po di tranquillità", "Senti scorrere in lontananza un ruscello", "Piccoli brividi ti invadono al solo pensiero di questo luogo. Qui è dove è stato ucciso Rost. Sei invasa da rabbia e tristezza. Torna sui tuoi passi"};
+        String[] room3={"Valle dei caduti",
+                "Tu e rost avete appena terminato la vostra sessione di addestramento.\n"
+                +"Siete nella valle dei caduti a godervi un po di tranquillità",
+                "Senti scorrere in lontananza un ruscello",
+                "Piccoli brividi ti invadono al solo pensiero di questo luogo.\n"
+                +" Qui è dove è stato ucciso Rost. Sei invasa da rabbia e tristezza.\n "
+                +"Torna sui tuoi passi"};
         //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,3,INSERT1,room3);
 
@@ -149,23 +165,23 @@ public class  DbClass {
          * inserimento degli oggetti nella tabella advObjects
          */
 
-        String[] object1={"Focus","Sistema di calcolo e realtà aumentata indossabile, che consente di identificare importanti oggetti e macchine"};
+        String[] object1={"focus","Sistema di calcolo e realtà aumentata indossabile, che consente di identificare importanti oggetti e macchine"};
         //controllo se la tupla con id=1 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,1,INSERT2,object1);
 
-        String[] object2={"Batteria","Può essere ottenuta dal corsiero, divoratuono e avintempesta"};
+        String[] object2={"batteria","Può essere ottenuta dal corsiero, divoratuono e avintempesta"};
         //controllo se la tupla con id=2 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,2,INSERT2,object2);
 
-        String[] object3={"Arco da Caccia","Usa freccie da caccia con massima precisione"};
+        String[] object3={"arco da Caccia","Usa freccie da caccia con massima precisione"};
         //controllo se la tupla con id=3 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,3,INSERT2,object3);
 
-        String[] object4={"Lancia con Cripta","Ne consente il controllo delle macchine"};
+        String[] object4={"lancia con Cripta","Ne consente il controllo delle macchine"};
         //controllo se la tupla con id=4 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,4,INSERT2,object4);
 
-        String[] object5={"Mappa","Illustrerà il luogo del gioco"};
+        String[] object5={"mappa","Illustrerà il luogo del gioco"};
         //controllo se la tupla con id=5 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,5,INSERT2,object5);
 
@@ -174,19 +190,19 @@ public class  DbClass {
          * inserimento delle macchine all'interno della tabella machines
          */
 
-        String[] advObjectContainer1={"Corsiero","Grande quanto dei comuni animali da soma, il corpo del corsiero somiglia molto a quello dei cavalli. La testa tuttavia somiglia più a quella dei bovini, con due corna che puntano all'indietro. Nella parte posteriore della groppa è presente il serbatoio di Vampa della macchina"};
+        String[] advObjectContainer1={"corsiero","Grande quanto dei comuni animali da soma, il corpo del corsiero somiglia molto a quello dei cavalli. La testa tuttavia somiglia più a quella dei bovini, con due corna che puntano all'indietro. Nella parte posteriore della groppa è presente il serbatoio di Vampa della macchina"};
         //controllo se la tupla con id=1 esiste già nella tabella machines, e se non è così verrà inserita
         init(SELECT3,1,INSERT3, advObjectContainer1);
 
-        String[] advObjectContainer2={"Collolungo","I collilunghi sono gigantesche statue che possono essere scalate sfruttando l'ambiente circostante"};
+        String[] advObjectContainer2={"collolungo","I collilunghi sono gigantesche statue che possono essere scalate sfruttando l'ambiente circostante"};
         //controllo se la tupla con id=2 esiste già nella tabella machines, e se non è così verrà inserita
         init(SELECT3,2,INSERT3,advObjectContainer2);
 
-        String[] advObjectContainer3={"Avistempesta","Classe combattimento,solca i cieli ad alta quota e può lanciarsi in picchia contro la sua preda per colpirla con forza.Le sue enormi ali di metallo sono in grado di accumulare l'elettricità nell'aria per poi sprigionarla nelle sue prede"};
+        String[] advObjectContainer3={"avistempesta","Classe combattimento,solca i cieli ad alta quota e può lanciarsi in picchia contro la sua preda per colpirla con forza.Le sue enormi ali di metallo sono in grado di accumulare l'elettricità nell'aria per poi sprigionarla nelle sue prede"};
         //controllo se la tupla con id=3 esiste già nella tabella machines, e se non è così verrà inserita
         init(SELECT3,3,INSERT3,advObjectContainer3);
 
-        String[] advObjectContainer4={"Pacco", "Pacco regalo che conterrà il focus"};
+        String[] advObjectContainer4={"pacco", "Pacco regalo che conterrà il focus"};
         //controllo se la tupla con id=5 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,4,INSERT3,advObjectContainer4);
 
