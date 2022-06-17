@@ -81,7 +81,9 @@ public class Engine {
 
         public void execute(Grafica graphic){
             graphic.writeIntro();
-            System.out.println(game.getCurrentRoom().getName(db));
+            System.out.println("======================================================================");
+            System.out.println("                          "+ game.getCurrentRoom().getName(db));
+            System.out.println("======================================================================");
             System.out.println();
             System.out.println(game.getCurrentRoom().getDescription(db));
             System.out.println();
