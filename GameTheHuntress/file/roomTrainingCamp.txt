@@ -9,7 +9,10 @@ VICTORIA: Papa', queste macchine sono pericolose? Non ne ho mai affrontata una..
 ROST: Tutte le macchine sono pericolose. Bisogna rispettare il loro potere. Ma io ti staro' vicino, tranquilla.
 	Guarda li, quelle macchine sono i CORSIERI. Dovrai imparare a eludere il loro sguardo, se vorrai sopravvivere nella natura. 
       Puoi "usare il focus" per avere più informazioni e "usare l'arco" per colpire il suo serbatoio. Una volta finito protremmo avvicinarci e "ispezionare" la macchina.
-	Questo è quello che devi fare, adesso tocca a te, provaci!
+	Questo è quello che devi fare, adesso tocca a te, provaci! #
+
+Inserisci un nuovo comando: 
+
 
 
 

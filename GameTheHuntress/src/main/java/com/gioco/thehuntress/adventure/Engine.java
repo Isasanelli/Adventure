@@ -52,6 +52,7 @@ public class Engine {
         
 
         do {
+             System.out.print("\nScrivi un opzione:  ");
                 input = io.nextLine();
                 input=input.toLowerCase();
 
@@ -67,7 +68,7 @@ public class Engine {
                         break;
                     case "esci partita":
                         break;
-                    default: System.out.println("Scelta non valida. Riprova");
+                    default: System.out.println("Scelta non valida\n"+" Riprova!!");
                         break;
                 }//end of game
         } while (!input.equals("esci partita"));
@@ -87,13 +88,14 @@ public class Engine {
             System.out.println();
             System.out.println(game.getCurrentRoom().getDescription(db));
             System.out.println();
+            System.out.print("Cosa vuoi fare? \n");
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
                 ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(), db);
 
                 if (p.getCommand() == null ) {
-                    System.out.println("Non capisco quello che mi vuoi dire.");
+                    System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");
 
                 }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
                     System.out.println("Fine partita");
@@ -113,6 +115,7 @@ public class Engine {
                  } else {
                     game.nextMove(db,p, System.out);
                     System.out.println();
+                    System.out.print("Cosa vuoi fare?\n");
                 }
             }
         }

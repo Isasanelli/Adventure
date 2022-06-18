@@ -33,7 +33,7 @@ public class Grafica {
                 + " |    Esci Partita                      | \n"
                 + " +--------------------------------------+ \n"
         );
-        System.out.println("Scrivi un opzione:   \n");
+
 
     }
 
