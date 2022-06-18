@@ -9,4 +9,7 @@
  Comunque "prendi" questo pacco come regalo. 
  Qui troverai gli stumenti necessari per ciò che ti aspetterà a valle.
 |VICTORIA: cosa c'è a valle? 
-|ROST: seguimi e lo scoprirai.
+|ROST: seguimi e lo scoprirai #
+
+Inserisci un nuovo comando: 
+
