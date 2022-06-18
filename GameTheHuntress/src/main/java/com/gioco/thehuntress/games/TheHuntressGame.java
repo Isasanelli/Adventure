@@ -202,7 +202,7 @@ public class TheHuntressGame extends GameDescription {
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
         avistempesta.setCriptable(true);
-        avistempesta.setCriptable(true);
+        avistempesta.setFocus(true);
 
         AdvObjectContainer giftBox = new AdvObjectContainer(9);
         giftBox.setAlias(new String[]{"pacco regalo", "pacco", "regalo"});
@@ -332,6 +332,7 @@ public class TheHuntressGame extends GameDescription {
             } else {
                 if (p.getObject() != null) {
                     if (p.getObject().isOpenable() && !p.getObject().isOpen()) {
+                        p.getObject().setopen(true);
                         if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto pacco è un oggetto contenitore allora
                             System.out.println("HAI APERTO: " + p.getObject().getName(db));
                             AdvObjectContainer c = (AdvObjectContainer) p.getObject();
@@ -343,6 +344,7 @@ public class TheHuntressGame extends GameDescription {
                                         AdvObject next = it.next(); //assegna il prossimo elemento
                                         inventario.add(next);//focus aggiunto all'inventario
                                         System.out.println("***" + next.getName(db) + "***");
+                                        System.out.println("***Congratulazioni! Nuovo oggetto aggiunto nell'inventario***");
                                     } catch (NoSuchElementException ex) {
                                         System.out.println("Errore");
                                     }
@@ -355,6 +357,10 @@ public class TheHuntressGame extends GameDescription {
                         } else {
                             out.println("non puoi aprire questo oggetto ");
                         }
+                    }else if(p.getObject().isOpenable() && p.getObject().isOpen()){
+                        System.out.println(p.getObject().getName(db) + " è già stato aperto!");
+                    }else if(!p.getObject().isOpenable()){
+                        System.out.println(p.getObject().getName(db) + " non è apribile!");
                     }
                 }
             }
@@ -371,53 +377,43 @@ public class TheHuntressGame extends GameDescription {
                         System.out.println("Non trovo nulla qui su cui salire!");
                     }
         } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
-                    if (p.getObject() != null) {
-                        if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
-                            if (p.getObject() instanceof AdvObjectContainer) {
-                                System.out.println("Hai ispezionato la macchina, hai trovato: " + p.getObject().getName(db));
-                                AdvObjectContainer advObjectContainer = (AdvObjectContainer) p.getObject();
-                                if (!advObjectContainer.getList().isEmpty()) {
-                                    System.out.println(advObjectContainer.getName(db) + "contiene: \n");
-                                    Iterator<AdvObject> iterator = advObjectContainer.getList().iterator();
-                                    while (iterator.hasNext()) {
-                                        AdvObject next = iterator.next();
-                                        getCurrentRoom().getObjects().add(next);
-                                        System.out.println(" " + next.getName(db));
-                                        iterator.remove();
+            if (p.getObject() == null && p.getInvObject() == null) {
+                System.out.println("Non c'e' nulla da ispezionare qui ");
+            } else {
+                if (p.getObject() != null) {
+                    if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
+                        if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto macchina è un oggetto contenitore allora
+                            p.getObject().setInspect(true);
+                            System.out.println("HAI ISPEZIONATO:  " + p.getObject().getName(db));
+                            AdvObjectContainer c = (AdvObjectContainer) p.getObject();
+                            if (!c.getList().isEmpty()) {//controlla che la macchina non è vuoto dentro
+                                System.out.println( p.getObject().getName(db) + "  contiene: \n");
+                                Iterator<AdvObject> it = c.getList().iterator();
+                                while (it.hasNext()) {//finchè la lista degli oggetti contenuti nella macchina non termina
+                                    try {
+                                        AdvObject next = it.next(); //assegna il prossimo elemento
+                                        inventario.add(next);//oggetto  aggiunto all'inventario
+                                        System.out.println("***" + next.getName(db) + "***");
+                                        System.out.println("***Congratulazioni! Nuovo oggetto aggiunto nell'inventario***");
+                                    } catch (NoSuchElementException ex) {
+                                        System.out.println("Errore");
                                     }
-                                    System.out.println();
+                                    it.remove();
                                 }
+                                System.out.println();
                             } else {
-                                System.out.println("Hai ispezionato: " + p.getObject().getName(db));
-                                p.getObject().setInspect(true);
+                                System.out.println("La macchina è vuota");
                             }
                         } else {
-                            System.out.println("Non puoi ispezionare quest'oggetto");
+                            System.out.println("Non c'è niente da ispezionare");
                         }
+                    }else if(p.getObject().isInspectable() && p.getObject().isInspect()){
+                        System.out.println(p.getObject().getName(db) + " è già stato ispezionato!");
+                    } else if (!p.getObject().isInspectable()) {
+                        System.out.println(p.getObject().getName(db) + " non è ispezionabile!");
                     }
-                    if (p.getInvObject() != null) {
-                        if (p.getInvObject().isInspectable() && !p.getInvObject().isInspect()) {
-                            if (p.getInvObject() instanceof AdvObjectContainer) {
-                                AdvObjectContainer advObjectContainer = (AdvObjectContainer) p.getInvObject();
-                                if (!advObjectContainer.getList().isEmpty()) {
-                                    System.out.println(advObjectContainer.getName(db) + "contiene: ");
-                                    Iterator<AdvObject> iterator = advObjectContainer.getList().iterator();
-                                    while (iterator.hasNext()) {
-                                        AdvObject next = iterator.next();
-                                        getInventory().add(next);
-                                        System.out.println(" " + next.getName(db));
-                                        iterator.remove();
-                                    }
-                                    System.out.println();
-                                }
-                            } else {
-                                p.getInvObject().setopen(true);
-                            }
-                            System.out.println("Hai aperto nel tuo inventario: " + p.getInvObject().getName(db));
-                        } else {
-                            System.out.println("Non puoi ispezionare questo oggetto");
-                        }
-                    }
+                }
+            }
         } else if (p.getCommand().getType() == CommandType.CRIPTA) {
                     if (p.getObject() != null) {
                         if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
