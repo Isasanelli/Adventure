@@ -77,7 +77,7 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(look);
 
         Command rules = new Command(CommandType.REGOLE, "regole");
-        look.setAlias((new String[]{"re", "regole"}));
+        rules.setAlias((new String[]{"re", "regole"}));
         getCommands().add(rules);
 
         Command commands = new Command(CommandType.COMANDI, "comandi");
@@ -85,8 +85,8 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(commands);
 
         Command inventory = new Command(CommandType.INVENTARIO, "inventario");
-        commands.setAlias(new String[]{"inv"});
-        getCommands().add((inventory));
+        inventory.setAlias(new String[]{"inv"});
+        getCommands().add(inventory);
 
         //Comandi sugli oggetti
         Command open = new Command(CommandType.APRI, "apri");
