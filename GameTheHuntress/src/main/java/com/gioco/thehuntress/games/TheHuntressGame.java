@@ -349,38 +349,16 @@ public class TheHuntressGame extends GameDescription {
                                     it.remove();
                                 }
                                 System.out.println();
-                            }else{
+                            } else {
                                 System.out.println("L'oggetto è vuoto");
                             }
                         } else {
                             out.println("non puoi aprire questo oggetto ");
-                        } //FIN QUA VA BENE
-                        /*if (p.getInvObject() != null) {
-                            if (p.getInvObject().isOpenable() && !p.getInvObject().isOpen()) {
-                                if (p.getInvObject() instanceof AdvObjectContainer) {
-                                    AdvObjectContainer c = (AdvObjectContainer) p.getInvObject();
-                                    if (!c.getList().isEmpty()) {
-                                        out.print(c.getName(db) + "\n contiene:");
-                                        Iterator<AdvObject> it = c.getList().iterator();
-                                        while (it.hasNext()) {
-                                            AdvObject next = it.next();
-                                            inventario.add(next);
-                                            out.print(" " + next.getName(db));
-                                            it.remove();
-                                        }
-                                        out.println();
-                                    }
-                                } else {
-                                    p.getInvObject().setopen(true);
-                                }
-                                out.println("hai aperto nel tuo inventario :" + p.getInvObject().getName(db));
-                            } else {
-                                out.println("non puoi aprire questo oggetto");
-
-                            }
-                        }*/
+                        }
+                    }
                 }
-            } else if (p.getCommand().getType() == CommandType.SCALA) {
+            }
+        }else if (p.getCommand().getType() == CommandType.SCALA) {
                     if (p.getObject() != null) {
                         if (p.getObject().isScalable()) {
                             System.out.println("Sei in cima a collo lungo");
@@ -392,7 +370,7 @@ public class TheHuntressGame extends GameDescription {
                     } else {
                         System.out.println("Non trovo nulla qui su cui salire!");
                     }
-                } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
+        } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
                     if (p.getObject() != null) {
                         if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
                             if (p.getObject() instanceof AdvObjectContainer) {
@@ -440,7 +418,7 @@ public class TheHuntressGame extends GameDescription {
                             System.out.println("Non puoi ispezionare questo oggetto");
                         }
                     }
-                } else if (p.getCommand().getType() == CommandType.CRIPTA) {
+        } else if (p.getCommand().getType() == CommandType.CRIPTA) {
                     if (p.getObject() != null) {
                         if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
                             p.getObject().setCripta(true);
@@ -451,7 +429,7 @@ public class TheHuntressGame extends GameDescription {
                     } else {
                         System.out.println("Non è possibile utilizzare la cripta qui");
                     }
-                } else if (p.getCommand().getType() == CommandType.FOCUS) {
+        } else if (p.getCommand().getType() == CommandType.FOCUS) {
                     if (p.getObject() != null) {
                         if (p.getObject().isFocus() == true) {
                             System.out.println(p.getObject().getName(db) + " : " + p.getObject().getDescription(db));
@@ -461,19 +439,18 @@ public class TheHuntressGame extends GameDescription {
                     } else {
                         System.out.println("Il focus può essere applicato solo sulle macchine!\n" + " Specifica la macchina col comando 'focus <nome macchina>'!");
                     }
-                }
-                if (noroom) {
-                    System.out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
-                } else if (move) {
+        }
+        if (noroom) {
+            System.out.println("Da quella parte non si può andare c'è un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
+        } else if (move) {
                     System.out.println("======================================================================");
                     System.out.println("                  " + getCurrentRoom().getName(db));
                     System.out.println("======================================================================");
                     System.out.println(getCurrentRoom().getDescription(db));
-                }
-            }//nextmove
-        }//class
-    }
-}
+        }
+    }//nextmove
+}//class
+
 
 
 
