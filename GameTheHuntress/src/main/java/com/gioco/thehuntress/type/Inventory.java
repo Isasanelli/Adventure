@@ -22,7 +22,5 @@ public class Inventory {
     public void remove(AdvObject o){
         list.remove(o);
     }
-
-
-
+    
 }

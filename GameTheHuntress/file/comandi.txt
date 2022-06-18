@@ -1,7 +1,7 @@
 				
 				        +------------------+
 				        | COMANDI DI GIOCO |
-				        |		   |
+				        |		   		   |
 				        +------------------+
 
 
@@ -10,7 +10,7 @@ FOCUS:                               || Con questo comando potrai attivare il fo
 INVENTARUI/inv:                      || Con questo comando potrai richiamare l'inventario
 CRIPTA/corrompi/ "controlla/C/c :    || Con questo comando prenderai il controllo delle macchine
 UTILIZZA:                            || Con questo comando potrai utilizzare gli oggetti dell'inventario
-PRENDI/raccogli/r/R:                 || Con questo comando potrai prendere oggetti e inserirli nel tuo inventario
+APRI:				                 || Con questo comando potrai aprire oggetti e inserirli nel tuo inventario
 PREMI/spingi/attiva/pre/Pre:         || Con questo comando potrai premere dei pulsanti
 LASCIA/la/La:                        || Con questo comando potrai rimuovere gli oggetti dal tuo inventario qualora non servano
 MAPPA:                               || Con questo comando potrai visualizzare la mappa

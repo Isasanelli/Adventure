@@ -5,6 +5,7 @@ import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
+import com.gioco.thehuntress.type.Inventory;
 import com.gioco.thehuntress.type.Room;
 
 import java.io.PrintStream;
@@ -18,6 +19,8 @@ public abstract class GameDescription{
     private final List<Command> commands = new ArrayList<>();
 
     private final List<AdvObject> inventory = new ArrayList<>();
+    
+    public static Inventory inventario = new Inventory();
 
     private Room currentRoom;
 
