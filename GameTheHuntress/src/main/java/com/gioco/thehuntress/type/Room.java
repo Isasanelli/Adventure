@@ -194,10 +194,7 @@ public class Room {
     public void setWestInTheRoom(String[] westInTheRoom){
         this.westInTheRoom= westInTheRoom;
     }
-
-
-
-
+    
     public List<AdvObject> getObjects() {
         return objects;
     }
