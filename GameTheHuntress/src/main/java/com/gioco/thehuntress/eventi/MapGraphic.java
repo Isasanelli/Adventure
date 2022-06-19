@@ -20,7 +20,7 @@ public class MapGraphic {
         frame = new JFrame(); //creazione del frame
         frame.setTitle("Mappa The Huntress"); //titolo della mappa
         frame.add(myLabel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //chiusura totale di tutta la finestra( da modificare in quanto una volta chiusa la mappa, il gioco deve continuare)
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Elimina l'oggetto frame, ma mantiene l'applicazione in esecuzione.
         frame.setSize(800,600); //dimensione per altezza e lunghezza della finestra
         frame.setLocationRelativeTo(null); // permette di far comparire la finestra al centro
         frame.setResizable(false);
