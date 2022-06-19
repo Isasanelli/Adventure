@@ -76,9 +76,9 @@ public class Engine {
         System.out.println("""
                 +-----------------------------------------------------------------------+
                 | Il gioco e' bello quando dura poco.                                   |
-                | PACE E AMORE\s                                                        |
+                | PACE E AMORE                                                          |
                 | Un saluto da : Margari Chiara, Ricciardi Raffaella e Sasanelli Ilenia |
-                +-----------------------------------------------------------------------+""");
+                +-----------------------------------------------------------------------+\n""");
         System.exit(0);
         }
 

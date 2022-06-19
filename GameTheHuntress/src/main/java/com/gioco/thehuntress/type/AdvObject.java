@@ -134,7 +134,7 @@ public class AdvObject {
     public void setCriptable(Boolean criptable) { this.criptable=criptable; }
 
     public boolean isFocus(){ return focus;}
-    public void setFocus(Boolean fucus) { this.focus=focus; }
+    public void setFocus(Boolean focus) { this.focus=focus; }
 
     public Set<String> getAlias() {
         return alias;
