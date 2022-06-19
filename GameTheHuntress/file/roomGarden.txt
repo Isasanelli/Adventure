@@ -1,10 +1,10 @@
 |ROST: Ciao bambina, Buon compleanno
 |VICTORIA: oh.. papa, grazie. Ehm..non dovevi pero'
-|ROST: E perche mai? oggi e il compleanno della mia bambina. Sei finalmente maggiorenne.
+|ROST: E perche' mai? oggi e il compleanno della mia bambina. Sei finalmente maggiorenne.
 Non sei felice che finalmente sei libera?#
 |VICTORIA: Dici libera da te?? Nah, e bello stare qui, con te.. e la tua pessima cucina.#
 |ROST: Ah.. cosi mi ferisci
-|VICTORIA: Ti ho ferito? e va bene dai , passa. #
+|VICTORIA: Ti ho ferito? e va bene dai, passa. #
 |ROST: Come sei dolce tesoro. E' bello come ti prendi ancora cura del tuo vecchio.
 Comunque "apri" questo pacco regalo.
 Qui troverai uno stumento utile per la caccia. Nel tuo inventario e' gia' presente l'arco.

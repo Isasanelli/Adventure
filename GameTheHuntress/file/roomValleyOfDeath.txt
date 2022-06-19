@@ -1,5 +1,5 @@
 |ROST: Sei stata brava oggi.
-VICTORIA:E' tutto merito tuo. Senza di te, non sarei stata capace neanche di allacciarmi le scarpe #
+|VICTORIA:E' tutto merito tuo. Senza di te, non sarei stata capace neanche di allacciarmi le scarpe #
 *CRACK-CRACK*#
 |VANASHA: OWW!! Che bello questo quadretto.
 |ROST: Cosa ci fai qui Vanasha.!?
@@ -8,7 +8,7 @@ Non ti dispiace se ho portato qualche amico, vero?#
 +-----------------------------------------------------------------------------+
 |    Accanto a Vanasha compaiono uomini alti e massicci e non sono gli unici. |
 |    Alcune macchine iniziano a spuntare da ogni angolo.                      |
-|    Siete circondati e non avete via di scampo>>.                            |
+|    Siete circondati e non avete via di scampo.                              |
 +-----------------------------------------------------------------------------+#
 |VANASHA: Sai Rost, ho sempre pensato che fra i due, tu eri decisamente il piu' debole,
 eppure nostro padre ha scelto te per guidare Sheeva.

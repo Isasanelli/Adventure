@@ -9,10 +9,4 @@ Io ti staro' vicino, tranquilla.#
 |ROST: Guarda li, quelle macchine sono i CORSIERI.
 Dovrai imparare a eludere il loro sguardo, se vorrai sopravvivere nella natura.#
 Puoi "usare il focus" per avere più informazioni e "usare l'arco" per colpire il suo serbatoio.
-Una volta finito protrai avvicinarti e "ispezionare" la macchina.#
-
-
-
-
-
-
+Una volta finito protrai avvicinarti e "ispezionare" la macchina.
