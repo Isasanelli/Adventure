@@ -8,6 +8,3 @@ Non sei felice che finalmente sei libera?#
 |ROST: Come sei dolce tesoro. E' bello come ti prendi ancora cura del tuo vecchio.
 Comunque "apri" questo pacco regalo.
 Qui troverai uno stumento utile per la caccia. Nel tuo inventario e' gia' presente l'arco.
-Adesso scendiamo a valle.#
-|VICTORIA: Cosa c'e' a valle?
-|ROST: Seguimi verso "nord" e lo scoprirai.#
