@@ -79,7 +79,7 @@ public class  DbClass {
             pstm.setString(3,array[1]);//descrizione
             pstm.executeUpdate();
         } else{
-            System.out.println("Errore su insertStringIntoTheTable");
+            System.out.println("Errore su insertStringIntoTheTable" + id);
         }
         pstm.close();
     }
@@ -126,7 +126,7 @@ public class  DbClass {
         String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,\n"
                 +" sommersa nei tuoi pensieri.Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Osserva un po in giro",
+                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
                 +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};
@@ -134,7 +134,7 @@ public class  DbClass {
         init(SELECT1,1,INSERT1,room1);
 
         String[] room2={"Campo di addestramento",
-                "Sei al campo di addestramento della tua famiglia. Parla con Rost",
+                "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
                 "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con Rost",
                 "Piccoli brividi ti invadono.\n"
             +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
@@ -144,8 +144,9 @@ public class  DbClass {
 
         String[] room3={"Valle dei caduti",
                 "Tu e Rost avete appena terminato la vostra sessione di addestramento.\n"
-                +"Siete nella valle dei caduti a godervi un po di tranquillità.\n"+" Parla con Rost.",
-                "Senti scorrere in lontananza un ruscello",
+              + " Rost ha qualcosa da dirti",
+                "Siete nella valle dei caduti a godervi un po di tranquillità.\n"
+               + "Senti scorrere in lontananza un ruscello\n",
                 "Piccoli brividi ti invadono al solo pensiero di questo luogo.\n"
                 +" Qui e' dove è stato ucciso Rost. Sei invasa da rabbia e tristezza.\n "
                 +"Torna sui tuoi passi"};
@@ -166,7 +167,7 @@ public class  DbClass {
 
         String[] room5={"Campo del collolungo",
                 "Ti trovi fuori il templio del Re Sole",
-                "A nord e' possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi\n,"+" cosa potrà essere?\n"+"Forse e' meglio dare un'occhiata più da vicino.\n","A est c'e'un burrone, a ovest c'e' la tenda del Re Sole ",
+                "A nord e' possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi,\n"+" cosa potrà essere?\n"+"Forse e' meglio dare un'occhiata più da vicino.\n"+"A est c'e'un burrone, a ovest c'e' la tenda del Re Sole ",
                 "Ti trovi fuori il templio del Re Sole. Hai appena notato quanto è piccolo in confronto alla statua del collolungo...\n" + "Ma perchè non pensi a cose più importanti? Tipo la TUA MISSIONE"};
         //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);

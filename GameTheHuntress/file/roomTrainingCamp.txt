@@ -8,5 +8,7 @@ Ti insegnero' a cacciare con i tuoi nuovi giocattoli.#
 Io ti staro' vicino, tranquilla.#
 |ROST: Guarda li, quelle macchine sono i CORSIERI.
 Dovrai imparare a eludere il loro sguardo, se vorrai sopravvivere nella natura.#
-Puoi "usare il focus" per avere più informazioni e "usare l'arco" per colpire il suo serbatoio.
-Una volta finito protrai avvicinarti e "ispezionare" la macchina.
+Puoi usare il focus attraverso il comando "focus <nome macchina>" per avere più informazioni, usare l'arco attraverso il comando
+"usa arco" per colpire il suo serbatoio.
+Una volta finito protrai avvicinarti e ispezionare la macchina attraverso il comando "ispeziona <nome macchina>".
+Buona caccia!
