@@ -481,6 +481,9 @@ public class TheHuntressGame extends GameDescription {
                                     }
                                     it.remove();
                                 }
+                                if(getCurrentRoom().getId()==2 && p.getObject().getId()==6){
+                                    System.out.println("|ROST: Spostiamoci verso nord a rilassarci un po'...");
+                                }
                                 System.out.println();
                             } else {
                                 System.out.println("La macchina e' vuota");
