@@ -439,14 +439,17 @@ public class TheHuntressGame extends GameDescription {
             }
         } else if (p.getCommand().getType() == CommandType.SCALA) {
             if (p.getObject() != null) {
-                if (p.getObject().isScalable()) {
-                    System.out.println("Sei in cima a collo lungo");
-                    System.out.println("Adesso puoi usare la cripta! \n" + "usa il comando CRIPTA + <nome della macchina> per prenderne il controllo \n");
-                } else {
+                if (p.getObject().isScalable() && !p.getObject().isScale()) {
+                    p.getObject().setScale(true);
+                    System.out.println("Sei in cima a  " + p.getObject().getName(db));
+                    System.out.println("Adesso puoi usare la cripta! \n" + "Usa il comando CRIPTA + <nome della macchina> per prenderne il controllo \n");
+                } else if(!p.getObject().isScalable()){
                     System.out.println("non posso salire su " + p.getObject().getName(db));
+                } else if (p.getObject().isScalable() && p.getObject().isScale()) {
+                    System.out.println("Hai già scalato " + p.getObject().getName(db) + "!"+"\n"+ "Non perdere tempo...");
                 }
             } else {
-                System.out.println("Non trovo nulla qui su cui salire!");
+                System.out.println("Cosa vuoi scalare?\n" + "Specifica col comando 'scala <oggetto>' ");
             }
         } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
             if (p.getObject() == null && p.getInvObject() == null) {
