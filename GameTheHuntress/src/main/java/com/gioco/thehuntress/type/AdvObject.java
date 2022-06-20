@@ -33,6 +33,7 @@ public class AdvObject {
     private boolean open = false;
     private boolean openable=false;
     private boolean scalable= false;  //scalabile, serve per il collolungo
+    private boolean scale= false;
     private boolean inspect=false; //ispeziona, per le macchine
     private boolean inspectable=false;
     private boolean focus=false;
@@ -115,6 +116,9 @@ public class AdvObject {
     }
     public boolean isScalable(){ return scalable;}
     public void setScalable(boolean scalable){ this.scalable=scalable;}
+    public boolean isScale(){ return scale;}
+    public void setScale(Boolean scale){ this.scale=scale; }
+
 
     public boolean isInspect(){ return inspect;}
     public void  setInspect(boolean inspect){ this.inspect=inspect;}

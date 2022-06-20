@@ -382,6 +382,8 @@ public class TheHuntressGame extends GameDescription {
                             System.out.println("Errore");
                         }
                     }
+                } else{
+                    System.out.println("non c'e' nessuno con cui dialogare qui");
                 }
             }
         } else if (p.getCommand().getType() == CommandType.INVENTARIO) {
@@ -498,15 +500,30 @@ public class TheHuntressGame extends GameDescription {
                 }
             }
             if (p.getObject() != null && flagCripta == true) {
-                if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
-                    p.getObject().setCripta(true);
-                    System.out.println("Ben fatto! Utilizzando la cripta avrai il controllo delle macchina. Ora Ispeziona la macchina");
-                } else if (p.getObject().isCriptable() == true && p.getObject().isCripta() == true) {
-                    System.out.println("Hai gia' il controllo di questa macchina");
-                } else if (p.getObject().isCriptable() && p.getObject().isCripta()) {
-                    System.out.println(p.getObject().getName(db) + " e' gia' Criptato !");
-                } else if (!p.getObject().isCriptable()) {
-                    System.out.println(p.getObject().getName(db) + " non e' possibile applicare la cripta !");
+                if (getCurrentRoom().getId() == 5 && p.getObject().isScale()) {
+                    if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
+                        p.getObject().setCripta(true);
+                        System.out.println("Ben fatto! Utilizzando la cripta avrai il controllo delle macchina. Ora Ispeziona la macchina");
+                    } else if (p.getObject().isCriptable() == true && p.getObject().isCripta() == true) {
+                        System.out.println("Hai gia' il controllo di questa macchina");
+                    } else if (p.getObject().isCriptable() && p.getObject().isCripta()) {
+                        System.out.println(p.getObject().getName(db) + " e' gia' Criptato !");
+                    } else if (!p.getObject().isCriptable()) {
+                        System.out.println(p.getObject().getName(db) + " non e' possibile applicare la cripta !");
+                    }
+                } else if (getCurrentRoom().getId() == 5 && !p.getObject().isScale()) {
+                    System.out.println("Scala il collolungo prima di utilizzare la cripta!");
+                }else if(getCurrentRoom().getId() !=5){
+                    if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
+                        p.getObject().setCripta(true);
+                        System.out.println("Ben fatto! Utilizzando la cripta avrai il controllo delle macchina. Ora Ispeziona la macchina");
+                    } else if (p.getObject().isCriptable() == true && p.getObject().isCripta() == true) {
+                        System.out.println("Hai gia' il controllo di questa macchina");
+                    } else if (p.getObject().isCriptable() && p.getObject().isCripta()) {
+                        System.out.println(p.getObject().getName(db) + " e' gia' Criptato !");
+                    } else if (!p.getObject().isCriptable()) {
+                        System.out.println(p.getObject().getName(db) + " non e' possibile applicare la cripta !");
+                    }
                 }
             }
         } else if (p.getCommand().getType().equals(CommandType.FOCUS)) {
