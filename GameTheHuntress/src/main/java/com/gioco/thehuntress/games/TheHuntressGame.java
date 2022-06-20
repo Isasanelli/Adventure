@@ -353,7 +353,7 @@ public class TheHuntressGame extends GameDescription {
                 System.err.println("Errore");
             }
         } else if (p.getCommand().getType() == CommandType.PARLA) {
-            if (getCurrentRoom().getId() != 3 || getCurrentRoom().getId() != 4) {
+            if (getCurrentRoom().getId() != 3 && getCurrentRoom().getId() != 4) {
                 if (getCurrentRoom().getFirstTimeHere()) {
                     getCurrentRoom().Dialog();
                 } else {
@@ -534,15 +534,15 @@ public class TheHuntressGame extends GameDescription {
                 } else if (p.getObject() != null && !flagFocus) {
                     System.out.println("il focus non e' presente ancora nel tuo inventario!");
                 }
-             }
-            if (noroom) {
+        }
+        if (noroom) {
                 System.out.println("Da quella parte non si può andare c'e' un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
-            } else if (move) {
+        } else if (move==true) {
                 System.out.println("======================================================================");
                 System.out.println("                  " + getCurrentRoom().getName(db));
                 System.out.println("======================================================================");
                 System.out.println(getCurrentRoom().getDescription(db));
-            }
+        }
     }//nextmove
 }//class
 
