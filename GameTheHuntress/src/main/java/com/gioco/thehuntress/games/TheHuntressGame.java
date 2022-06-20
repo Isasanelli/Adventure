@@ -404,37 +404,43 @@ public class TheHuntressGame extends GameDescription {
                 System.out.println("Non c'e' nulla da aprire qui ");
             } else {
                 if (p.getObject() != null) {
-                    if (p.getObject().isOpenable() && !p.getObject().isOpen()) {
-                        p.getObject().setopen(true);
-                        if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto pacco è un oggetto contenitore allora
-                            System.out.println("HAI APERTO: " + p.getObject().getName(db));
-                            AdvObjectContainer c = (AdvObjectContainer) p.getObject();
-                            if (!c.getList().isEmpty()) {//controlla che il pacco non è vuoto dentro
-                                System.out.println("\ncontiene:");
-                                Iterator<AdvObject> it = c.getList().iterator();
-                                while (it.hasNext()) {//finchè la lista degli oggetti contenuti nel pacco non termina
-                                    try {
-                                        AdvObject next = it.next(); //assegna il prossimo elemento
-                                        inventario.add(next);//focus aggiunto all'inventario
-                                        System.out.println("***" + next.getName(db) + "***");
-                                        System.out.println("***Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario***");
-                                    } catch (NoSuchElementException ex) {
-                                        System.out.println("Errore");
+                        if (p.getObject().isOpenable() && !p.getObject().isOpen()) {
+                            p.getObject().setopen(true);
+                            if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto pacco è un oggetto contenitore allora
+                                System.out.println("HAI APERTO: " + p.getObject().getName(db));
+                                AdvObjectContainer c = (AdvObjectContainer) p.getObject();
+                                if (!c.getList().isEmpty()) {//controlla che il pacco non è vuoto dentro
+                                    System.out.println("\ncontiene:");
+                                    Iterator<AdvObject> it = c.getList().iterator();
+                                    while (it.hasNext()) {//finchè la lista degli oggetti contenuti nel pacco non termina
+                                        try {
+                                            AdvObject next = it.next(); //assegna il prossimo elemento
+                                            inventario.add(next);//focus aggiunto all'inventario
+                                            System.out.println("***" + next.getName(db) + "***");
+                                            System.out.println("***Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario***");
+                                        } catch (NoSuchElementException ex) {
+                                            System.out.println("Errore");
+                                        }
+                                        it.remove();
                                     }
-                                    it.remove();
+                                    if(p.getObject().getId()==9 && getCurrentRoom().getId()==1){
+                                        System.out.println("\n\n\n");
+                                        System.out.println("|ROST:Adesso scendiamo a valle.\n" +
+                                                "|VICTORIA: Cosa c'e' a valle?\n" +
+                                                "|ROST: Seguimi verso \"nord\" e lo scoprirai.");
+                                    }
+                                    System.out.println("");
+                                } else {
+                                    System.out.println("L'oggetto e' vuoto");
                                 }
-                                System.out.println();
                             } else {
-                                System.out.println("L'oggetto e' vuoto");
+                                out.println("non puoi aprire questo oggetto ");
                             }
-                        } else {
-                            out.println("non puoi aprire questo oggetto ");
+                        } else if (p.getObject().isOpenable() && p.getObject().isOpen()) {
+                            System.out.println(p.getObject().getName(db) + " e' gia' stato aperto!");
+                        } else if (!p.getObject().isOpenable()) {
+                            System.out.println(p.getObject().getName(db) + " non e' apribile!");
                         }
-                    } else if (p.getObject().isOpenable() && p.getObject().isOpen()) {
-                        System.out.println(p.getObject().getName(db) + " e' gia' stato aperto!");
-                    } else if (!p.getObject().isOpenable()) {
-                        System.out.println(p.getObject().getName(db) + " non e' apribile!");
-                    }
                 }
             }
         } else if (p.getCommand().getType() == CommandType.SCALA) {
