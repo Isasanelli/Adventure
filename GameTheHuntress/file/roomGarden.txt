@@ -12,5 +12,6 @@ Non sei felice che finalmente sei libera?#
 | SUGGERIMENTO:                                |
 | D'ora in poi,tutti gli oggetti che otterai   | 
 | nel corso del gioco, saranno presenti        |  
-| all'interno del tuo inventario               |
+| all'interno del tuo inventario e saranno     |
+| visibili attraverso il comando "inventario"  |
 +----------------------------------------------+

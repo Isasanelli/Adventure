@@ -247,6 +247,7 @@ public class TheHuntressGame extends GameDescription {
         roomTend.setEast(roomCollolungo);
 
         roomCollolungo.setWest(roomTend);
+        roomCollolungo.setSouth(roomOutMeridiana);
 
 
         getRooms().add(roomGarden);

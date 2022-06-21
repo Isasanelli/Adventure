@@ -28,7 +28,7 @@ public class Room {
     private String[] westInTheRoom={"",""};
     private final List<AdvObject> objects= new ArrayList<>();
 
-    private String dialogPat = ""; //variabile che conterrà il dialogo della stanza
+    private String dialogPat = null; //variabile che conterrà il dialogo della stanza
     
     
     public Room(int id){
