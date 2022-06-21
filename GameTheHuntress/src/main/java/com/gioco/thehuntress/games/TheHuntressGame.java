@@ -162,6 +162,9 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.setEastInTheRoom(new String[]{"Li non puoi andare, meglio non esporsi. Non sei ancora in grado di volare", "C'e' il vuoto da quella parte. Non credo che tu voglia provare l'ebbrezza di volare"});
         roomCollolungo.setWestInTheRoom(new String[]{"Da li si va verso la tenda del Re Sole", "La tenda del Re Sole e' da quella parte"});
 
+        Room roomOutMeridiana = new Room(6);
+
+
 
         //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
 

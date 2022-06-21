@@ -28,7 +28,7 @@ public class Room {
     private String[] westInTheRoom={"",""};
     private final List<AdvObject> objects= new ArrayList<>();
 
-    private String dialog = ""; //variabile che conterrà il dialogo della stanza
+    private String dialogPat = ""; //variabile che conterrà il dialogo della stanza
     
     
     public Room(int id){
@@ -80,17 +80,21 @@ public class Room {
     }
 
     public String getDialog(){
-        return dialog;
+        return dialogPat;
     }
     
 
-    public void setDialog(String dialog) {
-        this.dialog = dialog;
+    public void setDialog(String dialogPat) {
+        this.dialogPat = dialogPat;
     }
 
     //metodo che legge il dialogo della stanza
     public void Dialog(){
-        readFileDialog(getDialog());
+        if(getDialog()== null){
+            System.out.println("Non c'e' nessuno con cui parlare");
+        }else{
+            readFileDialog(getDialog());
+        }
     }
 
     public boolean getFirstTimeHere(){
