@@ -443,7 +443,7 @@ public class TheHuntressGame extends GameDescription {
                                         try {
                                             AdvObject next = it.next(); //assegna il prossimo elemento
                                             inventario.add(next);//focus aggiunto all'inventario
-                                            System.out.println("***" + next.getName(db) + "***");
+                                            System.out.println("***" + next.getName(db) + "***\n" + next.getDescription(db));
                                             System.out.println("***Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario***");
                                         } catch (NoSuchElementException ex) {
                                             System.out.println("Errore");
