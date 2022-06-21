@@ -157,20 +157,27 @@ public class  DbClass {
                 "Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
                     + "Sei stesa su un soffice letto avvolta da una coperta calda. Tutto il tuo corpo e' indolenzito.\n"
                     +" Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te.\n"
-                    +" Non fai in tempo a nasconderti, perche' un uomo alto con una corona in testa a forma di sole e' entrato nella stanza\n "+"Parla con il Re Sole",
+                    +" Non fai in tempo a nasconderti, perche' un uomo alto con una corona in testa a forma di sole e' entrato nella stanza\n "+"E' il Re Sole...parla con lui",
                      "A sud e' presente un camino,a est c'è una porta, a nord c'e' una finestra",
                     "E' rimasto tutto come l'hai lasciato. Il fuoco del camino arde ancora.\n"
                      + "Il letto e' ordinato e intorno a te senti odore di incenzo.\n"
                 + " Non so cosa puoi fare qui. Forse e' meglio tornare alla missione"};
-        //controllo se la tupla con id=3 esiste già nella tabella rooms, e se non è così verrà inserita
+        //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,4,INSERT1,room4);
 
         String[] room5={"Campo del collolungo",
-                "Ti trovi fuori il templio del Re Sole",
+                "Ti trovi fuori il templio del Re Sole. Il re Sole ha qualcosa da dirti",
                 "A nord e' possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi,\n"+" cosa potrà essere?\n"+"Forse e' meglio dare un'occhiata più da vicino.\n"+"A est c'e'un burrone, a ovest c'e' la tenda del Re Sole ",
                 "Ti trovi fuori il templio del Re Sole. Hai appena notato quanto è piccolo in confronto alla statua del collolungo...\n" + "Ma perchè non pensi a cose più importanti? Tipo la TUA MISSIONE"};
-        //controllo se la tupla con id=4 esiste già nella tabella rooms, e se non è così verrà inserita
+        //controllo se la tupla con id=5 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
+
+        String[] room6={"Porta del Calderone",
+                "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a prenmerlo?",
+                "C'è un pulsante alla tua destra, sarà il caso di premerlo",
+                "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
+        //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
+        init(SELECT1,6,INSERT1,room6);
 
         /**
          * inserimento degli oggetti nella tabella advObjects

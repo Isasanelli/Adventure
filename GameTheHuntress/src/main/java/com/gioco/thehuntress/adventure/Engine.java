@@ -94,7 +94,7 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getInventory(), db);
+                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getObjects(), db);
 
                 if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");
