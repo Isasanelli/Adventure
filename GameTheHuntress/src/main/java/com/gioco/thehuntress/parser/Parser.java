@@ -46,29 +46,29 @@ public class Parser {
     }
 
    //objects è la lista degli oggetti della stanza corrente
-    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, List<AdvObject> inventory, DbClass database) {
+    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, List<AdvObject> object2, DbClass database) {
         List<String> tokens = Utils.parseString(command, stopwords);
         if (!tokens.isEmpty()) { //tokens.get(0) c'è il comando, tokens.get(1) c'è l'oggetto
             int ic = checkForCommand(tokens.get(0), commands);//ic è la posizione nella lista commands in cui si trova effettivamente il comando inserito
             if (ic > -1) {  //se il comando si trova il lista:
                 if (tokens.size() > 1) { //se la lista contiene più di un elemento (quindi l'oggetto oltre al comando):
                     int io = checkForObject(tokens.get(1), objects, database); //io è la posizione nella lista objects in cui si trova effettivamente l'oggetto inserito
-                    int ioinv = -1;
+                    int io2 = -1;
                     if (io < 0 && tokens.size() > 2) {
                         io = checkForObject(tokens.get(2), objects, database);
                     }
                     if (io < 0) { //se l'oggetto non è nella lista degli oggetti della classe corrente:
-                        ioinv = checkForObject(tokens.get(1), inventory, database); //vedo se l'oggetto si trova nella lista degli oggetti dell'inventario
-                        if (ioinv < 0 && tokens.size() > 2) {
-                            ioinv = checkForObject(tokens.get(2), inventory, database);
+                        io2 = checkForObject(tokens.get(1), object2, database); //vedo se l'oggetto si trova nella lista degli oggetti dell'inventario
+                        if (io2 < 0 && tokens.size() > 2) {
+                            io2 = checkForObject(tokens.get(2), object2, database);
                         }
                     }
-                    if (io > -1 && ioinv > -1) {
-                        return new ParserOutput(commands.get(ic), objects.get(io), inventory.get(ioinv));
+                    if (io > -1 && io2 > -1) {
+                        return new ParserOutput(commands.get(ic), objects.get(io), object2.get(io2));
                     } else if (io > -1) {
                         return new ParserOutput(commands.get(ic), objects.get(io), null);
-                    } else if (ioinv > -1) {
-                        return new ParserOutput(commands.get(ic), null, inventory.get(ioinv));
+                    } else if (io2 > -1) {
+                        return new ParserOutput(commands.get(ic), null, object2.get(io2));
                     } else {
                         return new ParserOutput(commands.get(ic), null, null);
                     }

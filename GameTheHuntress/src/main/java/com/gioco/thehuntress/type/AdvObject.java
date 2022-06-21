@@ -26,7 +26,7 @@ public class AdvObject {
     public static final String SELECTDESCRIPTION ="SELECT desc FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
-    private boolean use = false;
+   
     private boolean usable =false;
     private boolean pickupable = false; //raccogli
     private boolean  pick=false;
@@ -37,6 +37,8 @@ public class AdvObject {
     private boolean inspect=false; //ispeziona, per le macchine
     private boolean inspectable=false;
     private boolean focus=false;
+    private boolean kill=false;
+    private boolean killable=false;
 
     private boolean cripta=false;
     private boolean criptable=false;
@@ -86,6 +88,11 @@ public class AdvObject {
         this.openable = openable;
    }
    public boolean isOpenable(){return openable; }
+    public void setKill(boolean kill){ this.kill= kill;}
+    public boolean isKill(){ return kill;}
+    
+    public void setKillable(boolean killable){ this.killable=killable;}
+    public boolean isKillable(){return killable;}
     public void setPick(boolean pick) { this.pick=pick;}
 
     public boolean isPick() {
@@ -99,15 +106,7 @@ public class AdvObject {
     public void setPickupable (boolean pickupable) {
         this.pickupable = pickupable;
     }
-
-    public boolean isUse() {
-        return use;
-    }
-
-
-    public void setUse(boolean use) {
-        this.use = use;
-    }
+    
     public void setUsable(boolean usable){
         this.usable=usable;
     }
@@ -118,6 +117,7 @@ public class AdvObject {
     public void setScalable(boolean scalable){ this.scalable=scalable;}
     public boolean isScale(){ return scale;}
     public void setScale(Boolean scale){ this.scale=scale; }
+    
 
 
     public boolean isInspect(){ return inspect;}

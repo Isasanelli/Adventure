@@ -6,5 +6,11 @@ Non sei felice che finalmente sei libera?#
 |ROST: Ah.. cosi mi ferisci
 |VICTORIA: Ti ho ferito? e va bene dai, passa. #
 |ROST: Come sei dolce tesoro. E' bello come ti prendi ancora cura del tuo vecchio.
-Comunque "apri" questo pacco regalo.
-Qui troverai uno stumento utile per la caccia. Nel tuo inventario e' gia' presente l'arco.
+"Apri il pacco", qui troverai uno stumento utile per la caccia oltre all'arco che gia' possiedi.
+
++----------------------------------------------+
+| SUGGERIMENTO:                                |
+| D'ora in poi,tutti gli oggetti che otterai   | 
+| nel corso del gioco, saranno presenti        |  
+| all'interno del tuo inventario               |
++----------------------------------------------+

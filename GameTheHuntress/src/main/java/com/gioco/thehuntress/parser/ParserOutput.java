@@ -7,17 +7,17 @@ public class ParserOutput {
 
     private  Command command;
     private  AdvObject object;
-    private AdvObject invObject;
+    private AdvObject object2;
 
     public ParserOutput(Command command, AdvObject object){
         this.command = command;
         this.object = object;
     }
 
-    public ParserOutput(Command command, AdvObject object,AdvObject InvObject){
+    public ParserOutput(Command command, AdvObject object,AdvObject object2){
         this.command=command;
         this.object=object;
-        this.invObject=invObject;
+        this.object2 =object2;
     }
 
     public Command getCommand(){
@@ -28,12 +28,12 @@ public class ParserOutput {
         this.command=command;
     }
 
-    public AdvObject getInvObject(){
-        return invObject;
+    public AdvObject getObject2(){
+        return object2;
     }
 
-    public void setInvObject(AdvObject invObject){
-        this.invObject=invObject;
+    public void setObject2(AdvObject object2){
+        this.object2=object2;
     }
 
     public AdvObject getObject() {

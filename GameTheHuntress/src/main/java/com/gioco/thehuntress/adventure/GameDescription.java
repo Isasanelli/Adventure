@@ -18,7 +18,7 @@ public abstract class GameDescription{
 
     private final List<Command> commands = new ArrayList<>();
 
-    private final List<AdvObject> inventory = new ArrayList<>();
+    private final List<AdvObject> objects = new ArrayList<>();
     
     public static Inventory inventario = new Inventory();
 
@@ -42,8 +42,8 @@ public abstract class GameDescription{
         this.currentRoom = currentRoom;
     }
 
-    public List<AdvObject> getInventory() {
-        return inventory;
+    public List<AdvObject> getObjects() {
+        return objects;
     }
 
     public abstract void init() throws Exception;
@@ -51,30 +51,6 @@ public abstract class GameDescription{
 
    public abstract void nextMove(DbClass db, ParserOutput p, PrintStream out);
 
-
-
-    /*public int getStartingRoomId() {
-        return startingRoomId;
-    }
-
-    public void setStartingRoomId(int startingRoomId) {
-        this.startingRoomId = startingRoomId;
-    }
-
-     public void printAdjRooms() {
-        System.out.println("\nLuoghi adiacenti: ");
-        if(getCurrentRoom().getNorth()!= null) {
-            System.out.println("NORD: "+getCurrentRoom().getNorth().getName());
-        }
-        if(getCurrentRoom().getEast()!= null) {
-            System.out.println("EST: "+getCurrentRoom().getEast().getName());
-        }
-        if(getCurrentRoom().getSouth()!= null) {
-            System.out.println("SUD: "+getCurrentRoom().getSouth().getName());
-        }
-        if(getCurrentRoom().getWest()!= null) {
-            System.out.println("OVEST: "+getCurrentRoom().getWest().getName());
-        }*/
 }
 
 
