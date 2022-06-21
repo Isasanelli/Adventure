@@ -173,7 +173,7 @@ public class  DbClass {
         init(SELECT1,5,INSERT1,room5);
 
         String[] room6={"Porta del Calderone",
-                "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a prenmerlo?",
+                "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'è un pulsante alla tua destra, sarà il caso di premerlo",
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
@@ -195,7 +195,7 @@ public class  DbClass {
         //controllo se la tupla con id=3 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,3,INSERT2,object3);
 
-        String[] object4={"lancia con cripta","Ne consente il controllo delle macchine"};
+        String[] object4={"lancia con cripta","Ne consente il ripristino del cuore madre delle macchine"};
         //controllo se la tupla con id=4 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,4,INSERT2,object4);
 
@@ -218,7 +218,10 @@ public class  DbClass {
         String[] object9={"pacco", "Pacco regalo che conterra' il focus"};
         //controllo se la tupla con id=9 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,9,INSERT2,object9);
-
+        
+        String[] object10={"bottone","Bottone che ne consentirà l'apertura della torre di meridiana superato un enigma"};
+        //controllo se la tupla con id=10 esiste già nella tabella advObjects, e se non è così verrà inserita
+        init(SELECT2,10,INSERT2,object10);
 
         /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,name,desc FROM machines WHERE id=?");
         pstm2.setInt(1,2);

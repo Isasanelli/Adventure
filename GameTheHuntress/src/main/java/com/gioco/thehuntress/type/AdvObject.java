@@ -39,6 +39,8 @@ public class AdvObject {
     private boolean focus=false;
     private boolean kill=false;
     private boolean killable=false;
+    private boolean pushable=false;
+    private boolean push=false;
 
     private boolean cripta=false;
     private boolean criptable=false;
@@ -138,8 +140,14 @@ public class AdvObject {
     public void setCriptable(Boolean criptable) { this.criptable=criptable; }
 
     public boolean isFocus(){ return focus;}
-    public void setFocus(Boolean focus) { this.focus=focus; }
+    public void setFocus(Boolean focus) { this.focus=focus; } 
+   
+    public  boolean isPush(){return push;}
+    public void setPush(Boolean push ) {this.push=push;}
 
+    public void setPushable(Boolean pushable) { this.pushable=pushable;}
+    public Boolean isPushable(){ return pushable;}
+    
     public Set<String> getAlias() {
         return alias;
     }

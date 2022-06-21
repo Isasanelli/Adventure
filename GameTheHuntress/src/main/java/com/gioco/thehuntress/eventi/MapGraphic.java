@@ -13,7 +13,7 @@ public class MapGraphic {
 
     }
     public void createMap(){
-        imageMap = new ImageIcon("Immagini//Mappa.png");
+        imageMap = new ImageIcon("Immagini//Mappa.jpeg");
         myLabel = new JLabel(imageMap);
         myLabel.setSize(800,500);
 
