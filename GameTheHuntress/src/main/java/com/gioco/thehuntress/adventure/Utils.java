@@ -20,15 +20,15 @@ public class Utils {
         return set;
     }
 
-        //restituisce una lista composta da comando oggetto senza stopwords
-    public static List<String> parseString(String string, Set<String> stopwords) { //string= stringa composta da comando-stopword-oggetto.Classe
+        //restituisce una lista composta da comando oggetto oggetto senza stopwords
+    public static List<String> parseString(String string, Set<String> stopwords) { //string= stringa composta da comando-stopword-oggetto-stopword-oggetto
         List<String> tokens = new ArrayList<>();
-        String[] split = string.toLowerCase().trim().split("\\s+");
+        String[] split = string.toLowerCase().trim().split("\\s+"); //prendo string, la suddivido, la metto in minuscolo e la inserisco in un array
         for (String t : split) {
-            if (!stopwords.contains(t)) {
+            if (!stopwords.contains(t)) {  //se la stringa non è una parola vuota la aggiungo in una lista
                 tokens.add(t);
             }
         }
-        return tokens;  //tokens è la lista di Stringhe composta soltanto da comando-oggetto
+        return tokens;  //tokens è la lista di Stringhe composta soltanto da comando-oggetto-oggetto
     }
 }

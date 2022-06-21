@@ -12,7 +12,7 @@ Dovrai imparare a eludere il loro sguardo, se vorrai sopravvivere nella natura.#
 +---------------------------------------------------------------------------------------------------------------------+
 | SUGGERIMENTO:                                                                                                       |
 |   Puoi usare il focus attraverso il comando "focus <nome macchina>" per avere piu' informazioni,                    |
-|   e puoi sare l'arco attraverso il comando "usa arco" per colpire il suo serbatoio.                                 |
+|   e puoi usare l'arco attraverso il comando "usa arco" per colpire il suo serbatoio.                                |
 |   Una volta finito protrai avvicinarti e ispezionare la macchina attraverso il comando "ispeziona <nome macchina>". |
 |   Buona caccia!                                                                                                     |
 +---------------------------------------------------------------------------------------------------------------------+

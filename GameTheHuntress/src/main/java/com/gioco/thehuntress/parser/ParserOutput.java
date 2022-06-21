@@ -7,7 +7,7 @@ public class ParserOutput {
 
     private  Command command;
     private  AdvObject object;
-    private AdvObject object2;
+    private AdvObject object2; //oggetto presente nell'inventario
 
     public ParserOutput(Command command, AdvObject object){
         this.command = command;

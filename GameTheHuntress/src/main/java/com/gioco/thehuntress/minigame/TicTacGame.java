@@ -1,23 +1,25 @@
 package com.gioco.thehuntress.minigame;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
 import com.gioco.thehuntress.eventi.RestartMiniGame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 
 
 public class TicTacGame implements ActionListener {
 
     Random random;
     JFrame frame;
-    JPanel title_panel;
+    JPanel titlePanel;
     JPanel board;
-    JLabel text_field;
+    JLabel textField;
     JButton[] buttons;
     ImageIcon image;
-    boolean first_turn;
-    boolean is_end;
+    boolean firstTurn;
+    boolean isEnd;
     char[][] grid;
 
     public TicTacGame() {
@@ -30,24 +32,24 @@ public class TicTacGame implements ActionListener {
         frame = new JFrame("THE HUNTRESS ENIGMA");
         image = new ImageIcon("Immagini//Logo.png");
         frame.setIconImage(image.getImage());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        title_panel = new JPanel();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        titlePanel = new JPanel();
         board = new JPanel();
-        text_field = new JLabel();
+        textField = new JLabel();
         buttons = new JButton[9];
         frame.setSize(800, 800);
         frame.setBackground(new Color(50, 50, 50));
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
-        title_panel.setLayout(new BorderLayout());
-        text_field.setBackground(Color.BLACK);
-        text_field.setForeground(new Color(255, 255, 255));
-        text_field.setFont(new Font("MV Boli", Font.BOLD, 75));
-        text_field.setHorizontalAlignment(JLabel.CENTER);
-        text_field.setText("Tic-Tac-Toe");
-        text_field.setOpaque(true);
-        title_panel.setBackground(Color.black);
-        title_panel.setBounds(0, 0, 700, 100);
+        titlePanel.setLayout(new BorderLayout());
+        textField.setBackground(Color.BLACK);
+        textField.setForeground(new Color(255, 255, 255));
+        textField.setFont(new Font("MV Boli", Font.BOLD, 75));
+        textField.setHorizontalAlignment(JLabel.CENTER);
+        textField.setText("Tic-Tac-Toe");
+        textField.setOpaque(true);
+        titlePanel.setBackground(Color.black);
+        titlePanel.setBounds(0, 0, 700, 100);
         board.setLayout(new GridLayout(3, 3));
         board.setBackground(new Color(150, 150, 150));
         for (int i = 0; i < 9; i++) {
@@ -57,37 +59,37 @@ public class TicTacGame implements ActionListener {
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
-        title_panel.add(text_field);
-        frame.add(title_panel, BorderLayout.NORTH);
+        titlePanel.add(textField);
+        frame.add(titlePanel, BorderLayout.NORTH);
         frame.add(board);
         frame.setVisible(true);
-        is_end = false;
-        First_turn();
+        isEnd = false;
+        firstTurn();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < 9; i++) {
             if (e.getSource() == buttons[i] && buttons[i].getText().equalsIgnoreCase("")) {
-                buttons[i].setForeground(new Color((first_turn ? 255 : 0), 0, (first_turn ? 0 : 255)));
-                buttons[i].setText(first_turn ? "X" : "O");
-                grid[i / 3][i % 3] = (first_turn ? 'X' : 'O');
-                first_turn = !first_turn;
-                text_field.setText("Your turn");
+                buttons[i].setForeground(new Color((firstTurn ? 255 : 0), 0, (firstTurn ? 0 : 255)));
+                buttons[i].setText(firstTurn ? "X" : "O");
+                grid[i / 3][i % 3] = (firstTurn ? 'X' : 'O');
+                firstTurn = !firstTurn;
+                textField.setText("Your turn");
                 check();
             }
         }
-        if (!first_turn)
-            computer_play();
+        if (!firstTurn)
+            computerPlay();
     }
 
-    public void computer_play() {
+    public void computerPlay() {
         try {
             Thread.sleep(200);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
-        if (!first_turn && !is_end) {
+        if (!firstTurn && !isEnd) {
             int idx;
 
             idx = random.nextInt(8);
@@ -96,17 +98,17 @@ public class TicTacGame implements ActionListener {
 
             }
             if (buttons[idx].getText().equalsIgnoreCase("")) {
-                buttons[idx].setForeground(new Color((first_turn ? 255 : 0), 0, (first_turn ? 0 : 255)));
-                buttons[idx].setText(first_turn ? "X" : "O");
-                grid[idx / 3][idx % 3] = (first_turn ? 'X' : 'O');
-                first_turn = !first_turn;
-                text_field.setText("Tuo turno");
+                buttons[idx].setForeground(new Color((firstTurn ? 255 : 0), 0, (firstTurn ? 0 : 255)));
+                buttons[idx].setText(firstTurn ? "X" : "O");
+                grid[idx / 3][idx % 3] = (firstTurn ? 'X' : 'O');
+                firstTurn = !firstTurn;
+                textField.setText("Tuo turno");
                 check();
             }
         }
     }
 
-    public int[] win_cells(String c) {
+    public int[] winCells(String c) {
         int[] cells = new int[3];
         if (buttons[0].getText().equalsIgnoreCase(c) && buttons[1].getText().equalsIgnoreCase(c) && buttons[2].getText().equalsIgnoreCase(c)) {
             cells[0] = 0;
@@ -148,36 +150,34 @@ public class TicTacGame implements ActionListener {
         return cells;
     }
 
-    public boolean is_tie() {
+    public boolean isTie() {
         for (int i = 0; i < 9; i++) {
             if (buttons[i].getText().equalsIgnoreCase("")) return false;
         }
         return true;
     }
 
-    public void end_with_tie() {
+    public void endWithTie() {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
         }
-        text_field.setText("PAREGGIO");
+        textField.setText("PAREGGIO");
     }
 
     public void check() {
-        if (is_win("X")) {
-            int[] cells = win_cells("X");
+        if (isWin("X")) {
+            int[] cells = winCells("X");
             win(cells[0], cells[1], cells[2], "Tu");
-            is_end = true;
-            //DA MODIFICARE QUANDO SI ARRIVA AL CAP 4
-           //System.exit(0);
-        } else if (is_win("O")) {
-            int[] cells = win_cells("O");
+            isEnd = true;
+        } else if (isWin("O")) {
+            int[] cells = winCells("O");
             win(cells[0], cells[1], cells[2], "Lord");
-            is_end = true;
+            isEnd = true;
             new RestartMiniGame();
 
-        } else if (is_tie()) {
-            end_with_tie();
-            is_end = true;
+        } else if (isTie()) {
+            endWithTie();
+            isEnd = true;
             new RestartMiniGame();
 
         }
@@ -191,15 +191,15 @@ public class TicTacGame implements ActionListener {
             buttons[i].setEnabled(false);
         }
         if (w.equalsIgnoreCase("Lord")) {
-            text_field.setForeground(Color.RED);
-            text_field.setText("HAI PERSO");
+            textField.setForeground(Color.RED);
+            textField.setText("HAI PERSO");
         } else {
-            text_field.setForeground(Color.GREEN);
-            text_field.setText("HAI VINTO");
+            textField.setForeground(Color.GREEN);
+            textField.setText("HAI VINTO");
         }
     }
 
-    public boolean is_win(String c) {
+    public boolean isWin(String c) {
         if (buttons[0].getText().equalsIgnoreCase(c) && buttons[1].getText().equalsIgnoreCase(c) && buttons[2].getText().equalsIgnoreCase(c)) return true;
         if (buttons[3].getText().equalsIgnoreCase(c) && buttons[4].getText().equalsIgnoreCase(c) && buttons[5].getText().equalsIgnoreCase(c)) return true;
         if (buttons[6].getText().equalsIgnoreCase(c) && buttons[7].getText().equalsIgnoreCase(c) && buttons[8].getText().equalsIgnoreCase(c)) return true;
@@ -211,18 +211,18 @@ public class TicTacGame implements ActionListener {
         return false;
     }
 
-    public void First_turn() {
+    public void firstTurn() {
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        text_field.setText("Tuo Turno");
+        textField.setText("Tuo Turno");
         if (random.nextInt(2) == 0) {
-            first_turn = true;
+            firstTurn = true;
         } else {
-            first_turn = false;
-            computer_play();
+            firstTurn = false;
+            computerPlay();
         }
     }
 }

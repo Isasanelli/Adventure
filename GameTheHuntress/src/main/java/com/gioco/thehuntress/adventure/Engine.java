@@ -94,7 +94,7 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.getObjects(), db);
+                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.inventario.getList(), db);
 
                 if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");
@@ -125,8 +125,9 @@ public class Engine {
     public static void main(String[] args) throws IOException {
         engine= new Engine(new TheHuntressGame());
         engine.start();
-        //new TicTacGame().computer_play();
-        //new MapGraphic();
+        /*new TicTacGame().computerPlay();
+        System.out.println("Continua a giocare");*/
+
 
 
     }

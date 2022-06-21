@@ -4,6 +4,7 @@ import com.gioco.thehuntress.adventure.GameDescription;
 import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
 import com.gioco.thehuntress.eventi.MapGraphic;
+import com.gioco.thehuntress.minigame.TicTacGame;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.*;
 
@@ -19,6 +20,7 @@ public class TheHuntressGame extends GameDescription {
     public static final String PATROOM3 = "file//roomValleyOfDeath.txt";
     public static final String PATROOM4 = "file//roomTend.txt";
     public static final String PATROOM5= "file//roomCollolungo.txt";
+
     public MapGraphic mapGraphic = new MapGraphic();
 
 
@@ -108,6 +110,11 @@ public class TheHuntressGame extends GameDescription {
         scalable.setAlias(new String[]{"sal", "sca"});
         getCommands().add(scalable);
 
+        Command push =new Command (CommandType.PREMI, "premi");
+        push.setAlias(new String[]{"prem","pre"});
+        getCommands().add(push);
+
+
         //comando per il combattimento
         Command cripta = new Command(CommandType.CRIPTA, "cripta");
         cripta.setAlias(new String[]{"controllo", "manipola"});
@@ -163,7 +170,10 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.setWestInTheRoom(new String[]{"Da li si va verso la tenda del Re Sole", "La tenda del Re Sole e' da quella parte"});
 
         Room roomOutMeridiana = new Room(6);
-
+        roomOutMeridiana.setNorthInTheRoom(new String[] {"Troverai il templio del Re Sole","Troverai il templio del Re Sole"});
+        roomOutMeridiana.setSouthInTheRoom(new String []{"Una volta premuto il bottone ti toverai nella Torre di Meridiana","Una volta premuto il bottone ti troverai nella Torre di Meridiana "});
+        roomOutMeridiana.setEastInTheRoom(new String[] {"Non c'e' nulla che ti puo interessare qui ","Non c'e' nulla che ti puo interessare qui"});
+        roomOutMeridiana.setWestInTheRoom(new String[] {"Non c'e' nulla che ti puo interessare qui ","Non c'e' nulla ch eti puo intressare qui"});
 
 
         //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
@@ -186,6 +196,10 @@ public class TheHuntressGame extends GameDescription {
 
         AdvObject map = new AdvObject(5);
         map.setAlias(new String[]{"mappa", "map", "m"});
+
+        AdvObject botton = new AdvObject(10);
+        botton.setAlias(new String[]{"bot","pulsante", "puls"});
+        botton.setPushable(true);
 
 
         /*
@@ -229,6 +243,7 @@ public class TheHuntressGame extends GameDescription {
         roomTrainingCamp.getObjects().add(corsiero);
         roomTend.getObjects().add(lancia);
         roomCollolungo.getObjects().add(collolungo);
+        roomOutMeridiana.getObjects().add(botton);
         //manca avistempesta e da sistemare le rooms
 
         /*
@@ -248,6 +263,8 @@ public class TheHuntressGame extends GameDescription {
 
         roomCollolungo.setWest(roomTend);
         roomCollolungo.setSouth(roomOutMeridiana);
+
+        roomOutMeridiana.setNorth(roomCollolungo);
 
 
         getRooms().add(roomGarden);
@@ -384,7 +401,9 @@ public class TheHuntressGame extends GameDescription {
                             AdvObject next = it.next();
                             if(next.getId() == 4){
                                 inventario.add(next);
+                                System.out.println("=====================================================");
                                 System.out.println("*** Lancia aggiunta nel tuo inventario! ***");
+                                System.out.println("=====================================================");
                             }
                         }catch(NoSuchElementException ex){
                             System.out.println("Errore");
@@ -424,7 +443,7 @@ public class TheHuntressGame extends GameDescription {
                                         try {
                                             AdvObject next = it.next(); //assegna il prossimo elemento
                                             inventario.add(next);//focus aggiunto all'inventario
-                                            System.out.println("***" + next.getName(db) + "***");
+                                            System.out.println("***" + next.getName(db) + "***\n" + next.getDescription(db));
                                             System.out.println("***Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario***");
                                         } catch (NoSuchElementException ex) {
                                             System.out.println("Errore");
@@ -577,29 +596,44 @@ public class TheHuntressGame extends GameDescription {
                 }
 
         }else if(p.getCommand().getType().equals(CommandType.USA)){
-                    Iterator<AdvObject> it=  inventario.getList().iterator(); // arco in inventario
-                    boolean flagArco=false;
-                    try {
-                        AdvObject next =it.next();
-                        if(next.getId() == 3){
-                            flagArco=true;
-                        }
-                    }catch(NoSuchElementException ex){
-                        System.out.println("Errore!");
+            if(p.getObject()!= null && p.getObject2()!= null) { //p.getObject è la macchina, mentre p.getObject2 è l'arco
+                if (p.getObject2().getId() == 3) {
+                    if (p.getObject().isKillable() && !p.getObject().isKill()) {
+                        p.getObject().setKill(true);
+                        System.out.println("Brava !! hai ucciso" + p.getObject().getName(db));
+                    } else if (p.getObject().isKillable() && p.getObject().isKill()) {
+                        System.out.println ("Hai gia ucciso " + p.getObject().getName(db));
+                    } else if (!p.getObject().isKillable()) {
+                        System.out.println("Non puoi uccide  " + p.getObject().getName(db) + "\n" + "Riprova con qualcos'altro ");
                     }
-            if (p.getObject()!= null && flagArco && p.getObject2()!=null){
-               if ( p.getObject2().isKillable() && !p.getObject2().isKill()){ // se l'avintempesta e il corsiero sono uccidibili
-                 p.getObject2().setKill(true); // uccidi la macchina
-                 System.out.println("Brava !! hai ucciso" + p.getObject2().getName(db));
-                }else if(p.getObject2().isKillable() && p.getObject2().isKill()){
-                  System.out.println ("Hai gia uccisso " + p.getObject2().getName(db));
-                }else if(!p.getObject2().isKillable() && (!p.getObject2().isKill() || p.getObject2().isKill())){
-                   System.out.println("Non puoi ucciderlo.Riprova con qualcos'altro ");
-                }
-            }else if (p.getObject()== null || p.getObject2()==null ){
-                System.out.println("**Riprova  non ho capito cosa vuoi dirmi!** ");
+                } //messaggio d'errore(?)
+            } else if (p.getObject()== null && p.getObject2()!= null) { //usa arco
+                System.out.println("Specifica su cosa vuoi usare l'oggetto");
+            }else if (p.getObject()== null && p.getObject2()== null){ //usa
+                System.out.println("ERRORE");
             }
-        }
+        } else if (p.getCommand().getType().equals(CommandType.PREMI)){
+            if(p.getObject()!=null && p.getObject2()== null) {
+                if (!p.getObject().isPush() && p.getObject().isPushable()) {
+                    p.getObject().setPush(true);
+                    if (p.getObject().getId() == 10 && getCurrentRoom().getId()==6) {
+                        TicTacGame tris = new TicTacGame();
+                        tris.computerPlay();
+                        // settaggio stanza 7 come stanza corrente e move = true
+                    }
+                }else if (p.getObject().isPushable() && p.getObject().isPush()) {
+                    if (p.getObject().getId() == 10) {
+                        System.out.println("La porta per entrare nel calderone è già stata aperta! Vai verso sud per entraci");
+                    } else {
+                        System.out.println("L'oggetto è già stato premuto");
+                    }
+                }else if(!p.getObject().isPushable() ){
+                   System.out.println("Non è possibile premere questo oggetto");
+                }
+            }else if(p.getObject()!=null && p.getObject()==null){
+                System.out.println ("Specifica l'oggetto che vuoi premere");
+            }
+        } //FINE PREMI
         if (noroom) {
                 System.out.println("Da quella parte non si può andare c'e' un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
         } else if (move==true) {
