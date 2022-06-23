@@ -1,27 +1,42 @@
 						
 
-					                	+------------------+
-						                | 		           |
-						                | REGOLE DEL GIOCO |
-						                |		           |
-						                +------------------+
+					        +------------------+
+						    |	       	       |
+						    | REGOLE DEL GIOCO |
+						    | 		           |
+					        +------------------+
 
-1) Il gioco consente la giocabilita' solo da un utente;
 
-2) VITE : hai a disposizione solo tre vite, cerca di non farti ammazzare gia' dal primo capitolo;
+1)DIALOGHI:
+Fate attenzione ai Dialoghi. 
+All' interno di esso verra' narrata la storia e
+gli eventuali suggerimenti di gioco.
 
-3)FOCUS :E' importante l'utilizzo del Focus , un sistema di calcolo e realta' aumentata indossabile,
- che potrete utilizzare per identificare oggetti e ambienti legati alle missioni.
- Il Focus vi permettera' di ispezionare le Macchine, visualizzando le loro componenti e le vulnerabilita' agli elementi.
++++ Nota bene per l' utente +++:
 
-4) SIATE FURTIVI : I nemici sparsi per la mappa possono percepire i rumori prodotti da Victoria e dalle sue armi, divenendo subito sospettosi.
-Nascondetevi prima di venire scovati.
-Quindi, prendete  confidenza con l'arco e cercate di uccidere i nemici con un solo colpo, riducendo quindi le possibilità di essere scoperti e mandare a monte la copertura
+E' importante premere invio per continuare
+la lettura del dialogo fino al raggiungimento della voce 
+"cosa vuoi fare?"
 
-5) ARRAMPICATEVI SUI COLLILUNGHI 
-I Collilunghi sono gigantesche statue a forma di animale che possono essere scalate sfruttando l'ambiente circostante.
- Arrampicatevi su uno di essi ed eseguite la cripta per svelare l'area circostante della mappa.
+2) MOVIMENTO DI GIOCO:
+All'interno del gioco e' possibile spostarsi tra le stanze con i comandi
+NORD SUD, EST, e OVEST. 
+Mentre per spostarvi all'interno di una stanza
+per avere conoscenza di cio' che 
+si trova all'interno della stanza stessa,
+e' importante richiamare i comandi N,E,S e O.
 
-6) RACCOGLIETE TUTTO
-Mentre esplorate la mappa, prestate attenzione ad ogni animale che incontrerete: dopo averli eliminati, questi vi forniranno infatti degli specifici materiali
-che potrete utilizzare per il ripristino della salute.
+3) FOCUS
+E' importante l'utilizzo del Focus, un sistema di calcolo e realta' aumentata
+che vi permettera' di ricavare le informazioni sulle Macchine, 
+visualizzando le loro componenti e la loro vulnerabilità.
+
+4) ARRAMPICATEVI SUI COLLILUNGHI 
+I Collilunghi sono gigantesche statue a forma di animale che 
+possono essere scalate. 
+Arrampicatevi su uno di essi ed eseguite la cripta per svelare la mappa,
+in modo tale che avrete una chiara visuale della zona 
+e potrete pianificare i vostri spostamenti di conseguenza.
+
+5)RACCOGLIETE TUTTO:
+Quando uccidete una macchina e' possibile ispezionarla per ricavare dei piccoli regali.

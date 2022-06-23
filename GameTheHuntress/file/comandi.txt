@@ -1,23 +1,22 @@
 				
 				        +------------------+
 				        | COMANDI DI GIOCO |
-				        |		   		   |
+				        |		           |
 				        +------------------+
 
 
-GUARDA/osserva/vedi/descrivi:        || Con questo comando potrai osservare tutto che ti circonda
-FOCUS:                               || Con questo comando potrai attivare il focus
-INVENTARUI/inv:                      || Con questo comando potrai richiamare l'inventario
-CRIPTA/corrompi/ "controlla/C/c :    || Con questo comando prenderai il controllo delle macchine
-UTILIZZA:                            || Con questo comando potrai utilizzare gli oggetti dell'inventario
-APRI:				                 || Con questo comando potrai aprire oggetti e inserirli nel tuo inventario
-PREMI/spingi/attiva/pre/Pre:         || Con questo comando potrai premere dei pulsanti
-LASCIA/la/La:                        || Con questo comando potrai rimuovere gli oggetti dal tuo inventario qualora non servano
-MAPPA:                               || Con questo comando potrai visualizzare la mappa
-NORD/nord/ n / N                     ||
-SUD/sud/s/S                          ||
-EST/est/e/E                          ||
-OVEST/ovest/o/O:                     || Coordinate del gioco
-MIRA:                                || Con questo comando potrai colpire le macchine
-NASCONDI/giu/silenzio:               || Con questo comando potrai nasconderti dalle macchine
-ESCI/end/fine/ esci/ exit            ||  Esci dal gioco
+GUARDA/gua/osserva/vedi/descrivi:    || Con questo comando potrai osservare tutto che ti circonda
+FOCUS/foc:                           || Con questo comando potrai attivare il focus
+INVENTARIO/inv:                      || Con questo comando potrai richiamare l'inventario
+CRIPTA/controlla/manipola:           || Con questo comando potrai riprestinare il nucleo delle macchine
+APRI/ap:			                 || Con questo comando potrai aprire oggetti e inserirli nel tuo inventario
+PREMI/pre:                           || Con questo comando potrai premere dei pulsanti
+USA/us/u:                            || Con questo comando potrai usare gli oggetti del tuo invetario
+MAPPA/map:                           || Con questo comando potrai visualizzare la mappa
+NORD/SUD/EST/OVEST:                  || Con questo comando potrai spostarti fra le stanze
+n/s/e/o:                             || Con questo comando potrai spostarti all'interno della stanza stessa
+PRALA/p/parl:                        || Con questo comando potrai dialogare con i personaggi
+COMANDI/com/comandi:                 || Con questo comando potrai richiamare i comandi di gioco
+ISPEZIONE/ispe/isp:                  || Con questo comando potrai ispezionare le macchine
+SCALA/sal/sca:                       || Con questo comando potrai scalare la macchina del collolungo
+FINE PARTITA/fine/ esci/f:           ||  Esci dal gioco
