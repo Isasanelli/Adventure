@@ -84,6 +84,7 @@ public class TicTacGame implements ActionListener {
     }
 
     public void computerPlay() {
+        boolean winReturn2=false;
         try {
             Thread.sleep(200);
         } catch (InterruptedException e2) {
@@ -103,7 +104,7 @@ public class TicTacGame implements ActionListener {
                 grid[idx / 3][idx % 3] = (firstTurn ? 'X' : 'O');
                 firstTurn = !firstTurn;
                 textField.setText("Tuo turno");
-                check();
+                 check();
             }
         }
     }
@@ -172,14 +173,13 @@ public class TicTacGame implements ActionListener {
         } else if (isWin("O")) {
             int[] cells = winCells("O");
             win(cells[0], cells[1], cells[2], "Lord");
-            isEnd = true;
+            isEnd = false;
             new RestartMiniGame();
 
         } else if (isTie()) {
             endWithTie();
             isEnd = true;
             new RestartMiniGame();
-
         }
     }
 

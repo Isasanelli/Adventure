@@ -135,7 +135,7 @@ public class  DbClass {
 
         String[] room2={"Campo di addestramento",
                 "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
-                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con Rost",
+                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume.Parla con rost se non lo hai ancora fatto",
                 "Piccoli brividi ti invadono.\n"
             +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
             +"Non c'e' nulla che ti possa interessare. Forse e' meglio tornare alla missione"};
@@ -193,7 +193,8 @@ public class  DbClass {
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
                  "Sembra che meridiana si stia riprendendo. \n" +
                 "L'esercito di Vanasha non sara' piu' un problema."};
-
+        //controllo se la tupla con id=7 esiste già nella tabella rooms, e se non è così verrà inserita
+        init(SELECT1,7,INSERT1,room7);
         /**
          * inserimento degli oggetti nella tabella advObjects
          */

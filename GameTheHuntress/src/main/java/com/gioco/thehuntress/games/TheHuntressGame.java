@@ -268,6 +268,8 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.setSouth(roomOutMeridiana);
 
         roomOutMeridiana.setNorth(roomCollolungo);
+        roomOutMeridiana.setSouth(roomCalderone);
+        roomCalderone.setNorth(roomOutMeridiana);
 
 
         getRooms().add(roomGarden);
@@ -588,6 +590,21 @@ public class TheHuntressGame extends GameDescription {
                 if (p.getObject() != null && flagFocus == true) { //se il focus è nell'inventario ed è stato scritto focus macchina
                     if (p.getObject().isFocus() == true) { //se sull'oggetto è applicabile il focus
                         System.out.println(p.getObject().getName(db) + " : " + p.getObject().getDescription(db));
+                        if(getCurrentRoom().getId()==2){
+                            System.out.println("|ROST: Vuoi vedere cosa c'è al suo interno? Stai a guardare");
+                            System.out.println();
+                            System.out.println("+----------------------------+");
+                            System.out.println("| ROST HA UCCISO IL CORSIERO |");
+                            System.out.println("+----------------------------+");
+                            System.out.println();
+                             System.out.println("+------------------------------------------+\n");
+                            System.out.println("|Suggerimento:                              |\n");
+                            System.out.println("|  Puoi ispezionare il corsiero scrivendo   |\n");
+                            System.out.println("|       <<ispezione + nome macchina>>       |\n");
+                            System.out.println("+-------------------------------------------+");
+                             System.out.println();
+                            p.getObject().setKill(true);
+                        }
                     } else { //se sull'oggetto non è applicabile il focus
                      System.out.println("Non e' possibile applicare il focus a questo oggetto!");
 
@@ -598,7 +615,7 @@ public class TheHuntressGame extends GameDescription {
                     System.out.println("il focus non e' presente ancora nel tuo inventario!");
                 }
 
-        }else if(p.getCommand().getType().equals(CommandType.USA)){
+        }/*else if(p.getCommand().getType().equals(CommandType.USA)){
             if(p.getObject()!= null && p.getObject2()!= null) { //p.getObject è la macchina, mentre p.getObject2 è l'arco
                 if (p.getObject2().getId() == 3) {
                     if (p.getObject().isKillable() && !p.getObject().isKill()) {
@@ -615,7 +632,8 @@ public class TheHuntressGame extends GameDescription {
             }else if (p.getObject()== null && p.getObject2()== null){ //usa
                 System.out.println("ERRORE");
             }
-        } else if (p.getCommand().getType().equals(CommandType.PREMI)){
+        }*/ else if (p.getCommand().getType().equals(CommandType.PREMI)){
+            boolean flag=false;
             if(p.getObject()!=null && p.getObject2()== null) {
                 if (!p.getObject().isPush() && p.getObject().isPushable()) {
                     p.getObject().setPush(true);
@@ -639,7 +657,7 @@ public class TheHuntressGame extends GameDescription {
             }
         } //FINE PREMI
         if (noroom) {
-                System.out.println("Da quella parte non si può andare c'e' un muro!\n Non hai ancora acquisito i poteri per oltrepassare i muri...");
+                System.out.println("Da quella parte non si può andare!!!");
         } else if (move==true) {
                 System.out.println("======================================================================");
                 System.out.println("                  " + getCurrentRoom().getName(db));
