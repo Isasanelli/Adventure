@@ -111,7 +111,7 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(scalable);
 
         Command push =new Command (CommandType.PREMI, "premi");
-        push.setAlias(new String[]{"prem","pre"});
+        push.setAlias(new String[]{"prem","pre", "schiaccia"});
         getCommands().add(push);
 
 
@@ -124,10 +124,9 @@ public class TheHuntressGame extends GameDescription {
         focus.setAlias(new String[]{"foc"});
         getCommands().add(focus);
 
-        /*Command pickup = new Command(CommandType.PRENDI, "raccogli");
-        pickup.setAlias(new String[]{"prendi", "r", "R"});
-        getCommands().add(pickup);
-
+        Command combatti = new Command(CommandType.COMBATTI, "combatti");
+        combatti.setAlias(new String[] {"attacca","aggredisci","att","aggred","comb","affronta","affr"});
+        getCommands().add(combatti);
         /**
          * Rooms
          */
@@ -176,7 +175,11 @@ public class TheHuntressGame extends GameDescription {
         roomOutMeridiana.setWestInTheRoom(new String[] {"Non c'e' nulla che ti puo interessare qui ","Non c'e' nulla ch eti puo intressare qui"});
 
 
-        //SONO DA SETTARE LE DESCRIZIONI CON LE CARDINALITA' ALL'INTERNO DELLE ROOMS DEL CAPITOLO 3
+        Room roomCalderone = new Room(7);
+        roomCalderone.setNorthInTheRoom(new String[] {"C'è il cuore della madre. La sua luce blu è cosi calda e forte","C'è il cuore della madre. La sua luce blu è cosi calda e forte"});
+        roomCalderone.setSouthInTheRoom(new String[] {"c'e' la porta del Calderone: non è il momento di uscire. Sei a un passo dal salvare il mondo. Non fermarti","c'e' la porta del calderone"});
+        roomCalderone.setEastInTheRoom(new String[] {"non c'e' nulla","non c'e' nulla"});
+        roomCalderone.setWestInTheRoom(new String[] {"Ci sono delle macchine, collegate a dei fili. Alcune dormono dentro a delle celle. Che posto macrabo","Ci sono delle macchine dentro delle gabbie"});
 
         /*
           Definizione oggetti AdvObject.
@@ -619,7 +622,8 @@ public class TheHuntressGame extends GameDescription {
                     if (p.getObject().getId() == 10 && getCurrentRoom().getId()==6) {
                         TicTacGame tris = new TicTacGame();
                         tris.computerPlay();
-                        // settaggio stanza 7 come stanza corrente e move = true
+                        setCurrentRoom(getCurrentRoom().getSouth());
+                        move=true;
                     }
                 }else if (p.getObject().isPushable() && p.getObject().isPush()) {
                     if (p.getObject().getId() == 10) {

@@ -172,12 +172,27 @@ public class  DbClass {
         //controllo se la tupla con id=5 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 
-        String[] room6={"Porta del Calderone",
+        String[] room6={"Torre di Meridiana: porta del Calderone",
                 "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'è un pulsante alla tua destra, sarà il caso di premerlo",
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,6,INSERT1,room6);
+
+        String[] room7={"Torre di Meridiana: Calderone",
+                "Sei riuscita ad entrare dentro il calderone. \n" +
+                "Intorno a te vedi solo dei cavi agrovigliati fra di loro, \n" +
+                "e piccole scintille spuntano in alcune di essi.  \n" +
+                "A fine del corridoio, noti una luce blu che illumina la stanza. \n" +
+                "Improvvisamente qualcuno ti colpisce alle spalle, facendoti cadere per terra. \n" +
+                "Girandoti rapidamente, noti un viso famigliare. \n" +
+                "Finalmente hai trovato Vanasha.\n" +
+                "E' il momento di combattere.",
+                "a nord trovi il cuore della madre,\n" +
+                "a sud c'e' la porta del Calderone\n" +
+                "a ovest ci sono delle macchiene. Che posto macrabo.\n",
+                 "Sembra che meridiana si stia riprendendo. \n" +
+                "L'esercito di Vanasha non sara' piu' un problema."};
 
         /**
          * inserimento degli oggetti nella tabella advObjects
