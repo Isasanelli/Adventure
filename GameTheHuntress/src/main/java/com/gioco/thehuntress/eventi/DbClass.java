@@ -207,7 +207,7 @@ public class  DbClass {
         //controllo se la tupla con id=2 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,2,INSERT2,object2);
 
-        String[] object3={"arco da caccia","Usa freccie da caccia con massima precisione"};
+        String[] object3={"nucleo","E' il nucleo della madre, chip del comando delle macchine"};
         //controllo se la tupla con id=3 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,3,INSERT2,object3);
 

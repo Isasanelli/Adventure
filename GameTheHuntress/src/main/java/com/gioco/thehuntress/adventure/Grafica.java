@@ -39,7 +39,7 @@ public class Grafica {
 
     public void writeIntro() {
 
-        System.out.println("*****************************************************************************");
+        System.out.println("+------------------------------------------------------------------------------+\n");
         System.out.println("Pianeta terra del XXXI secolo d.C \n"
 
                 + "In un lussureggiante e vibrante mondo post-apocalittico, gruppi di umani vivono \n"
@@ -51,7 +51,20 @@ public class Grafica {
                 + "avra' il compito di liberare l'intera umanità dal dominio delle macchine \n"
                 + "Lei e' : LA CACCIATRICE \n"
         );
-        System.out.println("*****************************************************************************");
+        System.out.println("+-------------------------------------------------------------------------------+\n");
     }
 
+    public static void graphicBattle(){
+
+        System.out.println("+---------------------------------+\n");
+        System.out.println("|       Battle The Huntress       |\n");
+        System.out.println("+---------------------------------+\n");
+
+        System.out.println("+----------------------------------+\n");
+        System.out.println("|     ATTACCA   ||      PARA       |\n");
+        System.out.println("+----------------------------------+\n");
+        System.out.println("|             SCHIVA               |\n");
+        System.out.println("+----------------------------------+\n");
+
+}
 }
