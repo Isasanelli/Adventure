@@ -37,7 +37,8 @@ public class TicTacGame implements ActionListener {
         board = new JPanel();
         textField = new JLabel();
         buttons = new JButton[9];
-        frame.setSize(1920,1080);
+        frame.setSize(1500,1020);
+        frame.setResizable(false);
         frame.setBackground(new Color(50, 50, 50));
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
@@ -169,6 +170,7 @@ public class TicTacGame implements ActionListener {
             int[] cells = winCells("X");
             win(cells[0], cells[1], cells[2], "Tu");
             isEnd = true;
+            new BoxTextMingame();
         } else if (isWin("O")) {
             int[] cells = winCells("O");
             win(cells[0], cells[1], cells[2], "Lord");
