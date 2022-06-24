@@ -135,7 +135,7 @@ public class  DbClass {
 
         String[] room2={"Campo di addestramento",
                 "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
-                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con Rost",
+                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume.Parla con rost se non lo hai ancora fatto",
                 "Piccoli brividi ti invadono.\n"
             +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
             +"Non c'e' nulla che ti possa interessare. Forse e' meglio tornare alla missione"};
@@ -172,13 +172,29 @@ public class  DbClass {
         //controllo se la tupla con id=5 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 
-        String[] room6={"Porta del Calderone",
+        String[] room6={"Torre di Meridiana: porta del Calderone",
                 "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'è un pulsante alla tua destra, sarà il caso di premerlo",
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,6,INSERT1,room6);
 
+        String[] room7={"Torre di Meridiana: Calderone",
+                "Sei riuscita ad entrare dentro il calderone. \n" +
+                "Intorno a te vedi solo dei cavi agrovigliati fra di loro, \n" +
+                "e piccole scintille spuntano in alcune di essi.  \n" +
+                "A fine del corridoio, noti una luce blu che illumina la stanza. \n" +
+                "Improvvisamente qualcuno ti colpisce alle spalle, facendoti cadere per terra. \n" +
+                "Girandoti rapidamente, noti un viso famigliare. \n" +
+                "Finalmente hai trovato Vanasha.\n" +
+                "E' il momento di combattere.",
+                "a nord trovi il cuore della madre,\n" +
+                "a sud c'e' la porta del Calderone\n" +
+                "a ovest ci sono delle macchiene. Che posto macrabo.\n",
+                 "Sembra che meridiana si stia riprendendo. \n" +
+                "L'esercito di Vanasha non sara' piu' un problema."};
+        //controllo se la tupla con id=7 esiste già nella tabella rooms, e se non è così verrà inserita
+        init(SELECT1,7,INSERT1,room7);
         /**
          * inserimento degli oggetti nella tabella advObjects
          */
@@ -223,14 +239,6 @@ public class  DbClass {
         //controllo se la tupla con id=10 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,10,INSERT2,object10);
 
-        /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,name,desc FROM machines WHERE id=?");
-        pstm2.setInt(1,2);
-        ResultSet rs2= pstm2.executeQuery();
-        while(rs2.next()){
-            System.out.println(rs2.getInt(1) + "--" + rs2.getString(2)+ "--" + rs2.getString(3));
-        }
-        rs2.close();
-        pstm2.close();*/
     }
 
 

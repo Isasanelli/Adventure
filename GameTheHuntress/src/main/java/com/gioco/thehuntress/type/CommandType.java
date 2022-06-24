@@ -9,8 +9,6 @@ public enum CommandType {
     APRI,USA,ISPEZIONA,SCALA,PREMI,
 
     //Comandi per il combattimento
-    CRIPTA,FOCUS
-
-
+    CRIPTA,FOCUS,COMBATTI
 }
 

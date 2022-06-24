@@ -1,24 +1,25 @@
-|AVAD: Buongiorno sperdutella,pensavo che non ti svegliassi piu'
-|VICTORIA:Chi sei? Dove sono? Cosa vuoi da me?.#
-|AVAD: Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole". Tu chi sei?
-|VICTORIA: Sono Victoria, figlia di Rost, capo della tribu' degli Sheeva#
-|AVAD: Sei una nora. E' un onore averti qui nella mia tribu.#
+|AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'#
+|VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.#
+|AVAD:  Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole". Tu chi sei?#
+|VICTORIA: Sono Victoria, figlia di Rost, capo della tribu' degli Sheeva
 |VICTORIA: Sai dirmi come sono arrivata qui?#
-|AVAD: Abbiamo sentito che verso la valle dei caduti, l'esercito di Vanasha aveva attaccato.
-Stavamo per intervenire, ma era troppo tardi.
-I miei uomini ti hanno trovata svenuta giu nelle rovine.
-Ora puoi stare traquilla. Sei al sicuro.#
-|VICTORIA:Non credo di essere al sicuro.
-Noto che la vostra gente si trova a loro agio con le biomacchine.
-Loro sono il nemico.#
-|AVAD: Ti sbagli.Non sono loro il nemico, ma chi li comanda.
-Lo sapevi che le macchine, per quanto siano intelligenti, possono essere soggette a corruzione?
-Da come hai potute vedere nel mio villaggio le macchine sono innoque e nostre alleate.
-Tutto questo grazie a questa lancia.#
-Inoltre esiste una base a Meridiana, chiamata CALDERONRE, che e' il fulcro di nascita di tale biomacchine.
-L'obiettivo e' entrare nel CALDERONE, inserire il chip contenunto nella lancia e riprestinare
-il nucleo. Sembra facile come impresa, ma per poter accedere al calderone, dovrai prima
-affrontare un enigma e pregare di non incontrare l'esercito di Vanasha.#
-|VICTORIA: Penso di portcela fare. Dove posso trovare questa lancia?
-|AVAD: Non c'e' bisongo di cercarla, la lancia e' proprio qui.
-Ecco a te.Adesso seguimi verso "est", ti insegno come usarla.
+|AVAD: Abbiamo sentito delle urla verso la valle dei caduti.
+       Stavamo per intervenire, ma era troppo tardi.
+       I miei uomini ti hanno trovata svenuta giu nelle rovine.#
++--------------------------------+
+|   Noti dei piccoli movimenti   |
+|   Sembrerebbero della macchine |
+|   che giocano con degli umani  |
++--------------------------------+#
+|VICTORIA:  Noto che la vostra gente si trova a loro agio con le biomacchine.
+            Loro sono il nemico.#
+|AVAD: Non sono loro il nemico, ma chi li comanda.
+       Devi sapere che le macchine possono essere soggette a corruzione
+        Da come hai potute vedere nel mio villaggio le macchine sono nostre alleate.
+        Tutto questo grazie alla lancia cripta.#
+|AVAD: La lancia e' stata creata a  Meridiana, all'interno della torre CALDERONRE,dove giace il cuore della madre.#
+|AVAD: L'obiettivo e' entrare nel CALDERONE, inserire il chip contenunto nella lancia e riprestinare
+        il cuore.#
+|VICTORIA: Penso di potercela fare. Dove posso trovare questa lancia?
+|AVAD:  Non c'e' bisongo di cercarla, la lancia e' proprio qui.
+        Adesso andiamo a est, ti insegno come usarla.

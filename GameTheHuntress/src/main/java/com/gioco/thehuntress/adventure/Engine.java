@@ -123,12 +123,8 @@ public class Engine {
         }
 
     public static void main(String[] args) throws IOException {
-        engine= new Engine(new TheHuntressGame());
+       engine= new Engine(new TheHuntressGame());
         engine.start();
-        /*new TicTacGame().computerPlay();
-        System.out.println("Continua a giocare");*/
-
-
-
     }
+    
 }
