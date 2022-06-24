@@ -1,6 +1,7 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
+import com.gioco.thehuntress.adventure.Grafica;
 import com.gioco.thehuntress.battle.MiniGameBattle;
 import com.gioco.thehuntress.eventi.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
@@ -580,6 +581,7 @@ public class TheHuntressGame extends GameDescription {
                     if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
                         p.getObject().setCripta(true);
                         getCurrentRoom().Dialog();
+                        Grafica.end();
                         System.exit(0);
                     }
                 }
@@ -663,6 +665,7 @@ public class TheHuntressGame extends GameDescription {
                 } else {
                     getCurrentRoom().setDialog(PATROOM7PERDITA);
                     getCurrentRoom().Dialog();
+                    Grafica.end();
                     System.exit(0);
                 }
             } else if (getCurrentRoom().getId() != 7) {

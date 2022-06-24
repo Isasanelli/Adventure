@@ -2,15 +2,31 @@ package com.gioco.thehuntress.battle;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * class that manages user's move
+ */
 public class User {
     private Scanner inputScanner;
 
+    /**
+     * User builder
+     */
     public User(){
         inputScanner=new Scanner(System.in);
     }
 
+    /**
+     *method that reads the user's input and returns its type
+     * @return Move or getMove()
+     */
     public Move getMove(){
-        // Leggiamo l'input inserito dall'utente
         String userInput= inputScanner.nextLine().toLowerCase();
         if(!userInput.equalsIgnoreCase("")){
             if(!userInput.equals("schiva") && !userInput.equals("attacca") && !userInput.equals("para")) {

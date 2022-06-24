@@ -2,6 +2,16 @@ package com.gioco.thehuntress.battle;
 
 import com.gioco.thehuntress.adventure.Grafica;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * class that manages battle user-opponent
+ */
 public class MiniGameBattle {
 
     private User user;
@@ -9,23 +19,26 @@ public class MiniGameBattle {
     private int userScore=20;
     private int opponentScore=20;
 
-
-
+    /**
+     * MiniGameBattle builder
+     */
     public MiniGameBattle(){
         user=new User();
         opponent=new Opponent();
     }
 
+    /**
+     *method that initiates and manages the fight
+     * @return win
+     */
     public boolean startGame(){
         boolean win=false;
         Grafica.graphicBattle();
         while(userScore>=10 && opponentScore>=10) {
             Move userMove = user.getMove();
             Move opponentMove = opponent.getMove();
-            System.out.println("\nHai usato  " + userMove + ".");
+            System.out.println("\nHai usato  " + userMove + ".\n");
             System.out.println("Vanasha ha usato " + opponentMove + ".\n");
-
-            //Confronta le due mosse scelte per determinare chi ha vinto il turno fra l'utente e il nemico
             int compareMoves = userMove.compareMoves(opponentMove);
             switch (compareMoves) {
                 case 0: //pareggio

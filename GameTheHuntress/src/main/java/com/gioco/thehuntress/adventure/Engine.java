@@ -19,6 +19,10 @@ import java.util.Set;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ * Classe main del programma
+ */
 public class Engine {
 
     public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
@@ -29,6 +33,9 @@ public class Engine {
 
     private static Engine engine;
 
+    /**
+     *engine builder
+     */
     public Engine(GameDescription game) {
         this.game = game;
         try {
@@ -43,11 +50,15 @@ public class Engine {
             System.err.println(ex);
         }
     }
+
+    /**
+     * method that manages the game's initial menu
+     * @throws IOException
+     */
     public  void start() throws IOException {
 
         Scanner io = new Scanner(System.in);
-        Grafica graphic = new Grafica();
-        graphic.writeMenu();
+        Grafica.writeMenu();
         String input ;
         
 
@@ -58,7 +69,7 @@ public class Engine {
 
                 switch (input) {
                     case "nuova partita":
-                      execute(graphic);
+                      execute();
                         break;
                     case "regole del gioco":
                         Eventi.readRules();
@@ -73,17 +84,15 @@ public class Engine {
                 }//end of game
         } while (!input.equals("esci partita"));
 
-        System.out.println("""
-                +-----------------------------------------------------------------------+
-                | Il gioco e' bello quando dura poco.                                   |
-                | PACE E AMORE                                                          |
-                | Un saluto da : Margari Chiara, Ricciardi Raffaella e Sasanelli Ilenia |
-                +-----------------------------------------------------------------------+\n""");
+        Grafica.end();
         System.exit(0);
         }
 
-        public void execute(Grafica graphic){
-            graphic.writeIntro();
+    /**
+     *method that manages game run and input
+     */
+    public void execute(){
+            Grafica.writeIntro();
             System.out.println("======================================================================");
             System.out.println("                          "+ game.getCurrentRoom().getName(db));
             System.out.println("======================================================================");
@@ -122,6 +131,11 @@ public class Engine {
             }
         }
 
+    /**
+     * main method of the application
+     * @param args  the command line arguments
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
        engine= new Engine(new TheHuntressGame());
         engine.start();

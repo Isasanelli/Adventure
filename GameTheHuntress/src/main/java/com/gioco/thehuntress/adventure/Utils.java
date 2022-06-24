@@ -8,8 +8,24 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * Utils class
+ */
 
 public class Utils {
+    /**
+     *inserts the stopwords file into a set
+     * @param file
+     * @return set
+     * @throws IOException
+     */
     public static Set<String> loadFileListInSet(File file) throws IOException {
         Set<String> set = new HashSet<>();
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -20,15 +36,20 @@ public class Utils {
         return set;
     }
 
-        //restituisce una lista composta da comando oggetto oggetto senza stopwords
-    public static List<String> parseString(String string, Set<String> stopwords) { //string= stringa composta da comando-stopword-oggetto-stopword-oggetto
+    /**
+     * method that removes stopwords from the input string
+     * @param string string containing user input
+     * @param stopwords set containing stopwords
+     * @return tokens list composed of the <command object object> elements without stopwords
+     */
+    public static List<String> parseString(String string, Set<String> stopwords) {
         List<String> tokens = new ArrayList<>();
-        String[] split = string.toLowerCase().trim().split("\\s+"); //prendo string, la suddivido, la metto in minuscolo e la inserisco in un array
+        String[] split = string.toLowerCase().trim().split("\\s+");
         for (String t : split) {
-            if (!stopwords.contains(t)) {  //se la stringa non è una parola vuota la aggiungo in una lista
+            if (!stopwords.contains(t)) {
                 tokens.add(t);
             }
         }
-        return tokens;  //tokens è la lista di Stringhe composta soltanto da comando-oggetto-oggetto
+        return tokens;
     }
 }

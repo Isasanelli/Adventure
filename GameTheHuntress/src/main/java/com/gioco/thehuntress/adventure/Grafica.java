@@ -11,11 +11,21 @@ package com.gioco.thehuntress.adventure;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ * class that contains the graphics of the game
+ */
 public class Grafica {
-    
+
+    /**
+     * builder Grafica
+     */
     public Grafica() {}
 
-    public void writeMenu() {
+    /**
+     * method that prints the initial menu
+     */
+    public static void writeMenu() {
         System.out.println("  \n"
 
                 + " +--------------------------------------+ \n"
@@ -37,7 +47,11 @@ public class Grafica {
 
     }
 
-    public void writeIntro() {
+    /**
+     * method that prints the introduction of the game
+     */
+
+    public static void writeIntro() {
 
         System.out.println("+------------------------------------------------------------------------------+\n");
         System.out.println("Pianeta terra del XXXI secolo d.C \n"
@@ -54,6 +68,21 @@ public class Grafica {
         System.out.println("+-------------------------------------------------------------------------------+\n");
     }
 
+    /**
+     * method that prints the program termination message
+     */
+    public static void end(){
+        System.out.println("""
+                +-----------------------------------------------------------------------+
+                | Il gioco e' bello quando dura poco.                                   |
+                | PACE E AMORE                                                          |
+                | Un saluto da : Margari Chiara, Ricciardi Raffaella e Sasanelli Ilenia |
+                +-----------------------------------------------------------------------+\n""");
+    }
+
+    /**
+     * method that prints the battle command menu
+     */
     public static void graphicBattle(){
 
         System.out.println("+---------------------------------+\n");
@@ -66,5 +95,5 @@ public class Grafica {
         System.out.println("|             SCHIVA               |\n");
         System.out.println("+----------------------------------+\n");
 
-}
+    }
 }

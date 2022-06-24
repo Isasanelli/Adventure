@@ -3,23 +3,34 @@ package com.gioco.thehuntress.eventi;
 import java.sql.*;
 import java.util.Properties;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * class that manages the database
+ */
 public class  DbClass {
 
     public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000), descReturn VARCHAR(1000))";
     public static final String CREATE_ADVOBJECT="CREATE TABLE IF NOT EXISTS advObjects (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
-    public static final String CREATE_ADVOBJECTCONTAINER="CREATE TABLE IF NOT EXISTS advObjectsContainer (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
 
     public static final String SELECT1="SELECT id FROM rooms WHERE id=?";
     public static final String SELECT2="SELECT id FROM advObjects WHERE id=?";
     public static final String SELECT3="SELECT id FROM advObjectsContainer WHERE id=?";
     public static final String INSERT1= "INSERT INTO rooms VALUES (?,?,?,?,?)";
     public static final String INSERT2="INSERT INTO advObjects VALUES (?,?,?)";
-    public static final String INSERT3="INSERT INTO advObjectsContainer VALUES(?,?,?)";
 
     private static Connection conn;
     private Properties prop;
 
 
+    /**
+     * DbClass builder
+     */
     public DbClass(){
         try{
             prop =properties();
@@ -30,13 +41,24 @@ public class  DbClass {
         }
     }
 
-    //connessione al db
+    /**
+     * method that loads the driver through the connection string
+     * @param prop Properties object
+     * @return driver
+     * @throws SQLException
+     */
     public static Connection connection (Properties prop) throws SQLException {
          return DriverManager.getConnection("jdbc:h2:./resources/db/playgame",prop);
     }
 
 
-    //metodo che consente di leggere la select e l'id di interesse
+    /**
+     * method that allows you to read the select and id of interest
+     * @param select
+     * @param idStatement object's id
+     * @return rs result of the select
+     * @throws SQLException
+     */
     public static ResultSet readFromDb(String select,int idStatement) throws SQLException{
         PreparedStatement pstm= getConnection().prepareStatement(select);
         pstm.setInt(1,idStatement);
@@ -44,7 +66,14 @@ public class  DbClass {
         return rs;
     }
 
-
+    /**
+     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted
+     * @param select
+     * @param id object's id
+     * @param queryInsert string that contains query that inserts items into the table
+     * @param array contains the elements to be inserted in the db table
+     * @throws SQLException
+     */
     public void init(String select,int id, String queryInsert, String[] array) throws SQLException{
         ResultSet rs= readFromDb(select,id);
 
@@ -53,7 +82,13 @@ public class  DbClass {
         }
     }
 
-    //metodo che ritorna false se l'oggetto non è stato scritto in db
+    /**
+     * method that checks if the object is present in the table or not
+     * @param resultSet
+     * @param id
+     * @return toReturn it is true if the object is present in the table, otherwise it is false
+     * @throws SQLException
+     */
     public Boolean exists( ResultSet resultSet, int id) throws SQLException{
         Boolean toReturn=false;
         while(resultSet.next()){
@@ -63,20 +98,26 @@ public class  DbClass {
         return toReturn;
     }
 
-    //metodo che inserisce all'interno della tabella la stringa
+    /**
+     * method that inserts the string's array into the table
+     * @param id
+     * @param insert string that contains query that inserts items into the table
+     * @param array contains the elements to be inserted in the db table
+     * @throws SQLException
+     */
     public void insertStringIntoTheTable(int id, String insert, String[] array) throws SQLException{
         PreparedStatement pstm= getConnection().prepareStatement(insert);
-        if(array.length==4) {
+        if(array.length==4) { //for the rooms
             pstm.setInt(1, id);
-            pstm.setString(2, array[0]); //nome
-            pstm.setString(3, array[1]); //descrizione
-            pstm.setString(4, array[2]); //look
-            pstm.setString(5,array[3]); //descrizione di ritorno
+            pstm.setString(2, array[0]);
+            pstm.setString(3, array[1]);
+            pstm.setString(4, array[2]);
+            pstm.setString(5,array[3]);
             pstm.executeUpdate();
-        } else if(array.length==2){
+        } else if(array.length==2){ //for the advObjects
             pstm.setInt(1,id);
-            pstm.setString(2,array[0]); //nome
-            pstm.setString(3,array[1]);//descrizione
+            pstm.setString(2,array[0]);
+            pstm.setString(3,array[1]);
             pstm.executeUpdate();
         } else{
             System.out.println("Errore su insertStringIntoTheTable" + id);
@@ -84,13 +125,21 @@ public class  DbClass {
         pstm.close();
     }
 
-    //metodo che crea la tabella all'interno del db
+    /**
+     *  method that creates the table inside the db
+     * @param table string that contains the query that creates the table
+     * @throws SQLException
+     */
     public void createTable(String table) throws SQLException{
         Statement stat= getConnection().createStatement();
         stat.executeUpdate(table);
         stat.close();
     }
 
+    /**
+     *method that creates the properties object
+     * @return prop
+     */
     public static Properties properties(){
         Properties prop =new Properties();
         prop.setProperty("user","Huntress");
@@ -98,26 +147,30 @@ public class  DbClass {
         return prop;
     }
 
+    /**
+     * method that returns the connection
+     * @return conn
+     * @throws SQLException
+     */
     public static Connection getConnection() throws SQLException{
         return conn;
     }
 
 
-    //crea le tabelle all'interno del db e chiama la funzione che popola le tuple
+    /**
+     * method that creates the tables inside the db and calls the function that populates the tuples
+     * @throws SQLException
+     */
     public void createAllTable() throws SQLException{
-        //creazione tabella rooms
         createTable(CREATE_ROOM);
-
-        //creazione tabella oggetti
         createTable(CREATE_ADVOBJECT);
-
-        //creazione tabella macchine
-        createTable(CREATE_ADVOBJECTCONTAINER);
-
         populationTable();
     }
 
-    //vengono popolate le tuple nelle tabelle
+    /**
+     * method that populates the tuples of the tables present in the db
+     * @throws SQLException
+     */
     public void populationTable() throws SQLException{
         /**
          * inserimento delle stanze nella tabella rooms

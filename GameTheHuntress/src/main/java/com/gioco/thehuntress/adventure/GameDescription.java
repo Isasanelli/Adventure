@@ -11,6 +11,16 @@ import com.gioco.thehuntress.type.Room;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * abstract class
+ */
 
 public abstract class GameDescription{
 
@@ -24,7 +34,6 @@ public abstract class GameDescription{
 
     private Room currentRoom;
 
-    //private int startingRoomId;
 
     public List<Room> getRooms() {
         return rooms;
