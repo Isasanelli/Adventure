@@ -601,6 +601,7 @@ public class TheHuntressGame extends GameDescription {
                     if (p.getObject().isFocus() == true) { //se sull'oggetto è applicabile il focus
                         System.out.println(p.getObject().getName(db) + " : " + p.getObject().getDescription(db));
                         if(getCurrentRoom().getId()==2){
+                            System.out.println();
                             System.out.println("|ROST: Vuoi vedere cosa c'e' al suo interno? Stai a guardare");
                             System.out.println();
                             System.out.println("+----------------------------+");

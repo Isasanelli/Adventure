@@ -22,7 +22,7 @@ public class MiniGameBattle {
         while(userScore>=10 && opponentScore>=10) {
             Move userMove = user.getMove();
             Move opponentMove = opponent.getMove();
-            System.out.println("\nHai usato" + userMove + ".");
+            System.out.println("\nHai usato  " + userMove + ".");
             System.out.println("Vanasha ha usato " + opponentMove + ".\n");
 
             //Confronta le due mosse scelte per determinare chi ha vinto il turno fra l'utente e il nemico
@@ -42,6 +42,11 @@ public class MiniGameBattle {
             }
         }
         if(userScore<10 && opponentScore>=10){
+            System.out.println("+----------------------------------------------------+");
+            System.out.println("|Ad un certo punto perdi 'equilibrio e cadi a terra. |");
+            System.out.println("| Vanasha ti punta un coltello alla gola.            |");
+            System.out.println("|Il panico ti pervade...                             |");
+            System.out.println("+----------------------------------------------------+");
              win=false;
         }else if(userScore>10 && opponentScore<=10){
             win=true;
