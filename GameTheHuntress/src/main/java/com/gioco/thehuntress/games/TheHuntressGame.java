@@ -638,8 +638,7 @@ public class TheHuntressGame extends GameDescription {
                 if (!p.getObject().isPush() && p.getObject().isPushable()) {
                     p.getObject().setPush(true);
                     if (p.getObject().getId() == 10 && getCurrentRoom().getId()==6) {
-                        TicTacGame tris = new TicTacGame();
-                        tris.computerPlay();
+                        new TicTacGame().computerPlay();
                         setCurrentRoom(getCurrentRoom().getSouth());
                         move=true;
                     }

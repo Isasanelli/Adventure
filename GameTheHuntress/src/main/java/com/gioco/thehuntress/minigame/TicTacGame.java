@@ -37,7 +37,7 @@ public class TicTacGame implements ActionListener {
         board = new JPanel();
         textField = new JLabel();
         buttons = new JButton[9];
-        frame.setSize(800, 800);
+        frame.setSize(1920,1080);
         frame.setBackground(new Color(50, 50, 50));
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
