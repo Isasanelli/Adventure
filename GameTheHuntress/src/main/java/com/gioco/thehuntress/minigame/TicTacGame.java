@@ -19,7 +19,7 @@ public class TicTacGame implements ActionListener {
     JButton[] buttons;
     ImageIcon image;
     boolean firstTurn;
-    boolean isEnd;
+    boolean isEnd = false;
     char[][] grid;
 
     public TicTacGame() {
@@ -63,7 +63,6 @@ public class TicTacGame implements ActionListener {
         frame.add(titlePanel, BorderLayout.NORTH);
         frame.add(board);
         frame.setVisible(true);
-        isEnd = false;
         firstTurn();
     }
 

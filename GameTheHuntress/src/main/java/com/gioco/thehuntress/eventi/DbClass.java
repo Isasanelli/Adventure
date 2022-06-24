@@ -239,14 +239,6 @@ public class  DbClass {
         //controllo se la tupla con id=10 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,10,INSERT2,object10);
 
-        /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,name,desc FROM machines WHERE id=?");
-        pstm2.setInt(1,2);
-        ResultSet rs2= pstm2.executeQuery();
-        while(rs2.next()){
-            System.out.println(rs2.getInt(1) + "--" + rs2.getString(2)+ "--" + rs2.getString(3));
-        }
-        rs2.close();
-        pstm2.close();*/
     }
 
 
