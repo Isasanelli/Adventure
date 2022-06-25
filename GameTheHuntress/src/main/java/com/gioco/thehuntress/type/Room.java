@@ -1,6 +1,6 @@
 package com.gioco.thehuntress.type;
 
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +9,16 @@ import java.util.List;
 
 import static com.gioco.thehuntress.eventi.Eventi.readFileDialog;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * Room class
+ */
 public class Room {
     private final int id;
     public static final String SELECTNAME="SELECT name FROM rooms WHERE id=?";
@@ -65,6 +75,12 @@ public class Room {
         return look;
     }
 
+    /**
+     * method that accesses from the database to get the information of interest
+     * @param db
+     * @param select
+     * @return
+     */
     public String getInformationRoom(DbClass db, String select){
         String resultSelect= "";
         try{
@@ -144,11 +160,7 @@ public class Room {
     public void setWest(Room west) {
         this.west = west;
     }
-     
 
-    /**
-     * servono per rendere dinamica a stanza
-     */
     public String getNorthInTheRoom(){
         if(getFirstTimeHere()){
             return northInTheRoom[0];

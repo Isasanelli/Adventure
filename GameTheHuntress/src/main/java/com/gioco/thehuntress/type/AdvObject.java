@@ -5,7 +5,7 @@
 package com.gioco.thehuntress.type;
 
 
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +19,10 @@ import java.util.Set;
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
+ */
+
+/**
+ * AdvObject class
  */
 public class AdvObject {
     

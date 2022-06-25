@@ -1,25 +1,36 @@
-package com.gioco.thehuntress.eventi;
+package com.gioco.thehuntress.database;
 
 import java.sql.*;
 import java.util.Properties;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+/**
+ * class that manages the database
+ */
 public class  DbClass {
 
     public static final String CREATE_ROOM= "CREATE TABLE IF NOT EXISTS rooms (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000), look VARCHAR(1000), descReturn VARCHAR(1000))";
     public static final String CREATE_ADVOBJECT="CREATE TABLE IF NOT EXISTS advObjects (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
-    public static final String CREATE_ADVOBJECTCONTAINER="CREATE TABLE IF NOT EXISTS advObjectsContainer (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(1000))";
 
     public static final String SELECT1="SELECT id FROM rooms WHERE id=?";
     public static final String SELECT2="SELECT id FROM advObjects WHERE id=?";
     public static final String SELECT3="SELECT id FROM advObjectsContainer WHERE id=?";
     public static final String INSERT1= "INSERT INTO rooms VALUES (?,?,?,?,?)";
     public static final String INSERT2="INSERT INTO advObjects VALUES (?,?,?)";
-    public static final String INSERT3="INSERT INTO advObjectsContainer VALUES(?,?,?)";
 
     private static Connection conn;
     private Properties prop;
 
 
+    /**
+     * DbClass builder
+     */
     public DbClass(){
         try{
             prop =properties();
@@ -30,13 +41,24 @@ public class  DbClass {
         }
     }
 
-    //connessione al db
+    /**
+     * method that loads the driver through the connection string
+     * @param prop Properties object
+     * @return driver
+     * @throws SQLException
+     */
     public static Connection connection (Properties prop) throws SQLException {
          return DriverManager.getConnection("jdbc:h2:./resources/db/playgame",prop);
     }
 
 
-    //metodo che consente di leggere la select e l'id di interesse
+    /**
+     * method that allows you to read the select and id of interest
+     * @param select
+     * @param idStatement object's id
+     * @return rs result of the select
+     * @throws SQLException
+     */
     public static ResultSet readFromDb(String select,int idStatement) throws SQLException{
         PreparedStatement pstm= getConnection().prepareStatement(select);
         pstm.setInt(1,idStatement);
@@ -44,7 +66,14 @@ public class  DbClass {
         return rs;
     }
 
-
+    /**
+     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted
+     * @param select
+     * @param id object's id
+     * @param queryInsert string that contains query that inserts items into the table
+     * @param array contains the elements to be inserted in the db table
+     * @throws SQLException
+     */
     public void init(String select,int id, String queryInsert, String[] array) throws SQLException{
         ResultSet rs= readFromDb(select,id);
 
@@ -53,7 +82,13 @@ public class  DbClass {
         }
     }
 
-    //metodo che ritorna false se l'oggetto non è stato scritto in db
+    /**
+     * method that checks if the object is present in the table or not
+     * @param resultSet
+     * @param id
+     * @return toReturn it is true if the object is present in the table, otherwise it is false
+     * @throws SQLException
+     */
     public Boolean exists( ResultSet resultSet, int id) throws SQLException{
         Boolean toReturn=false;
         while(resultSet.next()){
@@ -63,20 +98,26 @@ public class  DbClass {
         return toReturn;
     }
 
-    //metodo che inserisce all'interno della tabella la stringa
+    /**
+     * method that inserts the string's array into the table
+     * @param id
+     * @param insert string that contains query that inserts items into the table
+     * @param array contains the elements to be inserted in the db table
+     * @throws SQLException
+     */
     public void insertStringIntoTheTable(int id, String insert, String[] array) throws SQLException{
         PreparedStatement pstm= getConnection().prepareStatement(insert);
-        if(array.length==4) {
+        if(array.length==4) { //for the rooms
             pstm.setInt(1, id);
-            pstm.setString(2, array[0]); //nome
-            pstm.setString(3, array[1]); //descrizione
-            pstm.setString(4, array[2]); //look
-            pstm.setString(5,array[3]); //descrizione di ritorno
+            pstm.setString(2, array[0]);
+            pstm.setString(3, array[1]);
+            pstm.setString(4, array[2]);
+            pstm.setString(5,array[3]);
             pstm.executeUpdate();
-        } else if(array.length==2){
+        } else if(array.length==2){ //for the advObjects
             pstm.setInt(1,id);
-            pstm.setString(2,array[0]); //nome
-            pstm.setString(3,array[1]);//descrizione
+            pstm.setString(2,array[0]);
+            pstm.setString(3,array[1]);
             pstm.executeUpdate();
         } else{
             System.out.println("Errore su insertStringIntoTheTable" + id);
@@ -84,13 +125,21 @@ public class  DbClass {
         pstm.close();
     }
 
-    //metodo che crea la tabella all'interno del db
+    /**
+     *  method that creates the table inside the db
+     * @param table string that contains the query that creates the table
+     * @throws SQLException
+     */
     public void createTable(String table) throws SQLException{
         Statement stat= getConnection().createStatement();
         stat.executeUpdate(table);
         stat.close();
     }
 
+    /**
+     *method that creates the properties object
+     * @return prop
+     */
     public static Properties properties(){
         Properties prop =new Properties();
         prop.setProperty("user","Huntress");
@@ -98,26 +147,30 @@ public class  DbClass {
         return prop;
     }
 
+    /**
+     * method that returns the connection
+     * @return conn
+     * @throws SQLException
+     */
     public static Connection getConnection() throws SQLException{
         return conn;
     }
 
 
-    //crea le tabelle all'interno del db e chiama la funzione che popola le tuple
+    /**
+     * method that creates the tables inside the db and calls the function that populates the tuples
+     * @throws SQLException
+     */
     public void createAllTable() throws SQLException{
-        //creazione tabella rooms
         createTable(CREATE_ROOM);
-
-        //creazione tabella oggetti
         createTable(CREATE_ADVOBJECT);
-
-        //creazione tabella macchine
-        createTable(CREATE_ADVOBJECTCONTAINER);
-
         populationTable();
     }
 
-    //vengono popolate le tuple nelle tabelle
+    /**
+     * method that populates the tuples of the tables present in the db
+     * @throws SQLException
+     */
     public void populationTable() throws SQLException{
         /**
          * inserimento delle stanze nella tabella rooms
@@ -126,7 +179,7 @@ public class  DbClass {
         String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,\n"
                 +" sommersa nei tuoi pensieri.Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
+                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con lui","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
                 +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};
@@ -135,7 +188,7 @@ public class  DbClass {
 
         String[] room2={"Campo di addestramento",
                 "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
-                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con Rost",
+                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume.Parla con rost se non lo hai ancora fatto",
                 "Piccoli brividi ti invadono.\n"
             +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
             +"Non c'e' nulla che ti possa interessare. Forse e' meglio tornare alla missione"};
@@ -172,13 +225,29 @@ public class  DbClass {
         //controllo se la tupla con id=5 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 
-        String[] room6={"Porta del Calderone",
+        String[] room6={"Torre di Meridiana: porta del Calderone",
                 "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'è un pulsante alla tua destra, sarà il caso di premerlo",
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,6,INSERT1,room6);
 
+        String[] room7={"Torre di Meridiana: Calderone",
+                "Sei riuscita ad entrare dentro il calderone. \n" +
+                "Intorno a te vedi solo dei cavi agrovigliati fra di loro, \n" +
+                "e piccole scintille spuntano in alcune di essi.  \n" +
+                "A fine del corridoio, noti una luce blu che illumina la stanza. \n" +
+                "Improvvisamente qualcuno ti colpisce alle spalle, facendoti cadere per terra. \n" +
+                "Girandoti rapidamente, noti un viso famigliare. \n" +
+                "Finalmente hai trovato Vanasha.\n" +
+                "E' il momento di combattere.",
+                "a nord trovi il cuore della madre,\n" +
+                "a sud c'e' la porta del Calderone\n" +
+                "a ovest ci sono delle macchiene. Che posto macrabo.\n",
+                 "Sembra che meridiana si stia riprendendo. \n" +
+                "L'esercito di Vanasha non sara' piu' un problema."};
+        //controllo se la tupla con id=7 esiste già nella tabella rooms, e se non è così verrà inserita
+        init(SELECT1,7,INSERT1,room7);
         /**
          * inserimento degli oggetti nella tabella advObjects
          */
@@ -191,7 +260,7 @@ public class  DbClass {
         //controllo se la tupla con id=2 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,2,INSERT2,object2);
 
-        String[] object3={"arco da caccia","Usa freccie da caccia con massima precisione"};
+        String[] object3={"nucleo","E' il nucleo della madre, chip del comando delle macchine"};
         //controllo se la tupla con id=3 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,3,INSERT2,object3);
 
@@ -223,14 +292,6 @@ public class  DbClass {
         //controllo se la tupla con id=10 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,10,INSERT2,object10);
 
-        /*PreparedStatement pstm2= conn.prepareStatement("SELECT id,name,desc FROM machines WHERE id=?");
-        pstm2.setInt(1,2);
-        ResultSet rs2= pstm2.executeQuery();
-        while(rs2.next()){
-            System.out.println(rs2.getInt(1) + "--" + rs2.getString(2)+ "--" + rs2.getString(3));
-        }
-        rs2.close();
-        pstm2.close();*/
     }
 
 

@@ -1,13 +1,17 @@
 package com.gioco.thehuntress.minigame;
 
-import com.gioco.thehuntress.eventi.RestartMiniGame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 
 public class TicTacGame implements ActionListener {
 
@@ -19,7 +23,7 @@ public class TicTacGame implements ActionListener {
     JButton[] buttons;
     ImageIcon image;
     boolean firstTurn;
-    boolean isEnd;
+    boolean isEnd = false;
     char[][] grid;
 
     public TicTacGame() {
@@ -37,7 +41,8 @@ public class TicTacGame implements ActionListener {
         board = new JPanel();
         textField = new JLabel();
         buttons = new JButton[9];
-        frame.setSize(800, 800);
+        frame.setSize(1500,1020);
+        frame.setResizable(false);
         frame.setBackground(new Color(50, 50, 50));
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
@@ -63,7 +68,6 @@ public class TicTacGame implements ActionListener {
         frame.add(titlePanel, BorderLayout.NORTH);
         frame.add(board);
         frame.setVisible(true);
-        isEnd = false;
         firstTurn();
     }
 
@@ -84,6 +88,7 @@ public class TicTacGame implements ActionListener {
     }
 
     public void computerPlay() {
+        boolean winReturn2=false;
         try {
             Thread.sleep(200);
         } catch (InterruptedException e2) {
@@ -103,7 +108,7 @@ public class TicTacGame implements ActionListener {
                 grid[idx / 3][idx % 3] = (firstTurn ? 'X' : 'O');
                 firstTurn = !firstTurn;
                 textField.setText("Tuo turno");
-                check();
+                 check();
             }
         }
     }
@@ -169,17 +174,17 @@ public class TicTacGame implements ActionListener {
             int[] cells = winCells("X");
             win(cells[0], cells[1], cells[2], "Tu");
             isEnd = true;
+            new BoxTextMingame();
         } else if (isWin("O")) {
             int[] cells = winCells("O");
             win(cells[0], cells[1], cells[2], "Lord");
-            isEnd = true;
+            isEnd = false;
             new RestartMiniGame();
 
         } else if (isTie()) {
             endWithTie();
             isEnd = true;
             new RestartMiniGame();
-
         }
     }
 

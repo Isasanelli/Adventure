@@ -1,12 +1,20 @@
 package com.gioco.thehuntress.parser;
 
 import com.gioco.thehuntress.adventure.Utils;
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
 
 import java.util.List;
 import java.util.Set;
+
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
 
 public class Parser {
     private final Set<String> stopwords;

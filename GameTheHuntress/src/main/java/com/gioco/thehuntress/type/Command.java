@@ -4,7 +4,16 @@ import  java.util.Arrays;
 import  java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 
+/**
+ * command class
+ */
 public class Command {
 
 private final CommandType type ;
