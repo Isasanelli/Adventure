@@ -179,7 +179,7 @@ public class  DbClass {
         String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,\n"
                 +" sommersa nei tuoi pensieri.Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
+                +" tuo padre Rost viene verso di te per dirti una cosa. Parla con lui","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
                 +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};

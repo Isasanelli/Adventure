@@ -72,12 +72,17 @@ public class Grafica {
      * method that prints the program termination message
      */
     public static void end(){
-        System.out.println("""
-                +-----------------------------------------------------------------------+
-                | Il gioco e' bello quando dura poco.                                   |
-                | PACE E AMORE                                                          |
-                | Un saluto da : Margari Chiara, Ricciardi Raffaella e Sasanelli Ilenia |
-                +-----------------------------------------------------------------------+\n""");
+        System.out.println("  \n"
+
+                + " +-----------------------------------------+ \n"
+                + " |   Il gioco è bello quando dura poco.    | \n"
+                + " |   PACE E AMORE                          | \n"
+                + " |   Un saluto da:                         | \n"
+                + " |                 Margari Chiara          | \n"
+                + " |                 Ricciardi Raffaella     |\n"
+                + " |                 Sasanelli Ilenia        | \n"
+                + " +-----------------------------------------+ \n"
+        );
     }
 
     /**

@@ -229,7 +229,7 @@ public class TheHuntressGame extends GameDescription {
          * Creation of advObjectsContainer objects
          */
         AdvObjectContainer corsiero = new AdvObjectContainer(6);
-        corsiero.setAlias(new String[]{"corsiero", "cors"});
+        corsiero.setAlias(new String[]{"corsiero", "cors","corsieri"});
         corsiero.setInspectable(true);
         corsiero.add(batteria);
         corsiero.setCriptable(true);

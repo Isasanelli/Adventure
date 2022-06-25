@@ -1,10 +1,7 @@
 |AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'#
 |VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.#
-|AVAD:  Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole". Tu chi sei?#
-|VICTORIA: Sono Victoria, figlia di Rost, capo della tribu' degli Sheeva
-|VICTORIA: Sai dirmi come sono arrivata qui?#
-|AVAD: Abbiamo sentito delle urla verso la valle dei caduti.
-       Stavamo per intervenire, ma era troppo tardi.
+|AVAD:  Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole".
+        Abbiamo sentito delle urla verso la valle dei caduti.
        I miei uomini ti hanno trovata svenuta giu nelle rovine.#
 +--------------------------------+
 |   Noti dei piccoli movimenti   |
