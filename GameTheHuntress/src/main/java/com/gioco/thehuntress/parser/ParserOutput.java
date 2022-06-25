@@ -3,6 +3,12 @@ package com.gioco.thehuntress.parser;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 public class ParserOutput {
 
     private  Command command;

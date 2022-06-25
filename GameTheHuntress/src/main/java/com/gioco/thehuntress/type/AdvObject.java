@@ -20,6 +20,10 @@ import java.util.Set;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ * AdvObject class
+ */
 public class AdvObject {
     
     public static final String SELECTNAME="SELECT name FROM advObjects WHERE id=?";

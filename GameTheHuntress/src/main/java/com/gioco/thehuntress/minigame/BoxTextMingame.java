@@ -4,6 +4,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 public class BoxTextMingame extends JFrame implements ActionListener {
 
     JFrame frame;
@@ -16,7 +22,7 @@ public class BoxTextMingame extends JFrame implements ActionListener {
         text_field = new JLabel("LA PORTA E' APERTA");
         frame = new JFrame("THE HUNTRESS ENIGMA");
         image = new ImageIcon("Immagini//Logo.png");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(400, 180);
         frame.setResizable(false);
         frame.setBackground(new Color(32, 20, 50));

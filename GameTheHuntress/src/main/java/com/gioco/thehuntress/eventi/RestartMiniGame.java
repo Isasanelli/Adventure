@@ -6,7 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 public class RestartMiniGame extends JFrame implements ActionListener {
 
     JFrame frame;

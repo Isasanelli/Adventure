@@ -2,7 +2,16 @@ package com.gioco.thehuntress.type;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 
+/**
+ * AdvObjectContainer class
+ */
 public class AdvObjectContainer extends AdvObject {
 
     private List<AdvObject> list = new ArrayList<>();

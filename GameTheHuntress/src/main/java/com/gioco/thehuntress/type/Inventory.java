@@ -2,7 +2,16 @@ package com.gioco.thehuntress.type;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 
+/**
+ * Inventory class
+ */
 public class Inventory {
 
     private List<AdvObject> list= new ArrayList<>();

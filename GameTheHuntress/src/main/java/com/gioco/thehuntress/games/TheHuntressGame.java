@@ -14,25 +14,34 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 
+//manca javadoc classe
 public class TheHuntressGame extends GameDescription {
-
-    public static final String PATROOM1 = "file//roomGarden.txt";
-    public static final String PATROOM2 = "file//roomTrainingCamp.txt";
-    public static final String PATROOM3 = "file//roomValleyOfDeath.txt";
-    public static final String PATROOM4 = "file//roomTend.txt";
-    public static final String PATROOM5= "file//roomCollolungo.txt";
-    public static final String PATROOM7VINCITA= "file//roomCalderoneWin.txt";
-    public static final String PATROOM7PERDITA="file//roomCalderoneLoser.txt";
-
     public MapGraphic mapGraphic = new MapGraphic();
 
-
+    /**
+     * method that allows the creation of objects and their setting
+     * @throws Exception
+     */
     @Override
     public void init() throws Exception {
 
-        //Comandi per l'interazione tra le rooms
 
+         String PATROOM1 = "file//roomGarden.txt";
+         String PATROOM2 = "file//roomTrainingCamp.txt";
+         String PATROOM3 = "file//roomValleyOfDeath.txt";
+         String PATROOM4 = "file//roomTend.txt";
+         String PATROOM5= "file//roomCollolungo.txt";
+
+        /**
+         * commands for interaction between rooms
+         */
         Command northOutTheRoom = new Command(CommandType.NORD, "nord");
         northOutTheRoom.setAlias(new String[]{"nord"});
         getCommands().add(northOutTheRoom);
@@ -49,7 +58,9 @@ public class TheHuntressGame extends GameDescription {
         westOutTheRoom.setAlias(new String[]{"ovest"});
         getCommands().add(westOutTheRoom);
 
-        //Comandi per l'interazione dentro la stanza
+        /**
+         * Commands for interaction inside the room
+         */
 
         Command northInTheRoom = new Command(CommandType.N, "n");
         northInTheRoom.setAlias(new String[]{"n"});
@@ -67,7 +78,9 @@ public class TheHuntressGame extends GameDescription {
         westInTheRoom.setAlias(new String[]{"o"});
         getCommands().add(westInTheRoom);
 
-        //Comandi generali
+        /**
+         * general commands
+         */
         Command mapCommand = new Command(CommandType.MAPPA, "mappa");
         mapCommand.setAlias(new String[]{"map"});
         getCommands().add(mapCommand);
@@ -97,7 +110,9 @@ public class TheHuntressGame extends GameDescription {
         inventory.setAlias(new String[]{"inv"});
         getCommands().add(inventory);
 
-        //Comandi sugli oggetti
+        /**
+         * commands on objects
+         */
         Command open = new Command(CommandType.APRI, "apri");
         open.setAlias(new String[]{"ap"});
         getCommands().add(open);
@@ -118,8 +133,9 @@ public class TheHuntressGame extends GameDescription {
         push.setAlias(new String[]{"prem","pre", "schiaccia"});
         getCommands().add(push);
 
-
-        //comando per il combattimento
+        /**
+         * combat commands
+         */
         Command cripta = new Command(CommandType.CRIPTA, "cripta");
         cripta.setAlias(new String[]{"controllo", "manipola"});
         getCommands().add(cripta);
@@ -131,10 +147,11 @@ public class TheHuntressGame extends GameDescription {
         Command combatti = new Command(CommandType.COMBATTI, "combatti");
         combatti.setAlias(new String[] {"attacca","aggredisci","att","aggred","comb","affronta","affr"});
         getCommands().add(combatti);
+
         /**
          * Rooms
          */
-        //primo capitolo:Tribù sheeva
+
         Room roomGarden = new Room(1);
         roomGarden.setDialog(PATROOM1);
         roomGarden.setNorthInTheRoom(new String[]{"Da li si va verso il campo d'addestramento", "Il campo d'addestramento e' da quella parte"});
@@ -157,7 +174,6 @@ public class TheHuntressGame extends GameDescription {
         roomValleyOfDeath.setWestInTheRoom(new String[]{"Da li non si puo' andare, c'e' solo un ruscello", "Che bello questo ruscello"});
 
 
-        //secondo capitolo : Tribù Carja
         Room roomTend = new Room(4);
         roomTend.setDialog(PATROOM4);
         roomTend.setNorthInTheRoom(new String[]{"La finestra: vedere come le macchine e il popolo comunicano fra di loro, ti mette calma e speranza", "c'e' una finestra"});
@@ -185,8 +201,8 @@ public class TheHuntressGame extends GameDescription {
         roomCalderone.setEastInTheRoom(new String[] {"non c'e' nulla","non c'e' nulla"});
         roomCalderone.setWestInTheRoom(new String[] {"Ci sono delle macchine, collegate a dei fili. Alcune dormono dentro a delle celle. Che posto macrabo","Ci sono delle macchine dentro delle gabbie"});
 
-        /*
-          Definizione oggetti AdvObject.
+        /**
+         * Creation of advobjects objects
          */
         AdvObject focusObject = new AdvObject(1);
         focusObject.setAlias(new String[]{"focus", "foc"});
@@ -209,11 +225,9 @@ public class TheHuntressGame extends GameDescription {
         botton.setAlias(new String[]{"bot","pulsante", "puls"});
         botton.setPushable(true);
 
-
-        /*
-          Definizione oggetti AdvObjectContainer.
+        /**
+         * Creation of advObjectsContainer objects
          */
-
         AdvObjectContainer corsiero = new AdvObjectContainer(6);
         corsiero.setAlias(new String[]{"corsiero", "cors"});
         corsiero.setInspectable(true);
@@ -243,8 +257,8 @@ public class TheHuntressGame extends GameDescription {
         giftBox.setopenable(true);
         giftBox.add(focusObject);
 
-        /*
-          Assegnazione degli oggetti alle rispettive stanze.
+        /**
+         * Assigning objects to their respective rooms.
          */
         roomGarden.getObjects().add(giftBox);
         roomGarden.getObjects().add(focusObject);
@@ -253,12 +267,10 @@ public class TheHuntressGame extends GameDescription {
         roomCollolungo.getObjects().add(collolungo);
         roomOutMeridiana.getObjects().add(botton);
         roomCalderone.getObjects().add(nucleo);
-        //manca avistempesta e da sistemare le rooms
 
-        /*
-          Mappa.
+        /**
+         * setting of the rooms in their respective positions
          */
-
         roomGarden.setNorth(roomTrainingCamp);
 
         roomTrainingCamp.setSouth(roomGarden);
@@ -284,15 +296,23 @@ public class TheHuntressGame extends GameDescription {
         getRooms().add(roomTend);
         getRooms().add(roomCollolungo);
 
-        /*
-          settaggio stanza iniziale
+        /**
+         * initial room setting
          */
         setCurrentRoom(roomGarden);
         roomGarden.setFirstTimeHere(true);
     }
 
+    /**
+     *
+     * @param db
+     * @param p
+     * @param out
+     */
     @Override
     public void nextMove(DbClass db, ParserOutput p, PrintStream out) {
+        String PATROOM7VINCITA= "file//roomCalderoneWin.txt";
+        String PATROOM7PERDITA="file//roomCalderoneLoser.txt";
         boolean noroom = false;
         boolean move = false;
         if (p.getCommand().getType() == CommandType.NORD) {

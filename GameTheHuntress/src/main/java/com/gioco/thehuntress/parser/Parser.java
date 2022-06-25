@@ -8,6 +8,14 @@ import com.gioco.thehuntress.type.Command;
 import java.util.List;
 import java.util.Set;
 
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
+
+
 public class Parser {
     private final Set<String> stopwords;
 

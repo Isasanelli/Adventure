@@ -1,14 +1,14 @@
 package com.gioco.thehuntress.type;
-
+/**
+ *
+ * @author Margari Chiara
+ * @author Ricciardi Raffaella
+ * @author Sasanelli Ilenia
+ */
 public enum CommandType {
-    //comandi generali
     MAPPA,COMANDI,REGOLE,ESCI,GUARDA,PARLA,INVENTARIO,
-    //Comandi per il movimento nella stanza e tra le stanze
     N,S,E,O,NORD,SUD,EST,OVEST,
-    //Comandi per gli oggetti
     APRI,USA,ISPEZIONA,SCALA,PREMI,
-
-    //Comandi per il combattimento
     CRIPTA,FOCUS,COMBATTI
 }
 
