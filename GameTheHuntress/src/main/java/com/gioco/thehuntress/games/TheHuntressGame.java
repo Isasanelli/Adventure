@@ -25,10 +25,8 @@ import java.util.NoSuchElementException;
 public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic = new MapGraphic();
 
-    /**
-     * method that allows the creation of objects and their setting
-     * @throws Exception
-     */
+
+
     @Override
     public void init() throws Exception {
 
@@ -40,7 +38,7 @@ public class TheHuntressGame extends GameDescription {
          String PATROOM5= "file//roomCollolungo.txt";
 
         /**
-         * commands for interaction between rooms
+         * @commands for interaction between rooms
          */
         Command northOutTheRoom = new Command(CommandType.NORD, "nord");
         northOutTheRoom.setAlias(new String[]{"nord"});
@@ -467,14 +465,16 @@ public class TheHuntressGame extends GameDescription {
                                 System.out.println("HAI APERTO: " + p.getObject().getName(db));
                                 AdvObjectContainer c = (AdvObjectContainer) p.getObject();
                                 if (!c.getList().isEmpty()) {//controlla che il pacco non è vuoto dentro
-                                    System.out.println("\ncontiene:");
+                                    System.out.println("\n contiene:");
                                     Iterator<AdvObject> it = c.getList().iterator();
                                     while (it.hasNext()) {//finchè la lista degli oggetti contenuti nel pacco non termina
                                         try {
                                             AdvObject next = it.next(); //assegna il prossimo elemento
                                             inventario.add(next);//focus aggiunto all'inventario
-                                            System.out.println("***" + next.getName(db) + "***\n" + next.getDescription(db));
-                                            System.out.println("*** Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario ***");
+                                            System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
+                                            System.out.println("=====================================================");
+                                            System.out.println("***     Un nuovo oggetto e' nel tuo inventario!   ***");
+                                            System.out.println("=====================================================");
                                         } catch (NoSuchElementException ex) {
                                             System.out.println("Errore");
                                         }
@@ -491,7 +491,7 @@ public class TheHuntressGame extends GameDescription {
                                     System.out.println("L'oggetto e' vuoto");
                                 }
                             } else {
-                                out.println("non puoi aprire questo oggetto ");
+                               System.out.println("non puoi aprire questo oggetto ");
                             }
                         } else if (p.getObject().isOpenable() && p.getObject().isOpen()) {
                             System.out.println(p.getObject().getName(db) + " e' gia' stato aperto!");
@@ -532,7 +532,9 @@ public class TheHuntressGame extends GameDescription {
                                         AdvObject next = it.next(); //assegna il prossimo elemento
                                         inventario.add(next);//oggetto  aggiunto all'inventario
                                         System.out.println("***" + next.getName(db) + "***");
-                                        System.out.println("*** Congratulazioni! Un nuovo elemento e' stato aggiunto nel tuo inventario ***");
+                                        System.out.println("=====================================================");
+                                        System.out.println("***    Un nuovo oggetto e' nel tuo inventario!    ***");
+                                        System.out.println("=====================================================");
                                     } catch (NoSuchElementException ex) {
                                         System.out.println("Errore");
                                     }
@@ -649,7 +651,6 @@ public class TheHuntressGame extends GameDescription {
                 }
 
         } else if (p.getCommand().getType().equals(CommandType.PREMI)){
-            boolean flag=false;
             if(p.getObject()!=null && p.getObject2()== null) {
                 if (!p.getObject().isPush() && p.getObject().isPushable()) {
                     p.getObject().setPush(true);
@@ -660,7 +661,7 @@ public class TheHuntressGame extends GameDescription {
                     }
                 }else if (p.getObject().isPushable() && p.getObject().isPush()) {
                     if (p.getObject().getId() == 10) {
-                        System.out.println("La porta per entrare nel calderone e' gia' stata aperta! Vai verso sud per entraci");
+                        System.out.println("La porta del  calderone e' gia' stata aperta! Vai verso sud per entraci");
                     } else {
                         System.out.println("L'oggetto e' gia' stato premuto");
                     }
@@ -682,6 +683,7 @@ public class TheHuntressGame extends GameDescription {
                     System.out.println("+----------------------------------------------------+");
                     System.out.println("| ADESSO TOCCA A TE! CRIPTA IL NUCLEO DELLA TORRE!!! |");
                     System.out.println("+----------------------------------------------------+");
+
                 } else {
                     getCurrentRoom().setDialog(PATROOM7PERDITA);
                     getCurrentRoom().Dialog();

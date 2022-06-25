@@ -176,8 +176,8 @@ public class  DbClass {
          * inserimento delle stanze nella tabella rooms
          */
 
-        String[] room1={"Giardino","Sei sdraiata sul prato accanto ad un focolaio spento ad osservare le forme delle nuvole nel cielo,\n"
-                +" sommersa nei tuoi pensieri.Oggi il cielo e' piu' azzurro delle altre volte.\n"
+        String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo,\n"
+                +" Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
                 +" tuo padre Rost viene verso di te per dirti una cosa. Parla con lui","Sei circondata dall'erba verde del tuo giardino. Hai già parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
@@ -198,8 +198,7 @@ public class  DbClass {
         String[] room3={"Valle dei caduti",
                 "Tu e Rost avete appena terminato la vostra sessione di addestramento.\n"
               + " Rost ha qualcosa da dirti",
-                "Siete nella valle dei caduti a godervi un po di tranquillità.\n"
-               + "Senti scorrere in lontananza un ruscello\n",
+                "Qui ci sei già stata",
                 "Piccoli brividi ti invadono al solo pensiero di questo luogo.\n"
                 +" Qui e' dove è stato ucciso Rost. Sei invasa da rabbia e tristezza.\n "
                 +"Torna sui tuoi passi"};
@@ -207,11 +206,10 @@ public class  DbClass {
         init(SELECT1,3,INSERT1,room3);
 
         String[] room4={"Tenda del Re Sole",
-                "Apri gli occhi. Senti odore di incenso. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
-                    + "Sei stesa su un soffice letto avvolta da una coperta calda. Tutto il tuo corpo e' indolenzito.\n"
-                    +" Cerchi di alzarti ma ad un certo punto senti dei piccoli passi provenire verso di te.\n"
-                    +" Non fai in tempo a nasconderti, perche' un uomo alto con una corona in testa a forma di sole e' entrato nella stanza\n "+"E' il Re Sole...parla con lui",
-                     "A sud e' presente un camino,a est c'è una porta, a nord c'e' una finestra",
+                "Apri gli occhi. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
+                    +" Cerchi di alzarti, ma ad un certo punto senti dei piccoli passi provenire verso di te.\n"
+                    +" Un uomo alto  e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
+                     "A sud e' presente un camino,a est c'e' una porta, a nord c'e' una finestra",
                     "E' rimasto tutto come l'hai lasciato. Il fuoco del camino arde ancora.\n"
                      + "Il letto e' ordinato e intorno a te senti odore di incenzo.\n"
                 + " Non so cosa puoi fare qui. Forse e' meglio tornare alla missione"};
@@ -220,13 +218,13 @@ public class  DbClass {
 
         String[] room5={"Campo del collolungo",
                 "Ti trovi fuori il templio del Re Sole. Il re Sole ha qualcosa da dirti",
-                "A nord e' possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi,\n"+" cosa potrà essere?\n"+"Forse e' meglio dare un'occhiata più da vicino.\n"+"A est c'e'un burrone, a ovest c'e' la tenda del Re Sole ",
-                "Ti trovi fuori il templio del Re Sole. Hai appena notato quanto è piccolo in confronto alla statua del collolungo...\n" + "Ma perchè non pensi a cose più importanti? Tipo la TUA MISSIONE"};
+                "A nord e' possibile notare una strana ed enorme sagoma che si affaccia tra gli alberi,\n"+"Forse e' meglio dare un'occhiata più da vicino.\n"+"A est c'e'un burrone, a ovest c'e' la tenda del Re Sole ",
+                "Ti trovi fuori il templio del Re Sole. Hai appena notato quanto e' piccolo in confronto alla statua del collolungo...\n" + "Ma perche' non pensi a cose piu' importanti? Tipo la TUA MISSIONE"};
         //controllo se la tupla con id=5 esiste già nella tabella rooms, e se non è così verrà inserita
         init(SELECT1,5,INSERT1,room5);
 
         String[] room6={"Torre di Meridiana: porta del Calderone",
-                "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.Solo polvere e macerie.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
+                "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'è un pulsante alla tua destra, sarà il caso di premerlo",
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         //controllo se la tupla con id=6 esiste già nella tabella rooms, e se non è così verrà inserita
@@ -234,13 +232,10 @@ public class  DbClass {
 
         String[] room7={"Torre di Meridiana: Calderone",
                 "Sei riuscita ad entrare dentro il calderone. \n" +
-                "Intorno a te vedi solo dei cavi agrovigliati fra di loro, \n" +
-                "e piccole scintille spuntano in alcune di essi.  \n" +
                 "A fine del corridoio, noti una luce blu che illumina la stanza. \n" +
                 "Improvvisamente qualcuno ti colpisce alle spalle, facendoti cadere per terra. \n" +
-                "Girandoti rapidamente, noti un viso famigliare. \n" +
-                "Finalmente hai trovato Vanasha.\n" +
-                "E' il momento di combattere.",
+                "Girandoti rapidamente, noti Vanasha.\n" +
+                "E' il momento di COMBATTERE.",
                 "a nord trovi il cuore della madre,\n" +
                 "a sud c'e' la porta del Calderone\n" +
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
@@ -252,11 +247,11 @@ public class  DbClass {
          * inserimento degli oggetti nella tabella advObjects
          */
 
-        String[] object1={"focus","Sistema di calcolo di realta' aumentata indossabile che consente di identificare importanti oggetti e macchine"};
+        String[] object1={"focus","Sistema di calcolo di realta' aumentata indossabile che consente di identificare  oggetti e macchine"};
         //controllo se la tupla con id=1 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,1,INSERT2,object1);
 
-        String[] object2={"batteria","Puo' essere ottenuta dal corsiero, divoratuono e avintempesta"};
+        String[] object2={"batteria","Puo' essere ottenuta dal corsiero e avintempesta"};
         //controllo se la tupla con id=2 esiste già nella tabella advObjects, e se non è così verrà inserita
         init(SELECT2,2,INSERT2,object2);
 

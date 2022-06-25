@@ -60,7 +60,7 @@ public class MiniGameBattle {
             System.out.println("| Vanasha ti punta un coltello alla gola.            |");
             System.out.println("|Il panico ti pervade...                             |");
             System.out.println("+----------------------------------------------------+");
-             win=false;
+            win=false;
         }else if(userScore>10 && opponentScore<=10){
             win=true;
         }
