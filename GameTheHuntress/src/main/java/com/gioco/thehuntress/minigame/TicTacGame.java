@@ -1,7 +1,5 @@
 package com.gioco.thehuntress.minigame;
 
-import com.gioco.thehuntress.eventi.RestartMiniGame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

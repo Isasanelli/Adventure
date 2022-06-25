@@ -1,7 +1,7 @@
 package com.gioco.thehuntress.adventure;
 
 
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.AdvObject;
 import com.gioco.thehuntress.type.Command;

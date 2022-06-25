@@ -1,6 +1,6 @@
 package com.gioco.thehuntress.type;
 
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

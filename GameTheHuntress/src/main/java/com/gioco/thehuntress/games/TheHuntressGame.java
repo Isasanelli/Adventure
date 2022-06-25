@@ -1,11 +1,11 @@
 package com.gioco.thehuntress.games;
 
 import com.gioco.thehuntress.adventure.GameDescription;
-import com.gioco.thehuntress.adventure.Grafica;
 import com.gioco.thehuntress.battle.MiniGameBattle;
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
-import com.gioco.thehuntress.eventi.MapGraphic;
+import com.gioco.thehuntress.graphic.Grafica;
+import com.gioco.thehuntress.graphic.MapGraphic;
 import com.gioco.thehuntress.minigame.TicTacGame;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.*;

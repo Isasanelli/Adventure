@@ -1,4 +1,4 @@
-package com.gioco.thehuntress.eventi;
+package com.gioco.thehuntress.graphic;
 
 import javax.swing.*;
 import java.awt.*;

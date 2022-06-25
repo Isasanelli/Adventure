@@ -1,6 +1,6 @@
 package com.gioco.thehuntress.battle;
 
-import com.gioco.thehuntress.adventure.Grafica;
+import com.gioco.thehuntress.graphic.Grafica;
 
 /**
  *

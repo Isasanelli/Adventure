@@ -1,7 +1,8 @@
 package com.gioco.thehuntress.adventure;
 
-import com.gioco.thehuntress.eventi.DbClass;
+import com.gioco.thehuntress.database.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
+import com.gioco.thehuntress.graphic.Grafica;
 import com.gioco.thehuntress.games.TheHuntressGame;
 import com.gioco.thehuntress.parser.Parser;
 import com.gioco.thehuntress.parser.ParserOutput;
@@ -110,8 +111,7 @@ public class Engine {
 
                 }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
                     System.out.println("Fine partita");
-
-                    //ritorno del menù principale una volta che l'utente esce dalla partita
+                    
                     try {
                         try {
                             this.game.init();

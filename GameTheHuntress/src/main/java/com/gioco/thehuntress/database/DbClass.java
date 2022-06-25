@@ -1,4 +1,4 @@
-package com.gioco.thehuntress.eventi;
+package com.gioco.thehuntress.database;
 
 import java.sql.*;
 import java.util.Properties;
