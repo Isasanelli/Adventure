@@ -1,8 +1,8 @@
-				
-				        +------------------+
-				        | COMANDI DI GIOCO |
-				        |		           |
-				        +------------------+
+
+				                            +------------------+
+				                            | COMANDI DI GIOCO |
+				                            |		           |
+				                            +------------------+
 
 
 GUARDA/gua/osserva/vedi/descrivi:   				    || Con questo comando potrai osservare tutto che ti circonda
@@ -16,7 +16,8 @@ NORD/SUD/EST/OVEST:                  					|| Con questo comando potrai spostarti
 n/s/e/o:                             					|| Con questo comando potrai spostarti all'interno della stanza stessa
 PRALA/p/parl:                        					|| Con questo comando potrai dialogare con i personaggi
 COMANDI/com/comandi:                 					|| Con questo comando potrai richiamare i comandi di gioco
-ISPEZIONE/ispe/isp:                  					|| Con questo comando potrai ispezionare le macchine
+REGOLE/re/regole                                        || Con questo comando potrai richiamare le regole del gioco
+ISPEZIONA/ispe/isp:                  					|| Con questo comando potrai ispezionare le macchine
 SCALA/sal/sca:                       					|| Con questo comando potrai scalare la macchina del collolungo
 COMBATTI/attacca/aggredisci/agred/att/affronta/comb		|| Con questo comando potrai combattere i nemici
 FINE PARTITA/fine/ esci/f:           					||  Esci dal gioco

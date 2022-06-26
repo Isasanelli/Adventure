@@ -2,14 +2,15 @@ package com.gioco.thehuntress.adventure;
 
 import com.gioco.thehuntress.database.DbClass;
 import com.gioco.thehuntress.eventi.Eventi;
-import com.gioco.thehuntress.graphic.Grafica;
 import com.gioco.thehuntress.games.TheHuntressGame;
+import com.gioco.thehuntress.graphic.Grafica;
 import com.gioco.thehuntress.parser.Parser;
 import com.gioco.thehuntress.parser.ParserOutput;
 import com.gioco.thehuntress.type.CommandType;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -26,18 +27,20 @@ import java.util.Set;
  */
 public class Engine {
 
-    public DbClass db = new DbClass(); //ricordare di chiudere la connessione col db con il metodo close() di Connection;
-    public static final String PATHSTOPWORDS="file//stopwords";
+    public static DbClass db=new DbClass();
 
     private final GameDescription game;
     private Parser parser;
 
     private static Engine engine;
 
+
+
     /**
      *engine builder
      */
     public Engine(GameDescription game) {
+        String PATHSTOPWORDS="file//stopwords";
         this.game = game;
         try {
             this.game.init();
@@ -56,7 +59,7 @@ public class Engine {
      * method that manages the game's initial menu
      * @throws IOException
      */
-    public  void start() throws IOException {
+    public  void start() throws IOException, SQLException {
 
         Scanner io = new Scanner(System.in);
         Grafica.writeMenu();
@@ -86,13 +89,14 @@ public class Engine {
         } while (!input.equals("esci partita"));
 
         Grafica.end();
+        db.closeConnection();
         System.exit(0);
         }
 
     /**
      *method that manages game run and input
      */
-    public void execute(){
+    public void execute() throws SQLException{
             Grafica.writeIntro();
             System.out.println("======================================================================");
             System.out.println("                          "+ game.getCurrentRoom().getName(db));
@@ -104,7 +108,7 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.inventario.getList(), db);
+                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), db);
 
                 if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");
@@ -136,7 +140,7 @@ public class Engine {
      * @param args  the command line arguments
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException,SQLException{
        engine= new Engine(new TheHuntressGame());
         engine.start();
     }

@@ -14,6 +14,7 @@ import java.util.Random;
  * class that manages the opponent's moves
  */
 public class Opponent {
+
     /**
      * Opponent builder
      */

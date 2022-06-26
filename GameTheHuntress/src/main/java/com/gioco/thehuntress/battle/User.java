@@ -27,6 +27,7 @@ public class User {
      * @return Move or getMove()
      */
     public Move getMove(){
+        System.out.println("\n cosa vuoi fare?");
         String userInput= inputScanner.nextLine().toLowerCase();
         if(!userInput.equalsIgnoreCase("")){
             if(!userInput.equals("schiva") && !userInput.equals("attacca") && !userInput.equals("para")) {

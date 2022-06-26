@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.gioco.thehuntress.graphic;
 
 
@@ -26,7 +23,7 @@ public class Grafica {
      * method that prints the initial menu
      */
     public static void writeMenu() {
-        System.out.println("  \n"
+        System.out.println(" \n"
 
                 + " +--------------------------------------+ \n"
                 + " |                                      | \n"
@@ -52,34 +49,29 @@ public class Grafica {
      */
 
     public static void writeIntro() {
+        System.out.println(   "\n  Pianeta terra del XXXI secolo d.C  "
+                             +"\n  In un  mondo post-apocalittico, gruppi di umani vivono all'interno di tribu'. "
+                             +"\n  Il loro dominio sulla natura e' stato usurpato dalle Macchine, "
+                             +"\n  temibili creature dall'origine ignota. "
+                             +"\n  guidate dal temibile soldato di nome Vanasha "
+                             +"\n  Victoria, una giovane ragazza dal carattere ribelle, "
+                             +"\n  avra' il compito di liberare l'intera umanita' dal dominio delle macchine "
+                             +"\n  Lei e' : LA CACCIATRICE " );
 
-        System.out.println("+------------------------------------------------------------------------------+\n");
-        System.out.println("Pianeta terra del XXXI secolo d.C \n"
-
-                + "In un lussureggiante e vibrante mondo post-apocalittico, gruppi di umani vivono \n"
-                + "all'interno di tribu' primitive di cacciatori.\n "
-                + "Il loro dominio sulla natura e' stato usurpato dalle Macchine,\n"
-                +"temibili creature meccaniche dall'origine ignota.\n"
-                + "che sono guidate dal temibile soldato di nome Vanasha \n"
-                + "All'interno delle tribu, Victoria, una giovane ragazza dal carattere ribllere, \n"
-                + "avra' il compito di liberare l'intera umanità dal dominio delle macchine \n"
-                + "Lei e' : LA CACCIATRICE \n"
-        );
-        System.out.println("+-------------------------------------------------------------------------------+\n");
     }
 
     /**
      * method that prints the program termination message
      */
     public static void end(){
-        System.out.println("  \n"
+        System.out.println(" \n"
 
                 + " +-----------------------------------------+ \n"
-                + " |   Il gioco è bello quando dura poco.    | \n"
+                + " |   Il gioco e' bello quando dura poco.   | \n"
                 + " |   PACE E AMORE                          | \n"
                 + " |   Un saluto da:                         | \n"
                 + " |                 Margari Chiara          | \n"
-                + " |                 Ricciardi Raffaella     |\n"
+                + " |                 Ricciardi Raffaella     | \n"
                 + " |                 Sasanelli Ilenia        | \n"
                 + " +-----------------------------------------+ \n"
         );
@@ -90,15 +82,8 @@ public class Grafica {
      */
     public static void graphicBattle(){
 
-        System.out.println("+---------------------------------+\n");
-        System.out.println("|       Battle The Huntress       |\n");
-        System.out.println("+---------------------------------+\n");
 
-        System.out.println("+----------------------------------+\n");
-        System.out.println("|     ATTACCA   ||      PARA       |\n");
-        System.out.println("+----------------------------------+\n");
-        System.out.println("|             SCHIVA               |\n");
-        System.out.println("+----------------------------------+\n");
-
+        System.out.println("***          Battle The Huntress            *** \n");
+        System.out.println("    [ ATTACCA ]  -  [ SCHIVA ]  -  [ PARA ]     \n");
     }
 }

@@ -15,15 +15,26 @@ import java.util.Set;
  * @author Sasanelli Ilenia
  */
 
-
+/**
+ * class in which the parsel is implemented
+ */
 public class Parser {
     private final Set<String> stopwords;
 
-
+    /**
+     * Parsel builder
+     * @param stopwords
+     */
     public Parser(Set<String> stopwords) {
         this.stopwords = stopwords;
     }
 
+    /**
+     * function that checks if the token string is in the game's command list
+     * @param token
+     * @param commands game's command list
+     * @return -1 if the token is not in the command list, otherwise it returns the position of the list where the command is located
+     */
     private int checkForCommand(String token, List<Command> commands){
         for (int i = 0; i < commands.size(); i++) {
             if (commands.get(i).getName().equals(token)) {
@@ -34,7 +45,13 @@ public class Parser {
         return -1;
     }
 
-
+    /**
+     * function that checks if the token string is in the objects list of the current room
+     * @param token
+     * @param objects objects list of the current room
+     * @param db
+     * @return -1 if the token is not in the objects list, otherwise it returns the position of the list where the object is located
+     */
     private int checkForObject(String token, List<AdvObject> objects, DbClass db)  {
         if (!objects.isEmpty()) {
         for (int i = 0; i < objects.size(); i++) {
@@ -47,37 +64,31 @@ public class Parser {
         return -1;
     }
 
-   //objects è la lista degli oggetti della stanza corrente, e objectsInv è la lista degli oggetti presenti nell'inventario
-    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, List<AdvObject> objectsInv, DbClass database) {
-        List<String> tokens = Utils.parseString(command, stopwords);//tokens.get(0) c'è il comando, tokens.get(1) c'è l'oggetto, token.get(2) c'è l'oggetto
-        if (!tokens.isEmpty()) { //se la lista non è vuota
-            int ic = checkForCommand(tokens.get(0), commands);//ic è la posizione nella lista commands in cui si trova effettivamente il comando inserito
-            if (ic > -1) {  //se il comando si trova nella lista commands:
-                if (tokens.size() > 1) { //se la lista dei tokens contiene più di un elemento (quindi l'oggetto o gli oggetti oltre al comando):
-                    int io = checkForObject(tokens.get(1), objects, database); //io è la posizione nella lista objects in cui si trova effettivamente l'oggetto inserito
-                    int ioInv = -1;
-                    if (io < 0 && tokens.size() > 2) {
-                        io = checkForObject(tokens.get(2), objects, database);
+    /**
+     *
+     * @param command input command
+     * @param commands game's command list
+     * @param objects objects list of the current room
+     * @param database
+     * @return an object of type ParselOutput
+     */
+    public ParserOutput parse(String command, List<Command> commands, List<AdvObject> objects, DbClass database) {
+        List<String> tokens = Utils.parseString(command, stopwords);
+        if (!tokens.isEmpty()) {
+            int ic = checkForCommand(tokens.get(0), commands);
+            if (ic > -1) {
+                if (tokens.size() > 1) {
+                    int io = checkForObject(tokens.get(1), objects, database);
+
+                    if (io > -1 ) {
+                        return new ParserOutput(commands.get(ic), objects.get(io));
+                    }   else {
+                        return new ParserOutput(commands.get(ic), null);
                     }
-                    if (io < 0) { //se l'oggetto non è nella lista degli oggetti della stanza corrente
-                        ioInv= checkForObject(tokens.get(1), objectsInv, database); //vedo se l'oggetto si trova nella lista degli oggetti dell'inventario
-                        if (ioInv < 0 && tokens.size() > 2) {
-                            ioInv = checkForObject(tokens.get(2), objectsInv, database);
-                        }
-                    }
-                    if (io > -1 && ioInv > -1) {
-                        return new ParserOutput(commands.get(ic), objects.get(io),objectsInv.get(ioInv));
-                    } else if (io > -1) {
-                        return new ParserOutput(commands.get(ic), objects.get(io),null);
-                    } else if (ioInv > -1) {
-                        return new ParserOutput(commands.get(ic), null,objectsInv.get(ioInv));
-                    } else {
-                        return new ParserOutput(commands.get(ic), null, null);
-                    }
-                } else { //se la lista tokens contiene solo un elemento restituisce il comando
+                } else {
                     return new ParserOutput(commands.get(ic), null);
                 }
-            } else { //se il comando non si trova nella lista commands restituisce null
+            } else {
                 return new ParserOutput(null, null);
             }
         } else {

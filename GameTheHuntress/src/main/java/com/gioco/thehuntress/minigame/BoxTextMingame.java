@@ -25,11 +25,10 @@ public class BoxTextMingame extends JFrame implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(400, 180);
         frame.setResizable(false);
-        frame.setBackground(new Color(32, 20, 50));
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
-        prosegui.setBounds(130, 100, 100, 30);
-        text_field.setBounds(115, 20, 300, 50);
+        prosegui.setBounds(120, 100, 100, 30);
+        text_field.setBounds(105, 20, 300, 50);
         prosegui.addActionListener(this);
         prosegui.setForeground(new Color(22, 2, 66));
         text_field.setForeground(Color.BLUE);

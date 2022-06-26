@@ -9,6 +9,7 @@ import com.gioco.thehuntress.type.Inventory;
 import com.gioco.thehuntress.type.Room;
 
 import java.io.PrintStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -55,10 +56,10 @@ public abstract class GameDescription{
         return objects;
     }
 
-    public abstract void init() throws Exception;
+    public abstract void init();
 
 
-   public abstract void nextMove(DbClass db, ParserOutput p, PrintStream out);
+   public abstract void nextMove(DbClass db, ParserOutput p, PrintStream out) throws SQLException;
 
 }
 
