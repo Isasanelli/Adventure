@@ -386,7 +386,7 @@ public class TheHuntressGame extends GameDescription {
                 } else {
                     System.out.println("non c'e' nessuno con cui dialogare qui ");
                 }
-            } else if (getCurrentRoom().getId() == 3) { //se la stanza è la valle dei caduti
+            } else if (getCurrentRoom().getId() == 3) { 
                 if (getCurrentRoom().getFirstTimeHere()) {
                     getCurrentRoom().Dialog();
                     setCurrentRoom(getCurrentRoom().getEast());
@@ -394,7 +394,7 @@ public class TheHuntressGame extends GameDescription {
                 } else {
                     System.out.println("non c'e' nessuno con cui dialogare qui");
                 }
-            } else if (getCurrentRoom().getId() == 4) { //se la stanza è la tenda del re sole
+            } else if (getCurrentRoom().getId() == 4) {
                 if (getCurrentRoom().getFirstTimeHere()) {
                     getCurrentRoom().Dialog();
                     Iterator<AdvObject> it = getCurrentRoom().getObjects().iterator();
@@ -430,7 +430,7 @@ public class TheHuntressGame extends GameDescription {
             System.out.println("=====================================================================================");
         } else if (p.getCommand().getType() == CommandType.APRI) {
             if (p.getObject() == null) {
-                System.out.println("Non c'e' nulla da aprire qui ");
+                System.out.println("Specifica cosa vuoi aprire!");
             } else {
                 if (p.getObject() != null) {
                         if (p.getObject().isOpenable() && !p.getObject().isOpen()) {
