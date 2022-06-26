@@ -28,7 +28,6 @@ import java.util.Set;
 public class Engine {
 
     public static DbClass db=new DbClass();
-    public static final String PATHSTOPWORDS="file//stopwords";
 
     private final GameDescription game;
     private Parser parser;
@@ -41,6 +40,7 @@ public class Engine {
      *engine builder
      */
     public Engine(GameDescription game) {
+        String PATHSTOPWORDS="file//stopwords";
         this.game = game;
         try {
             this.game.init();
@@ -108,7 +108,7 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), game.inventario.getList(), db);
+                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), db);
 
                 if (p.getCommand() == null ) {
                     System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");

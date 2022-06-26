@@ -135,7 +135,7 @@ public class  DbClass {
         stat.executeUpdate(table);
         stat.close();
     }
-    
+
     public void closeConnection() throws SQLException{
         getConnection().close();
     }
@@ -234,15 +234,15 @@ public class  DbClass {
                 "Improvvisamente qualcuno ti colpisce alle spalle, facendoti cadere per terra. \n" +
                 "Girandoti rapidamente, noti Vanasha.\n" +
                 "E' il momento di COMBATTERE.",
-                "A nord trovi il cuore della madre,\n" +
-                "a sud c'e' la porta del Calderone,\n" +
+                "A nord c'e' la porta del Calderone,\n" +
+                "a sud trovi il cuore della madrec'e' la porta del Calderone,\n" +
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
                  "Sembra che meridiana si stia riprendendo. \n" +
                 "L'esercito di Vanasha non sara' piu' un problema."};
         init(SELECT1,7,INSERT1,room7);
 
 
-        String[] object1={"focus","Sistema di calcolo di realta' aumentata indossabile che consente di identificare  oggetti e macchine"};
+        String[] object1={"focus","Sistema di calcolo di realta' aumentata indossabile che consente di identificarne le bio-macchine"};
         init(SELECT2,1,INSERT2,object1);
 
         String[] object2={"batteria","Puo' essere ottenuta dal corsiero e avintempesta"};

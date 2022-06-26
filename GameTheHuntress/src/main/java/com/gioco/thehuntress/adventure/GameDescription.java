@@ -56,7 +56,7 @@ public abstract class GameDescription{
         return objects;
     }
 
-    public abstract void init() throws Exception;
+    public abstract void init();
 
 
    public abstract void nextMove(DbClass db, ParserOutput p, PrintStream out) throws SQLException;

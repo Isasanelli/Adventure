@@ -29,7 +29,7 @@ public class TheHuntressGame extends GameDescription {
 
 
     @Override
-    public void init() throws Exception {
+    public void init(){
 
 
          String PATROOM1 = "file//roomGarden.txt";
@@ -191,8 +191,8 @@ public class TheHuntressGame extends GameDescription {
 
 
         Room roomCalderone = new Room(7);
-        roomCalderone.setNorthInTheRoom(new String[] {"C'e' il cuore della madre. La sua luce blu è cosi calda e forte","C'è il cuore della madre. La sua luce blu e' cosi calda e forte"});
-        roomCalderone.setSouthInTheRoom(new String[] {"c'e' la porta del Calderone: non e' il momento di uscire. Sei a un passo dal salvare il mondo. Non fermarti","c'e' la porta del calderone"});
+        roomCalderone.setNorthInTheRoom(new String[] {"c'e' la porta del Calderone: non e' il momento di uscire. Sei a un passo dal salvare il mondo. Non fermarti","C'e' la porta del calderone"});
+        roomCalderone.setSouthInTheRoom(new String[] {"C'e' il cuore della madre. La sua luce blu è cosi calda e forte","C'è il cuore della madre. La sua luce blu e' cosi calda e forte"});
         roomCalderone.setEastInTheRoom(new String[] {"non c'e' nulla","non c'e' nulla"});
         roomCalderone.setWestInTheRoom(new String[] {"Ci sono delle macchine, collegate a dei fili. Alcune dormono dentro a delle celle. Che posto macrabo","Ci sono delle macchine dentro delle gabbie"});
 
@@ -452,7 +452,7 @@ public class TheHuntressGame extends GameDescription {
             }
             System.out.println("=====================================================================================");
         } else if (p.getCommand().getType() == CommandType.APRI) {
-            if (p.getObject() == null && p.getObject2() == null) {
+            if (p.getObject() == null) {
                 System.out.println("Non c'e' nulla da aprire qui ");
             } else {
                 if (p.getObject() != null) {
@@ -461,13 +461,13 @@ public class TheHuntressGame extends GameDescription {
                             if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto pacco è un oggetto contenitore allora
                                 System.out.println("HAI APERTO: " + p.getObject().getName(db));
                                 AdvObjectContainer c = (AdvObjectContainer) p.getObject();
-                                if (!c.getList().isEmpty()) {//controlla che il pacco non è vuoto dentro
+                                if (!c.getList().isEmpty()) {
                                     System.out.println("\n contiene:");
                                     Iterator<AdvObject> it = c.getList().iterator();
-                                    while (it.hasNext()) {//finchè la lista degli oggetti contenuti nel pacco non termina
+                                    while (it.hasNext()) {
                                         try {
-                                            AdvObject next = it.next(); //assegna il prossimo elemento
-                                            inventario.add(next);//focus aggiunto all'inventario
+                                            AdvObject next = it.next();
+                                            inventario.add(next);
                                             System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                             System.out.println("=====================================================");
                                             System.out.println("***     Un nuovo oggetto e' nel tuo inventario!   ***");
@@ -512,10 +512,10 @@ public class TheHuntressGame extends GameDescription {
                 System.out.println("Cosa vuoi scalare?\n" + "Specifica col comando 'scala <oggetto>' ");
             }
         } else if (p.getCommand().getType() == CommandType.ISPEZIONA) {
-            if (p.getObject() == null && p.getObject2() == null) {
+            if (p.getObject() == null ) {
                 System.out.println("Non c'e' nulla da ispezionare qui ");
             } else {
-                if (p.getObject() != null && (p.getObject().isCripta() || p.getObject().isKill()) && p.getObject2() ==null) {
+                if (p.getObject() != null && (p.getObject().isCripta() || p.getObject().isKill())) {
                     if (p.getObject().isInspectable() && !p.getObject().isInspect()) {
                         if (p.getObject() instanceof AdvObjectContainer) { //se l'oggetto macchina è un oggetto contenitore allora
                             p.getObject().setInspect(true);
@@ -524,10 +524,10 @@ public class TheHuntressGame extends GameDescription {
                             if (!c.getList().isEmpty()) {//controlla che la macchina non è vuoto dentro
                                 System.out.println(p.getObject().getName(db) + "  contiene: \n");
                                 Iterator<AdvObject> it = c.getList().iterator();
-                                while (it.hasNext()) {//finchè la lista degli oggetti contenuti nella macchina non termina
+                                while (it.hasNext()) {
                                     try {
-                                        AdvObject next = it.next(); //assegna il prossimo elemento
-                                        inventario.add(next);//oggetto  aggiunto all'inventario
+                                        AdvObject next = it.next();
+                                        inventario.add(next);
                                         System.out.println("***" + next.getName(db) + "***");
                                         System.out.println("=====================================================");
                                         System.out.println("***    Un nuovo oggetto e' nel tuo inventario!    ***");
@@ -539,7 +539,7 @@ public class TheHuntressGame extends GameDescription {
                                 }
                                 System.out.println();
                                 if(getCurrentRoom().getId()==2 && p.getObject().getId()==6){
-                                    System.out.println("|ROST: Spostiamoci verso nord a rilassarci un po'...");
+                                    System.out.println("|ROST: Spostiamoci verso 'nord' a rilassarci un po'...");
                                 }else if(getCurrentRoom().getId()==5 && p.getObject().getId()==7){
                                     System.out.println("|Avad: Adesso sei veramente pronta a sconfiggere Vanasha, il Calderone ti aspetta a sud...Che la fortuna sia con te Victoria!");
                                 }
@@ -649,7 +649,7 @@ public class TheHuntressGame extends GameDescription {
                 }
 
         } else if (p.getCommand().getType().equals(CommandType.PREMI)){
-            if(p.getObject()!=null && p.getObject2()== null) {
+            if(p.getObject()!=null) {
                 if (!p.getObject().isPush() && p.getObject().isPushable()) {
                     p.getObject().setPush(true);
                     if (p.getObject().getId() == 10 && getCurrentRoom().getId()==6) {
@@ -670,7 +670,7 @@ public class TheHuntressGame extends GameDescription {
                 System.out.println ("Specifica l'oggetto che vuoi premere");
             }
         } else if(p.getCommand().getType().equals(CommandType.COMBATTI)) {
-            if (getCurrentRoom().getId() == 7 && p.getObject() == null && p.getObject2() == null) {
+            if (getCurrentRoom().getId() == 7 && p.getObject() == null) {
                 boolean win;
                 MiniGameBattle gameBattle = new MiniGameBattle();
                 win = gameBattle.startGame();
