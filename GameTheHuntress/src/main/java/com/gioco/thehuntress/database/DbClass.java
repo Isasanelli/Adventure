@@ -135,6 +135,10 @@ public class  DbClass {
         stat.executeUpdate(table);
         stat.close();
     }
+    
+    public void closeConnection() throws SQLException{
+        getConnection().close();
+    }
 
     /**
      *method that creates the properties object
@@ -269,6 +273,4 @@ public class  DbClass {
         init(SELECT2,10,INSERT2,object10);
 
     }
-
-
 }

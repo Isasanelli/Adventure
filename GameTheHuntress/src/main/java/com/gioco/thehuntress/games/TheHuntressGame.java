@@ -12,6 +12,7 @@ import com.gioco.thehuntress.type.*;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
@@ -304,7 +305,7 @@ public class TheHuntressGame extends GameDescription {
      * @param out
      */
     @Override
-    public void nextMove(DbClass db, ParserOutput p, PrintStream out) {
+    public void nextMove(DbClass db, ParserOutput p, PrintStream out) throws SQLException {
         String PATROOM7VINCITA= "file//roomCalderoneWin.txt";
         String PATROOM7PERDITA="file//roomCalderoneLoser.txt";
         boolean noroom = false;
@@ -600,6 +601,7 @@ public class TheHuntressGame extends GameDescription {
                         p.getObject().setCripta(true);
                         getCurrentRoom().Dialog();
                         Grafica.end();
+                        db.closeConnection();
                         System.exit(0);
                     }
                 }
@@ -684,6 +686,7 @@ public class TheHuntressGame extends GameDescription {
                     getCurrentRoom().setDialog(PATROOM7PERDITA);
                     getCurrentRoom().Dialog();
                     Grafica.end();
+                    db.closeConnection();
                     System.exit(0);
                 }
             } else if (getCurrentRoom().getId() != 7) {
