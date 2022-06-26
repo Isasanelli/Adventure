@@ -115,10 +115,6 @@ public class TheHuntressGame extends GameDescription {
         open.setAlias(new String[]{"ap"});
         getCommands().add(open);
 
-        Command use = new Command(CommandType.USA, "usa");
-        use.setAlias(new String[]{"us", "u"});
-        getCommands().add(use);
-
         Command inspects = new Command(CommandType.ISPEZIONA, "ispeziona");
         inspects.setAlias(new String[]{"ispe", "isp"});
         getCommands().add(inspects);
@@ -155,13 +151,13 @@ public class TheHuntressGame extends GameDescription {
         roomGarden.setNorthInTheRoom(new String[]{"Da li si va verso il campo d'addestramento", "Il campo d'addestramento e' da quella parte"});
         roomGarden.setSouthInTheRoom(new String[]{"Non c'e' nulla", "E' solo un muro oltre la siepe, non ti interessa"});
         roomGarden.setEastInTheRoom(new String[]{"Questa foresta ha troppi alberi per i miei gusti", "Non c'e' nulla da guardare li"});
-        roomGarden.setWestInTheRoom(new String[]{"Non c'è nulla che ti possa interessare. Parla con Rost se non l'hai gia' fatto", "Non c'e' nulla qui"});
+        roomGarden.setWestInTheRoom(new String[]{"Non c'e' nulla che ti possa interessare. Parla con Rost se non l'hai gia' fatto", "Non c'e' nulla qui"});
 
         Room roomTrainingCamp = new Room(2);
         roomTrainingCamp.setDialog(PATROOM2);
         roomTrainingCamp.setNorthInTheRoom(new String[]{"Da li si va verso la valle dei caduti", "la valle dei caduti e' da quella parte"});
         roomTrainingCamp.setSouthInTheRoom(new String[]{"Da li si si ritorna in giardino", "Il giardino e' da quella parte"});
-        roomTrainingCamp.setEastInTheRoom(new String[]{"C'e' una mandria di biomacchine da quella parte. Fai attenzione ", "Qui c'è il corsiero che hai ucciso. Non c'è nulla da guadare"});
+        roomTrainingCamp.setEastInTheRoom(new String[]{"C'e' una mandria di biomacchine da quella parte. Fai attenzione ", "Qui c'e' il corsiero che hai ucciso. Non c'e' nulla da guadare"});
         roomTrainingCamp.setWestInTheRoom(new String[]{"Non c'e' nulla", "Non c'e' nulla per te"});
 
         Room roomValleyOfDeath = new Room(3);
@@ -194,8 +190,8 @@ public class TheHuntressGame extends GameDescription {
 
 
         Room roomCalderone = new Room(7);
-        roomCalderone.setNorthInTheRoom(new String[] {"C'è il cuore della madre. La sua luce blu è cosi calda e forte","C'è il cuore della madre. La sua luce blu è cosi calda e forte"});
-        roomCalderone.setSouthInTheRoom(new String[] {"c'e' la porta del Calderone: non è il momento di uscire. Sei a un passo dal salvare il mondo. Non fermarti","c'e' la porta del calderone"});
+        roomCalderone.setNorthInTheRoom(new String[] {"C'e' il cuore della madre. La sua luce blu è cosi calda e forte","C'è il cuore della madre. La sua luce blu e' cosi calda e forte"});
+        roomCalderone.setSouthInTheRoom(new String[] {"c'e' la porta del Calderone: non e' il momento di uscire. Sei a un passo dal salvare il mondo. Non fermarti","c'e' la porta del calderone"});
         roomCalderone.setEastInTheRoom(new String[] {"non c'e' nulla","non c'e' nulla"});
         roomCalderone.setWestInTheRoom(new String[] {"Ci sono delle macchine, collegate a dei fili. Alcune dormono dentro a delle celle. Che posto macrabo","Ci sono delle macchine dentro delle gabbie"});
 

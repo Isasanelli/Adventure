@@ -35,33 +35,35 @@ public class MiniGameBattle {
         boolean win=false;
         Grafica.graphicBattle();
         while(userScore>=10 && opponentScore>=10) {
-            Move userMove = user.getMove();
             Move opponentMove = opponent.getMove();
-            System.out.println("\nHai usato  " + userMove + ".\n");
             System.out.println("Vanasha ha usato " + opponentMove + ".\n");
+            Move userMove = user.getMove();
+            System.out.println("\nHai usato  " + userMove + ".\n");
             int compareMoves = userMove.compareMoves(opponentMove);
             switch (compareMoves) {
-                case 0: //pareggio
-                    System.out.println("Siete allo stesso livello. Fai del tuo meglio.");
+                case 0: 
+                    System.out.println("Fai del tuo meglio.");
                     break;
-                case 1: //vince l'utente
-                    System.out.println(userMove + " e' piu' forte di " + opponentMove + ". Continua cosi'!");
+                case 1: 
+                    System.out.println(userMove + " e' piu' forte di " + opponentMove + "\n");
                     opponentScore = opponentScore - 10;
+                    System.out.println("Hai vinto !!");
                     break;
-                case -1: //vince il nemico
-                    System.out.println(opponentMove + " e' più forte di " + userMove + ". Non mollare!");
+                case -1: 
+                    System.out.println(opponentMove + " e' piu' forte di " + userMove + "\n");
                     userScore = userScore - 10;
+                    System.out.println("Hai perso !!");
                     break;
             }
         }
-        if(userScore<10 && opponentScore>=10){
+        if(userScore == 0 && opponentScore>=10){
             System.out.println("+----------------------------------------------------+");
             System.out.println("|Ad un certo punto perdi 'equilibrio e cadi a terra. |");
             System.out.println("| Vanasha ti punta un coltello alla gola.            |");
             System.out.println("|Il panico ti pervade...                             |");
             System.out.println("+----------------------------------------------------+");
-            win=false;
-        }else if(userScore>10 && opponentScore<=10){
+             win=false;
+        }else if(userScore>=10 && opponentScore == 0){
             win=true;
         }
         return win;

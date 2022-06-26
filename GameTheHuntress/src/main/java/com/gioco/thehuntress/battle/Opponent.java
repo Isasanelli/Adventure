@@ -16,6 +16,13 @@ import java.util.Random;
 public class Opponent {
 
     /**
+     * Opponent builder
+     */
+    public Opponent(){
+
+    }
+
+    /**
      * method that randomly generates the opponent's move
      * @return Move
      */

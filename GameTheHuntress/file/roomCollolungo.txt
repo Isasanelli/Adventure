@@ -1,7 +1,7 @@
-|AVAD: Benvenuta nel mio maestoso tempio.
-       Sei nel tempio del collolungo. 
-       La prima biomacchina creata su questo pianeta,la madre di tutte la macchine.# 
-       "Scala" il collolungo e avrai accesso al NUCLEO.
-       Una volta aver applicato la cripta sul collolungo, avrai la chiave che potra'
-       aiutarti nella tua impresa verso Meridiana.#
-       Buona fortuna giovane Nora, ne avrai bisogno.!!
+|AVAD: Benvenuta.
+       Sei nel tempio del collolungo.
+        La prima biomacchina creata su questo pianeta,la madre di tutte la macchine.#
+|AVAD: "Scala" il collolungo e avrai accesso al cuore della madre, il NUCLEO.#
+|AVAD:  Una volta aver applicato la cripta sul collolungo, avrai la chiave che potra' aiutarti
+        nella tua impresa verso Meridiana.#
+|AVAD:  Buona fortuna giovane Nora, ne avrai bisogno.!!

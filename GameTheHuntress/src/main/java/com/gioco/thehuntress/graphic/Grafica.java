@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.gioco.thehuntress.graphic;
 
 
@@ -26,7 +23,7 @@ public class Grafica {
      * method that prints the initial menu
      */
     public static void writeMenu() {
-        System.out.println("  \n"
+        System.out.println(" \n"
 
                 + " +--------------------------------------+ \n"
                 + " |                                      | \n"
@@ -67,7 +64,7 @@ public class Grafica {
      * method that prints the program termination message
      */
     public static void end(){
-        System.out.println("  \n"
+        System.out.println(" \n"
 
                 + " +-----------------------------------------+ \n"
                 + " |   Il gioco e' bello quando dura poco.   | \n"
@@ -86,7 +83,7 @@ public class Grafica {
     public static void graphicBattle(){
 
 
-        System.out.println("           Battle The Huntress          \n");
-        System.out.println(" [ ATTACCA ]  -  [ SCHIVA ]  -  [ PARA ]\n");
+        System.out.println("***          Battle The Huntress            *** \n");
+        System.out.println("    [ ATTACCA ]  -  [ SCHIVA ]  -  [ PARA ]     \n");
     }
 }
