@@ -13,7 +13,7 @@ public class ParserOutput {
 
     private  Command command;
     private  AdvObject object;
-    
+
     public ParserOutput(Command command, AdvObject object){
         this.command = command;
         this.object = object;
