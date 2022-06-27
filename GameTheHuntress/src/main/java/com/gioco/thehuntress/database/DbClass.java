@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 
 /**
- * class that manages the database
+ * class that manages the database.
  */
 public class  DbClass {
 
@@ -29,7 +29,7 @@ public class  DbClass {
 
 
     /**
-     * DbClass builder
+     * DbClass builder.
      */
     public DbClass(){
         try{
@@ -42,7 +42,7 @@ public class  DbClass {
     }
 
     /**
-     * method that loads the driver through the connection string
+     * function that loads the driver through the connection string.
      * @param prop Properties object
      * @return driver
      * @throws SQLException
@@ -53,7 +53,7 @@ public class  DbClass {
 
 
     /**
-     * method that allows you to read the select and id of interest
+     * function that allows you to read the select and id of interest.
      * @param select
      * @param idStatement object's id
      * @return rs result of the select
@@ -67,7 +67,7 @@ public class  DbClass {
     }
 
     /**
-     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted
+     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted.
      * @param select
      * @param id object's id
      * @param queryInsert string that contains query that inserts items into the table
@@ -83,7 +83,7 @@ public class  DbClass {
     }
 
     /**
-     * method that checks if the object is present in the table or not
+     * function that checks if the object is present in the table or not.
      * @param resultSet
      * @param id
      * @return toReturn it is true if the object is present in the table, otherwise it is false
@@ -99,7 +99,7 @@ public class  DbClass {
     }
 
     /**
-     * method that inserts the string's array into the table
+     * method that inserts the string's array into the table.
      * @param id
      * @param insert string that contains query that inserts items into the table
      * @param array contains the elements to be inserted in the db table
@@ -126,7 +126,7 @@ public class  DbClass {
     }
 
     /**
-     *  method that creates the table inside the db
+     *  method that creates the table inside the db.
      * @param table string that contains the query that creates the table
      * @throws SQLException
      */
@@ -136,12 +136,16 @@ public class  DbClass {
         stat.close();
     }
 
+    /**
+     * method that closes the connection of the db
+     * @throws SQLException
+     */
     public void closeConnection() throws SQLException{
         getConnection().close();
     }
 
     /**
-     *method that creates the properties object
+     *function that creates the properties object.
      * @return prop
      */
     public static Properties properties(){
@@ -152,7 +156,7 @@ public class  DbClass {
     }
 
     /**
-     * method that returns the connection
+     * function that returns the connection.
      * @return conn
      * @throws SQLException
      */
@@ -162,7 +166,7 @@ public class  DbClass {
 
 
     /**
-     * method that creates the tables inside the db and calls the function that populates the tuples
+     * method that creates the tables inside the db and calls the function that populates the tuples.
      * @throws SQLException
      */
     public void createAllTable() throws SQLException{
@@ -172,7 +176,7 @@ public class  DbClass {
     }
 
     /**
-     * method that populates the tuples of the tables present in the db
+     * method that populates the tuples of the tables present in the db.
      * @throws SQLException
      */
     public void populationTable() throws SQLException{
@@ -180,7 +184,7 @@ public class  DbClass {
         String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo,\n"
                 +" Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost, viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
+                +" tuo padre Rost, viene verso di te per dirti una cosa. Parla con lui","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
                 +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};
@@ -235,7 +239,7 @@ public class  DbClass {
                 "Girandoti rapidamente, noti Vanasha.\n" +
                 "E' il momento di COMBATTERE.",
                 "A nord c'e' la porta del Calderone,\n" +
-                "a sud trovi il cuore della madrec'e' la porta del Calderone,\n" +
+                "a sud trovi il cuore della madre\n" +
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
                  "Sembra che meridiana si stia riprendendo. \n" +
                 "L'esercito di Vanasha non sara' piu' un problema."};
@@ -271,6 +275,5 @@ public class  DbClass {
         
         String[] object10={"bottone","Bottone che ne consentirà l'apertura della torre di meridiana superato un enigma"};
         init(SELECT2,10,INSERT2,object10);
-
     }
 }

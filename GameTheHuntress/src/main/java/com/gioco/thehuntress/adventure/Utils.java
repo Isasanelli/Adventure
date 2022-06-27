@@ -21,7 +21,7 @@ import java.util.Set;
 
 public class Utils {
     /**
-     *inserts the stopwords file into a set
+     * function that inserts the stopwords file into a set.
      * @param file
      * @return set
      * @throws IOException
@@ -37,7 +37,7 @@ public class Utils {
     }
 
     /**
-     * method that removes stopwords from the input string
+     * function that removes stopwords from the input string.
      * @param string string containing user input
      * @param stopwords set containing stopwords
      * @return tokens list composed of the <command object object> elements without stopwords

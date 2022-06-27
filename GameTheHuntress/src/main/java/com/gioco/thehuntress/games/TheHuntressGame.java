@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
  * @author Sasanelli Ilenia
  */
 
-//manca javadoc classe
+
 public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic = new MapGraphic();
 
@@ -110,7 +110,7 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(open);
 
         Command inspects = new Command(CommandType.ISPEZIONA, "ispeziona");
-        inspects.setAlias(new String[]{"ispe", "isp"});
+        inspects.setAlias(new String[]{"ispe", "isp","ispezione"});
         getCommands().add(inspects);
 
         Command scalable = new Command(CommandType.SCALA, "scala");
@@ -242,6 +242,7 @@ public class TheHuntressGame extends GameDescription {
         roomTend.getObjects().add(lancia);
         roomCollolungo.getObjects().add(collolungo);
         roomOutMeridiana.getObjects().add(botton);
+        roomOutMeridiana.getObjects().add(avistempesta);
         roomCalderone.getObjects().add(nucleo);
 
         //setting of the rooms in their respective positions
@@ -576,7 +577,7 @@ public class TheHuntressGame extends GameDescription {
                         } else if (!p.getObject().isCriptable()) {
                             System.out.println(p.getObject().getName(db) + " non e' possibile applicare la cripta !");
                         }
-                    } else if (getCurrentRoom().getId() != 5) {
+                    } else if (getCurrentRoom().getId() == 7) {
                         if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
                             p.getObject().setCripta(true);
                             getCurrentRoom().Dialog();

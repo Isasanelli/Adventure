@@ -20,7 +20,7 @@ import java.util.List;
  */
 
 /**
- * abstract class
+ * abstract class.
  */
 
 public abstract class GameDescription{

@@ -10,7 +10,7 @@ import com.gioco.thehuntress.graphic.Grafica;
  */
 
 /**
- * class that manages battle user-opponent
+ * class that manages battle user-opponent.
  */
 public class MiniGameBattle {
 
@@ -20,7 +20,7 @@ public class MiniGameBattle {
     private int opponentScore=20;
 
     /**
-     * MiniGameBattle builder
+     * MiniGameBattle builder.
      */
     public MiniGameBattle(){
         user=new User();
@@ -28,7 +28,7 @@ public class MiniGameBattle {
     }
 
     /**
-     *method that initiates and manages the fight
+     *function that initiates and manages the fight.
      * @return win
      */
     public boolean startGame(){

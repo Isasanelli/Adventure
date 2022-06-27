@@ -11,19 +11,19 @@ import java.util.Random;
 
 
 /**
- * class that manages the opponent's moves
+ * class that manages the opponent's moves.
  */
 public class Opponent {
 
     /**
-     * Opponent builder
+     * Opponent builder.
      */
     public Opponent(){
 
     }
 
     /**
-     * method that randomly generates the opponent's move
+     * function that randomly generates the opponent's move.
      * @return Move
      */
     public Move getMove(){

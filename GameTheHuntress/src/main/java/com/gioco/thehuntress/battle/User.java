@@ -10,20 +10,20 @@ import java.util.Scanner;
  */
 
 /**
- * class that manages user's move
+ * class that manages user's move.
  */
 public class User {
     private Scanner inputScanner;
 
     /**
-     * User builder
+     * User builder.
      */
     public User(){
         inputScanner=new Scanner(System.in);
     }
 
     /**
-     *method that reads the user's input and returns its type
+     *function that reads the user's input and returns its type.
      * @return Move or getMove()
      */
     public Move getMove(){

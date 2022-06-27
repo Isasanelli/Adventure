@@ -23,7 +23,7 @@ import java.util.Set;
  */
 
 /**
- * Classe main del programma
+ * main class of the program.
  */
 public class Engine {
 
@@ -37,7 +37,7 @@ public class Engine {
 
 
     /**
-     *engine builder
+     *engine builder.
      */
     public Engine(GameDescription game) {
         String PATHSTOPWORDS="file//stopwords";
@@ -56,8 +56,8 @@ public class Engine {
     }
 
     /**
-     * method that manages the game's initial menu
-     * @throws IOException
+     * method that manages the game's initial menu.
+     * @throws IOException,SQLException
      */
     public  void start() throws IOException, SQLException {
 
@@ -94,7 +94,8 @@ public class Engine {
         }
 
     /**
-     *method that manages game run and input
+     *method that manages game run and input.
+     * @throws SQLException
      */
     public void execute() throws SQLException{
             Grafica.writeIntro();
@@ -136,9 +137,9 @@ public class Engine {
         }
 
     /**
-     * main method of the application
+     * main method of the application.
      * @param args  the command line arguments
-     * @throws IOException
+     * @throws IOException,SQLException
      */
     public static void main(String[] args) throws IOException,SQLException{
        engine= new Engine(new TheHuntressGame());

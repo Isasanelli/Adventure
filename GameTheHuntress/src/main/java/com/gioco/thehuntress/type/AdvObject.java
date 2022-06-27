@@ -22,7 +22,7 @@ import java.util.Set;
  */
 
 /**
- * AdvObject class
+ * AdvObject class.
  */
 public class AdvObject {
     
@@ -30,45 +30,60 @@ public class AdvObject {
     public static final String SELECTDESCRIPTION ="SELECT desc FROM advObjects WHERE id=?";
     private final int id;
     private Set<String> alias;
-   
-    private boolean usable =false;
-    private boolean pickupable = false; //raccogli
-    private boolean  pick=false;
     private boolean open = false;
     private boolean openable=false;
-    private boolean scalable= false;  //scalabile, serve per il collolungo
+    private boolean scalable= false;
     private boolean scale= false;
-    private boolean inspect=false; //ispeziona, per le macchine
+    private boolean inspect=false;
     private boolean inspectable=false;
     private boolean focus=false;
     private boolean kill=false;
     private boolean killable=false;
     private boolean pushable=false;
     private boolean push=false;
-
     private boolean cripta=false;
     private boolean criptable=false;
 
-
+    /**
+     * AdvObject builder.
+     * @param id
+     */
     public AdvObject ( int id ){
         this.id = id;
     }
 
 
-    //metodi
+
     public int getId() {
         return id;
     }
 
+    /**
+     * function that returns the name of the object.
+     * @param db
+     * @return name
+     */
     public String getName(DbClass db){
         String name= getInformationAdvObject(db,SELECTNAME);
         return name;
     }
 
+    /**
+     * function that returns the description of the object.
+     * @param db
+     * @return description
+     */
     public String getDescription(DbClass db){
         String description= getInformationAdvObject(db,SELECTDESCRIPTION);
         return description;
     }
+
+    /**
+     * function that accesses the db and executes the select.
+     * @param db
+     * @param select
+     * @return resultSet, the information of interest
+     */
     public String getInformationAdvObject(DbClass db, String select){
         String resultSelect= new String();
         try{
@@ -99,33 +114,11 @@ public class AdvObject {
     
     public void setKillable(boolean killable){ this.killable=killable;}
     public boolean isKillable(){return killable;}
-    public void setPick(boolean pick) { this.pick=pick;}
 
-    public boolean isPick() {
-        return pick;
-    }
-
-    public boolean isPickupable() {
-        return pickupable;
-    }
-
-    public void setPickupable (boolean pickupable) {
-        this.pickupable = pickupable;
-    }
-    
-    public void setUsable(boolean usable){
-        this.usable=usable;
-    }
-    public boolean isUsable (){
-        return usable;
-    }
     public boolean isScalable(){ return scalable;}
     public void setScalable(boolean scalable){ this.scalable=scalable;}
     public boolean isScale(){ return scale;}
     public void setScale(Boolean scale){ this.scale=scale; }
-    
-
-
     public boolean isInspect(){ return inspect;}
     public void  setInspect(boolean inspect){ this.inspect=inspect;}
 
@@ -159,7 +152,7 @@ public class AdvObject {
     public void setAlias(Set<String> alias) {
         this.alias = alias;
     }
-    //public void setVisible();
+
 
     public void setAlias(String[] alias) {
         this.alias = new HashSet<>(Arrays.asList(alias));
