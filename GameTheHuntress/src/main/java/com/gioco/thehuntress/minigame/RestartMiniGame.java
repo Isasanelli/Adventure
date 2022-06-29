@@ -1,13 +1,10 @@
 package com.gioco.thehuntress.minigame;
 
-import com.gioco.thehuntress.minigame.TicTacGame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia

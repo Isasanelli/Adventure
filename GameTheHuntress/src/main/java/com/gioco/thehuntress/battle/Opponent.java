@@ -3,7 +3,6 @@ package com.gioco.thehuntress.battle;
 import java.util.Random;
 
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia

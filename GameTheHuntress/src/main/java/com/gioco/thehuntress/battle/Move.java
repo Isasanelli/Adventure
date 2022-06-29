@@ -18,8 +18,8 @@ public enum Move {
      * wins or loses.
      *
      * @param  otherMove to perform the comparison
-     * @return  1 se questa mossa batte l'altra, -1 se questa mossa viene battuta dall'altra
-     *   0 se si tratta di un pareggio
+     * @return 1 if this move beats the other, -1 if this move is beaten by the other
+     * 0 if it is a tie
      */
 
     public int compareMoves(Move otherMove){

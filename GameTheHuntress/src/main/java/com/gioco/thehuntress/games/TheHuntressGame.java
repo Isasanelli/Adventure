@@ -16,19 +16,20 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
 
-
+/**
+ * Class that implements the game logic and how the user's commands interact with the game.
+ * It extends the GameDescription class and implements its abstract methods.
+ */
 public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic = new MapGraphic();
 
-
     /**
-     *
+     * method that implements the initialization of the elements of the match
      */
     @Override
     public void init(){
@@ -277,9 +278,9 @@ public class TheHuntressGame extends GameDescription {
     }
 
     /**
-     *
+     *method that implements the commands entered in input by the user and contains into the ParserOutput object
      * @param db
-     * @param p
+     * @param p ParserOutput object
      * @param out
      */
     @Override
@@ -550,7 +551,9 @@ public class TheHuntressGame extends GameDescription {
                 }
             }
             if(p.getObject()==null){
-                System.out.println("Specifica la macchina che vuoi criptare con il comando cripta + <nome macchina>");
+                if(getCurrentRoom().getId()!= 7)
+                     System.out.println("Specifica la macchina che vuoi criptare con il comando cripta + <nome macchina>");
+                else System.out.println("Genio devi criptare il nucleo....\n"+ "Specificalo!!!");
             } else {
                 if (p.getObject() != null && flagCripta == true) {
                     if (getCurrentRoom().getId() == 5 && p.getObject().isScale()) {
@@ -586,7 +589,7 @@ public class TheHuntressGame extends GameDescription {
                             System.exit(0);
                         }
                     }
-                }
+                }else System.out.println("Non hai la cripta nel tuo inventario!");
             }
         } else if (p.getCommand().getType().equals(CommandType.FOCUS)) {
                 Iterator<AdvObject> it = inventario.getList().iterator();

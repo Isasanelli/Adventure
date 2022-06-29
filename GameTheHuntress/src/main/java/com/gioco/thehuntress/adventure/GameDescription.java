@@ -13,16 +13,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
 
 /**
- * abstract class.
+ *  GameDescription is an abstract class that contains the abstract
+ *  methods for handling commands and the data structures of containing the rooms, commands and inventory.
  */
-
 public abstract class GameDescription{
 
     private final List<Room> rooms = new ArrayList<>();

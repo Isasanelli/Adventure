@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
@@ -27,11 +26,11 @@ public class BoxTextMingame extends JFrame implements ActionListener {
         frame.setResizable(false);
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
-        prosegui.setBounds(120, 100, 100, 30);
-        text_field.setBounds(105, 20, 300, 50);
+        prosegui.setBounds(140, 100, 100, 30);
+        text_field.setBounds(80, 20, 300, 50);
         prosegui.addActionListener(this);
-        prosegui.setForeground(new Color(22, 2, 66));
-        text_field.setForeground(Color.BLUE);
+        prosegui.setForeground(new Color(12, 143, 49));
+        text_field.setForeground(Color.BLACK);
         text_field.setFont(new Font("MV Boli", Font.BOLD, 20));
         prosegui.setFont(new Font("MV Boli", Font.BOLD, 13));
         frame.add(prosegui);

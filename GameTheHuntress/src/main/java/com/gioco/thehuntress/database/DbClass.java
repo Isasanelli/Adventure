@@ -181,36 +181,35 @@ public class  DbClass {
      */
     public void populationTable() throws SQLException{
 
-        String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo,\n"
+        String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo.\n"
                 +" Oggi il cielo e' piu' azzurro delle altre volte.\n"
-                +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost, viene verso di te per dirti una cosa. Parla con lui","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
+                +" Stai per crollare in un pisolino gradevole ma appena cerchi di addormentarti.\n"
+                +" Tuo padre Rost viene verso di te. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost ?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
-                +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
-                +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};
+                +"Il fuoco e' spento e intorno al ruscello piccoli uccelli cinguettano.\n"
+                +"Non c'è nulla qui. Torna alla tua missione."};
         init(SELECT1,1,INSERT1,room1);
 
         String[] room2={"Campo di addestramento",
                 "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
-                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con rost se non lo hai ancora fatto",
-                "Piccoli brividi ti invadono.\n"
-            +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
-            +"Non c'e' nulla che ti possa interessare. Forse e' meglio tornare alla missione"};
+                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume",
+                "Alcuni corsieri sono rannicchiati sotto l'albero che riposano.\n"
+            +" Vedi ancora il corsiero che Rost ha ucciso.\n"
+            +"Non c'e' nulla che ti possa interessare. E' meglio tornare alla missione"};
         init(SELECT1,2,INSERT1,room2);
 
         String[] room3={"Valle dei caduti",
                 "Tu e Rost avete appena terminato la vostra sessione di addestramento.\n"
-              + " Ha qualcosa da dirti",
-               "Siete nella valle dei caduti a godervi un po di tranquillita'.\n"
+              + " Rost ha qualcosa da dirti",
+                "Siete nella valle dei caduti a godervi un po di tranquillita'.\n"
                + "Senti scorrere in lontananza un ruscello\n",
-                "Piccoli brividi ti invadono al solo pensiero di questo luogo.\n"
-                +" Qui e' dove è stato ucciso Rost. Sei invasa da rabbia e tristezza.\n "
+                "La valle dei caduti ha un nome cosi triste. Sei gia' stata qui.\n"
                 +"Torna sui tuoi passi"};
         init(SELECT1,3,INSERT1,room3);
 
         String[] room4={"Tenda del Re Sole",
                 "Apri gli occhi. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
-                    +" Cerchi di alzarti, ma ad un certo punto senti dei piccoli passi provenire verso di te.\n"
+                    +" Cerchi di alzarti, ma ad un certo punto senti dei passi provenire verso di te.\n"
                     +" Un uomo alto  e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
                      "A sud e' presente un camino\n,"+
                      "a est c'e' una porta,\n"+
@@ -229,6 +228,7 @@ public class  DbClass {
         String[] room6={"Torre di Meridiana: porta del Calderone",
                 "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'e' un pulsante alla tua destra, sara' il caso di premerlo",
+                "Intorno a te svolazzano un covo di biomacchine. Sembrano essere le Avistempesta. Meglio non disturbarle.\n"+
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         init(SELECT1,6,INSERT1,room6);
 
@@ -241,8 +241,8 @@ public class  DbClass {
                 "A nord c'e' la porta del Calderone,\n" +
                 "a sud trovi il cuore della madre\n" +
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
-                 "Sembra che meridiana si stia riprendendo. \n" +
-                "L'esercito di Vanasha non sara' piu' un problema."};
+                 "Meridiana non e' la stessa senza tutto quel verde che c'era prima...\n" +
+                "ma tutto tornera' al suo posto."};
         init(SELECT1,7,INSERT1,room7);
 
 
