@@ -29,7 +29,8 @@ public class TicTacGame implements ActionListener{
     char[][] grid;
 
     /**
-    * game frame creation
+    * this constructor allows to
+    * initialize the JFrame on which the game will be shown
     */
     public TicTacGame() {
 
@@ -77,7 +78,7 @@ public class TicTacGame implements ActionListener{
     }
 
      /**
-     * method that calls game moves and handles all the actions of a component
+     * method that calls game turn and handles all the actions of a component
      * @param e actions of  X or O
      */
     @Override
@@ -95,8 +96,9 @@ public class TicTacGame implements ActionListener{
         if (!firstTurn)
             computerPlay();
     }
-/*
-* method that invokes the system shift
+
+/**
+*  method that manages the system shift
 *
 */
     public void computerPlay() {
@@ -126,7 +128,7 @@ public class TicTacGame implements ActionListener{
 
     /**
     * function that calls the winning cells.
-    *@param c string that calls X or O
+    *@param c string that can take "X" or "O"
     *@return cells
     */
     public int[] winCells(String c) {
@@ -183,6 +185,7 @@ public class TicTacGame implements ActionListener{
         return true;
     }
 
+
     public void endWithTie() {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
@@ -208,11 +211,11 @@ public class TicTacGame implements ActionListener{
         }
     }
     /**
-    *method method that retrieves the users state
+    *  method  that retrieves the users state
     * @param a value of t
-    * @param b int
-    * @param c int
-    * @param w string
+    * @param b
+    * @param c
+    * @param w
     */
     public void win(int a, int b, int c, String w) {
         buttons[a].setBackground((w.equalsIgnoreCase("Lord") ? Color.RED : Color.GREEN));
@@ -244,7 +247,7 @@ public class TicTacGame implements ActionListener{
 
 /**
 *
-*method that calls the users moves
+*method that calls the users
 *
 */
     public void firstTurn() {
@@ -259,6 +262,8 @@ public class TicTacGame implements ActionListener{
         } else {
             firstTurn = false;
             computerPlay();
+
+
         }
     }
 }
