@@ -23,7 +23,7 @@ public class Opponent {
 
     /**
      * function that randomly generates the opponent's move.
-     * @return Move
+     * @return Move, the opponent's move
      */
     public Move getMove(){
         Move[] moves = Move.values();

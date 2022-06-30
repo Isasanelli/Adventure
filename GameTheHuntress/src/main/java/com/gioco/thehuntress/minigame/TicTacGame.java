@@ -29,8 +29,7 @@ public class TicTacGame implements ActionListener{
     char[][] grid;
 
     /**
-    * this constructor allows to
-    * initialize the JFrame on which the game will be shown
+    * this constructor allows to initialize the JFrame on which the game will be shown.
     */
     public TicTacGame() {
 
@@ -78,7 +77,7 @@ public class TicTacGame implements ActionListener{
     }
 
      /**
-     * method that calls game turn and handles all the actions of a component
+     * method that calls game turn and handles all the actions of a component.
      * @param e actions of  X or O
      */
     @Override
@@ -98,7 +97,7 @@ public class TicTacGame implements ActionListener{
     }
 
 /**
-*  method that manages the system shift
+*  method that manages the system shift.
 */
     public void computerPlay() {
         try {
@@ -173,7 +172,7 @@ public class TicTacGame implements ActionListener{
     }
 
     /**
-     * isTie recalls the draw of the match
+     * funxtion that defines whether or not there is a tie.
      * @return true if there is a tie
      */
     public boolean isTie() {
@@ -183,8 +182,9 @@ public class TicTacGame implements ActionListener{
         }
         return true;
     }
-
-
+    /**
+    *method that calls the game tie.
+    */
     public void endWithTie() {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
@@ -192,6 +192,10 @@ public class TicTacGame implements ActionListener{
         textField.setText("PAREGGIO");
     }
 
+
+    /**
+    * verify the check of the moves made, by both the player and the opponent.
+    */
     public void check() {
         if (isWin("X")) {
             int[] cells = winCells("X");
@@ -210,11 +214,11 @@ public class TicTacGame implements ActionListener{
         }
     }
     /**
-    *  method  that retrieves the users state
-    * @param a value of t
-    * @param b
-    * @param c
-    * @param w
+    *  method that retrieves the status of the user, if he has lost or won.
+    * @param a integer values
+    * @param b integer values
+    * @param c integer values
+    * @param w print the text
     */
     public void win(int a, int b, int c, String w) {
         buttons[a].setBackground((w.equalsIgnoreCase("Lord") ? Color.RED : Color.GREEN));
@@ -231,7 +235,14 @@ public class TicTacGame implements ActionListener{
             textField.setText("HAI VINTO");
         }
     }
-
+/**
+* setting the button positions.
+*
+* @param c string that can take "X" or "O"
+* @return true if the combination is correct
+* @return false if the winning combination has not been pressed
+*
+*/
     public boolean isWin(String c) {
         if (buttons[0].getText().equalsIgnoreCase(c) && buttons[1].getText().equalsIgnoreCase(c) && buttons[2].getText().equalsIgnoreCase(c)) return true;
         if (buttons[3].getText().equalsIgnoreCase(c) && buttons[4].getText().equalsIgnoreCase(c) && buttons[5].getText().equalsIgnoreCase(c)) return true;
@@ -244,11 +255,9 @@ public class TicTacGame implements ActionListener{
         return false;
     }
 
-/**
-*
-*method that calls the users
-*
-*/
+    /**
+    *method that calls the users.
+    */
     public void firstTurn() {
         try {
             Thread.sleep(200);

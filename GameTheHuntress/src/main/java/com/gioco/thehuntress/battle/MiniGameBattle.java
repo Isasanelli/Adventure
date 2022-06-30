@@ -29,7 +29,7 @@ public class MiniGameBattle {
 
     /**
      *function that initiates and manages the fight.
-     * @return win
+     * @return win which has a false value if the user loses and a true value if he wins
      */
     public boolean startGame(){
         boolean win=false;

@@ -30,7 +30,7 @@ public abstract class GameDescription{
 
     private final List<AdvObject> objects = new ArrayList<>();
     
-    public static Inventory inventario = new Inventory();
+    private final Inventory inventory = new Inventory();
 
     private Room currentRoom;
 
@@ -50,6 +50,7 @@ public abstract class GameDescription{
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+    public Inventory getInventory(){return inventory;}
 
     public List<AdvObject> getObjects() {
         return objects;

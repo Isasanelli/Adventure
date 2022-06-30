@@ -93,7 +93,7 @@ public class Room {
 
     /**
      * function that accesses the db and executes the select.
-     * @param db
+     * @param db database
      * @param select
      * @return String, the information of interest
      */

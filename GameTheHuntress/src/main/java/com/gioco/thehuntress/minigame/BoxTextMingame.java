@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+* text frame setting
+*
+*/
 public class BoxTextMingame extends JFrame implements ActionListener {
 
     JFrame frame;
@@ -16,7 +21,13 @@ public class BoxTextMingame extends JFrame implements ActionListener {
     JLabel text_field;
     ImageIcon image;
 
-    public BoxTextMingame(){
+
+    /**
+    *
+    *this constructor initializes the text frame belonging to the tic tac minigames.
+    *
+    */
+   public BoxTextMingame(){
         prosegui = new JButton("Prosegui");
         text_field = new JLabel("LA PORTA E' APERTA");
         frame = new JFrame("THE HUNTRESS ENIGMA");
@@ -37,7 +48,10 @@ public class BoxTextMingame extends JFrame implements ActionListener {
         frame.add(text_field);
         frame.setVisible(true);
     }
-
+    /**
+    * this method returns the message to the user to continue with the Aventure.
+    * Inside we find the closure of the text box and the minigame window.
+    */
     @Override
     public void actionPerformed(ActionEvent e) {
         Window[] win = Window.getWindows();

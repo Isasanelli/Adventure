@@ -29,7 +29,7 @@ public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic = new MapGraphic();
 
     /**
-     * method that implements the initialization of the elements of the match
+     * method that implements the initialization of the elements of the match.
      */
     @Override
     public void init(){
@@ -207,7 +207,7 @@ public class TheHuntressGame extends GameDescription {
 
         //AdvObjectContainers
         AdvObjectContainer corsiero = new AdvObjectContainer(6);
-        corsiero.setAlias(new String[]{"corsiero", "cors","corsieri"});
+        corsiero.setAlias(new String[]{"corsiero", "cors","corsieri","macchina","macchine"});
         corsiero.setInspectable(true);
         corsiero.add(batteria);
         corsiero.setCriptable(true);
@@ -215,7 +215,7 @@ public class TheHuntressGame extends GameDescription {
         corsiero.setKillable(true);
 
         AdvObjectContainer collolungo = new AdvObjectContainer(7);
-        collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo"});
+        collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo","macchina","macchine"});
         collolungo.setInspectable(true);
         collolungo.setScalable(true);
         collolungo.add(map);
@@ -223,7 +223,7 @@ public class TheHuntressGame extends GameDescription {
         collolungo.setFocus(true);
 
         AdvObjectContainer avistempesta = new AdvObjectContainer(8);
-        avistempesta.setAlias(new String[]{"avistempesta", "avi"});
+        avistempesta.setAlias(new String[]{"avistempesta", "avi","macchina","macchine"});
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
         avistempesta.setCriptable(true);
@@ -278,8 +278,8 @@ public class TheHuntressGame extends GameDescription {
     }
 
     /**
-     *method that implements the commands entered in input by the user and contains into the ParserOutput object
-     * @param db
+     *method that implements the commands entered in input by the user and contains into the ParserOutput object.
+     * @param db database
      * @param p ParserOutput object
      * @param out
      */
@@ -350,7 +350,7 @@ public class TheHuntressGame extends GameDescription {
         } else if (p.getCommand().getType() == CommandType.O) {
             System.out.println(getCurrentRoom().getWestInTheRoom());
         } else if (p.getCommand().getType() == CommandType.MAPPA) {
-            Iterator<AdvObject> it = inventario.getList().listIterator();
+            Iterator<AdvObject> it = getInventory().getList().listIterator();
             boolean flagMappa = false;
             while (it.hasNext()) {
                 try {
@@ -404,7 +404,7 @@ public class TheHuntressGame extends GameDescription {
                         try{
                             AdvObject next = it.next();
                             if(next.getId() == 4){
-                                inventario.add(next);
+                                getInventory().add(next);
                                 System.out.println("=====================================================");
                                 System.out.println("***     Lancia aggiunta nel tuo inventario!   ***");
                                 System.out.println("=====================================================");
@@ -420,7 +420,7 @@ public class TheHuntressGame extends GameDescription {
         } else if (p.getCommand().getType() == CommandType.INVENTARIO) {
             System.out.println("=====================================================================================");
             System.out.println("Nel tuo inventario ci sono:");
-            Iterator<AdvObject> it = inventario.getList().iterator();
+            Iterator<AdvObject> it = getInventory().getList().iterator();
             while (it.hasNext()) {
                 try {
                     AdvObject oggetto = it.next();
@@ -446,7 +446,7 @@ public class TheHuntressGame extends GameDescription {
                                     while (it.hasNext()) {
                                         try {
                                             AdvObject next = it.next();
-                                            inventario.add(next);
+                                            getInventory().add(next);
                                             System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                             System.out.println("=====================================================");
                                             System.out.println("***     Un nuovo oggetto e' nel tuo inventario!   ***");
@@ -506,7 +506,7 @@ public class TheHuntressGame extends GameDescription {
                                 while (it.hasNext()) {
                                     try {
                                         AdvObject next = it.next();
-                                        inventario.add(next);
+                                        getInventory().add(next);
                                         System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                         System.out.println("=====================================================");
                                         System.out.println("***    Un nuovo oggetto e' nel tuo inventario!    ***");
@@ -539,7 +539,7 @@ public class TheHuntressGame extends GameDescription {
             }
         } else if (p.getCommand().getType() == CommandType.CRIPTA) {
             boolean flagCripta = false;
-            Iterator<AdvObject> it = inventario.getList().iterator();
+            Iterator<AdvObject> it = getInventory().getList().iterator();
             while (it.hasNext()) {
                 try {
                     AdvObject next = it.next();
@@ -592,7 +592,7 @@ public class TheHuntressGame extends GameDescription {
                 }else System.out.println("Non hai la cripta nel tuo inventario!");
             }
         } else if (p.getCommand().getType().equals(CommandType.FOCUS)) {
-                Iterator<AdvObject> it = inventario.getList().iterator();
+                Iterator<AdvObject> it = getInventory().getList().iterator();
                 boolean flagFocus = false;
                 while (it.hasNext()) {
                     try {

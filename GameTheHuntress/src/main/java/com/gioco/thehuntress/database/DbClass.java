@@ -84,7 +84,7 @@ public class  DbClass {
 
     /**
      * function that checks if the object is present in the table or not.
-     * @param resultSet
+     * @param resultSet result of the select
      * @param id
      * @return toReturn it is true if the object is present in the table, otherwise it is false
      * @throws SQLException
@@ -184,7 +184,7 @@ public class  DbClass {
         String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo.\n"
                 +" Oggi il cielo e' piu' azzurro delle altre volte.\n"
                 +" Stai per crollare in un pisolino gradevole ma appena cerchi di addormentarti.\n"
-                +" Tuo padre Rost viene verso di te. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost ?",
+                +" Tuo padre Rost viene verso di te. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +"Il fuoco e' spento e intorno al ruscello piccoli uccelli cinguettano.\n"
                 +"Non c'è nulla qui. Torna alla tua missione."};
@@ -210,7 +210,7 @@ public class  DbClass {
         String[] room4={"Tenda del Re Sole",
                 "Apri gli occhi. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
                     +" Cerchi di alzarti, ma ad un certo punto senti dei passi provenire verso di te.\n"
-                    +" Un uomo alto  e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
+                    +" Un uomo alto e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
                      "A sud e' presente un camino\n,"+
                      "a est c'e' una porta,\n"+
                      "a nord c'e' una finestra",
@@ -258,7 +258,7 @@ public class  DbClass {
         String[] object4={"lancia con cripta","Ne consente il ripristino del cuore madre delle macchine"};
         init(SELECT2,4,INSERT2,object4);
 
-        String[] object5={"mappa","Illustrera' il luogo del gioco. Richiamala quando più ti serve!"};
+        String[] object5={"mappa","Illustrera' il luogo del gioco. Richiamala quando piu' ti serve!"};
         init(SELECT2,5,INSERT2,object5);
 
         String[] object6={"corsiero","Grande quanto dei comuni animali da soma,\n"+" il corpo del corsiero somiglia molto a quello dei cavalli.\n"+" La testa tuttavia somiglia piu' a quella dei bovini, con due corna che puntano all'indietro.\n"+" Nella parte posteriore della groppa e' presente il serbatoio di Vampa della macchina"};

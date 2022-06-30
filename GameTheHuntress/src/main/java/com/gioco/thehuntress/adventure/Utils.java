@@ -23,7 +23,7 @@ public class Utils {
     /**
      * function that inserts the stopwords file into a set.
      * @param file
-     * @return set
+     * @return set containing the words stopwords
      * @throws IOException
      */
     public static Set<String> loadFileListInSet(File file) throws IOException {

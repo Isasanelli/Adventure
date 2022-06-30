@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ * text frame setting.
+ */
 public class RestartMiniGame extends JFrame implements ActionListener {
 
     JFrame frame;
@@ -16,7 +20,9 @@ public class RestartMiniGame extends JFrame implements ActionListener {
     JLabel text_field;
     ImageIcon image;
 
-
+    /**
+    * creation of the frame with the relative button.
+    */
     public RestartMiniGame(){
         ok = new JButton("OK");
         text_field = new JLabel("RIPROVA");
@@ -40,6 +46,13 @@ public class RestartMiniGame extends JFrame implements ActionListener {
         frame.add(text_field);
         frame.setVisible(true);
     }
+
+
+    /**
+    *
+    * this method returns the message to the user to continue with the minigame.
+    * closes the message box and starts the minigame
+    */
 
     @Override
     public void actionPerformed(ActionEvent e) {
