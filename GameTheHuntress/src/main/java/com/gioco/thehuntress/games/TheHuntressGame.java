@@ -507,7 +507,7 @@ public class TheHuntressGame extends GameDescription {
                                     try {
                                         AdvObject next = it.next();
                                         inventario.add(next);
-                                        System.out.println("***" + next.getName(db)+ "-->" + next.getDescription(db)+ "***");
+                                        System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                         System.out.println("=====================================================");
                                         System.out.println("***    Un nuovo oggetto e' nel tuo inventario!    ***");
                                         System.out.println("=====================================================");
