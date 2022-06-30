@@ -1,5 +1,5 @@
-|AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'#
-|VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.#
+|AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'
+|VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.
 |AVAD:  Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole".
         Abbiamo sentito delle urla verso la valle dei caduti.
        I miei uomini ti hanno trovata svenuta giu nelle rovine.#
@@ -7,7 +7,7 @@
 |   Noti dei piccoli movimenti   |
 |   Sembrerebbero della macchine |
 |   che giocano con degli umani  |
-+--------------------------------+#
++--------------------------------+
 |VICTORIA:  Noto che la vostra gente si trova a loro agio con le biomacchine.
             Loro sono il nemico.#
 |AVAD: Non sono loro il nemico, ma chi li comanda.

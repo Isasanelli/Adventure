@@ -187,7 +187,7 @@ public class  DbClass {
                 +" Tuo padre Rost viene verso di te. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
                 +"Il fuoco e' spento e intorno al ruscello piccoli uccelli cinguettano.\n"
-                +"Non c'è nulla qui. Torna alla tua missione."};
+                +"Non c'e' nulla qui. Torna alla tua missione."};
         init(SELECT1,1,INSERT1,room1);
 
         String[] room2={"Campo di addestramento",
