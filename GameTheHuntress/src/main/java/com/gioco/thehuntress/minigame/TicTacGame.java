@@ -99,7 +99,6 @@ public class TicTacGame implements ActionListener{
 
 /**
 *  method that manages the system shift
-*
 */
     public void computerPlay() {
         try {

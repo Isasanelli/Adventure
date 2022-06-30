@@ -258,7 +258,7 @@ public class  DbClass {
         String[] object4={"lancia con cripta","Ne consente il ripristino del cuore madre delle macchine"};
         init(SELECT2,4,INSERT2,object4);
 
-        String[] object5={"mappa","Illustrera' il luogo del gioco"};
+        String[] object5={"mappa","Illustrera' il luogo del gioco. Richiamala quando più ti serve!"};
         init(SELECT2,5,INSERT2,object5);
 
         String[] object6={"corsiero","Grande quanto dei comuni animali da soma,\n"+" il corpo del corsiero somiglia molto a quello dei cavalli.\n"+" La testa tuttavia somiglia piu' a quella dei bovini, con due corna che puntano all'indietro.\n"+" Nella parte posteriore della groppa e' presente il serbatoio di Vampa della macchina"};
