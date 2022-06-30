@@ -1,16 +1,17 @@
 package com.gioco.thehuntress.minigame;
 
-import com.gioco.thehuntress.minigame.TicTacGame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
+ */
+
+/**
+ * text frame setting.
  */
 public class RestartMiniGame extends JFrame implements ActionListener {
 
@@ -19,7 +20,9 @@ public class RestartMiniGame extends JFrame implements ActionListener {
     JLabel text_field;
     ImageIcon image;
 
-
+    /**
+    * creation of the frame with the relative button.
+    */
     public RestartMiniGame(){
         ok = new JButton("OK");
         text_field = new JLabel("RIPROVA");
@@ -43,6 +46,13 @@ public class RestartMiniGame extends JFrame implements ActionListener {
         frame.add(text_field);
         frame.setVisible(true);
     }
+
+
+    /**
+    *
+    * this method returns the message to the user to continue with the minigame.
+    * closes the message box and starts the minigame
+    */
 
     @Override
     public void actionPerformed(ActionEvent e) {

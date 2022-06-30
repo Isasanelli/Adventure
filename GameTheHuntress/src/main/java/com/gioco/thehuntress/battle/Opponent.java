@@ -3,7 +3,6 @@ package com.gioco.thehuntress.battle;
 import java.util.Random;
 
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
@@ -11,20 +10,20 @@ import java.util.Random;
 
 
 /**
- * class that manages the opponent's moves
+ * class that manages the opponent's moves.
  */
 public class Opponent {
 
     /**
-     * Opponent builder
+     * Opponent builder.
      */
     public Opponent(){
 
     }
 
     /**
-     * method that randomly generates the opponent's move
-     * @return Move
+     * function that randomly generates the opponent's move.
+     * @return Move, the opponent's move
      */
     public Move getMove(){
         Move[] moves = Move.values();

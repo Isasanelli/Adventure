@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 
 /**
- * class that manages the database
+ * class that manages the database.
  */
 public class  DbClass {
 
@@ -29,7 +29,7 @@ public class  DbClass {
 
 
     /**
-     * DbClass builder
+     * DbClass builder.
      */
     public DbClass(){
         try{
@@ -42,7 +42,7 @@ public class  DbClass {
     }
 
     /**
-     * method that loads the driver through the connection string
+     * function that loads the driver through the connection string.
      * @param prop Properties object
      * @return driver
      * @throws SQLException
@@ -53,7 +53,7 @@ public class  DbClass {
 
 
     /**
-     * method that allows you to read the select and id of interest
+     * function that allows you to read the select and id of interest.
      * @param select
      * @param idStatement object's id
      * @return rs result of the select
@@ -67,7 +67,7 @@ public class  DbClass {
     }
 
     /**
-     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted
+     *method that check if the tuple with id = ? already exists in the table, and if not, it will be inserted.
      * @param select
      * @param id object's id
      * @param queryInsert string that contains query that inserts items into the table
@@ -83,8 +83,8 @@ public class  DbClass {
     }
 
     /**
-     * method that checks if the object is present in the table or not
-     * @param resultSet
+     * function that checks if the object is present in the table or not.
+     * @param resultSet result of the select
      * @param id
      * @return toReturn it is true if the object is present in the table, otherwise it is false
      * @throws SQLException
@@ -99,7 +99,7 @@ public class  DbClass {
     }
 
     /**
-     * method that inserts the string's array into the table
+     * method that inserts the string's array into the table.
      * @param id
      * @param insert string that contains query that inserts items into the table
      * @param array contains the elements to be inserted in the db table
@@ -126,7 +126,7 @@ public class  DbClass {
     }
 
     /**
-     *  method that creates the table inside the db
+     *  method that creates the table inside the db.
      * @param table string that contains the query that creates the table
      * @throws SQLException
      */
@@ -136,12 +136,16 @@ public class  DbClass {
         stat.close();
     }
 
+    /**
+     * method that closes the connection of the db
+     * @throws SQLException
+     */
     public void closeConnection() throws SQLException{
         getConnection().close();
     }
 
     /**
-     *method that creates the properties object
+     *function that creates the properties object.
      * @return prop
      */
     public static Properties properties(){
@@ -152,7 +156,7 @@ public class  DbClass {
     }
 
     /**
-     * method that returns the connection
+     * function that returns the connection.
      * @return conn
      * @throws SQLException
      */
@@ -162,7 +166,7 @@ public class  DbClass {
 
 
     /**
-     * method that creates the tables inside the db and calls the function that populates the tuples
+     * method that creates the tables inside the db and calls the function that populates the tuples.
      * @throws SQLException
      */
     public void createAllTable() throws SQLException{
@@ -172,42 +176,41 @@ public class  DbClass {
     }
 
     /**
-     * method that populates the tuples of the tables present in the db
+     * method that populates the tuples of the tables present in the db.
      * @throws SQLException
      */
     public void populationTable() throws SQLException{
 
-        String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo,\n"
+        String[] room1={"Giardino","Sei sdraiata sul prato ad osservare le forme delle nuvole nel cielo.\n"
                 +" Oggi il cielo e' piu' azzurro delle altre volte.\n"
-                +" Stai per crollare in un pisolino gradevole ma appena cerchi di riaddormentarti\n"
-                +" tuo padre Rost, viene verso di te per dirti una cosa. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
+                +" Stai per crollare in un pisolino gradevole ma appena cerchi di addormentarti.\n"
+                +" Tuo padre Rost viene verso di te. Parla con Rost","Sei circondata dall'erba verde del tuo giardino. Hai gia' parlato con Rost?",
                 "Sei nel giardino della tua famiglia, qui ci sei gia' stata.\n"
-                +" Hai ancora in mente i ricordi di te e Rost che giocavate intorno al fuoco.\n"
-                +" Forse e' meglio riprendere il tuo viaggio. Questa non e' piu' casa tua"};
+                +"Il fuoco e' spento e intorno al ruscello piccoli uccelli cinguettano.\n"
+                +"Non c'e' nulla qui. Torna alla tua missione."};
         init(SELECT1,1,INSERT1,room1);
 
         String[] room2={"Campo di addestramento",
                 "Sei al campo di addestramento della tua famiglia. Rost ha qualcosa da dirti",
-                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume. Parla con rost se non lo hai ancora fatto",
-                "Piccoli brividi ti invadono.\n"
-            +" Vedi ancora il corsiero che hai ucciso ancora li...\n"
-            +"Non c'e' nulla che ti possa interessare. Forse e' meglio tornare alla missione"};
+                "Una mandria di biomacchine sono rannicchiate accanto ad un fiume",
+                "Alcuni corsieri sono rannicchiati sotto l'albero che riposano.\n"
+            +" Vedi ancora il corsiero che Rost ha ucciso.\n"
+            +"Non c'e' nulla che ti possa interessare. E' meglio tornare alla missione"};
         init(SELECT1,2,INSERT1,room2);
 
         String[] room3={"Valle dei caduti",
                 "Tu e Rost avete appena terminato la vostra sessione di addestramento.\n"
-              + " Ha qualcosa da dirti",
-               "Siete nella valle dei caduti a godervi un po di tranquillita'.\n"
+              + " Rost ha qualcosa da dirti",
+                "Siete nella valle dei caduti a godervi un po di tranquillita'.\n"
                + "Senti scorrere in lontananza un ruscello\n",
-                "Piccoli brividi ti invadono al solo pensiero di questo luogo.\n"
-                +" Qui e' dove è stato ucciso Rost. Sei invasa da rabbia e tristezza.\n "
+                "La valle dei caduti ha un nome cosi triste. Sei gia' stata qui.\n"
                 +"Torna sui tuoi passi"};
         init(SELECT1,3,INSERT1,room3);
 
         String[] room4={"Tenda del Re Sole",
                 "Apri gli occhi. La stanza in cui ti trovi sembra appartenere alla Tribu' del sole.\n"
-                    +" Cerchi di alzarti, ma ad un certo punto senti dei piccoli passi provenire verso di te.\n"
-                    +" Un uomo alto  e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
+                    +" Cerchi di alzarti, ma ad un certo punto senti dei passi provenire verso di te.\n"
+                    +" Un uomo alto e' entrato nella stanza\n "+"E' il Re Sole,parla con lui",
                      "A sud e' presente un camino\n,"+
                      "a est c'e' una porta,\n"+
                      "a nord c'e' una finestra",
@@ -225,6 +228,7 @@ public class  DbClass {
         String[] room6={"Torre di Meridiana: porta del Calderone",
                 "Sei giunta finalmente a Meridiana.\n" + "Della Trbu' non trovi nessuna traccia.\n" + "In lontananza trovi una grande roccia a forma di piramide.\n" + "Una strana luce proviene verso quella che dovrebbe essere la porta della torre.\n" + "Ti avvicini. Noti alla tua destra un pulsante illuminato. Ci dobbiamo fidare a premerlo?",
                 "C'e' un pulsante alla tua destra, sara' il caso di premerlo",
+                "Intorno a te svolazzano un covo di biomacchine. Sembrano essere le Avistempesta. Meglio non disturbarle.\n"+
                 "Questo posto mette i brividi. Sara' il caso di tornare alla tua missione"};
         init(SELECT1,6,INSERT1,room6);
 
@@ -235,10 +239,10 @@ public class  DbClass {
                 "Girandoti rapidamente, noti Vanasha.\n" +
                 "E' il momento di COMBATTERE.",
                 "A nord c'e' la porta del Calderone,\n" +
-                "a sud trovi il cuore della madrec'e' la porta del Calderone,\n" +
+                "a sud trovi il cuore della madre\n" +
                 "a ovest ci sono delle macchiene. Che posto macrabo.\n",
-                 "Sembra che meridiana si stia riprendendo. \n" +
-                "L'esercito di Vanasha non sara' piu' un problema."};
+                 "Meridiana non e' la stessa senza tutto quel verde che c'era prima...\n" +
+                "ma tutto tornera' al suo posto."};
         init(SELECT1,7,INSERT1,room7);
 
 
@@ -254,7 +258,7 @@ public class  DbClass {
         String[] object4={"lancia con cripta","Ne consente il ripristino del cuore madre delle macchine"};
         init(SELECT2,4,INSERT2,object4);
 
-        String[] object5={"mappa","Illustrera' il luogo del gioco"};
+        String[] object5={"mappa","Illustrera' il luogo del gioco. Richiamala quando piu' ti serve!"};
         init(SELECT2,5,INSERT2,object5);
 
         String[] object6={"corsiero","Grande quanto dei comuni animali da soma,\n"+" il corpo del corsiero somiglia molto a quello dei cavalli.\n"+" La testa tuttavia somiglia piu' a quella dei bovini, con due corna che puntano all'indietro.\n"+" Nella parte posteriore della groppa e' presente il serbatoio di Vampa della macchina"};
@@ -271,6 +275,5 @@ public class  DbClass {
         
         String[] object10={"bottone","Bottone che ne consentirà l'apertura della torre di meridiana superato un enigma"};
         init(SELECT2,10,INSERT2,object10);
-
     }
 }

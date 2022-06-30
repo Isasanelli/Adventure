@@ -1,16 +1,16 @@
 |ROST: Ciao bambina, Buon compleanno
-|VICTORIA: oh.. papa, grazie. Ehm..non dovevi pero'#
+|VICTORIA: oh.. papa', grazie. Ehm..non dovevi pero'#
 |ROST: E perche' mai? oggi e' il compleanno della mia bambina. Sei finalmente maggiorenne.
 Non sei felice che finalmente sei libera?#
 |VICTORIA: Dici libera da te?? Nah, e' bello stare qui, con te e la tua pessima cucina.#
 |ROST: Ah.. cosi mi ferisci#
 |VICTORIA: Ti ho ferito? e va bene dai, passa. #
 |ROST: Come sei dolce tesoro. E' bello come ti prendi ancora cura del tuo vecchio.
-Adesso "Apri il pacco", qui troverai uno stumento utile per la caccia.
+Adesso "Apri il pacco", qui troverai uno strumento utile per la caccia.
 
 +----------------------------------------------+
 | SUGGERIMENTO:                                |
-| D'ora in poi,tutti gli oggetti che otterai   |
+| D'ora in poi,tutti gli oggetti che otterrai  |
 | nel corso del gioco, saranno presenti        |
 | all'interno del tuo inventario e saranno     |
 | visibili attraverso il comando "inventario"  |

@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 
 /**
- * class that manages the events of the game
+ * class that manages the events of the game.
  */
 
 public class Eventi {
@@ -18,7 +18,7 @@ public class Eventi {
     public static final String PATFILECOMMANDS="file//comandi.txt";
 
     /**
-     * method that allows you to read the rules file
+     * method that allows you to read the rules file.
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -27,7 +27,7 @@ public class Eventi {
     }
 
     /**
-     * method that allows you to read the command file
+     * method that allows you to read the command file.
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -36,13 +36,11 @@ public class Eventi {
     }
 
     /**
-     * method that reads the file, whose pat is passed as a parameter
+     * method that reads the file, whose pat is passed as a parameter.
      * @param patString pat file
-     * @throws FileNotFoundException
-     * @throws IOException
      */
 
-    public static void readFile(String patString) throws FileNotFoundException, IOException{
+    public static void readFile(String patString){
         try{
             File fileToRead= new File (patString);
             BufferedReader buffer= new BufferedReader(new FileReader(fileToRead));
@@ -62,7 +60,7 @@ public class Eventi {
     }
 
     /**
-     * method that allows reading the dialog file whose pat is passed as a parameter
+     * method that allows reading the dialog file whose pat is passed as a parameter.
      * @param pat pat file
      */
     public static void readFileDialog(String pat) {

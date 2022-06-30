@@ -23,7 +23,7 @@ import java.util.Set;
  */
 
 /**
- * Classe main del programma
+ * main class of the program.
  */
 public class Engine {
 
@@ -37,7 +37,7 @@ public class Engine {
 
 
     /**
-     *engine builder
+     *engine builder.
      */
     public Engine(GameDescription game) {
         String PATHSTOPWORDS="file//stopwords";
@@ -56,8 +56,8 @@ public class Engine {
     }
 
     /**
-     * method that manages the game's initial menu
-     * @throws IOException
+     * method that manages the game's initial menu.
+     * @throws IOException,SQLException
      */
     public  void start() throws IOException, SQLException {
 
@@ -94,7 +94,8 @@ public class Engine {
         }
 
     /**
-     *method that manages game run and input
+     *method that manages game run and input.
+     * @throws SQLException
      */
     public void execute() throws SQLException{
             Grafica.writeIntro();
@@ -108,37 +109,41 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNextLine()) {
                 String command = scanner.nextLine();
-                ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), db);
+                try {
+                    ParserOutput p = parser.parse(command, game.getCommands(), game.getCurrentRoom().getObjects(), db);
 
-                if (p.getCommand() == null ) {
-                    System.out.println("Non capisco quello che mi vuoi dire.\n"+"Riprova!");
+                    if (p.getCommand() == null) {
+                        System.out.println("Non capisco quello che mi vuoi dire.\n" + "Riprova!");
 
-                }else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
-                    System.out.println("Fine partita");
-                    
-                    try {
+                    } else if (p.getCommand() != null && p.getCommand().getType() == CommandType.ESCI) {
+                        System.out.println("Fine partita");
+
                         try {
-                            this.game.init();
-                        } catch (Exception ex) {
-                            System.err.println(ex);
+                            try {
+                                this.game.init();
+                            } catch (Exception ex) {
+                                System.err.println(ex);
+                            }
+                            engine.start();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        engine.start();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        break;
+                    } else {
+                        game.nextMove(db, p, System.out);
+                        System.out.println();
+                        System.out.print("Cosa vuoi fare?\n");
                     }
-                    break;
-                 } else {
-                    game.nextMove(db,p, System.out);
-                    System.out.println();
-                    System.out.print("Cosa vuoi fare?\n");
+                }catch (NullPointerException exception){
+                    System.out.println("Non capisco quello che mi vuoi dire.\n" + "Riprova!");
                 }
             }
         }
 
     /**
-     * main method of the application
+     * main method of the application.
      * @param args  the command line arguments
-     * @throws IOException
+     * @throws IOException,SQLException
      */
     public static void main(String[] args) throws IOException,SQLException{
        engine= new Engine(new TheHuntressGame());

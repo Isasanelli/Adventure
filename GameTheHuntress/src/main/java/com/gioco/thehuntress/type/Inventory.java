@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 /**
- * Inventory class
+ * Inventory class.
  */
 public class Inventory {
 
@@ -26,10 +26,6 @@ public class Inventory {
 
     public void add(AdvObject o){
         list.add(o);
-    }
-
-    public void remove(AdvObject o){
-        list.remove(o);
     }
     
 }

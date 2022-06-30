@@ -1,5 +1,5 @@
-|AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'#
-|VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.#
+|AVAD:   Buongiorno sperdutella,pensavo che non ti svegliassi piu'
+|VICTORIA:  Chi sei? Dove sono? Cosa vuoi da me?.
 |AVAD:  Io sono Avad, capo tribu' Carja, conosiuta anche come "la tribu' del sole".
         Abbiamo sentito delle urla verso la valle dei caduti.
        I miei uomini ti hanno trovata svenuta giu nelle rovine.#
@@ -7,16 +7,16 @@
 |   Noti dei piccoli movimenti   |
 |   Sembrerebbero della macchine |
 |   che giocano con degli umani  |
-+--------------------------------+#
++--------------------------------+
 |VICTORIA:  Noto che la vostra gente si trova a loro agio con le biomacchine.
             Loro sono il nemico.#
 |AVAD: Non sono loro il nemico, ma chi li comanda.
        Devi sapere che le macchine possono essere soggette a corruzione
         Da come hai potute vedere nel mio villaggio le macchine sono nostre alleate.
         Tutto questo grazie alla lancia cripta.#
-|AVAD: La lancia e' stata creata a  Meridiana, all'interno della torre CALDERONRE,dove giace il cuore della madre.#
-|AVAD: L'obiettivo e' entrare nel CALDERONE, inserire il chip contenunto nella lancia e riprestinare
+|AVAD: La lancia e' stata creata a  Meridiana, all'interno della torre CALDERONRE,dove giace il cuore della madre.
+        L'obiettivo e' entrare nel CALDERONE, inserire il chip contenunto nella lancia e ripristinare
         il cuore.#
 |VICTORIA: Penso di potercela fare. Dove posso trovare questa lancia?
-|AVAD:  Non c'e' bisongo di cercarla, la lancia e' proprio qui.
+|AVAD:  Non c'e' bisogno di cercarla, la lancia e' proprio qui.
         Adesso andiamo a 'est', ti insegno come usarla.

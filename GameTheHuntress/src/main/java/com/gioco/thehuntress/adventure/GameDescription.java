@@ -13,16 +13,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
 
 /**
- * abstract class
+ *  GameDescription is an abstract class that contains the abstract
+ *  methods for handling commands and the data structures of containing the rooms, commands and inventory.
  */
-
 public abstract class GameDescription{
 
     private final List<Room> rooms = new ArrayList<>();
@@ -31,7 +30,7 @@ public abstract class GameDescription{
 
     private final List<AdvObject> objects = new ArrayList<>();
     
-    public static Inventory inventario = new Inventory();
+    private final Inventory inventory = new Inventory();
 
     private Room currentRoom;
 
@@ -51,6 +50,7 @@ public abstract class GameDescription{
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+    public Inventory getInventory(){return inventory;}
 
     public List<AdvObject> getObjects() {
         return objects;

@@ -7,13 +7,15 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
 
-public class TicTacGame implements ActionListener {
+/**
+ * class that manager the tris game in swing.
+ */
+public class TicTacGame implements ActionListener{
 
     Random random;
     JFrame frame;
@@ -26,6 +28,9 @@ public class TicTacGame implements ActionListener {
     boolean isEnd = false;
     char[][] grid;
 
+    /**
+    * this constructor allows to initialize the JFrame on which the game will be shown.
+    */
     public TicTacGame() {
 
         grid = new char[3][3];
@@ -71,6 +76,10 @@ public class TicTacGame implements ActionListener {
         firstTurn();
     }
 
+     /**
+     * method that calls game turn and handles all the actions of a component.
+     * @param e actions of  X or O
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < 9; i++) {
@@ -87,8 +96,10 @@ public class TicTacGame implements ActionListener {
             computerPlay();
     }
 
+/**
+*  method that manages the system shift.
+*/
     public void computerPlay() {
-        boolean winReturn2=false;
         try {
             Thread.sleep(200);
         } catch (InterruptedException e2) {
@@ -113,6 +124,11 @@ public class TicTacGame implements ActionListener {
         }
     }
 
+    /**
+    * function that calls the winning cells.
+    *@param c string that can take "X" or "O"
+    *@return cells
+    */
     public int[] winCells(String c) {
         int[] cells = new int[3];
         if (buttons[0].getText().equalsIgnoreCase(c) && buttons[1].getText().equalsIgnoreCase(c) && buttons[2].getText().equalsIgnoreCase(c)) {
@@ -155,13 +171,20 @@ public class TicTacGame implements ActionListener {
         return cells;
     }
 
+    /**
+     * funxtion that defines whether or not there is a tie.
+     * @return true if there is a tie
+     */
     public boolean isTie() {
         for (int i = 0; i < 9; i++) {
-            if (buttons[i].getText().equalsIgnoreCase("")) return false;
+            if (buttons[i].getText().equalsIgnoreCase(""))
+                return false;
         }
         return true;
     }
-
+    /**
+    *method that calls the game tie.
+    */
     public void endWithTie() {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
@@ -169,6 +192,10 @@ public class TicTacGame implements ActionListener {
         textField.setText("PAREGGIO");
     }
 
+
+    /**
+    * verify the check of the moves made, by both the player and the opponent.
+    */
     public void check() {
         if (isWin("X")) {
             int[] cells = winCells("X");
@@ -180,14 +207,19 @@ public class TicTacGame implements ActionListener {
             win(cells[0], cells[1], cells[2], "Lord");
             isEnd = false;
             new RestartMiniGame();
-
         } else if (isTie()) {
             endWithTie();
             isEnd = true;
             new RestartMiniGame();
         }
     }
-
+    /**
+    *  method that retrieves the status of the user, if he has lost or won.
+    * @param a integer values
+    * @param b integer values
+    * @param c integer values
+    * @param w print the text
+    */
     public void win(int a, int b, int c, String w) {
         buttons[a].setBackground((w.equalsIgnoreCase("Lord") ? Color.RED : Color.GREEN));
         buttons[b].setBackground((w.equalsIgnoreCase("Lord") ? Color.RED : Color.GREEN));
@@ -203,7 +235,14 @@ public class TicTacGame implements ActionListener {
             textField.setText("HAI VINTO");
         }
     }
-
+/**
+* setting the button positions.
+*
+* @param c string that can take "X" or "O"
+* @return true if the combination is correct
+* @return false if the winning combination has not been pressed
+*
+*/
     public boolean isWin(String c) {
         if (buttons[0].getText().equalsIgnoreCase(c) && buttons[1].getText().equalsIgnoreCase(c) && buttons[2].getText().equalsIgnoreCase(c)) return true;
         if (buttons[3].getText().equalsIgnoreCase(c) && buttons[4].getText().equalsIgnoreCase(c) && buttons[5].getText().equalsIgnoreCase(c)) return true;
@@ -216,6 +255,9 @@ public class TicTacGame implements ActionListener {
         return false;
     }
 
+    /**
+    *method that calls the users.
+    */
     public void firstTurn() {
         try {
             Thread.sleep(200);
@@ -228,6 +270,8 @@ public class TicTacGame implements ActionListener {
         } else {
             firstTurn = false;
             computerPlay();
+
+
         }
     }
 }

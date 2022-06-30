@@ -5,11 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+* text frame setting
+*
+*/
 public class BoxTextMingame extends JFrame implements ActionListener {
 
     JFrame frame;
@@ -17,7 +21,13 @@ public class BoxTextMingame extends JFrame implements ActionListener {
     JLabel text_field;
     ImageIcon image;
 
-    public BoxTextMingame(){
+
+    /**
+    *
+    *this constructor initializes the text frame belonging to the tic tac minigames.
+    *
+    */
+   public BoxTextMingame(){
         prosegui = new JButton("Prosegui");
         text_field = new JLabel("LA PORTA E' APERTA");
         frame = new JFrame("THE HUNTRESS ENIGMA");
@@ -27,18 +37,21 @@ public class BoxTextMingame extends JFrame implements ActionListener {
         frame.setResizable(false);
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
-        prosegui.setBounds(120, 100, 100, 30);
-        text_field.setBounds(105, 20, 300, 50);
+        prosegui.setBounds(140, 100, 100, 30);
+        text_field.setBounds(80, 20, 300, 50);
         prosegui.addActionListener(this);
-        prosegui.setForeground(new Color(22, 2, 66));
-        text_field.setForeground(Color.BLUE);
+        prosegui.setForeground(new Color(12, 143, 49));
+        text_field.setForeground(Color.BLACK);
         text_field.setFont(new Font("MV Boli", Font.BOLD, 20));
         prosegui.setFont(new Font("MV Boli", Font.BOLD, 13));
         frame.add(prosegui);
         frame.add(text_field);
         frame.setVisible(true);
     }
-
+    /**
+    * this method returns the message to the user to continue with the Aventure.
+    * Inside we find the closure of the text box and the minigame window.
+    */
     @Override
     public void actionPerformed(ActionEvent e) {
         Window[] win = Window.getWindows();

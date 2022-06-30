@@ -9,31 +9,39 @@ import com.gioco.thehuntress.type.Command;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ * ParselOutput class.
+ */
 public class ParserOutput {
 
     private  Command command;
     private  AdvObject object;
 
+    /**
+     * ParselOutput builder.
+     * @param command
+     * @param object
+     */
     public ParserOutput(Command command, AdvObject object){
         this.command = command;
         this.object = object;
     }
 
-
+    /**
+     * function that returns the command.
+     * @return Command
+     */
     public Command getCommand(){
         return command;
     }
 
-    public void setCommand(Command command){
-        this.command=command;
-    }
-
-
+    /**
+     * function that returns the object.
+     * @return AdvObject
+     */
     public AdvObject getObject() {
         return object;
     }
 
-    public void setObject(AdvObject object) {
-        this.object = object;
-    }
 }

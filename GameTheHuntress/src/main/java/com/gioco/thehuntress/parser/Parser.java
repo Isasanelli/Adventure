@@ -16,13 +16,13 @@ import java.util.Set;
  */
 
 /**
- * class in which the parsel is implemented
+ * class in which the parsel is implemented.
  */
 public class Parser {
     private final Set<String> stopwords;
 
     /**
-     * Parsel builder
+     * Parsel builder.
      * @param stopwords
      */
     public Parser(Set<String> stopwords) {
@@ -30,7 +30,7 @@ public class Parser {
     }
 
     /**
-     * function that checks if the token string is in the game's command list
+     * function that checks if the token string is in the game's command list.
      * @param token
      * @param commands game's command list
      * @return -1 if the token is not in the command list, otherwise it returns the position of the list where the command is located
@@ -46,7 +46,7 @@ public class Parser {
     }
 
     /**
-     * function that checks if the token string is in the objects list of the current room
+     * function that checks if the token string is in the objects list of the current room.
      * @param token
      * @param objects objects list of the current room
      * @param db
@@ -65,7 +65,7 @@ public class Parser {
     }
 
     /**
-     *
+     *function that reads the input token, parses it and returns an object of type parselOutput.
      * @param command input command
      * @param commands game's command list
      * @param objects objects list of the current room

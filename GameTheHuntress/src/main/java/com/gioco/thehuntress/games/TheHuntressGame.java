@@ -16,19 +16,20 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
- *
  * @author Margari Chiara
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
 
-//manca javadoc classe
+/**
+ * Class that implements the game logic and how the user's commands interact with the game.
+ * It extends the GameDescription class and implements its abstract methods.
+ */
 public class TheHuntressGame extends GameDescription {
     public MapGraphic mapGraphic = new MapGraphic();
 
-
     /**
-     *
+     * method that implements the initialization of the elements of the match.
      */
     @Override
     public void init(){
@@ -110,7 +111,7 @@ public class TheHuntressGame extends GameDescription {
         getCommands().add(open);
 
         Command inspects = new Command(CommandType.ISPEZIONA, "ispeziona");
-        inspects.setAlias(new String[]{"ispe", "isp"});
+        inspects.setAlias(new String[]{"ispe", "isp","ispezione"});
         getCommands().add(inspects);
 
         Command scalable = new Command(CommandType.SCALA, "scala");
@@ -206,7 +207,7 @@ public class TheHuntressGame extends GameDescription {
 
         //AdvObjectContainers
         AdvObjectContainer corsiero = new AdvObjectContainer(6);
-        corsiero.setAlias(new String[]{"corsiero", "cors","corsieri"});
+        corsiero.setAlias(new String[]{"corsiero", "cors","corsieri","macchina","macchine"});
         corsiero.setInspectable(true);
         corsiero.add(batteria);
         corsiero.setCriptable(true);
@@ -214,7 +215,7 @@ public class TheHuntressGame extends GameDescription {
         corsiero.setKillable(true);
 
         AdvObjectContainer collolungo = new AdvObjectContainer(7);
-        collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo"});
+        collolungo.setAlias(new String[]{"collolungo", "collo", "coll", "lungo","macchina","macchine"});
         collolungo.setInspectable(true);
         collolungo.setScalable(true);
         collolungo.add(map);
@@ -222,7 +223,7 @@ public class TheHuntressGame extends GameDescription {
         collolungo.setFocus(true);
 
         AdvObjectContainer avistempesta = new AdvObjectContainer(8);
-        avistempesta.setAlias(new String[]{"avistempesta", "avi"});
+        avistempesta.setAlias(new String[]{"avistempesta", "avi","macchina","macchine"});
         avistempesta.setInspectable(true);
         avistempesta.add(batteria);
         avistempesta.setCriptable(true);
@@ -242,6 +243,7 @@ public class TheHuntressGame extends GameDescription {
         roomTend.getObjects().add(lancia);
         roomCollolungo.getObjects().add(collolungo);
         roomOutMeridiana.getObjects().add(botton);
+        roomOutMeridiana.getObjects().add(avistempesta);
         roomCalderone.getObjects().add(nucleo);
 
         //setting of the rooms in their respective positions
@@ -276,9 +278,9 @@ public class TheHuntressGame extends GameDescription {
     }
 
     /**
-     *
-     * @param db
-     * @param p
+     *method that implements the commands entered in input by the user and contains into the ParserOutput object.
+     * @param db database
+     * @param p ParserOutput object
      * @param out
      */
     @Override
@@ -348,7 +350,7 @@ public class TheHuntressGame extends GameDescription {
         } else if (p.getCommand().getType() == CommandType.O) {
             System.out.println(getCurrentRoom().getWestInTheRoom());
         } else if (p.getCommand().getType() == CommandType.MAPPA) {
-            Iterator<AdvObject> it = inventario.getList().listIterator();
+            Iterator<AdvObject> it = getInventory().getList().listIterator();
             boolean flagMappa = false;
             while (it.hasNext()) {
                 try {
@@ -402,7 +404,7 @@ public class TheHuntressGame extends GameDescription {
                         try{
                             AdvObject next = it.next();
                             if(next.getId() == 4){
-                                inventario.add(next);
+                                getInventory().add(next);
                                 System.out.println("=====================================================");
                                 System.out.println("***     Lancia aggiunta nel tuo inventario!   ***");
                                 System.out.println("=====================================================");
@@ -418,7 +420,7 @@ public class TheHuntressGame extends GameDescription {
         } else if (p.getCommand().getType() == CommandType.INVENTARIO) {
             System.out.println("=====================================================================================");
             System.out.println("Nel tuo inventario ci sono:");
-            Iterator<AdvObject> it = inventario.getList().iterator();
+            Iterator<AdvObject> it = getInventory().getList().iterator();
             while (it.hasNext()) {
                 try {
                     AdvObject oggetto = it.next();
@@ -444,7 +446,7 @@ public class TheHuntressGame extends GameDescription {
                                     while (it.hasNext()) {
                                         try {
                                             AdvObject next = it.next();
-                                            inventario.add(next);
+                                            getInventory().add(next);
                                             System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                             System.out.println("=====================================================");
                                             System.out.println("***     Un nuovo oggetto e' nel tuo inventario!   ***");
@@ -504,8 +506,8 @@ public class TheHuntressGame extends GameDescription {
                                 while (it.hasNext()) {
                                     try {
                                         AdvObject next = it.next();
-                                        inventario.add(next);
-                                        System.out.println("***" + next.getName(db) + "***");
+                                        getInventory().add(next);
+                                        System.out.println("*** " + next.getName(db) + " ***\n" + next.getDescription(db));
                                         System.out.println("=====================================================");
                                         System.out.println("***    Un nuovo oggetto e' nel tuo inventario!    ***");
                                         System.out.println("=====================================================");
@@ -537,7 +539,7 @@ public class TheHuntressGame extends GameDescription {
             }
         } else if (p.getCommand().getType() == CommandType.CRIPTA) {
             boolean flagCripta = false;
-            Iterator<AdvObject> it = inventario.getList().iterator();
+            Iterator<AdvObject> it = getInventory().getList().iterator();
             while (it.hasNext()) {
                 try {
                     AdvObject next = it.next();
@@ -549,7 +551,9 @@ public class TheHuntressGame extends GameDescription {
                 }
             }
             if(p.getObject()==null){
-                System.out.println("Specifica la macchina che vuoi criptare con il comando cripta + <nome macchina>");
+                if(getCurrentRoom().getId()!= 7)
+                     System.out.println("Specifica la macchina che vuoi criptare con il comando cripta + <nome macchina>");
+                else System.out.println("Genio devi criptare il nucleo....\n"+ "Specificalo!!!");
             } else {
                 if (p.getObject() != null && flagCripta == true) {
                     if (getCurrentRoom().getId() == 5 && p.getObject().isScale()) {
@@ -576,7 +580,7 @@ public class TheHuntressGame extends GameDescription {
                         } else if (!p.getObject().isCriptable()) {
                             System.out.println(p.getObject().getName(db) + " non e' possibile applicare la cripta !");
                         }
-                    } else if (getCurrentRoom().getId() != 5) {
+                    } else if (getCurrentRoom().getId() == 7) {
                         if (p.getObject().isCriptable() == true && !p.getObject().isCripta()) {
                             p.getObject().setCripta(true);
                             getCurrentRoom().Dialog();
@@ -585,10 +589,10 @@ public class TheHuntressGame extends GameDescription {
                             System.exit(0);
                         }
                     }
-                }
+                }else System.out.println("Non hai la cripta nel tuo inventario!");
             }
         } else if (p.getCommand().getType().equals(CommandType.FOCUS)) {
-                Iterator<AdvObject> it = inventario.getList().iterator();
+                Iterator<AdvObject> it = getInventory().getList().iterator();
                 boolean flagFocus = false;
                 while (it.hasNext()) {
                     try {

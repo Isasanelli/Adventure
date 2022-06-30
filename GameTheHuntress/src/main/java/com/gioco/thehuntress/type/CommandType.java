@@ -5,10 +5,14 @@ package com.gioco.thehuntress.type;
  * @author Ricciardi Raffaella
  * @author Sasanelli Ilenia
  */
+
+/**
+ *list of accepted commands.
+ */
 public enum CommandType {
     MAPPA,COMANDI,REGOLE,ESCI,GUARDA,PARLA,INVENTARIO,
     N,S,E,O,NORD,SUD,EST,OVEST,
-    APRI,USA,ISPEZIONA,SCALA,PREMI,
+    APRI,ISPEZIONA,SCALA,PREMI,
     CRIPTA,FOCUS,COMBATTI
 }
 

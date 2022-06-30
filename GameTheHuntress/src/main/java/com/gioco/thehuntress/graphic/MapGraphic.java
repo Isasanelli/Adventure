@@ -11,7 +11,7 @@ import java.awt.*;
  */
 
 /**
- *class that allows the creation of the map swing
+ *class that allows the creation of the map swing.
  */
 public class MapGraphic {
      JFrame frame;
@@ -19,14 +19,14 @@ public class MapGraphic {
      JLabel myLabel;
 
     /**
-     * map builder
+     * map builder.
      */
     public MapGraphic(){
 
     }
 
     /**
-     * method that creates the swing window and inserts the map image
+     * method that creates the swing window and inserts the map image.
      */
     public void createMap(){
         imageMap = new ImageIcon("Immagini//Mappa.jpeg");

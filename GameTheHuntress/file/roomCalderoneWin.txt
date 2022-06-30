@@ -1,22 +1,22 @@
-Vanasha e' stata sconfitta e il cuore della madre e' stata riprestinata.#
-Le macchine non sono più una minaccia.#
+Vanasha e' stata sconfitta e il cuore della madre e' stata ripristinata.
+Le macchine non sono piu' una minaccia.
 Il calderone sta crollando e le gabbie sono aperte.#
-Tutte le macchine stanno scappando e tu insieme a loro.#
-Sei fuori dal calderone.#
+Tutte le macchine stanno scappando e tu insieme a loro.
+Sei fuori dal calderone.
 Davanti a te la torre diventa cenere..#
-Sei affanata e distrutta, ma il tuo cuore sembra leggero.#
-Impovvisamente senti gli applausi dietro di te.. #
+Sei affanata e distrutta, ma il tuo cuore sembra leggero.
+Impovvisamente senti gli applausi dietro di te..
 E' Avad, il Re sole..#
 |AVAD: Giovane Nora... ce l'hai fatta. Hai distrutto Vanasha#
 Intorno Avad, l'intera Tribu' di Meridana e non solo iniziano ad applaudire.
-Sei li esterefatta e inizi a ridere forte.
+Sei li' esterefatta e inizi a ridere forte.
 |VICTORIA: Ce l'ho fatta... Ce l'ho fatta Papa'!!!#
 *** FINE SOGNO ***#
 |VICTORIA : E tutti vissero felici e contenti.
-            Piaciuta la storia amore?#
+            Piaciuta la storia amore?
 |JOSH: 	Ancora ancora, mamma ancora.#
 |VICTORIA: Mi piacerebbe rileggere questa storia Josh, ma e' tardi e qualcuno deve andare a scuola domani.#
-|JOSH: 	La scuola e' per sfigati.#
+|JOSH: 	La scuola e' per sfigati.
 |VICTORIA: ahahah Sogni d'oro tesoro.#
-|JOSH: 	Ti voglio bene mamma#
-|VICTORIA: Ti voglio bene anche io, giovane Nora.
+|JOSH: 	Ti voglio bene mamma
+|VICTORIA: Ti voglio bene anche io, giovane Nora.#

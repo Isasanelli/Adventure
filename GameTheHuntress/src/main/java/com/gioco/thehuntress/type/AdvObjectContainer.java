@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 /**
- * AdvObjectContainer class
+ * AdvObjectContainer class.
  */
 public class AdvObjectContainer extends AdvObject {
 
@@ -30,10 +30,6 @@ public class AdvObjectContainer extends AdvObject {
 
     public void add(AdvObject o) {
         list.add(o);
-    }
-
-    public void remove(AdvObject o) {
-        list.remove(o);
     }
 
 }

@@ -10,17 +10,17 @@ package com.gioco.thehuntress.graphic;
  */
 
 /**
- * class that contains the graphics of the game
+ * class that contains the graphics of the game.
  */
 public class Grafica {
 
     /**
-     * builder Grafica
+     * builder Grafica.
      */
     public Grafica() {}
 
     /**
-     * method that prints the initial menu
+     * method that prints the initial menu.
      */
     public static void writeMenu() {
         System.out.println(" \n"
@@ -45,7 +45,7 @@ public class Grafica {
     }
 
     /**
-     * method that prints the introduction of the game
+     * method that prints the introduction of the game.
      */
 
     public static void writeIntro() {
@@ -61,7 +61,7 @@ public class Grafica {
     }
 
     /**
-     * method that prints the program termination message
+     * method that prints the program termination message.
      */
     public static void end(){
         System.out.println(" \n"
@@ -78,7 +78,7 @@ public class Grafica {
     }
 
     /**
-     * method that prints the battle command menu
+     * method that prints the battle command menu.
      */
     public static void graphicBattle(){
 

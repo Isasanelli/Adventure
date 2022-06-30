@@ -17,17 +17,15 @@ import static com.gioco.thehuntress.eventi.Eventi.readFileDialog;
  */
 
 /**
- * Room class
+ * Room class.
  */
 public class Room {
     private final int id;
     public static final String SELECTNAME="SELECT name FROM rooms WHERE id=?";
     public static final String SELECTDESCRIPTION="SELECT desc FROM rooms WHERE id=?";
     public static final String SELECTDESCRIPTIONRETURN="SELECT descReturn FROM rooms WHERE id=?";
-
     public static final String SELECTLOOK="SELECT look FROM rooms WHERE id=?";
-    private boolean visible = true;
-    private boolean firstTimeHere= true; //variabile che avrà valore vero se l'utente deve accedere la stanza per la prima volta, valore falso altrimenti
+    private boolean firstTimeHere= true; //attribute that will have value true if the user has to access the room for the first time, false value otherwise
     private Room south= null;
     private Room north=null;
     private Room east= null;
@@ -38,9 +36,12 @@ public class Room {
     private String[] westInTheRoom={"",""};
     private final List<AdvObject> objects= new ArrayList<>();
 
-    private String dialogPat = null; //variabile che conterrà il dialogo della stanza
-    
-    
+    private String dialogPat = null; //attribute that will contain the room dialogue
+
+    /**
+     * Room builder
+     * @param id
+     */
     public Room(int id){
         this.id = id;
     }
@@ -49,10 +50,21 @@ public class Room {
         return this.id;
     }
 
+    /**
+     * function that returns the name of the room.
+     * @param db
+     * @return name
+     */
     public String getName(DbClass db){
         String name =getInformationRoom(db, SELECTNAME);
         return name;
     }
+
+    /**
+     * function that returns the description of the room.
+     * @param db
+     * @return description
+     */
 
     public String getDescription(DbClass db){
         String description="";
@@ -64,8 +76,12 @@ public class Room {
        return description;
     }
 
+    /**
+     * function that returns the look of the room.
+     * @param db
+     * @return look
+     */
     public String getLook(DbClass db){
-
         String look= "";
         if (getFirstTimeHere()){
             look= getInformationRoom(db,SELECTLOOK);
@@ -76,10 +92,10 @@ public class Room {
     }
 
     /**
-     * method that accesses from the database to get the information of interest
-     * @param db
+     * function that accesses the db and executes the select.
+     * @param db database
      * @param select
-     * @return
+     * @return String, the information of interest
      */
     public String getInformationRoom(DbClass db, String select){
         String resultSelect= "";
@@ -104,7 +120,9 @@ public class Room {
         this.dialogPat = dialogPat;
     }
 
-    //metodo che legge il dialogo della stanza
+    /**
+     * method that reads the dialogue of the room.
+     */
     public void Dialog(){
         if(getDialog()== null){
             System.out.println("Non c'e' nessuno con cui parlare");
@@ -119,14 +137,6 @@ public class Room {
 
     public void setFirstTimeHere(Boolean firstTimeHere){
         this.firstTimeHere= firstTimeHere;
-    }
-
-    public boolean isVisible() {
-        return visible;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
     }
 
     public Room getSouth() {
